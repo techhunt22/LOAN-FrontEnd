@@ -127,7 +127,7 @@ export const AccountPackageStep1Form = () => {
   });
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    // console.log(form.originalData);
+  
     // await mutateAsync(form.originalData);
   };
   useLayoutEffect(() => {
@@ -249,7 +249,7 @@ export const AccountPackageStep1Form = () => {
                  
               </div>
 
-              <div className="flex w-[65%] rounded-full mt-6">
+              {/* <div className="flex w-[65%] rounded-full mt-6">
                 <Button
                   style={{
                     height: "4rem",
@@ -267,10 +267,10 @@ export const AccountPackageStep1Form = () => {
                 >
                   CHOOSE PLAN
                 </Button>
-              </div>
+              </div> */}
 
               <div className="flex w-full rounded-[5rem] mt-28">
-                 <Link href={"/step1/build-business-credit"} style={{ height: '5rem', width: '100%' }}> 
+                 {/* <Link href={"/step1/build-business-credit"} style={{ height: '5rem', width: '100%' }}>  */}
                 <Button
                   style={{
                     height: "5rem",
@@ -278,13 +278,17 @@ export const AccountPackageStep1Form = () => {
                     borderRadius: "2rem",
                     fontSize: "2rem",
                   }}
-                  // onClick={() => {
-                  //   () => router.push(`/step1/build-business-credit`);
-                  // }}
+                  disabled={data?.data[3]?._id===undefined}
+                  onClick={() => {
+                    const id = data?.data[3]?._id;
+                    if (id) {
+                      router.push(`/checkout/one/${id}`);
+                    }
+                  }}
                 >
                   CONTINUE
                 </Button>
-                </Link> 
+                {/* </Link>  */}
               </div>
             </div>
           </div>
