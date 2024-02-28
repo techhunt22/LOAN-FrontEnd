@@ -18,20 +18,20 @@ import { Calls } from "@/api/calls/type";
 import Link from "next/link";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
-export const SignInForm = () => {
+export const SignUpForm = () => {
   const [typeInput, setTypeInput] = useState(true);
   const router = useRouter();
   const form = useForm({
     email: "",
     password: "",
-    remember: false,
+    username: ""
   });
   const { mutateAsync, isPending } = useMutation<
-    Calls.IResponse.SignIn,
+    Calls.IResponse.SignUp,
     Error,
-    Calls.IRequest.SignIn
+    Calls.IRequest.SignUp
   >({
-    mutationFn: async (variables) => await ApiCalls.SignIn(variables),
+    mutationFn: async (variables) => await ApiCalls.SignUp(variables),
     onSuccess: (r) => {
       toast.success(r.message);
       Cookies.set("accessToken", r.accessToken, {
@@ -50,6 +50,7 @@ export const SignInForm = () => {
     },
     onError: (e) => handleFormError(e as any, form),
   });
+
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     await mutateAsync(form.originalData);
@@ -74,8 +75,28 @@ export const SignInForm = () => {
           error={form.errors.has("email")}
           crossOrigin={undefined}
         />
-        <Typography color="red" className="mt-1 text-[12px] font-medium">
+        <Typography placeholder={"Enter Email Address"} color="red" className="mt-1 text-[12px] font-medium">
           {form.errors.has("email") && form.errors.get("email")}
+        </Typography>
+      </div>
+      <div className="min-h-[40px] max-h-auto">
+        <Input
+          disabled={form.busy}
+          value={form.username}
+          onChange={(e) => {
+            form.set("username", e.target.value);
+            form.errors.clear("username");
+          }}
+          color="blue"
+          size="lg" 
+          variant="static"
+          placeholder="Your usename"
+          label="Username "
+          error={form.errors.has("username")}
+          crossOrigin={undefined}
+        />
+        <Typography placeholder="Your usename" color="red" className="mt-1 text-[12px] font-medium">
+          {form.errors.has("usename") && form.errors.get("usename")}
         </Typography>
       </div>
       <div className={" min-h-[40px] max-h-auto"}>
@@ -103,38 +124,8 @@ export const SignInForm = () => {
             )
           }
         />
-        <Typography color="red" className="mt-1 text-[12px]  font-medium">
+        <Typography placeholder={"Enter Password"} color="red" className="mt-1 text-[12px]  font-medium">
           {form.errors.has("password") && form.errors.get("password")}
-        </Typography>
-      </div>
-      <div>
-        <Link href={"/authentication/forgot-password"}>
-          <Typography
-            variant="small"
-            color="blue"
-            className=" underline font-medium"
-          >
-            Forgot Password?
-          </Typography>
-        </Link>
-        <Checkbox
-          checked={form.remember}
-          onChange={(e) => {
-            form.set("remember", e.target.checked);
-            form.errors.clear("remember");
-          }}
-          color="blue"
-          crossOrigin={undefined}
-          label={
-            <div>
-              <Typography variant="small" color="gray" className="font-normal">
-                You&apos;ll be able to login without password for 7 days.
-              </Typography>
-            </div>
-          }
-        />
-        <Typography variant="small" color="red" className="font-medium">
-          {form.errors.has("remember") && form.errors.get("remember")}
         </Typography>
       </div>
       <div className={""}>
@@ -146,9 +137,14 @@ export const SignInForm = () => {
           fullWidth={true}
           type={"submit"}
         >
-          {isPending ? <Spinner /> : "SIGN IN"}
+          {isPending ? <Spinner /> : "SIGN UP"}
         </Button>
       </div>
     </form>
   );
 };
+
+export function SignUp(variables: Calls.IRequest.SignUp): any {
+    throw new Error("Function not implemented.");
+}
+

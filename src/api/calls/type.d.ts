@@ -16,8 +16,21 @@ export namespace Calls {
       Success: Success;
       message: message;
       urlPath?: string;
+      error?: any;
     }
+    export interface Business {
+      Success: Success;
+      message: message;
+      urlPath?: string;
+      error?: any;
+    }
+
     export interface SignIn extends BaseResponse {
+      accessToken: string;
+      refreshToken: string;
+      redirectPath: string;
+    }
+    export interface SignUp extends BaseResponse {
       accessToken: string;
       refreshToken: string;
       redirectPath: string;
@@ -26,6 +39,8 @@ export namespace Calls {
     export interface DocUploaded extends BaseResponse {}
     export interface ForgotPassword extends BaseResponse {}
     export interface PullReport extends BaseResponse {}
+    export interface BusinessName extends Business {}
+    export interface BusinessAddreess extends Business {}
     export interface Meeting extends BaseResponse {}
     export interface DocsUploads extends BaseResponse {}
     export interface PFAccount extends BaseResponse {}
@@ -79,6 +94,12 @@ export namespace Calls {
       password: string;
       remember: boolean;
     }
+    export interface SignUp {
+      error(error: any): unknown;
+      email: string;
+      password: string;
+      username: string;
+    }
     export interface ForgotPassword {
       email: string;
     }
@@ -96,6 +117,20 @@ export namespace Calls {
       phone: string;
       cnfPassword: string;
       policy: boolean;
+    }
+
+    export interface ModulesBusinessName {
+      business_name: string
+    }
+    
+    export interface ModulesBusinessAddress {
+      buildingNo: string
+      floorNo: string
+      buildingName: string
+      country: string
+      zip: string
+      location: string
+      agreement: boolean
     }
     export interface Docs {
       identityCard1?: File;

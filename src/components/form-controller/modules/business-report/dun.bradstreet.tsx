@@ -92,7 +92,6 @@ const footerContent = {
 export const BusinessReportDunBradstreet = () => {
   const [value, setValue] = useState<number | string | undefined | any>();
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    debugger;
     if (setValue) {
       setValue(e.target.value);
     }

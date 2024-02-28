@@ -7,8 +7,31 @@ export namespace ApiCalls {
   ): Promise<Calls.IResponse.SignIn> => {
     return await api
       .post("/authentication.sign_in", data)
-      .then((res) => res.data);
+      .then((res) => res.data)
+      .catch((rej) => rej.response.data);
   };
+  export const SignOut = async () => {
+    return await api
+      .get("/authentication.logout")
+      .then((res) => res.data)
+      .catch((rej) => rej.response.data);
+  };
+
+  export const SignUp = async (
+    data: Calls.IRequest.SignUp
+  ): Promise<Calls.IResponse.SignUp> => {
+    return await api
+      .post("/authentication.sign_up", data)
+      .then((res) => res.data)
+      .catch((rej) => rej.response.data
+      );
+  };
+  
+  export const Auth = async () => {
+    return await api.get('/auth')
+      .then((res) => res.data)
+      .catch(rej => rej.data);
+  }
   export const ForgotPassword = async (
     data: Calls.IRequest.ForgotPassword
   ): Promise<Calls.IResponse.SignIn> => {
@@ -16,7 +39,24 @@ export namespace ApiCalls {
       .post("/authentication.forgot_password", data)
       .then((res) => res.data);
   };
+
   export const Module = {
+    busiName: async (
+      data: Calls.IRequest.ModulesBusinessName
+    ): Promise<Calls.IResponse.BusinessName> => {
+      return await api
+        .post("/modules/business.name", data)
+        .then(res => res.data)
+        .catch(e => e.response.data);
+    },
+    businessAddress: async (
+      data: Calls.IRequest.ModulesBusinessAddress
+    ): Promise<Calls.IResponse.BusinessAddreess> => {
+      return await api
+        .post("/modules/business.address", data)
+        .then(res => res.data)
+        .catch(e => e.response.data);
+    },
     one: {
       Status: async () => {
         return await api
@@ -48,16 +88,10 @@ export namespace ApiCalls {
         if (data) {
           formData.append("identityCard1", data.identityCard1 as File);
           formData.append("proofOfAddress1", data.proofOfAddress1 as File);
-          formData.append(
-            "socialSecurityCard1",
-            data.socialSecurityCard1 as File
-          );
+          formData.append("socialSecurityCard1",data.socialSecurityCard1 as File);
           formData.append("identityCard2", data.identityCard2 as File);
           formData.append("proofOfAddress2", data.proofOfAddress2 as File);
-          formData.append(
-            "socialSecurityCard2",
-            data.socialSecurityCard2 as File
-          );
+          formData.append("socialSecurityCard2",data.socialSecurityCard2 as File);
         }
         return await api
           .postForm("/modules/one.docs", formData)

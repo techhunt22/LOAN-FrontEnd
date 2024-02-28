@@ -13,10 +13,10 @@ export const TypeofServices = () => {
       const decodedCookie = decodeURIComponent(document.cookie);
       const cookieArray = decodedCookie.split(';').map(cookie => cookie.trim());
       const targetCookie = cookieArray.find(cookie => cookie.startsWith(cookieName));
-      return targetCookie ? targetCookie.substring(cookieName.length) : null;
+      return targetCookie ? targetCookie.substring(cookieName.length) : null||undefined;
     };
     const myCookieValue = getCookie('accessToken');
-    setIsLogin(myCookieValue ? true : false);
+    setIsLogin(myCookieValue===undefined ? false : true);
   }, []);
 
   return (

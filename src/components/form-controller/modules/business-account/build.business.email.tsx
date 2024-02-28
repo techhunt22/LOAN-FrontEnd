@@ -1,6 +1,6 @@
 "use client";
 // @ts-ignore
-import React, { useState } from "react";
+import React from "react";
 import { MonitorReportForm } from "@/components/business-account-elements/monitor.report.form";
 import { CheckBox, LineAxis } from "@mui/icons-material";
 import { SubHeader } from "@/components/business-account-elements/sub.header";
@@ -16,186 +16,131 @@ import { BlogEmailCardLeft } from "@/components/cards/blog.card";
 import { GotoWebsiteThreeCard } from "@/components/cards/goto.website.three.card";
 
 const headerContent = {
-  step: "STPE1",
-  title: "Fundability Foundation",
-  subTitle: "YOUR WEBSITE & EMAIL",
-};
+    step: "STPE1",
+    title: "Fundability Foundation",
+    subTitle: "YOUR WEBSITE & EMAIL",
+}
 
 const videoConten = {
-  title: "Watch Video Transcript:",
-  videoUrl: "/business-account/address.png",
-  content: "WEBSITE FOR BUSINESS",
-};
+    title: "Watch Video Transcript:",
+    videoUrl: "/business-account/address.png",
+    content: "WEBSITE FOR BUSINESS",
+}
 
 const records = {
-  title: "Required:",
-  method: "Edit",
-  invidualRecords: [
-    {
-      title: "Business Website",
-      icon: "",
-      contents: [
+    title: "Required:",
+    method: "Edit",
+    invidualRecords: [
         {
-          recordName: "swurvin.com",
-          iconName: "edit",
-          name: "Website",
+            title: "Business Website",
+            icon: "",
+            contents: [
+                {
+                    recordName: "swurvin.com",
+                    iconName: "edit",
+                },
+            ]
         },
-      ],
-    },
-    {
-      title: "Business Email",
-      icon: "",
-      contents: [
         {
-          recordName: "payment@swuvin.com",
-          iconName: "edit",
-          name: "BusinessEmail",
+            title: "Business Email",
+            icon: "",
+            contents: [
+                {
+                    recordName: "payment@swuvin.com",
+                    iconName: "edit",
+                },
+            ]
         },
-      ],
-    },
-  ],
-};
+    ]
+}
 
 const contentBlogCardLeft = {
-  picture: "/business-account/amico.png",
-  title: "What Are Your Business Phone Priorities?",
-  website: "george@mybusinessname.com",
-  email: "george@gmail.com",
-  content1:
-    "Does your business have a phone number? Creditors prefer to see actual business phone numbers opposed to personal cell phones or residential phones. It’s important to also list your business phone number in the National 411 directory. Keep in mind that unfortunately cell phone numbers can’t be listed in the National 411 directory.",
-  content2:
-    "We can list your Business Phone number if you choose one of our recommendations below. The companies we recommend allow us to list your number in the National 411 directory. All you have to do is choose Yes below and fill in the information requested.",
-};
+    picture: "/business-account/amico.png",
+    title: "What Are Your Business Phone Priorities?",
+    website: "george@mybusinessname.com",
+    email: "george@gmail.com",
+    content1: "Does your business have a phone number? Creditors prefer to see actual business phone numbers opposed to personal cell phones or residential phones. It’s important to also list your business phone number in the National 411 directory. Keep in mind that unfortunately cell phone numbers can’t be listed in the National 411 directory.",
+    content2: "We can list your Business Phone number if you choose one of our recommendations below. The companies we recommend allow us to list your number in the National 411 directory. All you have to do is choose Yes below and fill in the information requested.",
+}
 
 const informationResuorce = {
-  title: "RESOURCES",
-  content:
-    "There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name!There is a lot that goes into a name!There is a lot that goes into a name!",
-  color: "blue",
-};
+    title: "RESOURCES",
+    content: "There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name!There is a lot that goes into a name!There is a lot that goes into a name!",
+    color: "blue",
+}
 
 const footerContent = {
-  content: "Return To Business Credit Builder",
-  previous: true,
-  next: true,
-  url: "/step1/build-business-license",
-  preUrl: "/step1/build-business-phone",
-};
+    content: "Return To Business Credit Builder",
+    previous: true,
+    next: true,
+    url: "/step1/build-business-license",
+    preUrl: "/step1/build-business-phone",
+}
 
 export const BuildBusinessEmail = () => {
-  const invidualRecord: any = records.invidualRecords.map(
-    (record) => record.contents
-  );
-  const title: any = records.invidualRecords.map((item: any) => item.title);
-  const names: any = invidualRecord.map((item: any, key: any) => item[0].name);
-  const [values, setValues] = useState<number | string | undefined | any>({
-    Website: "",
-    BusinessEmail: "",
-  });
-  const buildBusinessPhone = "BuildBusinessPhone";
-  const handleInputChange = (e: { target: { name: any; value: any } }) => {
-    debugger;
-    const { name, value } = e.target;
-    setValues({
-      ...values,
-      [name]: value,
-    });
-  };
-  console.log(values, "values");
+    return (
+        <>
+            <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl">
 
-  const handleOnSave = () => {
-    console.log(values, "save");
-    setValues({});
-  };
-  return (
-    <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl">
-        <div className="flex flex-col w-[76%] justify-start mt-6">
-          <SubHeader content={headerContent} />
-          <div className="flex flex-col w-full px-2 justify-center items-center content-center mt-6">
-            <ArrowLineText
-              type="flex flex-col w-[80%] text-center text-gray-700"
-              content="DOES YOUR BUSINESS HAVE A WEBSITE & EMAIL?"
-            />
-            {/* Vidio card */}
-            <VideoCard videoContent={videoConten} />
+                <div className="flex flex-col w-[76%] justify-start mt-6">
+                    <SubHeader content={headerContent} />
+                    <div className="flex flex-col w-full px-2 justify-center items-center content-center mt-6">
+                        <ArrowLineText type="flex flex-col w-[80%] text-center text-gray-700" content="DOES YOUR BUSINESS HAVE A WEBSITE & EMAIL?" />
+                        {/* Vidio card */}
+                        <VideoCard videoContent={videoConten} />
 
-            {/* Bolg section */}
-            <div className="flex w-[80%] my-12">
-              <BlogEmailCardLeft content={contentBlogCardLeft} />
+                        {/* Bolg section */}
+                        <div className="flex w-[80%] my-12">
+                            <BlogEmailCardLeft content={contentBlogCardLeft} />
+                        </div>
+
+
+                        {/* edit your details */}
+                        <div className="flex flex-col w-[85%]">
+                            <EditableContentRecord records={records} />
+                        </div>
+
+                        {/* save buttong */}
+                        <div className="flex w-52 mt-4 ml-80">
+                            <Button placeholder="save the address" color="success" >SAVE</Button>
+                        </div>
+
+                        {/* Resuouces importante */}
+                        <div className="flex w-full my-2">
+                            <ImportantInformation information={informationResuorce} />
+                        </div>
+
+                        {/* Website cards */}
+                        <div className="flex flex-row w-full mt-12">
+                            <div className="flex w-[33%] justify-center">
+                                <GotoWebsiteThreeCard content="Varies" icon="/business-account/Phone.svg" />
+                            </div>
+                            <div className="flex w-[33%] justify-center">
+                                <GotoWebsiteThreeCard content="Varies" icon="/business-account/RingCentral.svg" />
+                            </div>
+                            <div className="flex w-[33%] justify-center">
+                                <GotoWebsiteThreeCard content="Varies" icon="/business-account/MyCorporation.svg" />
+                            </div>
+                        </div>
+                        <div className="flex flex-row w-full mt-12">
+                            <div className="flex w-[50%] justify-end mr-4">
+                                <GotoWebsiteThreeCard content="Varies" icon="/business-account/Phone.svg" />
+                            </div>
+                            <div className="flex w-[50%] justify-start ml-4">
+                                <GotoWebsiteThreeCard content="Varies" icon="/business-account/RingCentral.svg" />
+                            </div>
+                        </div>
+
+                        {/* footer  */}
+                        <SubFormFooter content={footerContent} />
+                    </div>
+                </div>
+                <div className="flex w-[24%]">
+                    <MonitorReportForm />
+                </div>
+
             </div>
 
-            {/* edit your details */}
-            <div className="flex flex-col w-[85%]">
-              <EditableContentRecord
-                records={records}
-                value={values}
-                handleOnChange={handleInputChange}
-                name={names}
-                buildBusinessPhone={buildBusinessPhone}
-              />
-            </div>
-
-            {/* save buttong */}
-            <div className="flex w-52 mt-4 ml-80">
-              <Button
-                placeholder="save the address"
-                color="success"
-                onClick={handleOnSave}
-              >
-                SAVE
-              </Button>
-            </div>
-
-            {/* Resuouces importante */}
-            <div className="flex w-full my-2">
-              <ImportantInformation information={informationResuorce} />
-            </div>
-
-            {/* Website cards */}
-            <div className="flex flex-row w-full mt-12">
-              <div className="flex w-[33%] justify-center">
-                <GotoWebsiteThreeCard
-                  content="Varies"
-                  icon="/business-account/Phone.svg"
-                />
-              </div>
-              <div className="flex w-[33%] justify-center">
-                <GotoWebsiteThreeCard
-                  content="Varies"
-                  icon="/business-account/RingCentral.svg"
-                />
-              </div>
-              <div className="flex w-[33%] justify-center">
-                <GotoWebsiteThreeCard
-                  content="Varies"
-                  icon="/business-account/MyCorporation.svg"
-                />
-              </div>
-            </div>
-            <div className="flex flex-row w-full mt-12">
-              <div className="flex w-[50%] justify-end mr-4">
-                <GotoWebsiteThreeCard
-                  content="Varies"
-                  icon="/business-account/Phone.svg"
-                />
-              </div>
-              <div className="flex w-[50%] justify-start ml-4">
-                <GotoWebsiteThreeCard
-                  content="Varies"
-                  icon="/business-account/RingCentral.svg"
-                />
-              </div>
-            </div>
-
-            {/* footer  */}
-            <SubFormFooter content={footerContent} />
-          </div>
-        </div>
-        <div className="flex w-[24%]">
-          <MonitorReportForm />
-        </div>
-      </div>
-    </>
-  );
+        </>
+    );
 };
