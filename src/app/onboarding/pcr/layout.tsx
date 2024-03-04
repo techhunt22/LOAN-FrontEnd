@@ -4,7 +4,13 @@ import { PCRContextProvider } from "@/context/onboarding/personal.credit.repair.
 export default function PCRLayout({ children }: { children: React.ReactNode }) {
   return (
     <PCRContextProvider>
-      <div className={"pb-20"}> {children}</div>
+      <div
+        style={{ margin: "0 !important" }}
+        className={"pb-20"}
+      >
+        {" "}
+        {children}
+      </div>
     </PCRContextProvider>
   );
 }
