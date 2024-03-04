@@ -137,7 +137,7 @@ export namespace Calls {
       proofOfAddress1?: File;
       socialSecurityCard1?: File;
       identityCard2?: File;
-      proofOfAddress2?: File;
+      //proofOfAddress2?: File;
       socialSecurityCard2?: File;
     }
     export interface PullReport {

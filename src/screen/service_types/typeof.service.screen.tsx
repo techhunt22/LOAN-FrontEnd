@@ -1,6 +1,6 @@
 "use client";
 import { TypeofServices } from "@/components/service_type/Typeof.services";
-import { Back, Login, TagUser } from "iconsax-react";
+import { Back, Login } from "iconsax-react";
 import Link from "next/link";
 import { Button } from "@material-tailwind/react";
 import { useRouter } from "next/navigation";
@@ -9,20 +9,18 @@ export const TypeofServiceScreen = () => {
   const router = useRouter();
  
 
-  // const [isLogin, setIsLogin] = useState<boolean>();
+  const [isLogin, setIsLogin] = useState<boolean>();
 
   useEffect(() => {
-
-    // const getCookie = (name: string) => {
-    //   const cookieName = name + "=";
-    //   const decodedCookie = decodeURIComponent(document.cookie);
-    //   const cookieArray = decodedCookie.split(';').map(cookie => cookie.trim());
-    //   const targetCookie = cookieArray.find(cookie => cookie.startsWith(cookieName));
-    //   return targetCookie ? targetCookie.substring(cookieName.length) : null || undefined;
-    // };
-    // const myCookieValue = getCookie('accessToken');
-
-    // setIsLogin(myCookieValue === undefined || null  ? true : false);
+    const getCookie = (name: string) => {
+      const cookieName = name + "=";
+      const decodedCookie = decodeURIComponent(document.cookie);
+      const cookieArray = decodedCookie.split(';').map(cookie => cookie.trim());
+      const targetCookie = cookieArray.find(cookie => cookie.startsWith(cookieName));
+      return targetCookie ? targetCookie.substring(cookieName.length) : null;
+    };
+    const myCookieValue = getCookie('accessToken');
+    setIsLogin(myCookieValue ? false : true);
   }, []);
   return (
     <div className={"bg-[#FDFCFC] flex  justify-center items-center md:p-16"}>
@@ -43,8 +41,7 @@ export const TypeofServiceScreen = () => {
             <Back size="20" color="#2684ff" />
             BACK
           </Button>
-         {/* { isLogin ?   */}
-         <Button
+         { isLogin ? <Button
             onClick={() => router.push("/authentication/sign-in")}
             className={"text-sm flex items-center gap-2 rounded-full"}
             variant="filled"
@@ -52,19 +49,7 @@ export const TypeofServiceScreen = () => {
           >
             <Login size="20" color="#FFFFFF" />
             SIGN IN 
-          </Button>
-           {/* :null}  */}
-         {/* { isLogin ?   */}
-          <Button
-            onClick={() => router.push("/authentication/signup")}
-            className={"text-sm flex items-center gap-2 rounded-full"}
-            variant="filled"
-            color={"blue"}
-          >
-            <TagUser size="20" color="#FFFFFF" />
-            SIGN UP
-          </Button>
-          {/* :null} */}
+          </Button>:null}
         </div>
         <div className={"mt-2 mb-5 flex flex-col text-center gap-3"}>
           <h4 className={"text-2xl font-semibold"}>

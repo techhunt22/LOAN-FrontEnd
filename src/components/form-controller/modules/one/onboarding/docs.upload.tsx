@@ -96,11 +96,43 @@ export const DocsUpload = () => {
       </h3>
       <div
         className={
-          "mt-6 h-fit flex md:flex-row flex-col justify-center items-start gap-8 md:w-[60%] w-full"
+          "mt-6 h-fit flex md:flex-row flex-col justify-center items-start gap-8 md:w-[70%] w-full"
         }
       >
-        <img src={"/module/file.png"} />
-        <Timeline>
+        <div style={{ borderRight: "0px solid rgb(207 216 220)" }}>
+          <img src={"/module/file.png"} />
+          <h4 className="docs-list-title">MUST ADD THESE</h4>
+
+          <div className="wrapper">
+            <ul className="sessions">
+              <li className="main">
+                <div className="time">1st Item ( Photo ID) </div>
+                <div className="sub-header-title">This could be :</div>
+                <ul className="list-documentation">
+                  <li>Driving license</li>
+                  <li>State ID card</li>
+                  <li>Other government issued photo ID card</li>
+                </ul>
+
+              </li>
+              <li className="main">
+                <div className="time">2nd Item (Proof of address)</div> 
+                <div className="sub-header-title">This could be :</div>
+                <ul className="list-documentation"> 
+                  <li>Bank statement</li>
+                </ul>
+              </li>
+              <li className="main">
+                <div className="time">3rd Item (Social security Card)</div> 
+                <div className="sub-header-title">This could be :</div>
+                <ul className="list-documentation">
+                  <li>Social security card</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <Timeline className=" md:w-[70%]">
           <TimelineItem>
             <TimelineConnector />
             <Popover placement="bottom-start">
@@ -124,18 +156,31 @@ export const DocsUpload = () => {
               </PopoverContent>
             </Popover>
             <TimelineBody className="mt-2 pb-8">
-              <FileUploadWithOutCropWithOutMultiple
-                key={"01"}
-                fileId={"0"}
-                onChange={(file) => form.set("identityCard1", file)}
-                nameofFile={"Front Side"}
-              />
-              <FileUploadWithOutCropWithOutMultiple
-                key={"02"}
-                fileId={"1"}
-                onChange={(file) => form.set("identityCard2", file)}
-                nameofFile={"Back Side"}
-              />
+              <div className="w-[100%] grid grid-cols-2 gap-4 justify-center mt-6 mt-70">
+                <div className="flex flex-col w-full justify-center content-center items-center text-center">
+                  <div className="drop_box">
+                    <h4 className={"text-[18px] font-semibold"}>Front Side</h4>
+                    <FileUploadWithOutCropWithOutMultiple
+                      key={"01"}
+                      fileId={"0"}
+                      onChange={(file) => form.set("identityCard1", file)}
+                      nameofFile={"Front Side"}
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col w-full justify-center content-center items-center text-center">
+                  <div className="drop_box">
+                  <h4 className={"text-[18px] font-semibold"}>Back Side</h4>
+                    <FileUploadWithOutCropWithOutMultiple
+                      key={"02"}
+                      fileId={"1"}
+                      onChange={(file) => form.set("identityCard2", file)}
+                      nameofFile={"Back Side"}
+                    />
+                  </div>
+                </div>
+              </div>
+
             </TimelineBody>
           </TimelineItem>
           <TimelineItem>
@@ -159,16 +204,30 @@ export const DocsUpload = () => {
               </PopoverContent>
             </Popover>
             <TimelineBody className="mt-2 pb-8">
-              <FileUploadWithOutCropWithOutMultiple
-                fileId={"2"}
-                onChange={(file) => form.set("proofOfAddress1", file)}
-                nameofFile={"Front Side"}
-              />
-              <FileUploadWithOutCropWithOutMultiple
-                fileId={"3"}
-                onChange={(file) => form.set("proofOfAddress2", file)}
-                nameofFile={"Back Side"}
-              />
+
+            <div className="w-[100%] grid grid-cols-2 gap-4 justify-center mt-6 mt-70">
+                <div className="flex flex-col w-full justify-center content-center items-center text-center">
+                  <div className="drop_box">
+                    <h4 className={"text-[18px] font-semibold"}>Front Side</h4>
+                      <FileUploadWithOutCropWithOutMultiple
+                        fileId={"2"}
+                        onChange={(file) => form.set("proofOfAddress1", file)}
+                        nameofFile={"Front Side"}
+                      />
+                  </div>
+                </div>
+                {/* <div className="flex flex-col w-full justify-center content-center items-center text-center">
+                  <div className="drop_box">
+                  <h4 className={"text-[18px] font-semibold"}>Back Side</h4>
+                        <FileUploadWithOutCropWithOutMultiple
+                      fileId={"3"}
+                      onChange={(file) => form.set("proofOfAddress2", file)}
+                      nameofFile={"Back Side"}
+                    />
+                  </div>
+                </div> */}
+              </div>
+             
             </TimelineBody>
           </TimelineItem>
           <TimelineItem>
@@ -191,16 +250,30 @@ export const DocsUpload = () => {
               </PopoverContent>
             </Popover>
             <TimelineBody className="mt-2 pb-8">
-              <FileUploadWithOutCropWithOutMultiple
-                fileId={"4"}
-                onChange={(file) => form.set("socialSecurityCard1", file)}
-                nameofFile={"Front Side"}
-              />
-              <FileUploadWithOutCropWithOutMultiple
-                fileId={"5"}
-                onChange={(file) => form.set("socialSecurityCard2", file)}
-                nameofFile={"Back Side"}
-              />
+
+            <div className="w-[100%] grid grid-cols-2 gap-4 justify-center mt-6 mt-70">
+                <div className="flex flex-col w-full justify-center content-center items-center text-center">
+                  <div className="drop_box">
+                    <h4 className={"text-[18px] font-semibold"}>Front Side</h4>
+                    <FileUploadWithOutCropWithOutMultiple
+                      fileId={"4"}
+                      onChange={(file) => form.set("socialSecurityCard1", file)}
+                      nameofFile={"Front Side"}
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col w-full justify-center content-center items-center text-center">
+                  <div className="drop_box">
+                  <h4 className={"text-[18px] font-semibold"}>Back Side</h4>
+                    <FileUploadWithOutCropWithOutMultiple
+                      fileId={"5"}
+                      onChange={(file) => form.set("socialSecurityCard2", file)}
+                      nameofFile={"Back Side"}
+                    />
+                  </div>
+                </div>
+              </div>
+
             </TimelineBody>
           </TimelineItem>
         </Timeline>

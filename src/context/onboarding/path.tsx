@@ -3,8 +3,10 @@ import { ReactNode } from "react";
 import { HeaderSubTitle } from "@/components/onboarding_elements/one/header.subtitle";
 
 interface OnboardingPage {
-  title: string;
-  description: ReactNode | JSX.Element;
+  title?: string;
+  subTitle?: string;
+  description?: ReactNode | JSX.Element;
+  textTransform?:boolean
 }
 
 export interface DesktopOnboardingPagesType {
@@ -30,8 +32,9 @@ export const DesktopOnboardingPages: DesktopOnboardingPagesType = {
     description: <HeaderSubTitle />,
   },
   "/onboarding/pcr/plans": {
-    title:
-      "TGI Scale Me invites you to embark on your credit scaling journey today",
+    title: "TGI Scale Me",
+    subTitle: "invites you to embark on your credit scaling journey today",
+    textTransform: true,
     description: <HeaderSubTitle />,
   },
   "/onboarding/pcr/docs-upload": {

@@ -9,41 +9,72 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 interface EditableContentRecordInvidualProps {
-    invidualRecord?: {
-        name?: string,
-        value?: string,
-        label?: string
+    invidualRecord: {
+        title: string,
+        icon: string,
+        contents: {
+            recordName: string,
+            iconName: string,           //edit, arrow, date
+        }[],
     }
-    onChangeInput: (e?:any, name?:string) => void
 }
 
 export const EditableContentRecordInvidual: React.FC<EditableContentRecordInvidualProps> = (props) => {
-    const [editable, setEditable] = useState<boolean>(false);
+    const [editable, setEditable] = useState<boolean[]>([]);
 
-    const handleEdit = () => {
-        const disabled = !editable;
-        setEditable( disabled );
+    const handleEdit = (key: number) => {
+        const disabled = !editable[key];
+        setEditable({ ...editable, [key]: disabled });
+        console.log(editable[key] + ":" + key);
     }
-    const { onChangeInput, invidualRecord } = props;
-    const { name, value, label } = invidualRecord;
+
+    useEffect(() => {
+        {
+            props.invidualRecord.contents.map((content, key) => (
+                editable[key] = false
+            ))
+        }
+    }, []);
+
+    useEffect(() => {
+
+    }, [editable]);
     return (
         <>
             <div className="flex flex-col w-full justify-center content-center items-center">
-                <div className="flex flex-col w-[95%]">
-                    <div className="flex flex-row mt-6 justify-end">
-
-                        <Input className="w-full "
-                               onChange={(e) => onChangeInput?.(e.target.value, name)}
-                            defaultValue={value}
-                            disabled={!editable}
-                            name={name}
-                            placeholder={label}
-                    />
-                        <IconButton size="small" className="" onClick={(e) => { handleEdit(); }}>
-                            {editable && <EditOff />}
-                            {!editable && <Edit />}
-                        </IconButton>
+                {props.invidualRecord.title !== "" &&
+                    <div className="flex flex-row w-full justify-start mt-4">
+                        {props.invidualRecord.icon !== "" &&
+                            <Image src={props.invidualRecord.icon} alt="" width={30} height={30} />
+                        }
+                        <div className="flex w-full text-blue-400 text-lg ml-2">{props.invidualRecord.title}</div>
                     </div>
+                }
+                <div className="flex flex-col w-[95%]">
+                    {props.invidualRecord.contents.map((content, key) => (
+                        <div className="flex flex-row mt-6 justify-end">
+                            <input className="w-full " value={content.recordName} key={key} disabled={!editable[key]} />
+                            {
+                                content.iconName === "edit" &&
+                                <IconButton size="small" className="" onClick={(e) => { handleEdit(key); }}>
+                                    {editable[key] && <EditOff />}
+                                    {!editable[key] && <Edit />}
+                                </IconButton>
+                            }
+                            {
+                                content.iconName === "arrow" &&
+                                <IconButton size="small" >
+                                    <ArrowDown2 />
+                                </IconButton>
+                            }
+                            {
+                                content.iconName === "date" &&
+                                <IconButton size="small" >
+                                    <DateRangeSharp />
+                                </IconButton>
+                            }
+                        </div>
+                    ))}
                 </div>
 
 

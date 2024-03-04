@@ -33,9 +33,24 @@ export const PCRContextProvider = ({
 
     return {
       title: (
-        <h3 className="textforHederTitle capitalize font-bold">
-          {currentPage.title}
-        </h3>
+        <>
+          {currentPage.textTransform ? (
+            <h3 className="textforHederTitle uppercase font-bold">
+              <strong
+                style={{
+                  color: "#BC272E",
+                }}
+              >
+                {currentPage.title}
+              </strong>{" "}
+              {currentPage.subTitle}
+            </h3>
+          ) : (
+            <h3 className="textforHederTitle font-bold">
+              {currentPage.title} {currentPage.subTitle}
+            </h3>
+          )}
+        </>
       ),
       description: currentPage.description,
     };
@@ -57,18 +72,20 @@ export const PCRContextProvider = ({
       <div className={"space-y-2 h-fit w-full"}>
         <div
           style={{
-            marginTop: "16px",
+            marginTop: "116px",
           }}
-          className={"md:flex hidden md:px-8 px-[16px] py-[8px] w-full"}
+          className={
+            "md:flex hidden md:px-8 px-[16px] py-[8px] w-full justify-center"
+          }
         >
           <HeaderTitle />
         </div>
         <div
           style={{
             zIndex: 20,
-            marginTop: "16px",
+            marginTop: "32px",
           }}
-          className={"md:px-8  md:flex sticky top-0 hidden w-full"}
+          className={"md:px-8  md:flex top-0 hidden w-full"}
         >
           <DesktopStepper />
         </div>

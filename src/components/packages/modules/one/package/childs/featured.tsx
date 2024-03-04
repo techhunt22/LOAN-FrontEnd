@@ -8,6 +8,8 @@ interface NormalProps {
   fullPrice?: number;
   emiPrice?: number;
   validity?: number;
+  downPaymentAmount?: number;
+  intervalCount?: number;
   bulletPoints?: {
     value: string;
   }[];
@@ -17,12 +19,12 @@ export const Featured: React.FC<NormalProps> = (props) => {
   return (
     <div
       className={
-        "shadow-tremor-card ring-1 ring-gray-100 rounded-[16px] w-[300px] h-[700px]"
+        "shadow-tremor-card ring-1 ring-gray-100 rounded-[16px] w-[400px] h-[850px] relative"
       }
     >
       <div className={"relative h-fit min-w-full"}>
         <img
-          className={"rounded-t-[16px] object-fill max-w-[300px] h-[240px]"}
+          className={"rounded-t-[16px] object-fill min-w-[412px]"}
           src={props?.imgUrl || "/module/one/red.png"}
         />
         <div className={" py-2 px-4 absolute top-0"}>
@@ -45,14 +47,14 @@ export const Featured: React.FC<NormalProps> = (props) => {
             </svg>
             <p className={"text-white font-medium "}>Popular</p>
           </div>
-          <h3 className={"mt-2 uppercase text-[16px] text-white font-bold "}>
+          <h3 className={"uppercase text-[20px] text-white font-bold "}>
             {props?.name || "Credit Ascend Activator"}
           </h3>
-          <div className={"mt-2 text-white flex flex-row items-start"}>
-            <h2 className={" align-top font-extrabold text-[24px]"}>
+          <div className={" text-white flex flex-row items-center"}>
+            <h2 className={" align-top font-extrabold text-[50px]"}>
               ${props?.fullPrice || 999}
             </h2>
-            <p className={"ml-3 text-sm "}>
+            <p className={"ml-3 text-base font-medium w-[185px]"}>
               One time payment saves you{" "}
               <span className={"font-bold"}>
                 $
@@ -63,12 +65,13 @@ export const Featured: React.FC<NormalProps> = (props) => {
           </div>
           <div
             className={
-              "mt-2 font-bold rounded-md bg-white w-[60px] h-[36px] flex flex-row items-center justify-center p-2"
+              "font-bold rounded-md bg-white w-[60px] h-[36px] flex flex-row items-center justify-center p-2 text-[36px]"
             }
           >
             OR
           </div>
-          <h4 className={"mt-2 text-[18px] font-bold  text-white"}>
+          <h4 className={"mt-2 text-[18px] font-bold  text-white w-[197px]"}>
+            {props?.downPaymentAmount} down & {props?.intervalCount} payments of
             ${props?.emiPrice || 299}/
             <span className={"font-normal text-sm"}>Month</span>
           </h4>
@@ -76,23 +79,51 @@ export const Featured: React.FC<NormalProps> = (props) => {
       </div>
       <div
         className={
-          "border-b-[1px] border-gray-300 mt-1.5 pb-3.5 p-2 flex flex-col gap-2 items-center justify-start"
+          "border-gray-300 mt-1.5 pb-3.5 p-2 flex flex-col gap-2 items-center justify-between h-[62%]"
         }
       >
-        <p className={"text-gray-700 text-sm"}>
+        {/* <p className={"text-gray-700 text-sm"}>
           Validity {props?.validity || 3} months
-        </p>
-        <button
-          onClick={props.onClick}
+        </p> */}
+        <div
           className={
-            "hover:bg-gray-600 hover:text-white hover:border-white tracking-tight font-medium border-[1px] border-amber-400 rounded-full w-[80%] p-2 bg-amber-400 "
+            "my-4 space-y-3.5 pl-3 pr-4 py-2 w-full h-auto overflow-auto"
           }
         >
-          Choose Plan
+          <BulletPoints bulletPoints={props.bulletPoints} />
+        </div>
+        <button
+          onClick={props.onClick}
+          className="relative overflow-hidden w-[80%] p-2 text-white font-semibold uppercase bg-gradient-to-r from-amber-400 to-amber-600 border-[1px] border-amber-400 tracking-tight transition-all duration-300"
+          style={{
+            boxShadow: "rgba(255, 183, 3, 0.65) 4px 6px 20px 1px",
+            borderRadius: "20px 5px",
+          }}
+        >
+          <span className="absolute inset-0 bg-gray-600 opacity-0 hover:opacity-25 transition-opacity duration-300"></span>
+          <span className="relative z-10">Choose Plan</span>
         </button>
       </div>
-      <div className={"my-4 space-y-3.5 pl-3 pr-4 py-2 w-full h-auto"}>
-        <BulletPoints bulletPoints={props.bulletPoints} />
+      <div
+        style={{
+          position: "absolute",
+          height: "40px",
+          width: " 400px",
+          background: "linear-gradient(to right, #FFB2C5, #FB6F92)",
+          top: "50%",
+          right: "-55.5%",
+          transform: "rotate(90deg)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          borderTopLeftRadius: "20px",
+          borderTopRightRadius: "20px",
+          color: "#FFFFFF",
+          fontSize: "14px",
+          fontWeight: 600,
+        }}
+      >
+        Duration 60-90 days
       </div>
     </div>
   );

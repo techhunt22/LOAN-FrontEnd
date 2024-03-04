@@ -22,7 +22,7 @@ export const SignInForm = () => {
   const [typeInput, setTypeInput] = useState(true);
   const router = useRouter();
   const form = useForm({
-    email: "",
+    email: "mysganguli@gmail.com",
     password: "",
     remember: false,
   });
@@ -37,12 +37,16 @@ export const SignInForm = () => {
       Cookies.set("accessToken", r.accessToken, {
         expires: 7,
         path: "/",
-        secure: true,
+        secure: false,
+		domain: "54.87.77.177", // specify the IP or domain
+		sameSite: "None", // allow cross-site access
       });
       Cookies.set("refreshToken", r.refreshToken, {
         expires: 30,
         path: "/",
-        secure: true,
+        secure: false,
+		domain: "54.87.77.177", // specify the IP or domain
+  sameSite: "None", // allow cross-site access
       });
       if (r?.urlPath != null) {
         router.replace(r?.urlPath);

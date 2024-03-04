@@ -11,7 +11,7 @@ import { Button, Input } from "@mui/material";
 import { GeneralCard } from "@/components/cards/general.cad";
 import { GotoWebsiteCard } from "@/components/cards/goto.website.card";
 import { SubFormFooter } from "@/components/business-account-elements/sub.form.footer";
-import { EditableContentRecord } from "@/components/business-account-elements/edaitable.content.record_old";
+import { EditableContentRecord } from "@/components/business-account-elements/edaitable.content.record";
 import { BlogCardLeft } from "@/components/cards/blog.card";
 import { GotoWebsiteThreeCard } from "@/components/cards/goto.website.three.card";
 import { SelectCard } from "@/components/cards/select.card";

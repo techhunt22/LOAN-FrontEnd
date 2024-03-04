@@ -2,23 +2,8 @@
 import { PersonalUserSVG } from "@/components/svg/personal.user.svg";
 import { BusinessUserSVG } from "@/components/svg/business.user.svg";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
-export const TypeofServices = () => { 
-  const [isLogin, setIsLogin] = useState<boolean>();
-
-  useEffect(() => {
-    const getCookie = (name: string) => {
-      const cookieName = name + "=";
-      const decodedCookie = decodeURIComponent(document.cookie);
-      const cookieArray = decodedCookie.split(';').map(cookie => cookie.trim());
-      const targetCookie = cookieArray.find(cookie => cookie.startsWith(cookieName));
-      return targetCookie ? targetCookie.substring(cookieName.length) : null||undefined;
-    };
-    const myCookieValue = getCookie('accessToken');
-    setIsLogin(myCookieValue===undefined ? false : true);
-  }, []);
-
+export const TypeofServices = () => {
   return (
     <>
       <div
@@ -27,7 +12,7 @@ export const TypeofServices = () => {
         }
       >
         <Link
-          href={isLogin?"onboarding/pcr/pull-report":"/onboarding/pcr/sign-up"}
+          href={"/onboarding/pcr/sign-up"}
           className={
             " select-none flex flex-col justify-center items-center rounded-[28px]  hover:ring-1 ring-white  shadow-lg shadow-blue-500/50  boxGradient1st p-2 w-60 h-60"
           }

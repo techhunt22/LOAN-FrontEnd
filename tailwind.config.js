@@ -14,6 +14,7 @@ module.exports = withMT({
     extend: {
       colors: {
         // light mode
+
         tremor: {
           brand: {
             faint: "#eff6ff", // blue-50

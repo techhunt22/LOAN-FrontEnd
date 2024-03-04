@@ -49,17 +49,15 @@ export const FileUploadWithOutCropWithOutMultiple: React.FC<
   useEffect(() => {}, [selectedFile]);
 
   return (
-    <div className={"p-2 max-w-[300px] max-h-auto cursor-pointer mt-4"}>
+    <div className={"max-h-auto cursor-pointer"}>
       <label htmlFor={props.fileId}>
         {!selectedFile && (
           <div
-            className={
-              "flex flex-col items-start justify-start w-[100px] gap-2 h-auto"
-            }
-          >
-            <h4 className={"text-[18px] font-semibold"}>{props.nameofFile}</h4>
-            <div className={"w-auto h-auto p-2 border-2 border-gray-500"}>
-              Choose file
+            className={ "drop-content-upper"}>
+            <img src={"/module/upload-icon.png"} />
+            <div className={"drop-content"}>
+              <h3>Drop file to upload or <span className="browse-name">browse</span></h3>
+              <p>Maximum file size 5000 pixel</p>
             </div>
           </div>
         )}

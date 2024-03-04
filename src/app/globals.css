@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('./../../public/fonts//stylesheet.css');
 
 input[type=file]::file-selector-button{
     visibility: hidden;
@@ -41,4 +42,187 @@ input[type=file]::-webkit-file-upload-button{
 }
 .greefill {
 background: linear-gradient( 20deg, #006D77 2.87%, #7BD8D0 55.47%, #006D77 96.39%);
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: "League Spartan", sans-serif; */
+}
+
+.max-h-auto.cursor-pointer.drop_box_inner {
+    width: 100%;
+}
+.drop_box_inner label {
+    width: 100%;
+    display: inline-block;
+}
+.drop-content-upper {
+    padding: 40px 0;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px dotted #137fff;
+    border-radius: 5px;
+    width: 300px;
+    background-color: #F8FAFD;
+}
+
+
+.drop-content-upper img {
+    max-width: 80px;
+    margin-bottom: 10px;
+}
+
+.drop_box h4 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #2e2e2e;
+}
+
+.drop_box p {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  color: #a3a3a3;
+}
+
+.btn {
+  text-decoration: none;
+  background-color: #005af0;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  transition: 0.3s;
+}
+
+.btn:hover{
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #005af0;
+  padding: 10px 20px;
+  border: none;
+  outline: 1px solid #010101;
+}
+.form input {
+  margin: 10px 0;
+  width: 100%;
+  background-color: #e2e2e2;
+  border: none;
+  outline: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+}
+
+
+
+ul,
+li {
+    list-style: none;
+    padding: 0;
+}
+
+
+.wrapper {
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+.sessions {
+    position: relative;
+    border-left: 1px solid #b9bcbf;
+    border-style: dashed;
+}
+
+.sessions .main {
+    padding-bottom: 60px;
+    position: relative;
+    padding-left: 20px;
+    margin-left: 10px;
+    border-style: dashed;
+    padding-top: 7px;
+
+    &:last-child {
+        border: 0px;
+        padding-bottom: 0;
+    }
+
+    &:before {
+        content: '';
+        width: 15px;
+        height: 15px;
+        background: rgb(2, 180, 2);
+        border: 1px solid #4ed362;
+        border-radius: 50%;
+        position: absolute;
+        left: -18px;
+        top: 11px;
+    }
+}
+
+.time {
+    color: #2a2839;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    position: relative;
+    margin-bottom: 15px;
+
+    @include mobile-and-up {
+        font-size: 1rem;
+    }
+
+    @include mobile-only {
+        margin-bottom: .3rem;
+        font-size: 0.85rem;
+    }
+
+}
+.time:after {
+    content: '';
+    width: 60%;
+    height: 1px;
+    background: #137FFF;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    opacity: 0.5;
+}
+
+.sub-header-title {
+    color: #A3A3A3;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 4px 0;
+}
+.time p {
+    color: #4f4f4f;
+    font-family: sans-serif;
+    line-height: 1.5;
+    margin-top: 0.4rem;
+
+    @include mobile-only {
+        font-size: .9rem;
+    }
+}
+
+.docs-list-title {
+    color: #4f4f4f;
+    font-family: sans-serif;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.list-documentation li {
+    font-weight: 400;
+    color: #D3D3D3;
 }

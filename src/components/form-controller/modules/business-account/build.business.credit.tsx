@@ -1,24 +1,18 @@
 "use client";
 // @ts-ignore
-import React, { FormEventHandler, useState } from "react";
+import React from "react";
 import { MonitorReportForm } from "@/components/business-account-elements/monitor.report.form";
 import { LineAxis } from "@mui/icons-material";
 import { SubHeader } from "@/components/business-account-elements/sub.header";
 import { ArrowLineText } from "@/components/business-account-elements/arrow.line.text";
 import { VideoCard } from "@/components/cards/video-card";
 import { ImportantInformation } from "@/components/business-account-elements/important.imformation";
-import { Button, Input } from "@mui/material";
+import { Input } from "@mui/material";
 import { GeneralCard } from "@/components/cards/general.cad";
 import { GotoWebsiteCard } from "@/components/cards/goto.website.card";
 import { SubFooter } from "@/components/footer/footer";
-import { useMutation } from "@tanstack/react-query";
 import { SubFormFooter } from "@/components/business-account-elements/sub.form.footer";
-// @ts-ignore
-import { ApiCalls } from "@/api/calls/calls";
-// @ts-ignore
-import { Calls } from "@/app/api/calls/type";
-import toast from "react-hot-toast";
-import { Spinner } from "@material-tailwind/react";
+
 const headerContent = {
     step: "STPE1",
     title: "Fundability Foundation",
@@ -54,27 +48,6 @@ interface Option {
     label: string;
 }
 export const BuildBusinessCredit = () => {
-    const [email, setEmail] = useState('');
-    const [bsName, setbsName] = useState('');
-    const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setbsName(event.target.value);
-    }
-    const { mutateAsync, isPending } = useMutation<
-        Calls.IResponse.Business,
-        Error,
-        Calls.IRequest.ModulesBusinessName
-        >({
-        mutationFn: async (variables) => await ApiCalls.Module.busiName(variables),
-        onSuccess: (r) => {
-            toast.success(r.message);
-        }
-    });
-
-    const onSubmit = async (e:any) => {
-        e.preventDefault();
-        const data = await mutateAsync({business_name: bsName});
-        return data;
-    };
     return (
         <>
             <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl">
@@ -102,20 +75,7 @@ export const BuildBusinessCredit = () => {
                         <div className="flex w-full my-12 justify-center">
                             <ArrowLineText type="flex flex-col w-[80%] text-center text-gray-500" content="ENTER BUSINESS NAME?" />
                         </div>
-                        
-                        <Input
-                            placeholder="Type your business name here"
-                            defaultValue={""}
-                            name="business_name"
-                            className="flex w-[80%] my-8 text-gray-500"
-                            aria-hidden
-                            onChange={handleInput}
-                        />
-                        
-                        <div className="flex w-52 mt-4">
-                            <Button type="button" onClick={onSubmit} color="success" >{isPending ? <Spinner /> : "SAVE"}</Button>
-                        </div>
-                        
+                        <Input placeholder="" defaultValue={"Type your business name here"} className="flex w-[80%] my-8 text-gray-500" aria-hidden />
                         {/* general cards */}
                         <div className="flex flex-row w-full mt-12">
                             <div className="flex w-[50%] justify-center">
@@ -142,7 +102,6 @@ export const BuildBusinessCredit = () => {
                         </div>
 
                         {/* footer  */}
-                        
                         <SubFormFooter content={footerContent} />
                     </div>
                 </div>

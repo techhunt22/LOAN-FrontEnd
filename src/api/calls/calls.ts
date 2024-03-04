@@ -90,7 +90,7 @@ export namespace ApiCalls {
           formData.append("proofOfAddress1", data.proofOfAddress1 as File);
           formData.append("socialSecurityCard1",data.socialSecurityCard1 as File);
           formData.append("identityCard2", data.identityCard2 as File);
-          formData.append("proofOfAddress2", data.proofOfAddress2 as File);
+          // formData.append("proofOfAddress2", data.proofOfAddress2 as File);
           formData.append("socialSecurityCard2",data.socialSecurityCard2 as File);
         }
         return await api

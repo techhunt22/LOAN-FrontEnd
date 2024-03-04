@@ -67,12 +67,12 @@ export const SignupForm = () => {
       Cookies.set("accessToken", r.accessToken, {
         expires: 7,
         path: "/",
-        secure: true,
+        secure: false,
       });
       Cookies.set("refreshToken", r.refreshToken, {
         expires: 30,
         path: "/",
-        secure: true,
+       secure: false,
       });
       if (r?.urlPath != null) {
         router.replace(r?.urlPath);

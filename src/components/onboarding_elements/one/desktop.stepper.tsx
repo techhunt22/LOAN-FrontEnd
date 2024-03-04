@@ -31,24 +31,24 @@ export const DesktopStepper = () => {
   ];
   return (
     <div className={" flex flex-row items-center justify-center w-full h-auto"}>
-      <div className="  rounded-l-md flex flex-row justify-center items-center w-[96%] bg-[#137FFF] h-[100px] py-4 pl-20 ">
+      <div className=" rounded-l-xl flex flex-row justify-center items-center w-[70%] bg-[#137FFF] h-[225px] py-4 pl-32 ">
         <Stepper
-          className={"-mt-5"}
-          lineClassName=" h-1 bg-white"
-          activeLineClassName="h-1 bg-white"
+          className={"-mt-6"}
+          lineClassName=" h-2 bg-white"
+          activeLineClassName="h-2 bg-white"
           activeStep={ActiveTab}
         >
           {dataArray.map((item, index) => (
             <Step
               key={index}
               className={
-                "text-gray-500 bg-blue-gray-50 h-[32px] w-[32px] ring-4 ring-white"
+                "text-gray-500 bg-blue-gray-50 h-[32px] w-[32px] ring-[20px] ring-white"
               }
-              activeClassName={"bg-[#137FFF]  ring-4 ring-white"}
-              completedClassName="bg-[#137FFF] ring-4 ring-white"
+              activeClassName={"bg-[#137FFF]  ring-[20px] ring-white"}
+              completedClassName="bg-[#137FFF] ring-[20px] ring-white"
             >
               <CheckIcon className={"w-[24px] h-[24px]"} />
-              <div className=" absolute -bottom-[2rem] w-max text-center">
+              <div className=" absolute -bottom-[3.5rem] w-max text-center">
                 <Typography
                   variant="small"
                   color={ActiveTab === index ? "white" : "white"}
@@ -62,9 +62,10 @@ export const DesktopStepper = () => {
       </div>
       <div
         style={{
-          clipPath: "polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%)",
+          clipPath: "polygon(-2% 0%, 46% 0%, 100% 52%, 46% 100%, -2% 100%)",
+          borderRadius: "0 12px 12px 0",
         }}
-        className="   flex flex-row justify-center items-center w-[4%] bg-[#137FFF] h-[100px] py-4 px-20"
+        className=" rounded-r-xl  flex flex-row justify-center items-center w-[4%] bg-[#137FFF] h-[225px] py-4 px-20"
       ></div>
     </div>
   );

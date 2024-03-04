@@ -1,6 +1,6 @@
 "use client";
 // @ts-ignore
-import React, { FormEventHandler, useState } from "react";
+import React from "react";
 import { MonitorReportForm } from "@/components/business-account-elements/monitor.report.form";
 import { CheckBox, LineAxis } from "@mui/icons-material";
 import { SubHeader } from "@/components/business-account-elements/sub.header";
@@ -14,17 +14,7 @@ import { SubFormFooter } from "@/components/business-account-elements/sub.form.f
 import { EditableContentRecord } from "@/components/business-account-elements/edaitable.content.record";
 import { BlogCardLeft } from "@/components/cards/blog.card";
 import { GotoWebsiteThreeCard } from "@/components/cards/goto.website.three.card";
-import { useMutation } from "@tanstack/react-query";
-import { Calls } from "@/api/calls/type";
-import toast from "react-hot-toast";
-import { handleFormError } from "@/utils/error";
-import { ApiCalls } from "@/api/calls/calls";
-import { Spinner } from "@material-tailwind/react";
 
-
-interface NewForm {
-    [key: string]: string | boolean
-}
 const headerContent = {
     step: "STPE1",
     title: "Fundability Foundation",
@@ -107,69 +97,6 @@ const footerContent = {
 }
 
 export const BuildBusinessAddress = () => {
-
-    const formData1 = [
-        {name: 'buildingNo', value: '', label: 'Street Number'},
-        {name: 'floorNo', value: '', label: 'Floor'},
-        {name: 'buildingName', value: '', label: 'Name'},
-        {name: 'country', value: '', label: 'Country'},
-        {name: 'zip', value: '', label: 'Postal Code'}
-    ];
-
-    const formData2 = [
-        {name: 'location', value: '', label: 'Location'}
-    ];
-
-
-    const getFormData = [...formData1, ...formData2, { name: 'agreement', value: false }];
-
-    const newForm: NewForm = {};
-    getFormData.forEach(form => {
-        newForm[form.name] = form.value;
-    })
-    
-    const [formDataDetail, setFormDataDetail] = useState<Calls.IRequest.ModulesBusinessAddress>(newForm);
-    
-    const handleInputChange = (value: string, name: string) => {
-        
-        const updateFormData = { ...formDataDetail };
-        if (updateFormData[name] != undefined) {
-            updateFormData[name] = value;
-        }
-        setFormDataDetail(updateFormData);
-        console.log(updateFormData);
-    }
-
-    const [agreement, setAgreement] = useState<boolean>(false);
-
-    const onAgree = () => {
-        const userAgree = !agreement;
-        setAgreement(userAgree);
-        
-        const updateFormData = { ...formDataDetail };
-        if (updateFormData["agreement"] != undefined) {
-            updateFormData["agreement"] = !updateFormData["agreement"];
-        }
-        setFormDataDetail(updateFormData);
-
-    }
-    
-    const { mutateAsync, isPending } = useMutation<
-        Calls.IResponse.BusinessAddreess,
-        Error,
-        Calls.IRequest.ModulesBusinessAddress
-    >({
-        mutationFn: async (variables) => await ApiCalls.Module.businessAddress(variables),
-        onSuccess: (r) => {
-            toast.success(r.message);
-        },
-        onError: (e) => handleFormError(e as any, formDataDetail),
-    });
-    
-    const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
-        e.preventDefault();
-        await mutateAsync(formDataDetail);
-      };
     return (
         <>
             <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl">
@@ -180,32 +107,31 @@ export const BuildBusinessAddress = () => {
                         <ArrowLineText type="flex flex-col w-[80%] text-center text-gray-700" content="DO YOU HAVE A BUSINESS ADDRESS?" />
                         {/* Vidio card */}
                         <VideoCard videoContent={videoConten} />
-                        <form className={"mt-4 flex flex-col gap-6 "} onSubmit={onSubmit}>
-                            {/* edit your details */}
-                            <div className="flex flex-col w-[85%]">
-                                <EditableContentRecord onChangeInput={handleInputChange} title="Your Details:" method="You Can Edit it" records={formData1} />
-                                <EditableContentRecord onChangeInput={handleInputChange} title="Business Address Type:" method="You Can Edit it" records={formData2} />
-                            </div>
-                            {/* acknowledge the following */}
-                            <div className="flex flex-col w-[75%]">
-                                <div className="flex ml-3 text-blue-gray-600 text-lg">
-                                    <p>I Acknwledge The Following:</p>
-                                </div>
-                                <div className="flex flex-row mt-4 text-gray-400">
-                                    <CheckBox onClick={(e: any) => {onAgree()} } color={agreement ? "primary" : ""} />
-                                    <div className="flex flex-col ml-2">
-                                        <p>The business shouldn't use any type of PO Box as the physical business address. Lenders typically view this type of address as higher risk.</p>
-                                        <p>The business shouldn't use any type of PO Box as the physical business address.</p>
-                                        <p>The business shouldn't use any type of PO Box as the physical business address. </p>
-                                    </div>
-                                </div>
-                            </div>
 
-                            {/* save buttong */}
-                            <div className="flex w-52 mt-4">
-                                <Button type="submit" placeholder="save the address" color="success" >{isPending ? <Spinner /> : "SAVE"}</Button>
+                        {/* edit your details */}
+                        <div className="flex flex-col w-[85%]">
+                            <EditableContentRecord records={records} />
+                            <EditableContentRecord records={recordsType} />
+                        </div>
+                        {/* acknowledge the following */}
+                        <div className="flex flex-col w-[75%]">
+                            <div className="flex ml-3 text-blue-gray-600 text-lg">
+                                <p>I Acknwledge The Following:</p>
                             </div>
-                        </form>
+                            <div className="flex flex-row mt-4 text-gray-400">
+                                <CheckBox color="primary" />
+                                <div className="flex flex-col ml-2">
+                                    <p>The business shouldn't use any type of PO Box as the physical business address. Lenders typically view this type of address as higher risk.</p>
+                                    <p>The business shouldn't use any type of PO Box as the physical business address.</p>
+                                    <p>The business shouldn't use any type of PO Box as the physical business address. </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* save buttong */}
+                        <div className="flex w-52 mt-4">
+                            <Button placeholder="save the address" color="success" >SAVE</Button>
+                        </div>
                         {/* Bolg section */}
                         <div className="flex w-[80%] my-12">
                             <BlogCardLeft content={contentBlogCardLeft} />
