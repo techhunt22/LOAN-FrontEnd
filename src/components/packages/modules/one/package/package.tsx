@@ -185,7 +185,7 @@ export const Package = () => {
       </div>
       <div className="flex flex-col w-full content-center justify-center items-center mt-[4rem]">
         <div className="w-[65%] grid grid-cols-3 gap-4 justify-center gap-5rem">
-          <div className="flex flex-col w-full justify-center content-center items-center text-center bg-graycolor">
+          <div className="flex flex-col w-full justify-center content-center items-center text-center bg-gray">
             <div className="flex w-28 h-28 bg-blue-700 justify-center content-center items-center rounded-full">
               <svg
                 width="44"

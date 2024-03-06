@@ -109,7 +109,7 @@ export const DocsUpload = () => {
         </h3>
         <div
           className={
-            "mt-6 h-fit flex md:flex-row flex-col justify-center items-start gap-8 w-full"
+            "mt-6 h-fit flex md:flex-row flex-col items-start gap-8 w-full"
           }
         >
           <div style={{ borderRight: "1px solid rgb(207 216 220)" }}>
@@ -169,7 +169,7 @@ export const DocsUpload = () => {
                 </PopoverContent>
               </Popover>
               <TimelineBody className="mt-2 pb-8">
-                <div className="w-[100%] grid grid-cols-2 gap-4 justify-center mt-6 mt-70">
+                <div className="w-[100%] flex flex-row gap-4 justify-center mt-6 mt-70">
                   <div className="flex flex-col w-full justify-center content-center items-center text-center">
                     <div className="drop_box">
                       <h4 className={"text-[18px] font-semibold"}>
@@ -218,7 +218,7 @@ export const DocsUpload = () => {
                 </PopoverContent>
               </Popover>
               <TimelineBody className="mt-2 pb-8">
-                <div className="w-[100%] grid grid-cols-2 gap-4 justify-center mt-6 mt-70">
+                <div className="w-[100%] flex flex-row gap-4 justify-center mt-6 mt-70">
                   <div className="flex flex-col w-full justify-center content-center items-center text-center">
                     <div className="drop_box">
                       <h4 className={"text-[18px] font-semibold"}>
@@ -264,7 +264,7 @@ export const DocsUpload = () => {
                 </PopoverContent>
               </Popover>
               <TimelineBody className="mt-2 pb-8">
-                <div className="w-[100%] grid grid-cols-2 gap-4 justify-center mt-6 mt-70">
+                <div className="w-[100%] flex flex-row gap-4 justify-center mt-6 mt-70">
                   <div className="flex flex-col w-full justify-center content-center items-center text-center">
                     <div className="drop_box">
                       <h4 className={"text-[18px] font-semibold"}>
@@ -279,7 +279,7 @@ export const DocsUpload = () => {
                       />
                     </div>
                   </div>
-                  <div className="flex flex-col w-full justify-center content-center items-center text-center">
+                  <div className="flex flex-row w-full justify-center content-center items-center text-center">
                     <div className="drop_box">
                       <h4 className={"text-[18px] font-semibold"}>Back Side</h4>
                       <FileUploadWithOutCropWithOutMultiple

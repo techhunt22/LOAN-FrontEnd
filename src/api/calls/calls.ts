@@ -23,15 +23,15 @@ export namespace ApiCalls {
     return await api
       .post("/authentication.sign_up", data)
       .then((res) => res.data)
-      .catch((rej) => rej.response.data
-      );
+      .catch((rej) => rej.response.data);
   };
-  
+
   export const Auth = async () => {
-    return await api.get('/auth')
+    return await api
+      .get("/auth")
       .then((res) => res.data)
-      .catch(rej => rej.data);
-  }
+      .catch((rej) => rej.data);
+  };
   export const ForgotPassword = async (
     data: Calls.IRequest.ForgotPassword
   ): Promise<Calls.IResponse.SignIn> => {
@@ -41,22 +41,198 @@ export namespace ApiCalls {
   };
 
   export const Module = {
-    busiName: async (
+    businessName: async (
       data: Calls.IRequest.ModulesBusinessName
     ): Promise<Calls.IResponse.BusinessName> => {
       return await api
-        .post("/modules/business.name", data)
-        .then(res => res.data)
-        .catch(e => e.response.data);
+        .post("/business/name", data)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
     },
     businessAddress: async (
       data: Calls.IRequest.ModulesBusinessAddress
-    ): Promise<Calls.IResponse.BusinessAddreess> => {
+    ): Promise<Calls.IResponse.BusinessAddress> => {
       return await api
-        .post("/modules/business.address", data)
-        .then(res => res.data)
-        .catch(e => e.response.data);
+        .post("business/address", data)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
     },
+    businessEntry: async (
+      data: Calls.IRequest.ModulesBusinessEntity
+    ): Promise<Calls.IResponse.BusinessEntity> => {
+      return await api
+        .post("/business/entity", data)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    businessEin: async (
+      data: Calls.IRequest.ModulesBusinessEin
+    ): Promise<Calls.IResponse.BusinessEin> => {
+      return await api
+        .post("/business/ein", data)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    businessPhone: async (
+      data: Calls.IRequest.ModulesBusinessPhone
+    ): Promise<Calls.IResponse.BusinessPhone> => {
+      return await api
+        .post("/business/phone.detail", data)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    businessEmail: async (
+      data: Calls.IRequest.ModulesBusinessEmail
+    ): Promise<Calls.IResponse.BusinessEmail> => {
+      return await api
+        .post("/business/email.detail", data)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    businessLicense: async (
+      data: Calls.IRequest.ModulesBusinessLicense
+    ): Promise<Calls.IResponse.BusinessLicense> => {
+      return await api
+        .post("/business/license", data)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    businessBank: async (
+      data: Calls.IRequest.ModulesBusinessBank
+    ): Promise<Calls.IResponse.BusinessBank> => {
+      return await api
+        .post("/business/bank", data)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    businessMerchant: async (
+      data: Calls.IRequest.ModulesBusinessMerchant
+    ): Promise<Calls.IResponse.BusinessMerchant> => {
+      return await api
+        .post("/business/merchant.bank", data)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    businessReport: async (
+      data: Calls.IRequest.ModulesBusinessReport
+    ): Promise<Calls.IResponse.BusinessReport> => {
+      return await api
+        .post("/business/duns", data)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    businessExperian: async (
+      data: Calls.IRequest.ModulesBusinessExperian
+    ): Promise<Calls.IResponse.BusinessExperian> => {
+      return await api
+        .post("/business/experian", data)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    businessEquifax: async (
+      data: Calls.IRequest.ModulesBusinessEquifax
+    ): Promise<Calls.IResponse.BusinessEquifax> => {
+      return await api
+        .post("/business/equifax", data)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    businessStartBuilding: async (
+      data: Calls.IRequest.ModulesBusinessStartBuilding
+    ): Promise<Calls.IResponse.BusinessStartBuilding> => {
+      return await api
+        .post("/business/start.building", data)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    einFile: async (
+      data: Calls.IRequest.ModulesBusinessEinFile
+    ): Promise<Calls.IResponse.BusinessFile> => {
+      const formData = new FormData();
+      if (data) {
+        formData.append("einFile", data.einFile as File);
+      }
+      return await api
+        .post("/business/ein.file", formData)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    businessReportFile: async (
+      data: Calls.IRequest.ModulesBusinessReportFile
+    ): Promise<Calls.IResponse.BusinessFile> => {
+      const formData = new FormData();
+      if (data) {
+        formData.append("monitorDunsFile", data.monitorDunsFile as File);
+      }
+      return await api
+        .post("business/monitor.duns.file", formData)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    monitorExperianFile: async (
+      data: Calls.IRequest.ModulesBusinessExperianFile
+    ): Promise<Calls.IResponse.BusinessFile> => {
+      const formData = new FormData();
+      if (data) {
+        formData.append(
+          "monitorExperianFile",
+          data.monitorExperianFile as File
+        );
+      }
+      return await api
+        .post("/business/monitor.experian.file", formData)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    monitorEquifaxFile: async (
+      data: Calls.IRequest.ModulesBusinessEquifaxFile
+    ): Promise<Calls.IResponse.BusinessFile> => {
+      const formData = new FormData();
+      if (data) {
+        formData.append("monitorEquifaxFile", data.monitorEquifaxFile as File);
+      }
+      return await api
+        .post("/business/monitor.equifax.file", formData)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    lexisFile: async (
+      data: Calls.IRequest.ModulesBusinessLexisFile
+    ): Promise<Calls.IResponse.BusinessFile> => {
+      const formData = new FormData();
+      if (data) {
+        formData.append("lexisFile", data.lexisFile as File);
+      }
+      return await api
+        .post("/business/lexis.file", formData)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    chexSystemFile: async (
+      data: Calls.IRequest.ModulesBusinessChexSystemFile
+    ): Promise<Calls.IResponse.BusinessFile> => {
+      const formData = new FormData();
+      if (data) {
+        formData.append("chexSystemFile", data.chexSystemFile as File);
+      }
+      return await api
+        .post("/business/chex.system.file", formData)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    startBuildingFile: async (
+      data: Calls.IRequest.ModulesBusinessStartBuildingFile
+    ): Promise<Calls.IResponse.BusinessFile> => {
+      const formData = new FormData();
+      if (data) {
+        formData.append("startBuildingFile", data.startBuildingFile as File);
+      }
+      return await api
+        .post("/business/start.building.file", formData)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+
     one: {
       Status: async () => {
         return await api
@@ -88,10 +264,16 @@ export namespace ApiCalls {
         if (data) {
           formData.append("identityCard1", data.identityCard1 as File);
           formData.append("proofOfAddress1", data.proofOfAddress1 as File);
-          formData.append("socialSecurityCard1",data.socialSecurityCard1 as File);
+          formData.append(
+            "socialSecurityCard1",
+            data.socialSecurityCard1 as File
+          );
           formData.append("identityCard2", data.identityCard2 as File);
           // formData.append("proofOfAddress2", data.proofOfAddress2 as File);
-          formData.append("socialSecurityCard2",data.socialSecurityCard2 as File);
+          formData.append(
+            "socialSecurityCard2",
+            data.socialSecurityCard2 as File
+          );
         }
         return await api
           .postForm("/modules/one.docs", formData)

@@ -19,9 +19,9 @@ export namespace Calls {
       error?: any;
     }
     export interface Business {
+      code: code;
       Success: Success;
       message: message;
-      urlPath?: string;
       error?: any;
     }
 
@@ -40,7 +40,21 @@ export namespace Calls {
     export interface ForgotPassword extends BaseResponse {}
     export interface PullReport extends BaseResponse {}
     export interface BusinessName extends Business {}
-    export interface BusinessAddreess extends Business {}
+    export interface BusinessAddress extends Business {}
+    export interface BusinessEntity extends Business {}
+    export interface BusinessEin extends Business {}
+    export interface BusinessFile extends Business {
+      urlPath: null;
+}
+    export interface BusinessPhone extends Business {}
+    export interface BusinessEmail extends Business {}
+    export interface BusinessLicense extends Business {}
+    export interface BusinessBank extends Business {}
+    export interface BusinessMerchant extends Business {}
+    export interface BusinessReport extends Business {}
+    export interface BusinessEquifax extends Business {}
+    export interface BusinessExperian extends Business {}
+    export interface BusinessStartBuilding extends Business {}
     export interface Meeting extends BaseResponse {}
     export interface DocsUploads extends BaseResponse {}
     export interface PFAccount extends BaseResponse {}
@@ -120,24 +134,91 @@ export namespace Calls {
     }
 
     export interface ModulesBusinessName {
-      business_name: string
+      business_name: string;
     }
-    
+    export interface ModulesBusinessEntity {
+      entityType: string;
+      industry: string;
+      dateIncorporated: string;
+      policyOne: boolean;
+      policyTwo: boolean;
+    }
+    export interface ModulesBusinessEin {
+      number: string;
+    }
+    export interface ModulesBusinessEinFile {
+      einFile: File;
+    }
+    export interface ModulesBusinessReportFile {
+      monitorDunsFile: File;
+    }
+    export interface ModulesBusinessExperianFile {
+      monitorExperianFile: File;
+    }
+    export interface ModulesBusinessEquifaxFile {
+      monitorEquifaxFile: File;
+    }
+    export interface ModulesBusinessLexisFile {
+      lexisFile: File;
+    }
+    export interface ModulesBusinessChexSystemFile {
+      chexSystemFile: File;
+    }
+    export interface ModulesBusinessStartBuildingFile {
+      startBuildingFile: File;
+    }
+    export interface ModulesBusinessPhone {
+      phoneNumber: string;
+      serviceProvider: string;
+      faxNumber: string;
+    }
+    export interface ModulesBusinessEmail {
+      website: string;
+      email: string;
+    }
+    export interface ModulesBusinessLicense {
+      businessLicense: string;
+    }
+    export interface ModulesBusinessBank {
+      account: string;
+    }
+    export interface ModulesBusinessMerchant {
+      account: string;
+    }
+    export interface ModulesBusinessReport {
+      address: string;
+      policy: boolean;
+    }
+    export interface ModulesBusinessExperian {
+      identificationNumber: string;
+      policy: boolean;
+    }
+    export interface ModulesBusinessEquifax {
+      identificationNumber: string;
+      policy: boolean;
+    }
+    export interface ModulesBusinessStartBuilding {
+      tradeAccount: string;
+      appliedDate: string;
+      paymentDate: string;
+      approvedAmount: string;
+      personalGrant: string;
+    }
     export interface ModulesBusinessAddress {
-      buildingNo: string
-      floorNo: string
-      buildingName: string
-      country: string
-      zip: string
-      location: string
-      agreement: boolean
+      street: string;
+      buildingAddress: string;
+      cityName: string;
+      zipCode: string;
+      state: string;
+      businessAddressType: string;
+      policy: boolean;
     }
     export interface Docs {
       identityCard1?: File;
       proofOfAddress1?: File;
       socialSecurityCard1?: File;
       identityCard2?: File;
-      //proofOfAddress2?: File;
+      proofOfAddress2?: File;
       socialSecurityCard2?: File;
     }
     export interface PullReport {
