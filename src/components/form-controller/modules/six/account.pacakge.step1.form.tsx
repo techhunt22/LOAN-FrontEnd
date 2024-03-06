@@ -280,14 +280,14 @@ export const AccountPackageStep1Form = () => {
               <div className="flex w-[80%] rounded-full mt-8">
                 <button
                   // disabled={data?.data[3]?._id === undefined}
-                  onClick={() => {
-                    const id = data?.data[0]?._id;
-                    if (isLogin) {
-                      router.push(`/checkout/one/${id}`);
-                    } else {
-                      router.push(`/authentication/sign-in`);
-                    }
-                  }}
+                  // onClick={() => {
+                  //   const id = data?.data[0]?._id;
+                  //   if (isLogin) {
+                  //     router.push(`/checkout/one/${id}`);
+                  //   } else {
+                  //     router.push(`/authentication/sign-in`);
+                  //   }
+                  // }}
                   className="relative overflow-hidden w-[100%] text-xl p-4 text-white font-semibold uppercase bg-gradient-to-r from-[#FB8500] to-[#FFD703] border-[1px] border-amber-400 tracking-tight transition-all duration-300"
                   style={{
                     boxShadow: "rgba(255, 183, 3, 0.65) 4px 6px 20px 1px",

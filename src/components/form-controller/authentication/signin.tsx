@@ -22,7 +22,7 @@ export const SignInForm = () => {
   const [typeInput, setTypeInput] = useState(true);
   const router = useRouter();
   const form = useForm({
-    email: "mysganguli@gmail.com",
+    email: "",
     password: "",
     remember: false,
   });

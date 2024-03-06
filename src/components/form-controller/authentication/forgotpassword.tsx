@@ -16,7 +16,7 @@ import { ApiCalls } from "@/api/calls/calls";
 import { Calls } from "@/api/calls/type";
 export const ForgotPasswordForm = () => {
   const form = useForm({
-    email: "mysganguli@gmail.com",
+    email: "",
   });
   const { mutateAsync, isPending } = useMutation<
     Calls.IResponse.ForgotPassword,
