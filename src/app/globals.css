@@ -248,3 +248,9 @@ li {
     color: #D3D3D3;
     list-style: disc !important;
 }
+
+.account-package-img{
+    max-width: 421px;
+    height: 250px;
+    object-fit: contain;
+}
