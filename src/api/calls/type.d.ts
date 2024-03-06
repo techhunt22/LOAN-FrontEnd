@@ -164,8 +164,17 @@ export namespace Calls {
     export interface ModulesBusinessChexSystemFile {
       chexSystemFile: File;
     }
-    export interface ModulesBusinessStartBuildingFile {
-      startBuildingFile: File;
+    export interface ModulesBusinessStartBuildingTierOneFile {
+      startBuildingTierOneFile: File;
+    }
+    export interface ModulesBusinessStartBuildingTierTwoFile {
+      startBuildingTierTwoFile: File;
+    }
+    export interface ModulesBusinessStartBuildingTierThreeFile {
+      startBuildingTierThreeFile: File;
+    }
+    export interface ModulesBusinessStartBuildingTierFourFile {
+      startBuildingTierFourFile: File;
     }
     export interface ModulesBusinessPhone {
       phoneNumber: string;
@@ -197,7 +206,28 @@ export namespace Calls {
       identificationNumber: string;
       policy: boolean;
     }
-    export interface ModulesBusinessStartBuilding {
+    export interface ModulesBusinessStartBuildingTierOne {
+      tradeAccount: string;
+      appliedDate: string;
+      paymentDate: string;
+      approvedAmount: string;
+      personalGrant: string;
+    }
+    export interface ModulesBusinessStartBuildingTierTwo {
+      tradeAccount: string;
+      appliedDate: string;
+      paymentDate: string;
+      approvedAmount: string;
+      personalGrant: string;
+    }
+    export interface ModulesBusinessStartBuildingTierThree {
+      tradeAccount: string;
+      appliedDate: string;
+      paymentDate: string;
+      approvedAmount: string;
+      personalGrant: string;
+    }
+    export interface ModulesBusinessStartBuildingTierFour {
       tradeAccount: string;
       appliedDate: string;
       paymentDate: string;

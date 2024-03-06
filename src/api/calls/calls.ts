@@ -137,11 +137,35 @@ export namespace ApiCalls {
         .then((res) => res.data)
         .catch((e) => e.response.data);
     },
-    businessStartBuilding: async (
-      data: Calls.IRequest.ModulesBusinessStartBuilding
+    businessStartBuildingTierOne: async (
+      data: Calls.IRequest.ModulesBusinessStartBuildingTierOne
     ): Promise<Calls.IResponse.BusinessStartBuilding> => {
       return await api
-        .post("/business/start.building", data)
+        .post("/business/start.building/tier.one", data)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    businessStartBuildingTierTwo: async (
+      data: Calls.IRequest.ModulesBusinessStartBuildingTierTwo
+    ): Promise<Calls.IResponse.BusinessStartBuilding> => {
+      return await api
+        .post("/business/start.building/tier.two", data)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    businessStartBuildingTierThree: async (
+      data: Calls.IRequest.ModulesBusinessStartBuildingTierThree
+    ): Promise<Calls.IResponse.BusinessStartBuilding> => {
+      return await api
+        .post("/business/start.building/tier.three", data)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    businessStartBuildingTierFour: async (
+      data: Calls.IRequest.ModulesBusinessStartBuildingTierFour
+    ): Promise<Calls.IResponse.BusinessStartBuilding> => {
+      return await api
+        .post("/business/start.building/tier.four", data)
         .then((res) => res.data)
         .catch((e) => e.response.data);
     },
@@ -220,15 +244,51 @@ export namespace ApiCalls {
         .then((res) => res.data)
         .catch((e) => e.response.data);
     },
-    startBuildingFile: async (
-      data: Calls.IRequest.ModulesBusinessStartBuildingFile
+    startBuildingTierOneFile: async (
+      data: Calls.IRequest.ModulesBusinessStartBuildingTierOneFile
     ): Promise<Calls.IResponse.BusinessFile> => {
       const formData = new FormData();
       if (data) {
-        formData.append("startBuildingFile", data.startBuildingFile as File);
+        formData.append("startBuildingTierOneFile", data.startBuildingTierOneFile as File);
       }
       return await api
-        .post("/business/start.building.file", formData)
+        .post("/business/start.building/tier.one.file", formData)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    startBuildingTierTwoFile: async (
+      data: Calls.IRequest.ModulesBusinessStartBuildingTierTwoFile
+    ): Promise<Calls.IResponse.BusinessFile> => {
+      const formData = new FormData();
+      if (data) {
+        formData.append("startBuildingTierTwoFile", data.startBuildingTierTwoFile as File);
+      }
+      return await api
+        .post("/business/start.building/tier.two.file", formData)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    startBuildingTierThreeFile: async (
+      data: Calls.IRequest.ModulesBusinessStartBuildingTierThreeFile
+    ): Promise<Calls.IResponse.BusinessFile> => {
+      const formData = new FormData();
+      if (data) {
+        formData.append("startBuildingTierThreeFile", data.startBuildingTierThreeFile as File);
+      }
+      return await api
+        .post("/business/start.building/tier.three.file", formData)
+        .then((res) => res.data)
+        .catch((e) => e.response.data);
+    },
+    startBuildingTierFourFile: async (
+      data: Calls.IRequest.ModulesBusinessStartBuildingTierFourFile
+    ): Promise<Calls.IResponse.BusinessFile> => {
+      const formData = new FormData();
+      if (data) {
+        formData.append("startBuildingTierFourFile", data.startBuildingTierFourFile as File);
+      }
+      return await api
+        .post("/business/start.building/tier.four.file", formData)
         .then((res) => res.data)
         .catch((e) => e.response.data);
     },

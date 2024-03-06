@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import outlined from "@material-tailwind/react/theme/components/timeline/timelineIconColors/outlined";
 import { EditOff, Edit, DateRangeSharp } from "@mui/icons-material";
@@ -8,87 +8,112 @@ import { ArrowDown, ArrowDown2 } from "iconsax-react";
 import Image from "next/image";
 
 import { useState, useEffect } from "react";
-
+import { EditableContentRecordInvidual } from "./editable.content.record.invidual";
 interface MonitorRecordProps {
-    invidualRecord: {
-        contents: {
-            recordName: string,
-            iconName: string,           //edit, arrow, date
-            comment: string,
-            important: boolean,
-        }[],
-    }
+  records: {
+    invidualRecords: {
+      title: string;
+      icon: string;
+      contents: {
+        recordName: string;
+        iconName: string; //edit, arrow, date
+        comment: string;
+        important: boolean;
+      }[];
+    }[];
+  };
+  handleOnChange?: any;
+  value?: number | string | undefined | any;
+  name?: string | any;
+  buildBusinessPhone?: any;
+  options?: any;
+  handleChange?: any;
+  selectedValue?: any;
+  buildBusinessEntry?: any;
+  handleDateChange?: any;
+  selectedDate?: any;
+  state?: any;
+  selectedDateTwo?: any;
+  handleDateChangeTwo?: any;
+  mutateAsync?: any;
 }
-
 export const MonitorRecord: React.FC<MonitorRecordProps> = (props) => {
-    const [editable, setEditable] = useState<boolean[]>([]);
+  const [editable, setEditable] = useState<boolean[]>([]);
 
-    const handleEdit = (key: number) => {
-        const disabled = !editable[key];
-        setEditable({ ...editable, [key]: disabled });
-        console.log(editable[key] + ":" + key);
-    }
+  const handleOnSave = async (e: any) => {
+    e.preventDefault();
+    const data = await props.mutateAsync({
+      tradeAccount: props.selectedValue[0],
+      appliedDate: props.selectedDate,
+      paymentDate: props.selectedDateTwo,
+      approvedAmount: props.value,
+      personalGrant: props.selectedValue[4],
+    });
+    return data;
+  };
 
-    useEffect(() => {
-        {
-            props.invidualRecord.contents.map((content, key) => (
-                editable[key] = false
-            ))
-        }
-    }, []);
+  //   const handleEdit = (key: number) => {
+  //     const disabled = !editable[key];
+  //     setEditable({ ...editable, [key]: disabled });
+  //     console.log(editable[key] + ":" + key);
+  //   };
 
-    useEffect(() => {
+  //   useEffect(() => {
+  //     {
+  //       props.invidualRecord.contents.map(
+  //         (content, key) => (editable[key] = false)
+  //       );
+  //     }
+  //   }, []);
 
-    }, [editable]);
-    return (
-        <>
-            <div className="flex flex-col w-full justify-center content-center items-center text-gray-600">
-                <div className="flex flex-col w-[95%]">
-                    {props.invidualRecord.contents.map((content, key) => (
-                        <>
-                            <div className="flex flex-row mt-14 justify-end">
-                                <div className="w-full " key={key} >
-                                    {content.recordName}
-                                    {
-                                        content.important && 
-                                        <img src="/monitor/i-star.svg" alt="" className="inline-block mt-[-0.8rem] ml-2 w-3 h-3"/>
-                                    }
-                                </div>
-                                {
-                                    content.iconName === "edit" &&
-                                    <IconButton size="small" color="primary" className="" onClick={(e) => { handleEdit(key); }}>
-                                        {editable[key] && <EditOff />}
-                                        {!editable[key] && <Edit />}
-                                    </IconButton>
-                                }
-                                {
-                                    content.iconName === "arrow" &&
-                                    <IconButton size="small"  color="primary">
-                                        <ArrowDown2 />
-                                    </IconButton>
-                                }
-                                {
-                                    content.iconName === "date" &&
-                                    <IconButton size="small" >
-                                        <DateRangeSharp color="primary" />
-                                    </IconButton>
-                                }
-                            </div>
-                            { content.comment !== "" &&
-                                <div className="flex text-xs text-red-400">{content.comment}</div>
-                            }
-                        </>
-                    ))}
-                </div>
-                <div className="flex flex-row w-full gap-6 justify-end">
-                <div className="flex w-32 my-6">
-                    <Button variant="outlined" color="success">SUBMIT</Button>
-                </div>
-                <div className="flex w-32 my-6">
-                    <Button variant="outlined" color="secondary">CANCEL</Button>
-                </div>
-                </div>
-            </div>
-        </>
-    )
-}
+  //   useEffect(() => {}, [editable]);
+  return (
+    <>
+      <div className="flex flex-col w-full justify-center content-center items-center text-gray-600">
+        <div className="flex flex-col w-[95%]">
+          {props.records.invidualRecords.map((invidualRecord, index) => {
+            return (
+              <EditableContentRecordInvidual
+                invidualRecord={invidualRecord}
+                handleOnChange={props.handleOnChange}
+                value={props.value}
+                name={props.name}
+                buildBusinessPhone={props.buildBusinessPhone}
+                buildBusinessEntry={props.buildBusinessEntry}
+                selectedValue={
+                  props.buildBusinessEntry
+                    ? props.selectedValue[index]?.contents
+                    : props.selectedValue
+                }
+                options={props.options}
+                handleChange={
+                  props.buildBusinessEntry
+                    ? (event: any) => props.handleChange(event, index)
+                    : props.handleChange
+                }
+                handleDateChange={
+                  props.state === true
+                    ? props.handleDateChange
+                    : props.handleDateChangeTwo
+                }
+                selectedDate={props.selectedDate}
+              />
+            );
+          })}
+        </div>
+        <div className="flex flex-row w-full gap-6 justify-end">
+          <div className="flex w-32 my-6">
+            <Button variant="outlined" color="success" onClick={handleOnSave}>
+              SUBMIT
+            </Button>
+          </div>
+          <div className="flex w-32 my-6">
+            <Button variant="outlined" color="secondary">
+              CANCEL
+            </Button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
