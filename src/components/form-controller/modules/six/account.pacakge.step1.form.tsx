@@ -153,7 +153,7 @@ export const AccountPackageStep1Form = () => {
     }
   }, [isPending]);
 
-  const linksButton = data && data?.data[0]?.bulletPoints;
+  const linksButton = data && data?.data[3]?.bulletPoints;
 
   return (
     <>
@@ -216,14 +216,14 @@ export const AccountPackageStep1Form = () => {
             <div className="flex flex-col p-10 w-[400px] justify-center content-center items-center border border-gray-300 pt-[11rem] mt-[-10.5rem] rounded-b-[5rem]">
               <div className="flex md:w-[80%] text-gray-700 gap-3.5  justify-center content-center items-center space-y-[-0.5rem] mt-3">
                 <span className="text-3xl text-[#434343] font-bold">
-                  ${data?.data[0]?.pricing.fullPrice || 0}
+                  ${data?.data[3]?.pricing.fullPrice || 0}
                 </span>
                 <span className="text-5xl border border-[#2684FF] rotate-[28deg] h-[45px]" />
-                {/* $ {Number(data?.data[0]?.emiPrice) * Number(data?.data[0]?.pricing.intervalCount) -
-                  Number(data?.data[0]?.fullPrice)}  */}
+                {/* $ {Number(data?.data[3]?.emiPrice) * Number(data?.data[3]?.pricing.intervalCount) -
+                  Number(data?.data[3]?.fullPrice)}  */}
                 <span className="text-sm text-[#434343] font-regular">
                   One Time Payment <br /> (Save You $200
-                   {/* {Number(data?.data[0]?.pricing?.emiPrice || 0) * Number(data?.data[0]?.pricing?.intervalCount || 0) -  Number(data?.data[0]?.pricing?.fullPrice || 0)
+                   {/* {Number(data?.data[3]?.pricing?.emiPrice || 0) * Number(data?.data[3]?.pricing?.intervalCount || 0) -  Number(data?.data[3]?.pricing?.fullPrice || 0)
                     } */}
                   )
                 </span>
@@ -239,8 +239,8 @@ export const AccountPackageStep1Form = () => {
                 </h1>
               </div>
               <div className="text-[#151414] text-[15px] mt-2">
-                ${data?.data[0]?.pricing.downPaymentAmount || 0} Down Payment
-                And {Number(data?.data[0]?.pricing?.emiPrice || 0)} Monthly
+                ${data?.data[3]?.pricing.downPaymentAmount || 0} Down Payment
+                And {Number(data?.data[3]?.pricing?.emiPrice || 0)} Monthly
               </div>
 
               <div
@@ -281,7 +281,7 @@ export const AccountPackageStep1Form = () => {
                 <button
                   // disabled={data?.data[3]?._id === undefined}
                   // onClick={() => {
-                  //   const id = data?.data[0]?._id;
+                  //   const id = data?.data[3]?._id;
                   //   if (isLogin) {
                   //     router.push(`/checkout/one/${id}`);
                   //   } else {
@@ -309,7 +309,7 @@ export const AccountPackageStep1Form = () => {
                 }}
                 // disabled={data?.data[3]?._id === undefined}
                 onClick={() => {
-                  const id = data?.data[0]?._id;
+                  const id = data?.data[3]?._id;
                   if (isLogin) {
                     router.push(`/checkout/one/${id}`);
                   } else {
