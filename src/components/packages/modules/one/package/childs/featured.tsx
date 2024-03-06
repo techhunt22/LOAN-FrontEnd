@@ -58,8 +58,9 @@ export const Featured: React.FC<NormalProps> = (props) => {
               One time payment saves you{" "}
               <span className={"font-bold"}>
                 $
-                {Number(props?.emiPrice) * Number(props?.validity) -
-                  Number(props?.fullPrice)}
+                {/* {Number(props?.emiPrice) * Number(props?.validity) -
+                  Number(props?.fullPrice)} */}
+                    {(Number(props?.downPaymentAmount) + (Number(props?.emiPrice) ) * (Number(props?.validity))) - Number(props?.fullPrice)}
               </span>
             </p>
           </div>

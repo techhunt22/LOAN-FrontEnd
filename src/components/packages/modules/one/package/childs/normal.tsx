@@ -43,8 +43,8 @@ export const Normal: React.FC<NormalProps> = (props) => {
                 One time payment saves you{" "}
                 <span className={"font-bold"}>
                   $
-                  {Number(props?.emiPrice) * Number(props?.validity) -
-                    Number(props?.fullPrice)}
+                  {/* { Number(props?.fullPrice) - Number(props?.emiPrice) * Number(props?.validity)} */}
+                  {(Number(props?.downPaymentAmount) + (Number(props?.emiPrice) ) * (Number(props?.validity))) - Number(props?.fullPrice)}
                 </span>
               </p>
             </div>
@@ -56,8 +56,7 @@ export const Normal: React.FC<NormalProps> = (props) => {
               OR
             </div>
             <h4 className={"mt-2 text-[18px] font-bold  text-white w-[197px]"}>
-              {props?.downPaymentAmount} down & {props?.intervalCount}
-              payments of ${props?.emiPrice || 299}/
+              {props?.downPaymentAmount} down  & {props?.intervalCount} payments of ${props?.emiPrice || 299}/
               <span className={"font-normal text-sm"}>Month</span>
             </h4>
           </div>
