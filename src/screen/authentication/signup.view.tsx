@@ -11,10 +11,10 @@ export const SignUpView = () => {
     <section className={" flex h-screen justify-center items-center "}>
       <div
         className={
-          "rounded-lg flex flex-col items-center justify-start md:p-[1rem]  p-[1.5rem] bg-white  md:w-[450px] md:h-[600px] w-full h-full "
+          "rounded-lg flex flex-col items-center justify-start md:p-[1rem]  p-[1.5rem] bg-white  md:w-[450px]  w-full h-full "
         }
       >
-        <div className={"mt-3  md:w-[90%] w-full h-[500px]"}>
+        <div className={"mt-3  md:w-[90%] w-full "}>
           <Tooltip title="Back">
             <button
               onClick={useRouter().back}

@@ -92,7 +92,6 @@ export const AccountPackageStep1Form = () => {
   ];
 
   useEffect(() => {
-    debugger
     const myCookieValue = getCookie('accessToken');
     setIsLogin(myCookieValue ? true : false );
   }, []);

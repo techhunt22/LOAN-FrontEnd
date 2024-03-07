@@ -153,6 +153,19 @@ export const SignInForm = () => {
           {isPending ? <Spinner /> : "SIGN IN"}
         </Button>
       </div>
+
+      <div>
+        <Link href={"/authentication/sign-up"}>
+          <Typography
+            variant="small"
+            color="blue"
+            className=" underline font-medium text-center"
+          >
+          Create new account
+          </Typography>
+        </Link>
+
+        </div>
     </form>
   );
 };

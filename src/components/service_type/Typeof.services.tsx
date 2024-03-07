@@ -2,8 +2,20 @@
 import { PersonalUserSVG } from "@/components/svg/personal.user.svg";
 import { BusinessUserSVG } from "@/components/svg/business.user.svg";
 import Link from "next/link";
+import React, {  useEffect,  useState } from "react";
+import { getCookie } from "@/utils/getCookie";
 
 export const TypeofServices = () => {
+  const [isLogin, setIsLogin] = useState<boolean>();
+
+  useEffect(() => {
+    debugger
+    const myCookieValue =   getCookie('accessToken');
+    setIsLogin(myCookieValue ? true : false );
+  }, []);
+
+
+
   return (
     <>
       <div
@@ -12,7 +24,7 @@ export const TypeofServices = () => {
         }
       >
         <Link
-          href={"/onboarding/pcr/sign-up"}
+          href={`${isLogin ? "/onboarding/pcr/pull-report" :"/onboarding/pcr/sign-up"}`}
           className={
             " select-none flex flex-col justify-center items-center rounded-[28px]  hover:ring-1 ring-white  shadow-lg shadow-blue-500/50  boxGradient1st p-2 w-60 h-60"
           }
