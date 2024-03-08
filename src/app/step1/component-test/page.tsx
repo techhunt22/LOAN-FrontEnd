@@ -401,7 +401,7 @@ export default function Page() {
         <Notes content={notesContent} />
         <VideoCard videoContent={videoConten} />
         <ImportantInformation information={information} />
-        <ArrowLineText type="flex flex-col w-[80%] text-center text-gray-700" content="DO YOU HAVE A BUSINESS NAME?" />
+        <ArrowLineText type="flex flex-col w-[auto] text-center text-gray-700" content="DO YOU HAVE A BUSINESS NAME?" />
         <GeneralCard icon="/business-account/search.svg" content="Search secretary of state records" />
         <GotoWebsiteCard content="Variable" icon="/business-account/MyCorporation svg.svg" />
         <EditableContentRecordInvidual invidualRecord={invidualRecords} />

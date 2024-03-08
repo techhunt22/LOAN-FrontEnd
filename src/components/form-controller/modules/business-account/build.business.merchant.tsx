@@ -18,7 +18,7 @@ import toast from "react-hot-toast";
 import { Spinner } from "@material-tailwind/react";
 
 const headerContent = {
-  step: "STPE1",
+  step: "Step 1",
   title: "Fundability Foundation",
   subTitle: "BUSINESS MERCHANT ACCOUNT",
 };

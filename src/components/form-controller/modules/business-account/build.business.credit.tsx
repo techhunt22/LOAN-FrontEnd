@@ -20,7 +20,7 @@ import { Calls } from "@/app/api/calls/type";
 import toast from "react-hot-toast";
 import { Spinner } from "@material-tailwind/react";
 const headerContent = {
-  step: "STPE1",
+  step: "Step 1",
   title: "Fundability Foundation",
   subTitle: "CREATE A BUSINESS NAME",
 };
@@ -80,20 +80,20 @@ export const BuildBusinessCredit = () => {
   };
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6">
         <div className="flex flex-col w-[76%] justify-start mt-6">
           <SubHeader content={headerContent} />
-          <div className="flex flex-col w-full px-2 justify-center items-center content-center mt-6">
+          <div className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white">
             <ArrowLineText
-              type="flex flex-col w-[80%] text-center text-gray-700"
+              type="flex flex-col w-[auto] pt-6 text-center text-gray-700"
               content="DO YOU HAVE A BUSINESS NAME?"
             />
             {/* Vidio card */}
-            <div className="flex flex-row w-full">
-              <div className="flex w-[50%] justify-start">
+            <div className="flex flex-row flex-wrap justify-center business-page-grid-gap-50 w-full mt-[38px]">
+              <div className="flex  justify-start">
                 <VideoCard videoContent={videoConten} />
               </div>
-              <div className="flex w-[50%] justify-end">
+              <div className="flex justify-end">
                 <VideoCard videoContent={videoConten} />
               </div>
             </div>
@@ -106,7 +106,7 @@ export const BuildBusinessCredit = () => {
             {/* line string */}
             <div className="flex w-full my-12 justify-center">
               <ArrowLineText
-                type="flex flex-col w-[80%] text-center text-gray-500"
+                type="flex flex-col w-[] text-center text-gray-500"
                 content="ENTER BUSINESS NAME?"
               />
             </div>
@@ -118,6 +118,7 @@ export const BuildBusinessCredit = () => {
               aria-hidden
               onChange={handleOnChange}
               value={value}
+              style={{ padding: "25px 80px " }}
             />
 
             <div className="flex w-52 mt-4">
@@ -127,8 +128,8 @@ export const BuildBusinessCredit = () => {
             </div>
 
             {/* general cards */}
-            <div className="flex flex-row w-full mt-12">
-              <div className="flex w-[50%] justify-center">
+            <div className="flex flex-row flex-wrap justify-center business-page-grid-gap-124 w-full mt-12">
+              <div className="flex  justify-center">
                 <GeneralCard
                   icon="/business-account/search.svg"
                   content="Search secretary of state records"

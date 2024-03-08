@@ -19,7 +19,7 @@ export const SubFormFooter: React.FC<SubFormFooterProps> = (props) => {
     return (
         <>
             <div className="flex flex-row w-full mt-8">
-                <div className="flex w-full text-gray-400 ml-2 justify-start"><Link href={"#"} >{props.content.content}</Link></div>
+                <div className="business-page-gray-btn"><Link href={"#"} >{props.content.content}</Link></div>
                 <div className="flex w-full justify-end mr-4">
                     {props.content.previous &&
                         <div className="flex w-36 mr-6">
@@ -27,9 +27,9 @@ export const SubFormFooter: React.FC<SubFormFooterProps> = (props) => {
                         </div>
                     }
                     {props.content.next &&
-                        <div className="flex w-36">
+                        <div className="green-btn">
                             {/* <Link href={"/step1/build-business-credit"} > */}
-                                <Button variant="outlined" href={props.content.url} endIcon={<ArrowRight />} color="success" size="small">Next</Button>
+                                <Button style={{border:"none"}}   variant="outlined" href={props.content.url}  endIcon={<ArrowRight />}   color="success" size="small">Next</Button>
                             {/* </Link> */}
                         </div>
                     }

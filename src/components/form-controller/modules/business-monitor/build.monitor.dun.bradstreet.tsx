@@ -23,7 +23,7 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
 const headerContent = {
-  step: "STPE4",
+  step: "Step 4",
   title: "Moniter Business Reports",
   subTitle: "MONITOR D&B",
 };
@@ -187,10 +187,10 @@ export const BuildMonitorDunBradstreet = () => {
             />
             {/* Vidio card */}
             <div className="flex flex-row w-full">
-              <div className="flex w-[50%] justify-start">
+              <div className="flex justify-start">
                 <VideoCard videoContent={videoConten} />
               </div>
-              <div className="flex w-[50%] justify-end">
+              <div className="flex justify-end">
                 <VideoCard videoContent={videoConten1} />
               </div>
             </div>

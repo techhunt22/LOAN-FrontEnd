@@ -18,7 +18,7 @@ const theme = createTheme({
   typography: {
     // fontFamily: roboto.style.fontFamily,
     // fontFamily: "serif"
-    fontFamily: "League Spartan"
+    // fontFamily: "League Spartan"
   },
   components: {
     MuiAlert: {

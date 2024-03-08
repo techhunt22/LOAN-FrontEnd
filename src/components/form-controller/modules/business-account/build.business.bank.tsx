@@ -17,7 +17,7 @@ import { Calls } from "@/api/calls/type";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 const headerContent = {
-  step: "STPE1",
+  step: "Step 1",
   title: "Fundability Foundation",
   subTitle: "BUSINESS BANK ACCOUNT",
 };

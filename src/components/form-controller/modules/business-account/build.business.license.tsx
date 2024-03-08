@@ -13,7 +13,7 @@ import { BlogCardLeft } from "@/components/cards/blog.card";
 import { GotoWebsiteThreeCard } from "@/components/cards/goto.website.three.card";
 import { GeneralCard } from "@/components/cards/general.cad";
 const headerContent = {
-    step: "STPE1",
+    step: "Step 1",
     title: "Fundability Foundation",
     subTitle: "GET BUSINESS LICENSE",
 }

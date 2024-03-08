@@ -24,7 +24,7 @@ import useForm from "new-react-use-form";
 import { useRouter } from "next/navigation";
 
 const headerContent = {
-  step: "STPE1",
+  step: "Step 1",
   title: "Fundability Foundation",
   subTitle: "SET UP BUSINESS EIN#",
 };

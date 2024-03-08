@@ -161,12 +161,12 @@ export const MonitorReportForm = () => {
       <div className="flex flex-col w-full h-max px-6 justify-start border-2 border-blue-600 rounded-2xl pt-8">
         {/* step 1 */}
         <p className="text-blue-500">Step1</p>
-        <div className="flex flex-row w-full pl-2">
-          <div className="flex w-[30rem] justify-start text-md my-2">
-            <h3>Fundability Foundation</h3>
+        <div className="flex flex-row items-center w-full pl-2">
+          <div className="flex w-[30rem] text-2xl justify-start text-md my-2">
+            <h3 className="text-xl font-semibold">Fundability Foundation</h3>
           </div>
-          <div className="flex w-full justify-end">
-            <SquaresPlusIcon className="h-8 text-blue-600" />
+          <div className="flex w-full justify-end h-12">
+            <img src={"/step.png"} alt="" className="max-w-full	 " />
           </div>
         </div>
         {fundability.map((report, index) => (
@@ -186,12 +186,15 @@ export const MonitorReportForm = () => {
         ))}
         {/* step 2 */}
         <p className="text-blue-500">Step2</p>
-        <div className="flex flex-row w-full pl-2">
+        <div className="flex flex-row items-center w-full pl-2">
           <div className="flex w-[30rem] justify-start text-md my-2">
-            <h3>Establish Business Reports</h3>
+            <h3 className="text-xl font-semibold">
+              Establish Business Reports
+            </h3>
           </div>
-          <div className="flex w-full justify-end">
-            <SquaresPlusIcon className="h-8 text-blue-600" />
+          <div className="flex w-full justify-end h-12">
+            {/* <SquaresPlusIcon className="h-8 text-blue-600" /> */}
+            <img src={"/step.png"} alt="" className="max-w-full	 " />
           </div>
         </div>
         {establish.map((report, index) => (
@@ -202,7 +205,7 @@ export const MonitorReportForm = () => {
             key={index}
             onClick={() => handleItemClick(report.url)}
           >
-            <Setting className="text-blue-600" />
+            {/* <Setting className="text-blue-600" /> */}
 
             <Link href={report.url} className="ml-4">
               {report.name}
@@ -211,24 +214,27 @@ export const MonitorReportForm = () => {
         ))}
         {/* step 3 */}
         <p className="text-blue-500">Step3</p>
-        <div className="flex flex-row w-full pl-2">
+        <div className="flex flex-row items-center w-full pl-2">
           <div className="flex w-[30rem] justify-start text-md my-2">
-            <h3>Start Building: </h3>
+            <h3 className="text-xl font-semibold">Start Building: </h3>
           </div>
           <div className="flex w-full justify-end">
             <div className="h-8 text-blue-600">
-              <Link href={"/step7/page1-min"}>Tier1</Link>{" "}
+              <Link className="business-page-tier" href={"/step7/page1-min"}>
+                Tier1
+              </Link>{" "}
             </div>
           </div>
         </div>
         {/* step 4 */}
         <p className="text-blue-500">Step4</p>
-        <div className="flex flex-row w-full pl-2">
+        <div className="flex flex-row items-center w-full pl-2">
           <div className="flex w-[30rem] justify-start text-md my-2">
-            <h3>Monitor Business Reports</h3>
+            <h3 className="text-xl font-semibold">Monitor Business Reports</h3>
           </div>
-          <div className="flex w-full justify-end">
-            <SquaresPlusIcon className="h-8 text-blue-600" />
+          <div className="flex w-full justify-end h-12">
+            {/* <SquaresPlusIcon className="h-8 text-blue-600" /> */}
+            <img src={"/step.png"} alt="" className="max-w-full	 " />
           </div>
         </div>
         {monitor.map((report, index) => (
@@ -247,37 +253,43 @@ export const MonitorReportForm = () => {
         ))}
         {/* step 5 */}
         <p className="text-blue-500">Step5</p>
-        <div className="flex flex-row w-full pl-2">
+        <div className="flex flex-row items-center w-full pl-2">
           <div className="flex w-[30rem] justify-start text-md my-2">
-            <h3>Building Credit: </h3>
+            <h3 className="text-xl font-semibold">Building Credit: </h3>
           </div>
           <div className="flex w-full justify-end">
             <div className="h-8 text-blue-600">
-              <Link href={"/step7/page2-full"}>Tier2 </Link>{" "}
+              <Link href={"/step7/page2-full"} className="business-page-tier">
+                Tier2{" "}
+              </Link>{" "}
             </div>
           </div>
         </div>
         {/* step 6 */}
         <p className="text-blue-500">Step6</p>
-        <div className="flex flex-row w-full pl-2">
+        <div className="flex flex-row items-center w-full pl-2">
           <div className="flex w-[30rem] justify-start text-md my-2">
-            <h3>Advance Building: </h3>
+            <h3 className="text-xl font-semibold">Advance Building: </h3>
           </div>
           <div className="flex w-full justify-end">
             <div className="h-8 text-blue-600">
-              <Link href={"/step7/page3-full"}>Tier3</Link>{" "}
+              <Link href={"/step7/page3-full"} className="business-page-tier">
+                Tier3
+              </Link>{" "}
             </div>
           </div>
         </div>
         {/* step 7 */}
         <p className="text-blue-500">Step7</p>
-        <div className="flex flex-row w-full pl-2">
+        <div className="flex flex-row items-center w-full pl-2">
           <div className="flex w-[30rem] justify-start text-md my-2">
-            <h3>Revolving Account: </h3>
+            <h3 className="text-xl font-semibold">Revolving Account: </h3>
           </div>
           <div className="flex w-full justify-end">
             <div className="h-8 text-blue-600">
-              <Link href={"/step7/page4-full"}>Tier4 </Link>{" "}
+              <Link href={"/step7/page4-full"} className="business-page-tier">
+                Tier4{" "}
+              </Link>{" "}
             </div>
           </div>
         </div>
