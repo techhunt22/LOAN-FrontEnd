@@ -108,6 +108,7 @@ const revolving = [];
 
 export const MonitorReportForm = () => {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
+  const [allUrl, setAllUrl] = useState<DataInterface[]>([]);
   const currentUrl = usePathname();
 
   useEffect(() => {
@@ -156,6 +157,29 @@ export const MonitorReportForm = () => {
     }
   }, [selectedItem, currentUrl]);
 
+  useEffect(() => {
+    let updatedUrl: DataInterface[] = [];
+    const findFundability = fundability.some((item) => item.url === currentUrl);
+    const findEstablish = establish.some((item) => item.url === currentUrl);
+    const findMonitor = monitor.some((item) => item.url === currentUrl);
+    if (findFundability === true) {
+      const index = fundability.findIndex((item) => item.url === currentUrl);
+      const newArray = fundability.slice(0, index + 1);
+      updatedUrl.push(...newArray);
+    } else if (findEstablish === true) {
+      const index = establish.findIndex((item) => item.url === currentUrl);
+      updatedUrl.push(...fundability);
+      const newArray = establish.slice(0, index + 1);
+      updatedUrl.push(...newArray);
+    } else if (findMonitor === true) {
+      const index = monitor.findIndex((item) => item.url === currentUrl);
+      updatedUrl.push(...fundability, ...establish);
+      const newArray = monitor.slice(0, index + 1);
+      updatedUrl.push(...newArray);
+    }
+    setAllUrl(updatedUrl);
+  }, [currentUrl, selectedItem]);
+
   return (
     <>
       <div className="flex flex-col w-full h-max px-6 justify-start border-2 border-blue-600 rounded-2xl pt-8">
@@ -171,13 +195,23 @@ export const MonitorReportForm = () => {
         </div>
         {fundability.map((report, index) => (
           <div
-            className={`flex flex-row my-4 pl-2 w-[30rem] w-full ${
-              selectedItem === report.url ? "text-blue-600" : "text-gray-400"
-            }`}
+            className={
+              "flex flex-row my-4 pl-2 w-[30rem] w-full text-gray-400 items-center"
+            }
             key={index}
             onClick={() => handleItemClick(report.url)}
           >
-            <Setting className="text-blue-600" />
+            {allUrl.some((item) => item.url === report.url) ? (
+              <img src={"/stepactive.jpg"} alt="" className="h-[29px]" />
+            ) : (
+              <img
+                src={"/stepinactive.jpg"}
+                alt=""
+                // height={"29px !important"}
+                className="h-[29px]"
+              />
+            )}
+            {/* <Setting className="text-blue-600" /> */}
 
             <Link href={report.url} className="ml-4">
               {report.name}
@@ -199,12 +233,17 @@ export const MonitorReportForm = () => {
         </div>
         {establish.map((report, index) => (
           <div
-            className={`flex flex-row my-4 pl-2 w-[30rem] w-full ${
-              selectedItem === report.url ? "text-blue-600" : "text-gray-400"
-            }`}
+            className={
+              "flex flex-row my-4 pl-2 w-[30rem] w-full text-gray-400 items-center"
+            }
             key={index}
             onClick={() => handleItemClick(report.url)}
           >
+            {allUrl.some((item) => item.url === report.url) ? (
+              <img src={"/stepactive.jpg"} alt="" className="h-[29px]" />
+            ) : (
+              <img src={"/stepinactive.jpg"} alt="" className="h-[29px]" />
+            )}
             {/* <Setting className="text-blue-600" /> */}
 
             <Link href={report.url} className="ml-4">
@@ -239,13 +278,19 @@ export const MonitorReportForm = () => {
         </div>
         {monitor.map((report, index) => (
           <div
-            className={`flex flex-row my-4 pl-2 w-[30rem] w-full ${
-              selectedItem === report.url ? "text-blue-600" : "text-gray-400"
-            }`}
+            className={
+              "flex flex-row my-4 pl-2 w-[30rem] w-full text-gray-400 items-center"
+            }
             key={index}
             onClick={() => handleItemClick(report.url)}
           >
-            <Setting className="text-blue-600" />
+            {allUrl.some((item) => item.url === report.url) ? (
+              <img src={"/stepactive.jpg"} alt="" className="h-[29px]" />
+            ) : (
+              <img src={"/stepinactive.jpg"} alt="" className="h-[29px]" />
+            )}
+            {/* 
+            <Setting className="text-blue-600" /> */}
             <Link href={report.url} className="ml-4">
               {report.name}
             </Link>
