@@ -114,8 +114,8 @@ export const Package = () => {
               <Normal
               imgUrl={"/module/one/red.png"}
               name={data?.data[0]?.name}
-              fullPrice={data?.data[0]?.pricing.fullPrice}
-              emiPrice={data?.data[0]?.pricing.emiPrice}
+              fullPrice={data?.data[0]?.pricing.fullPrice.$numberDecimal}
+              emiPrice={data?.data[0]?.pricing.emiPrice.$numberDecimal}
               validity={data?.data[0]?.pricing.intervalCount}
               bulletPoints={data?.data[0]?.bulletPoints}
               downPaymentAmount={data?.data[0]?.pricing.downPaymentAmount}
@@ -126,8 +126,8 @@ export const Package = () => {
             <Featured
               imgUrl={"/module/one/blue.png"}
               name={data?.data[1]?.name}
-              fullPrice={data?.data[1]?.pricing.fullPrice}
-              emiPrice={data?.data[1]?.pricing.emiPrice}
+              fullPrice={data?.data[1]?.pricing.fullPrice.$numberDecimal}
+              emiPrice={data?.data[1]?.pricing.emiPrice.$numberDecimal}
               validity={data?.data[1]?.pricing.intervalCount}
               bulletPoints={data?.data[1]?.bulletPoints}
               downPaymentAmount={data?.data[1]?.pricing.downPaymentAmount}
@@ -137,8 +137,8 @@ export const Package = () => {
             <Normal
               imgUrl={"/module/one/green.png"}
               name={data?.data[2]?.name}
-              fullPrice={data?.data[2]?.pricing.fullPrice}
-              emiPrice={data?.data[2]?.pricing.emiPrice}
+              fullPrice={data?.data[2]?.pricing.fullPrice.$numberDecimal}
+              emiPrice={data?.data[2]?.pricing.emiPrice.$numberDecimal}
               validity={data?.data[2]?.pricing.intervalCount}
               bulletPoints={data?.data[2]?.bulletPoints}
               downPaymentAmount={data?.data[2]?.pricing.downPaymentAmount}
