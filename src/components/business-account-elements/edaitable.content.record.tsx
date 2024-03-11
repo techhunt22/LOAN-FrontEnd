@@ -34,10 +34,10 @@ export const EditableContentRecord: React.FC<EditableContentRecordProps> = (
         {/* title */}
         {props.records.title !== "" && (
           <div className="flex flex-row w-full">
-            <div className="flex w-[50%] justify-start text-xl">
+            <div className="flex w-[50%] justify-start  text-base font-semibold">
               {props.records.title}
             </div>
-            <div className="flex w-full justify-end text-lg text-green-500">
+            <div className="flex  justify-end font-medium text-base   business-page-edit-btn ">
               {props.records.method}
             </div>
           </div>

@@ -160,12 +160,17 @@ export const BuildBusinessAddress = () => {
   };
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 bg-[#f9f9f9] gap-6 rounded-2xl">
         <div className="flex flex-col w-[76%] justify-start mt-6">
           <SubHeader content={headerContent} />
-          <div className="flex flex-col w-full px-2 justify-center items-center content-center mt-6">
+          <div
+            style={{
+              boxShadow: "2px 4px 12px 0px #a3a3a324",
+            }}
+            className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white"
+          >
             <ArrowLineText
-              type="flex flex-col w-[80%] text-center text-gray-700"
+              type="flex flex-col w-[auto]  pt-6 text-center text-gray-700"
               content="DO YOU HAVE A BUSINESS ADDRESS?"
             />
             {/* Vidio card */}
@@ -191,10 +196,10 @@ export const BuildBusinessAddress = () => {
             </div>
             {/* acknowledge the following */}
             <div className="flex flex-col w-[75%]">
-              <div className="flex ml-3 text-blue-gray-600 text-lg">
+              <div className="flex  text-blue-gray-600 text-base font-bold	business-page-checkbbox-heading-color">
                 <p>I Acknwledge The Following:</p>
               </div>
-              <div className="flex flex-row mt-4 text-gray-400">
+              {/* <div className="flex flex-row mt-4 text-gray-400">
                 <CheckBox color="primary" />
                 <div className="flex flex-col ml-2">
                   <p>
@@ -211,11 +216,35 @@ export const BuildBusinessAddress = () => {
                     physical business address.{" "}
                   </p>
                 </div>
-              </div>
+</div> */}
+              <form className="business-page-checkbox-form">
+                <div className="flex items-center">
+                  <input type="checkbox" name="" id="" className="mb-5" />
+                  <label>
+                    The business shouldn't use any type of PO Box as the
+                    physical business address. Lenders typically view this
+                    typeof address as higher risk.
+                  </label>
+                </div>
+                <div className="flex items-center">
+                  <input type="checkbox" name="" id="" className="mb-5" />
+                  <label>
+                    My business address is the main business address. The same
+                    business address should be used on ALL business records.
+                  </label>
+                </div>
+                <div className="flex items-center">
+                  <input type="checkbox" name="" id="" />
+                  <label>
+                    A business can use a residential address as the business
+                    address
+                  </label>
+                </div>
+              </form>
             </div>
 
             {/* save buttong */}
-            <div className="flex w-52 mt-4">
+            <div className="flex  w-80  business-save-btn  mt-10">
               <Button
                 placeholder="save the address"
                 color="success"
@@ -225,7 +254,7 @@ export const BuildBusinessAddress = () => {
               </Button>
             </div>
             {/* Bolg section */}
-            <div className="flex w-[80%] my-12">
+            <div className="flex w-[90%] my-12 business-page-banner-bg-color">
               <BlogCardLeft content={contentBlogCardLeft} />
             </div>
 
@@ -235,20 +264,20 @@ export const BuildBusinessAddress = () => {
             </div>
 
             {/* Website cards */}
-            <div className="flex flex-row w-full mt-12">
-              <div className="flex w-[33%] justify-center">
+            <div className="flex flex-row flex-wrap justify-center business-page-grid-gap-22  mt-12">
+              <div className="flex  justify-center">
                 <GotoWebsiteThreeCard
                   content="Varies"
                   icon="/business-account/Phone.svg"
                 />
               </div>
-              <div className="flex w-[33%] justify-center">
+              <div className="flex  justify-center">
                 <GotoWebsiteThreeCard
                   content="Varies"
                   icon="/business-account/RingCentral.svg"
                 />
               </div>
-              <div className="flex w-[33%] justify-center">
+              <div className="flex  justify-center">
                 <GotoWebsiteThreeCard
                   content="Varies"
                   icon="/business-account/MyCorporation.svg"

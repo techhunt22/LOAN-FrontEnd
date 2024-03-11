@@ -129,19 +129,24 @@ export const BuildBusinessEmail = () => {
   };
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6">
         <div className="flex flex-col w-[76%] justify-start mt-6">
           <SubHeader content={headerContent} />
-          <div className="flex flex-col w-full px-2 justify-center items-center content-center mt-6">
+          <div
+            style={{
+              boxShadow: "2px 4px 12px 0px #a3a3a324",
+            }}
+            className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white"
+          >
             <ArrowLineText
-              type="flex flex-col w-[80%] text-center text-gray-700"
+              type="flex flex-col w-[auto] pt-6 text-center text-gray-700"
               content="DOES YOUR BUSINESS HAVE A WEBSITE & EMAIL?"
             />
             {/* Vidio card */}
             <VideoCard videoContent={videoConten} />
 
             {/* Bolg section */}
-            <div className="flex w-[80%] my-12">
+            <div className="flex w-[90%] business-page-banner-bg-color my-12">
               <BlogEmailCardLeft content={contentBlogCardLeft} />
             </div>
 
@@ -157,7 +162,7 @@ export const BuildBusinessEmail = () => {
             </div>
 
             {/* save buttong */}
-            <div className="flex w-52 mt-4 ml-80">
+            <div className="flex w-80  business-save-btn  mt-4 ml-80">
               <Button
                 placeholder="save the address"
                 color="success"
@@ -173,34 +178,34 @@ export const BuildBusinessEmail = () => {
             </div>
 
             {/* Website cards */}
-            <div className="flex flex-row w-full mt-12">
-              <div className="flex w-[33%] justify-center">
+            <div className="flex flex-row w-full flex-wrap justify-center  business-page-grid-gap-22 mt-12">
+              <div className="flex justify-center">
                 <GotoWebsiteThreeCard
                   content="Varies"
                   icon="/business-account/Phone.svg"
                 />
               </div>
-              <div className="flex w-[33%] justify-center">
+              <div className="flex  justify-center">
                 <GotoWebsiteThreeCard
                   content="Varies"
                   icon="/business-account/RingCentral.svg"
                 />
               </div>
-              <div className="flex w-[33%] justify-center">
+              <div className="flex  justify-center">
                 <GotoWebsiteThreeCard
                   content="Varies"
                   icon="/business-account/MyCorporation.svg"
                 />
               </div>
             </div>
-            <div className="flex flex-row w-full mt-12">
-              <div className="flex w-[50%] justify-end mr-4">
+            <div className="flex flex-row w-full flex-wrap justify-center business-page-grid-gap-22  mt-8">
+              <div className="flex  justify-">
                 <GotoWebsiteThreeCard
                   content="Varies"
                   icon="/business-account/Phone.svg"
                 />
               </div>
-              <div className="flex w-[50%] justify-start ml-4">
+              <div className="flex  justify-start">
                 <GotoWebsiteThreeCard
                   content="Varies"
                   icon="/business-account/RingCentral.svg"

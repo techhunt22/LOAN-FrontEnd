@@ -25,8 +25,8 @@ export const EditableContentRecord: React.FC<EditableContentRecordProps> = (prop
                 {/* title */}
                 {props.records?.title !== "" &&
                     <div className="flex flex-row w-full">
-                        <div className="flex w-[50%] justify-start text-xl">{props?.records?.title}</div>
-                        <div className="flex w-full justify-end text-lg text-green-500">{props?.records?.method}</div>
+                        <div className="flex w-[50%] justify-start text-base font-semibold">{props?.records?.title}</div>
+                        <div className="flex w-full justify-end text-base  font-medium text-green-500">{props?.records?.method}</div>
                     </div>
                 }
                 {props?.records?.invidualRecords?.map((invidualRecord) => {

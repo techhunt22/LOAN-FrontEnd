@@ -13,53 +13,60 @@ import { BlogCardLeft } from "@/components/cards/blog.card";
 import { GotoWebsiteThreeCard } from "@/components/cards/goto.website.three.card";
 
 const headerContent = {
-    step: "Step 1",
-    title: "Fundability Foundation",
-    subTitle: "WRAP ALL",
-}
+  step: "Step 1",
+  title: "Fundability Foundation",
+  subTitle: "WRAP ALL",
+};
 
 const videoConten = {
-    title: "Watch Video Transcript:",
-    videoUrl: "/business-account/address.png",
-    content: "MAKE SURE YOU ALL LISTS RECORD ARE CORRECT",
-}
-
+  title: "Watch Video Transcript:",
+  videoUrl: "/business-account/address.png",
+  content: "MAKE SURE YOU ALL LISTS RECORD ARE CORRECT",
+};
 
 const footerContent = {
-    content: "Return To Business Credit Builder",
-    previous: true,
-    next: true,
-    url: "/step1/monitor-report",
-    preUrl: "/step1/build-business-merchant",
-}
+  content: "Return To Business Credit Builder",
+  previous: true,
+  next: true,
+  url: "/step1/monitor-report",
+  preUrl: "/step1/build-business-merchant",
+};
 
 export const BuildBusinessWrap = () => {
-    return (
-        <>
-            <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl">
+  return (
+    <>
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6">
+        <div className="flex flex-col w-[76%] justify-start mt-6">
+          <SubHeader content={headerContent} />
+          <div
+            style={{
+              boxShadow: "2px 4px 12px 0px #a3a3a324",
+            }}
+            className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white"
+          >
+            <ArrowLineText
+              type="flex flex-col pt-6 w-[auto]  text-center text-gray-700"
+              content="DO ALL BUSINESS RECORDS LIST THE CORRECT BUSINESS NAME, ADDRESS, OWNERSHOP AND CONTRACT INFORMATION?"
+            />
+            {/* Vidio card */}
+            <VideoCard videoContent={videoConten} />
 
-                <div className="flex flex-col w-[76%] justify-start mt-6">
-                    <SubHeader content={headerContent} />
-                    <div className="flex flex-col w-full px-2 justify-center items-center content-center mt-6">
-                        <ArrowLineText type="flex flex-col w-[80%] text-center text-gray-700" content="DO ALL BUSINESS RECORDS LIST THE CORRECT BUSINESS NAME, ADDRESS, OWNERSHOP AND CONTRACT INFORMATION?" />
-                        {/* Vidio card */}
-                        <VideoCard videoContent={videoConten} />
-
-                        <div className="flex text-[5rem] text-green-400">TAHNK YOU!</div>
-                        <div className="flex text-2xl text-blue-400 my-4">INFORMATION RECEIVED</div>
-                        <div className="flex text-xl text-green-400 mb-12">You Can Success Fully Move To 2nd Step</div>
-
-                        
-                        {/* footer  */}
-                        <SubFormFooter content={footerContent} />
-                    </div>
-                </div>
-                <div className="flex w-[24%]">
-                    <MonitorReportForm />
-                </div>
-
+            <div className="flex font-85 text-green-400">TAHNK YOU!</div>
+            <div className="flex text-base font-semibold  text-blue-400 my-4">
+              INFORMATION RECEIVED
+            </div>
+            <div className="flex text-base font-semibold text-green-400 mb-12">
+              You Can Success Fully Move To 2nd Step
             </div>
 
-        </>
-    );
+            {/* footer  */}
+            <SubFormFooter content={footerContent} />
+          </div>
+        </div>
+        <div className="flex w-[24%]">
+          <MonitorReportForm />
+        </div>
+      </div>
+    </>
+  );
 };

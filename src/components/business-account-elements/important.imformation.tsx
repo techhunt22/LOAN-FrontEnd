@@ -21,12 +21,10 @@ export const ImportantInformation: React.FC<IImportantInformationProps> = (
             className={`business-page-info-icon bg-${props.information.color}-500 rounded-full text-center ml-2 mr-4`}
           ></div> */}
           <div className="business-page-heading-info">
-            <p>
-              {props.information.title}{" "}
-              <span className="text-sm text-gray-700">
-                {props.information.content}
-              </span>
-            </p>
+            <p>{props.information.title}</p>
+            <span className="text-sm text-gray-700">
+              {props.information.content}
+            </span>
           </div>
         </div>
       </div>

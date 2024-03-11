@@ -30,7 +30,7 @@ export const VideoCard: React.FC<VideoCardProps> = (props) => {
               className=" rounded-xl"
             />
             <div className="flex flex-col h-full justify-center  content-center items-center w-full relative gap-[10px]">
-              <div className="flex w-[80%] text-base font-semibold justify-center items-center bg-blue-500 p-2 rounded-lg mx-[12] text-white">
+              <div className="flex w-[80%] text-base font-semibold justify-center items-center business-page-bg-blue p-2 rounded-lg mx-[12] text-white">
                 {props.videoContent.content}
               </div>
               {/* <Image src="/business-account/bank.svg" objectFit="contain" alt="" width={40} height={40} /> */}

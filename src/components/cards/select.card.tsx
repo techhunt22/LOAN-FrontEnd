@@ -21,9 +21,9 @@ export const SelectCard: React.FC<SelectCardProps> = (props) => {
         {/* Please indicate your response(Yes or No) for both of the following questionsbefore proceeding. */}
         {props.content.title}
       </div>
-      <div className="flex w-full flex-row">
-        <div className="flex ml-4 justify-start w-max">
-          <div className="flex flex-col  w-64 h-52 justify-center content-center ">
+      <div className="flex w-full flex-row flex-wrap justify-center mt-10  gap-20 ">
+        <div className="flex ml-4 justify-start ">
+          <div className="flex flex-col  w-64 h-52 justify-center content-center  business-entry-page-indicatesection  ">
             <div className="flex w-full pt-6 px-4 justify-center content-center h-32">
               {props.content.contents1}
             </div>
@@ -49,8 +49,8 @@ export const SelectCard: React.FC<SelectCardProps> = (props) => {
             </div>
           </div>
         </div>
-        <div className="flex mr-4 justify-end w-full">
-          <div className="flex flex-col w-64 h-52 justify-center content-center ">
+        <div className="flex mr-4 justify-end ">
+          <div className="flex flex-col w-64 h-52 justify-center content-center   business-entry-page-indicatesection">
             <div className="flex w-full pt-6 px-4 justify-center content-center h-32">
               {props.content.contents2}
             </div>

@@ -68,9 +68,9 @@ export const EditableContentRecordInvidual: React.FC<
   console.log(props.invidualRecord.contents);
   return (
     <>
-      <div className="flex flex-col w-full justify-center content-center items-center">
+      <div className="flex flex-col w-full justify-center content-center items-center ">
         {props.invidualRecord.title !== "" && (
-          <div className="flex flex-row w-full justify-start mt-4">
+          <div className="flex flex-row w-full justify-start mt-4 ">
             {props.invidualRecord.icon !== "" && (
               <Image
                 src={props.invidualRecord.icon}
@@ -89,11 +89,11 @@ export const EditableContentRecordInvidual: React.FC<
             console.log(content);
 
             return (
-              <div className="flex flex-row mt-6 justify-end">
+              <div className="flex flex-row mt-6 justify-end  business-page-from-box relative ">
                 {content.iconName !== "arrow" &&
                   content.iconName !== "date" && (
                     <input
-                      className="w-full "
+                      className="w-full business-page-from-input "
                       placeholder={content.recordName}
                       value={
                         value !== undefined ? value[value[key]?.name] : value
@@ -106,10 +106,11 @@ export const EditableContentRecordInvidual: React.FC<
                   )}
                 {content.iconName === "arrow" && (
                   <select
-                    className={`w-full ${
+                    className={`w-full business-page-from-input ${
                       !editable[key] ? "text-gray-100  bg-gray-100" : ""
                     } appearance-none`}
                     key={key}
+                    placeholder={content.recordName}
                     disabled={!editable[key]}
                     onChange={(event) => handleChange(event, key)}
                     value={
@@ -128,7 +129,7 @@ export const EditableContentRecordInvidual: React.FC<
                 {content.iconName === "date" && (
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <MobileDatePicker
-                      className={`w-full ${
+                      className={`w-full business-page-from-input ${
                         !editable[key] ? "text-gray-100  bg-gray-100" : ""
                       } appearance-none`}
                       disabled={!editable[key]}
@@ -136,18 +137,27 @@ export const EditableContentRecordInvidual: React.FC<
                         border: editable[key]
                           ? "1px solid black !important"
                           : 0,
-                        "& .mui-1mxettm-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before":
-                          {
-                            borderBottom: "0px !important",
-                          },
-                        "& .mui-1mxettm-MuiInputBase-root-MuiInput-root:before":
-                          {
-                            borderBottom: "0px !important",
-                          },
-                        "& .mui-1mxettm-MuiInputBase-root-MuiInput-root:after":
-                          {
-                            borderBottom: "0px !important",
-                          },
+                        "& :hover:not(.Mui-disabled, .Mui-error):before": {
+                          borderBottom: "0px !important",
+                        },
+                        "& :before": {
+                          borderBottom: "0px !important",
+                        },
+                        "& :after": {
+                          borderBottom: "0px !important",
+                        },
+                        "& input": {
+                          width: "100%",
+                          padding: "35px 41px",
+                          border: "1px solid #EFEFEF",
+                          borderRadius: "13px",
+                        },
+                        "& input::placeholder": {
+                          fontSize: "16px",
+                          fontWeight: 400,
+                          listStyle: "18px",
+                          color: "#333333",
+                        },
                       }}
                       value={selectedDate}
                       onChange={handleDateChange}

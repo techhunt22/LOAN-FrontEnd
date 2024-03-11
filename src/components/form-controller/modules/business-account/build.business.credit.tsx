@@ -83,7 +83,12 @@ export const BuildBusinessCredit = () => {
       <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6">
         <div className="flex flex-col w-[76%] justify-start mt-6">
           <SubHeader content={headerContent} />
-          <div className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white">
+          <div
+            style={{
+              boxShadow: "2px 4px 12px 0px #a3a3a324",
+            }}
+            className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white"
+          >
             <ArrowLineText
               type="flex flex-col w-[auto] pt-6 text-center text-gray-700"
               content="DO YOU HAVE A BUSINESS NAME?"
@@ -104,9 +109,9 @@ export const BuildBusinessCredit = () => {
             </div>
 
             {/* line string */}
-            <div className="flex w-full my-12 justify-center">
+            <div className="flex w-full my-12 justify-center px-5">
               <ArrowLineText
-                type="flex flex-col w-[] text-center text-gray-500"
+                type="flex flex-col w-[] text-center text-gray-500 px-5"
                 content="ENTER BUSINESS NAME?"
               />
             </div>
@@ -118,10 +123,10 @@ export const BuildBusinessCredit = () => {
               aria-hidden
               onChange={handleOnChange}
               value={value}
-              style={{ padding: "25px 80px " }}
+              style={{ padding: "25px 0px " }}
             />
 
-            <div className="flex w-52 mt-4">
+            <div className="flex  w-80  business-save-btn  mt-4">
               <Button type="button" onClick={onSubmit} color="success">
                 {isPending ? <Spinner /> : "SAVE"}
               </Button>
@@ -135,7 +140,7 @@ export const BuildBusinessCredit = () => {
                   content="Search secretary of state records"
                 />
               </div>
-              <div className="flex w-[50%] justify-center">
+              <div className="flex  justify-center">
                 <GeneralCard
                   icon="/business-account/Card.svg"
                   content="View Finance restricted industries"
@@ -149,14 +154,14 @@ export const BuildBusinessCredit = () => {
             </div>
 
             {/* Website cards */}
-            <div className="flex flex-row w-full mt-12">
-              <div className="flex w-[50%] justify-center">
+            <div className="flex flex-row w-full mt-12 flex-wrap justify-center gap-20">
+              <div className="flex justify-center">
                 <GotoWebsiteCard
                   content="Varies"
                   icon="/business-account/NorthOne.svg"
                 />
               </div>
-              <div className="flex w-[50%] justify-center">
+              <div className="flex  justify-center">
                 <GotoWebsiteCard
                   content="Varies"
                   icon="/business-account/MyCorporation.svg"

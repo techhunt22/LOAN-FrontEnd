@@ -10,11 +10,13 @@ export const SubHeader: React.FC<SubHeaderProps> = (props) => {
   return (
     <>
       <div className="flex flex-col w-full">
-        <div className="flex ml-[-1.5rem] p-3 bg-blue-100 rounded-r-full text-blue-700 text-2xl h-max w-[100px]">
+        <div className="flex ml-[-1.5rem] p-4 bg-blue-100 rounded-r-full text-blue-700 text-3xl h-max w-32">
           {props.content.step}
         </div>
         <div className="flex w-full justify-center  mt-[-2.5rem]">
-          <h1 className="text-2xl font-bold">{props.content.title}</h1>
+          <h1 className="text-2xl  font-bold  business-page-text-color-black">
+            {props.content.title}
+          </h1>
         </div>
         <div className="flex w-full mt-5 text-2xl text-gray-300 mt-4 items-center">
           <span className="mt-[-0.9rem] mr-">.........</span>&gt;

@@ -91,12 +91,17 @@ export const BuildBusinessBank = () => {
   };
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6">
         <div className="flex flex-col w-[76%] justify-start mt-6">
           <SubHeader content={headerContent} />
-          <div className="flex flex-col w-full px-2 justify-center items-center content-center mt-6">
+          <div
+            style={{
+              boxShadow: "2px 4px 12px 0px #a3a3a324",
+            }}
+            className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white"
+          >
             <ArrowLineText
-              type="flex flex-col w-[80%] text-center text-gray-700"
+              type="flex flex-col w-[auto] pt-6 text-center text-gray-700"
               content="DO YOU HAVE A BUSINESS BANK ACCOUNT?"
             />
             {/* Vidio card */}
@@ -117,7 +122,7 @@ export const BuildBusinessBank = () => {
             </div>
 
             {/* save buttong */}
-            <div className="flex w-52 mt-4 ml-80">
+            <div className="flex w-80 business-save-btn mt-4 ml-80">
               <Button
                 placeholder="save the address"
                 color="success"
