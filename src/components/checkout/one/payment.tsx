@@ -74,6 +74,7 @@ export const ModuleOneCheckOut: React.FC<ModuleOneCheckOut> = (props) => {
     form.set("paymentType", "emi");
     useData.refetch();
   };
+  const numericValue = parseFloat(useData?.data?.total.$numberDecimal);
 
   return (
     <form
@@ -92,11 +93,11 @@ export const ModuleOneCheckOut: React.FC<ModuleOneCheckOut> = (props) => {
           <h4 className={"text-[16px] font-medium"}>Payment Recap </h4>
           <div className={"flex flex-row w-full justify-between "}>
             <p>{useData?.data?.name}</p>
-            <p>${useData?.data?.total}</p>
+            <p>${numericValue}</p>
           </div>
           <div className={"flex flex-row w-full justify-between "}>
             <p>Grand Total</p>
-            <p>${useData?.data?.total}</p>
+            <p>${numericValue}</p>
           </div>
         </div>
       </div>

@@ -59,8 +59,8 @@ export namespace Calls {
     export interface DocsUploads extends BaseResponse {}
     export interface PFAccount extends BaseResponse {}
     interface Pricing {
-      fullPrice: number;
-      emiPrice: number;
+      fullPrice: any;
+      emiPrice: any;
       intervalType: string;
       intervalCount: number;
     }

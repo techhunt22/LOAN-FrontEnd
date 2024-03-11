@@ -1,7 +1,12 @@
 "use client";
 // @ts-ignore
 // import useForm from "new-react-use-form";
-import React, { FormEventHandler, useEffect, useLayoutEffect, useState } from "react";
+import React, {
+  FormEventHandler,
+  useEffect,
+  useLayoutEffect,
+  useState,
+} from "react";
 
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { ApiCalls } from "@/api/calls/calls";
@@ -92,10 +97,9 @@ export const AccountPackageStep1Form = () => {
   ];
 
   useEffect(() => {
-    const myCookieValue = getCookie('accessToken');
-    setIsLogin(myCookieValue ? true : false );
+    const myCookieValue = getCookie("accessToken");
+    setIsLogin(myCookieValue ? true : false);
   }, []);
-
 
   const { data, isLoading } =
     useQuery<Calls.IResponse.ModuleOnePackageResponse>({
@@ -153,7 +157,11 @@ export const AccountPackageStep1Form = () => {
   }, [isPending]);
 
   const linksButton = data && data?.data[3]?.bulletPoints;
-
+  const numericFullValue = parseFloat(
+    data?.data[3]?.pricing.fullPrice.$numberDecimal
+  );
+  const numericEmiValue = parseFloat(data?.data[3]?.pricing?.emiPrice.$numberDecimal);
+  
   return (
     <>
       {isLoading ? (
@@ -215,14 +223,14 @@ export const AccountPackageStep1Form = () => {
             <div className="flex flex-col p-10 w-[400px] justify-center content-center items-center border border-gray-300 pt-[11rem] mt-[-10.5rem] rounded-b-[5rem]">
               <div className="flex md:w-[80%] text-gray-700 gap-3.5  justify-center content-center items-center space-y-[-0.5rem] mt-3">
                 <span className="text-3xl text-[#434343] font-bold">
-                  ${data?.data[3]?.pricing.fullPrice || 0}
+                  ${numericFullValue || 0}
                 </span>
                 <span className="text-5xl border border-[#2684FF] rotate-[28deg] h-[45px]" />
                 {/* $ {Number(data?.data[3]?.emiPrice) * Number(data?.data[3]?.pricing.intervalCount) -
                   Number(data?.data[3]?.fullPrice)}  */}
                 <span className="text-sm text-[#434343] font-regular">
                   One Time Payment <br /> (Save You $200
-                   {/* {Number(data?.data[3]?.pricing?.emiPrice || 0) * Number(data?.data[3]?.pricing?.intervalCount || 0) -  Number(data?.data[3]?.pricing?.fullPrice || 0)
+                  {/* {Number(data?.data[3]?.pricing?.emiPrice || 0) * Number(data?.data[3]?.pricing?.intervalCount || 0) -  Number(data?.data[3]?.pricing?.fullPrice || 0)
                     } */}
                   )
                 </span>
@@ -238,8 +246,7 @@ export const AccountPackageStep1Form = () => {
                 </h1>
               </div>
               <div className="text-[#151414] text-[15px] mt-2">
-                ${data?.data[3]?.pricing.downPaymentAmount || 0} Down Payment
-                And {Number(data?.data[3]?.pricing?.emiPrice || 0)} Monthly
+              {Number(numericEmiValue|| 0)} Monthly             
               </div>
 
               <div

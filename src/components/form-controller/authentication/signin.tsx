@@ -38,18 +38,14 @@ export const SignInForm = () => {
         expires: 7,
         path: "/",
         secure: false,
-		domain: "54.87.77.177", // specify the IP or domain
-		sameSite: "None", // allow cross-site access
       });
       Cookies.set("refreshToken", r.refreshToken, {
         expires: 30,
         path: "/",
         secure: false,
-		domain: "54.87.77.177", // specify the IP or domain
-  sameSite: "None", // allow cross-site access
       });
       if (r?.urlPath != null) {
-        router.replace(r?.urlPath);
+        router.replace("/");
       }
     },
     onError: (e) => handleFormError(e as any, form),

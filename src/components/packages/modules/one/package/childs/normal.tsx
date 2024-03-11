@@ -6,8 +6,8 @@ import { BulletPoints } from "@/components/packages/modules/one/package/childs/b
 interface NormalProps {
   imgUrl?: string;
   name?: string;
-  fullPrice?: number;
-  emiPrice?: number;
+  fullPrice?: any;
+  emiPrice?: any;
   validity?: number;
   downPaymentAmount?: number;
   intervalCount?: number;
@@ -19,6 +19,9 @@ interface NormalProps {
   Blue?: any;
 }
 export const Normal: React.FC<NormalProps> = (props) => {
+  const numericFullValue = parseFloat(props?.fullPrice);
+  const numericEmiValue = parseFloat(props?.emiPrice);
+  
   return (
     <>
       <div
@@ -37,14 +40,16 @@ export const Normal: React.FC<NormalProps> = (props) => {
             </h3>
             <div className={"text-white flex flex-row items-center"}>
               <h2 className={" align-top font-extrabold text-[50px]"}>
-                ${props?.fullPrice || 999}
+                ${numericFullValue || 999}
               </h2>
               <p className={"ml-3 text-base font-medium w-[185px]"}>
                 One time payment saves you{" "}
                 <span className={"font-bold"}>
                   $
                   {/* { Number(props?.fullPrice) - Number(props?.emiPrice) * Number(props?.validity)} */}
-                  {(Number(props?.downPaymentAmount) + (Number(props?.emiPrice) ) * (Number(props?.validity))) - Number(props?.fullPrice)}
+                  {Number(props?.downPaymentAmount) +
+                    Number(numericEmiValue) * Number(props?.validity) -
+                    Number(numericFullValue)}
                 </span>
               </p>
             </div>
@@ -56,7 +61,8 @@ export const Normal: React.FC<NormalProps> = (props) => {
               OR
             </div>
             <h4 className={"mt-2 text-[18px] font-bold  text-white w-[197px]"}>
-              {props?.downPaymentAmount} down  & {props?.intervalCount} payments of ${props?.emiPrice || 299}/
+              {props?.intervalCount} payments
+              of ${numericEmiValue || 299}/
               <span className={"font-normal text-sm"}>Month</span>
             </h4>
           </div>
