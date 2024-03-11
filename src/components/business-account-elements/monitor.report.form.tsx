@@ -202,10 +202,10 @@ export const MonitorReportForm = () => {
             onClick={() => handleItemClick(report.url)}
           >
             {allUrl.some((item) => item.url === report.url) ? (
-              <img src={"/stepactive.jpg"} alt="" className="h-[29px]" />
+              <img src={"/stepactive.png"} alt="" className="h-[29px]" />
             ) : (
               <img
-                src={"/stepinactive.jpg"}
+                src={"/stepinactive.png"}
                 alt=""
                 // height={"29px !important"}
                 className="h-[29px]"
@@ -240,9 +240,9 @@ export const MonitorReportForm = () => {
             onClick={() => handleItemClick(report.url)}
           >
             {allUrl.some((item) => item.url === report.url) ? (
-              <img src={"/stepactive.jpg"} alt="" className="h-[29px]" />
+              <img src={"/stepactive.png"} alt="" className="h-[29px]" />
             ) : (
-              <img src={"/stepinactive.jpg"} alt="" className="h-[29px]" />
+              <img src={"/stepinactive.png"} alt="" className="h-[29px]" />
             )}
             {/* <Setting className="text-blue-600" /> */}
 
@@ -285,9 +285,9 @@ export const MonitorReportForm = () => {
             onClick={() => handleItemClick(report.url)}
           >
             {allUrl.some((item) => item.url === report.url) ? (
-              <img src={"/stepactive.jpg"} alt="" className="h-[29px]" />
+              <img src={"/stepactive.png"} alt="" className="h-[29px]" />
             ) : (
-              <img src={"/stepinactive.jpg"} alt="" className="h-[29px]" />
+              <img src={"/stepinactive.png"} alt="" className="h-[29px]" />
             )}
             {/* 
             <Setting className="text-blue-600" /> */}
