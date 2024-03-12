@@ -87,7 +87,7 @@ const recordsType = {
 };
 
 const contentBlogCardLeft = {
-  picture: "/business-account/business-address.png",
+  picture: "/business-account/estho.png",
   title: "ESTABLISH A BUSINESS ADDRESS",
   content:
     "It’s important for a business to have a business address.In order to have a strong business foundation, your business should use a physical business address. Most lenders prefer that you have a business address but, you can use your residential address.",
