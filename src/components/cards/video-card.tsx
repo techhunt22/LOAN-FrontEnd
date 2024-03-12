@@ -11,13 +11,18 @@ interface VideoCardProps {
     videoUrl: string;
     content: string;
   };
+  multiVideoCard?: string;
 }
 
 export const VideoCard: React.FC<VideoCardProps> = (props) => {
   return (
     <>
       <div className="flex w-full justify-center m-4">
-        <div className="flex flex-col w-80 h-[208px] justify-center">
+        <div
+          className={`flex flex-col w-80 h-[208px] justify-center ${
+            props.multiVideoCard ? "videoCard" : ""
+          }`}
+        >
           <h2 className="flex  text-xs font-semibold business-page-text-color-green  mb-3">
             {props.videoContent.title}
           </h2>

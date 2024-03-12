@@ -91,7 +91,7 @@ export const BuildBusinessBank = () => {
   };
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main">
         <div className="flex flex-col w-[76%] justify-start mt-6">
           <SubHeader content={headerContent} />
           <div
@@ -105,7 +105,9 @@ export const BuildBusinessBank = () => {
               content="DO YOU HAVE A BUSINESS BANK ACCOUNT?"
             />
             {/* Vidio card */}
-            <VideoCard videoContent={videoConten} />
+            <VideoCard
+              videoContent={videoConten}
+            />
 
             {/* Bolg section */}
             <div className="flex w-[80%] my-12">

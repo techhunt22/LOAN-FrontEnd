@@ -161,7 +161,7 @@ export const BuildBusinessEntry = () => {
   };
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main">
         <div className="flex flex-col w-[76%] justify-start mt-6">
           <SubHeader content={headerContent} />
           <div
@@ -201,7 +201,7 @@ export const BuildBusinessEntry = () => {
               />
             </div>
             {/* save buttong */}
-            <div className="flex w-80  business-save-btn mt-4">
+            <div className="flex w-80  business-save-btn  my-[80px]">
               <Button
                 placeholder="save the address"
                 color="success"
@@ -211,19 +211,19 @@ export const BuildBusinessEntry = () => {
               </Button>
             </div>
             {/* Bolg section */}
-            <div className="flex w-[90%] business-page-banner-bg-color my-12">
+            <div className="flex w-[90%] business-page-banner-bg-color">
               <BlogCardLeft content={contentBlogCardLeft} />
             </div>
 
             {/* general card */}
-            <div className="flex flex-row w-[85%] mt-12">
-              <div className="flex w-[50%] justify-center">
+            <div className="flex flex-row flex-wrap justify-center gap-[124px] w-full my-12 business-credit-general-card">
+              <div className="flex  justify-center">
                 <GeneralCard
                   icon="/business-account/search.svg"
                   content="Search secretary of state records"
                 />
               </div>
-              <div className="flex w-[50%] justify-center">
+              <div className="flex  justify-center">
                 <GeneralCard
                   icon="/business-account/Card.svg"
                   content="View Finance restricted industries"
@@ -237,7 +237,7 @@ export const BuildBusinessEntry = () => {
             </div>
 
             {/* Website cards */}
-            <div className="flex flex-row flex-wrap justify-center gap-20 w-full mt-12">
+            <div className="flex flex-row flex-wrap justify-center gap-20 w-full mt-12 business-credit-website-card">
               <div className="flex justify-center">
                 <GotoWebsiteCard
                   content="Varies"

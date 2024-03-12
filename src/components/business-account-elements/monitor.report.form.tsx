@@ -190,7 +190,14 @@ export const MonitorReportForm = () => {
             <h3 className="text-xl font-semibold">Fundability Foundation</h3>
           </div>
           <div className="flex w-full justify-end h-12">
-            <img src={"/step.png"} alt="" className="max-w-full	 " />
+            <img
+              src={"/step.png"}
+              alt=""
+              className="max-w-full"
+              style={{
+                objectFit: "contain",
+              }}
+            />
           </div>
         </div>
         <div className="flex flex-col">
@@ -230,7 +237,14 @@ export const MonitorReportForm = () => {
           </div>
           <div className="flex w-full justify-end h-12">
             {/* <SquaresPlusIcon className="h-8 text-blue-600" /> */}
-            <img src={"/step.png"} alt="" className="max-w-full	 " />
+            <img
+              src={"/step.png"}
+              alt=""
+              className="max-w-full"
+              style={{
+                objectFit: "contain",
+              }}
+            />
           </div>
         </div>
         <div className="flex flex-col">
@@ -277,7 +291,14 @@ export const MonitorReportForm = () => {
           </div>
           <div className="flex w-full justify-end h-12">
             {/* <SquaresPlusIcon className="h-8 text-blue-600" /> */}
-            <img src={"/step.png"} alt="" className="max-w-full	 " />
+            <img
+              src={"/step.png"}
+              alt=""
+              className="max-w-full"
+              style={{
+                objectFit: "contain",
+              }}
+            />
           </div>
         </div>
         <div className="flex flex-col">

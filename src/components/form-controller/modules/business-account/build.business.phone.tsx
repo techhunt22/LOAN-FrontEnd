@@ -144,7 +144,7 @@ export const BuildBusinessPhone = () => {
   };
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main">
         <div
           style={{
             boxShadow: "2px 4px 12px 0px #a3a3a324",
@@ -177,7 +177,7 @@ export const BuildBusinessPhone = () => {
             </div>
 
             {/* save buttong */}
-            <div className="flex w-80  business-save-btn mt-4">
+            <div className="flex w-80  business-save-btn mt-4 mb-8 ">
               <Button
                 placeholder="save the address"
                 color="success"

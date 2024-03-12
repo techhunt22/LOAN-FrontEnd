@@ -56,6 +56,7 @@ interface Option {
   label: string;
 }
 export const BuildBusinessCredit = () => {
+  const multiVideoCard = "Multi Video Card";
   const [value, setValue] = useState<number | string | undefined | any>();
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
@@ -80,7 +81,7 @@ export const BuildBusinessCredit = () => {
   };
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main">
         <div className="flex flex-col w-[76%] justify-start mt-6">
           <SubHeader content={headerContent} />
           <div
@@ -94,12 +95,18 @@ export const BuildBusinessCredit = () => {
               content="DO YOU HAVE A BUSINESS NAME?"
             />
             {/* Vidio card */}
-            <div className="flex flex-row flex-wrap justify-center business-page-grid-gap-50 w-full mt-[38px]">
+            <div className="flex flex-row flex-wrap justify-center business-page-grid-gap-50 w-full mt-[38px]  business-credit-video-card">
               <div className="flex  justify-start">
-                <VideoCard videoContent={videoConten} />
+                <VideoCard
+                  videoContent={videoConten}
+                  multiVideoCard={multiVideoCard}
+                />
               </div>
               <div className="flex justify-end">
-                <VideoCard videoContent={videoConten} />
+                <VideoCard
+                  videoContent={videoConten}
+                  multiVideoCard={multiVideoCard}
+                />
               </div>
             </div>
 
@@ -133,7 +140,7 @@ export const BuildBusinessCredit = () => {
             </div>
 
             {/* general cards */}
-            <div className="flex flex-row flex-wrap justify-center business-page-grid-gap-124 w-full mt-12">
+            <div className="flex flex-row flex-wrap justify-center gap-[124px] w-full mt-12 business-credit-general-card">
               <div className="flex  justify-center">
                 <GeneralCard
                   icon="/business-account/search.svg"
@@ -154,7 +161,7 @@ export const BuildBusinessCredit = () => {
             </div>
 
             {/* Website cards */}
-            <div className="flex flex-row w-full mt-12 flex-wrap justify-center gap-20">
+            <div className="flex flex-row w-full mt-12 flex-wrap justify-center gap-20 business-credit-website-card">
               <div className="flex justify-center">
                 <GotoWebsiteCard
                   content="Varies"

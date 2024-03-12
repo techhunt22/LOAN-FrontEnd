@@ -138,7 +138,7 @@ export const BuildBusinessEin = () => {
   };
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main">
         <div className="flex flex-col w-[76%] justify-start mt-6">
           <SubHeader content={headerContent} />
           <div
@@ -192,7 +192,7 @@ export const BuildBusinessEin = () => {
             </div>
 
             {/* Website cards */}
-            <div className="flex flex-row w-full flex-wrap justify-center gap-20 mt-12">
+            <div className="flex flex-row w-full flex-wrap justify-center gap-20 mt-12 business-credit-website-card">
               <div className="flex  justify-center">
                 <GotoWebsiteCard
                   content="Varies"

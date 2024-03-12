@@ -6,7 +6,7 @@
 /* @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap'); */
 
 * {
-    font-family: "League Spartan", sans-serif;
+  font-family: "League Spartan", sans-serif;
 }
 input[type="file"]::file-selector-button {
   visibility: hidden;
@@ -265,156 +265,170 @@ li {
   height: 250px;
   object-fit: contain;
 }
-.green-color{
-    color:#38B000;
+.green-color {
+  color: #38b000;
 }
-.font-11{font-size: 11px !important;}
-.business-page-tier{
-    margin-left: auto;
-    background: #F0FFFF;
-    color: #0FA3B1;
-    padding: 10px 4px 10px 9px;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 18px;
+.font-11 {
+  font-size: 11px !important;
 }
-.business-page-text-color-green{
-    color:#38B000;
+.business-page-tier {
+  margin-left: auto;
+  background: #f0ffff;
+  color: #0fa3b1;
+  padding: 10px 4px 10px 9px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18px;
 }
-.business-page-grid-gap-50{
-    grid-gap: 50px;
+.business-page-text-color-green {
+  color: #38b000;
 }
-.business-page-grid-gap-50{
+.business-page-grid-gap-50 {
   grid-gap: 50px;
 }
-.business-page-grid-gap-22{
+.business-page-grid-gap-22 {
   grid-gap: 22px;
 }
-.business-page-info{
-    display: flex;
-    align-items: center;
-    background-color: #FFFFFF;
-    overflow: hidden;
-    position: relative;
-    padding: 20px;
-    padding-left: 50px;
-    min-height: 152px;
-    box-shadow: 0px 1px 52px -5px #00000014;
-    width: 84%;
+.business-page-info {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  overflow: hidden;
+  position: relative;
+  padding: 20px;
+  padding-left: 50px;
+  min-height: 152px;
+  box-shadow: 0px 1px 52px -5px #00000014;
+  width: 84%;
 }
-.business-page-info .business-page-half-circle{
-    width: 115px;
-    height: 125px;
-    border-top-right-radius: 50%;
-    border-bottom-right-radius: 50%;
-    overflow: hidden;
-    position: absolute;
-    left: -75px;
+.business-page-info .business-page-half-circle {
+  width: 115px;
+  height: 125px;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  left: -75px;
 }
-.business-page-info .business-page-green-info{
-    background: linear-gradient(270deg, #38B000 -2.01%, rgb(255 255 255) 38.17%), linear-gradient(304.63deg, rgba(48, 130, 9, 0.2) 18.15%, rgba(233, 233, 233, 0.112) 79.29%)
+.business-page-info .business-page-green-info {
+  background: linear-gradient(270deg, #38b000 -2.01%, rgb(255 255 255) 38.17%),
+    linear-gradient(
+      304.63deg,
+      rgba(48, 130, 9, 0.2) 18.15%,
+      rgba(233, 233, 233, 0.112) 79.29%
+    );
 }
-.business-page-info .business-page-blue-info{
-    background: linear-gradient(270deg, #88BFFF -0.01%, rgba(56, 176, 0, 0.06) 86.17%),
-    linear-gradient(304.63deg, rgba(136, 191, 255, 0.2) 18.15%, rgba(233, 233, 233, 0.112) 79.29%);
-    
+.business-page-info .business-page-blue-info {
+  background: linear-gradient(
+      270deg,
+      #88bfff -0.01%,
+      rgba(56, 176, 0, 0.06) 86.17%
+    ),
+    linear-gradient(
+      304.63deg,
+      rgba(136, 191, 255, 0.2) 18.15%,
+      rgba(233, 233, 233, 0.112) 79.29%
+    );
 }
 
-.business-page-heading-info{
-    text-align: start;
+.business-page-heading-info {
+  text-align: start;
 }
 .business-page-heading-info p {
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 22px;
-    color: #333333;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 22px;
+  color: #333333;
 }
 .business-page-heading-info span {
-    font-size: 10px;
-    font-weight: 400;
-    line-height: 12px;
-    color: #434343;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+  color: #434343;
 }
-.business-page-grid-gap-124{
-    column-gap: 124px;
+.business-page-grid-gap-124 {
+  column-gap: 124px;
 }
-.business-page-gray-btn{
-    font-size: 16px;
-    font-weight: 600;
-    color: #A3A3A3;
-    border: none;
-    border: 1px solid #D9D9D9;
-    padding: 6px 10px;
-    border-radius: 13px;
-    margin-right: auto;
-    background-color: #ffffff;
-    max-width: 290px;
-    width: 100%;
+.business-page-gray-btn {
+  font-size: 16px;
+  font-weight: 600;
+  color: #a3a3a3;
+  border: none;
+  border: 1px solid #d9d9d9;
+  padding: 6px 10px;
+  border-radius: 13px;
+  margin-right: auto;
+  background-color: #ffffff;
+  max-width: 290px;
+  width: 100%;
 }
-.green-btn a{
-    font-size: 16px;
-    font-weight: 600;
-    display: flex;
-    color: #38B000;
-    border: none;
-    border: 1px solid #38B000;
-    padding: 5px 17px;
-    border-radius: 13px;
-    align-items: center;
-    background-color: #ffffff;
+.green-btn a {
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  color: #38b000;
+  border: none;
+  border: 1px solid #38b000;
+  padding: 5px 17px;
+  border-radius: 13px;
+  align-items: center;
+  background-color: #ffffff;
 }
-.business-page-info-icon{
-    min-width: 37px;
-    width: 37px;
-    height: 37px;
+.business-page-info-icon {
+  min-width: 37px;
+  width: 37px;
+  height: 37px;
 }
-.business-page-from-input{
+.business-page-from-input {
   width: 100%;
   padding: 35px 41px;
-  border: 1px solid #EFEFEF;
+  border: 1px solid #efefef;
   border-radius: 13px;
 }
-.business-page-from-input::placeholder{
+.business-page-from-input::placeholder {
   font-size: 16px;
   font-weight: 400;
   list-style: 18px;
   color: #333333;
 }
-.business-page-from-box button{
-  position:absolute;
+.business-page-from-box button {
+  position: absolute;
   top: 34px;
   right: 42px;
 }
-.business-page-checkbbox-heading-color{
+.business-page-checkbbox-heading-color {
   color: rgba(0, 47, 135, 1);
 }
 
-.business-save-btn button{
+.business-save-btn button {
   /* padding: 31px, 55px, 31px, 63px; */
- 
+
   padding: 17px 20px !important;
   max-width: 358px !important;
   width: 100% !important;
   font-size: 18px !important;
   font-weight: 600 !important;
   line-height: 24px !important ;
-  color: #FFFFFF !important;
-  background: linear-gradient(270deg, #78F83D -3.45%, #38B000 100%), linear-gradient(90deg, rgba(83, 231, 14, 0.2) 0%, rgba(56, 176, 0, 0.036) 86.93%);
+  color: #ffffff !important;
+  background: linear-gradient(270deg, #78f83d -3.45%, #38b000 100%),
+    linear-gradient(
+      90deg,
+      rgba(83, 231, 14, 0.2) 0%,
+      rgba(56, 176, 0, 0.036) 86.93%
+    );
   border: none !important;
   border-radius: 24px !important;
-  box-shadow: 0px 2px 20px 2px #38B00069;
-
- 
+  box-shadow: 0px 2px 20px 2px #38b00069;
 }
-.business-page-checkbox-form{
+.business-page-checkbox-form {
   margin-top: 10px;
 }
-.business-page-checkbox-form  input{
+.business-page-checkbox-form input {
   width: 23px;
   height: 17px;
   margin-right: 11px;
 }
-.business-page-checkbox-form  label{
+.business-page-checkbox-form label {
   font-size: 12px;
   line-height: 21px;
   color: rgba(163, 163, 163, 1);
@@ -423,75 +437,84 @@ li {
 .business-page-banner-bg-color {
   background-color: rgba(252, 252, 255, 1);
 }
-.business-page-previous-btn a{
+.business-page-previous-btn a {
   font-size: 16px !important;
-    font-weight: 600 !important;
-    border-radius: 13px !important;
-    border: 1px solid #D9D9D9 !important;
-    background-color: #fff !important;
-    color: #A3A3A3 !important;
+  font-weight: 600 !important;
+  border-radius: 13px !important;
+  border: 1px solid #d9d9d9 !important;
+  background-color: #fff !important;
+  color: #a3a3a3 !important;
 }
 
-.business-page-edit-btn{
+.business-page-edit-btn {
   margin-left: auto;
-    font-size: 14px;
-    font-weight: 500;
-    color: #A8AAAC;
-    border: none;
-    padding: 1px 16px;
-    border-radius: 18px;
-    background-color: #f0f0f0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #a8aaac;
+  border: none;
+  padding: 1px 16px;
+  border-radius: 18px;
+  background-color: #f0f0f0;
 }
-.business-entry-page-indicatesection{
- 
-  border: 1px solid #F1F1F1;
+.business-entry-page-indicatesection {
+  border: 1px solid #f1f1f1;
   border-radius: 40px;
   text-align: justify;
-  font-size: 14px ;
-  
+  font-size: 14px;
 }
-.business-page-text-color-black{
-  color:#333333;
+.business-page-text-color-black {
+  color: #333333;
 }
-.business-page-text-color-gray{
-  color:#737373;
+.business-page-text-color-gray {
+  color: #737373;
 }
-.business-page-sidebar-border-bottom{
+.business-page-sidebar-border-bottom {
   position: relative;
-
 }
-.business-page-sidebar-border-bottom::after{
-  content:"";
-  height:58px;
-  width:1px;
-  background-color:#E9E9E9;
-  position:absolute;
-  top:27px;
-  left:23px;
+.business-page-sidebar-border-bottom::after {
+  content: "";
+  height: 58px;
+  width: 1px;
+  background-color: #e9e9e9;
+  position: absolute;
+  top: 27px;
+  left: 23px;
 }
-.business-page-sidebar-border-bottom:last-child:after{
-  display: none ;
- 
+.business-page-sidebar-border-bottom:last-child:after {
+  display: none;
 }
 
-.business-page-sidebar-sub-heading:last-child{
-  color: #38B000;
- 
+.business-page-sidebar-sub-heading:last-child {
+  color: #38b000;
 }
-.font-85{
+.font-85 {
   font-size: 85px;
 }
-.max-w-580{
+.max-w-580 {
   max-width: 580px;
 }
-.font-10{
+.font-10 {
   font-size: 10px;
 }
 .business-page-bg-blue {
-  background-color: #1C77FF;
+  background-color: #1c77ff;
 }
 
-
-
-
-
+@media only screen and (max-width: 1730px) {
+  .videoCard {
+    width: 14rem;
+  }
+  .business-main {
+    margin-left: 2%;
+    width: 96%;
+  }
+  .business-credit-video-card {
+    gap: 25px;
+  }
+  .business-credit-general-card {
+    gap: 50px;
+  }
+  .business-credit-website-card{
+    gap: 2rem;
+  }
+}
