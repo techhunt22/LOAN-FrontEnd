@@ -468,6 +468,9 @@ li {
 .business-page-text-color-gray {
   color: #737373;
 }
+.business-page-text-color-gray2 {
+  color: #929292;
+}
 .business-page-sidebar-border-bottom {
   position: relative;
 }
@@ -500,7 +503,16 @@ li {
   background-color: #1c77ff;
 }
 
-@media only screen and (max-width: 1730px) {
+.business-address-banner-subcontect {
+  margin-top: 23px;
+  max-width: 340px;
+  font-size: 14px;
+  color: #1380ff;
+  font-weight: 400;
+  text-align: justify;
+}
+
+@media only screen and (max-width: 1240px) {
   .videoCard {
     width: 14rem;
   }
@@ -514,7 +526,130 @@ li {
   .business-credit-general-card {
     gap: 50px;
   }
-  .business-credit-website-card{
+  .business-credit-website-card {
     gap: 2rem;
+  }
+}
+/* responsive
+============================================== */
+
+@media (max-width: 1750px) {
+  .business-page-rightsection-mobileview {
+    width: 100%;
+    margin-left: 24px;
+  }
+}
+
+@media (max-width: 1450px) {
+  .sidebar-mobileview {
+    display: none;
+  }
+  .business-page-mobileview-main {
+    display: flex;
+  }
+  .business-page-padding-sm {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  .business-page-rightsection-mobileview {
+    width: 100%;
+    margin: 0;
+  }
+}
+@media (max-width: 980px) {
+  .mobileview {
+    display: none;
+  }
+  .business-page-mobileview-width {
+    width: 0 !important;
+    display: contents;
+  }
+  .business-page-inner-mobileview {
+    width: 100%;
+  }
+  .business-page-rightsection-inner-mobileview {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .business-page-half-circle {
+    display: none;
+  }
+  .business-page-mobileview-main {
+    display: flex;
+  }
+  .business-page-padding-sm {
+    padding: 20px !important;
+    margin: 0 !important;
+  }
+  .business-page-rightsection-mobileview {
+    width: 100% !important;
+    margin: 0 !important;
+    gap: 0 !important;
+  }
+  .business-page-inner-mobileview {
+    width: 100%;
+  }
+  .business-page-mobileview-width {
+    width: 0 !important;
+  }
+  .business-page-namesection-mobileview {
+    padding: 8px !important;
+  }
+  .business-page-margin-sm {
+    margin: 0 !important;
+  }
+  .business-page-infoicon-mobileview {
+    position: absolute;
+    top: 12px;
+    left: 8px;
+  }
+  .business-page-info-heading-mobileview {
+    margin-left: 40px;
+    margin-bottom: 21px;
+  }
+  .business-page-info {
+    padding-left: 20px;
+  }
+  .business-page-btn-group-mobileview {
+    flex-direction: column;
+  }
+  .business-page-gray-btn {
+    text-align: center;
+    max-width: 100%;
+  }
+  .green-btn {
+    width: 100%;
+  }
+  .sidebar-mobileview {
+    display: none;
+  }
+  .business-page-previous-btn {
+    width: 100%;
+  }
+  .business-page-from-input {
+    padding: 20px 41px;
+  }
+  .business-page-from-box button {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+  }
+  .business-page-banner-mobileview {
+    flex-direction: column;
+    padding: 32px 8px;
+  }
+  .business-page-banner-left-mobileview {
+    width: 100%;
+  }
+  .business-page-banner-right-mobileview {
+    width: 100%;
+  }
+  .business-page-rightsection-inner-mobileview {
+    width: 100%;
+  }
+  .mt-10-sm {
+    margin-top: 10px;
   }
 }

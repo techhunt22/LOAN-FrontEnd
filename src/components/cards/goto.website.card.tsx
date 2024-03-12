@@ -10,8 +10,8 @@ interface GotoWebsiteCardProps {
 export const GotoWebsiteCard: React.FC<GotoWebsiteCardProps> = (props) => {
   return (
     <>
-      <div className="flex flex-col w-72 h-52 border-2 border-blue-400 rounded-2xl ">
-        <div className="flex w-full justify-self-start justify-start pl-6 text-blue-600 text-md mt-3">
+      <div className="flex flex-col px-7 border-2 border-blue-400 rounded-2xl ">
+        <div className="flex w-full justify-self-start justify-start  text-blue-600 text-md mt-3">
           <b>Cost:</b>
           {props.content}
         </div>

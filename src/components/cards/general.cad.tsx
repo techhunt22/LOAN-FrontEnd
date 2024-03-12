@@ -8,7 +8,7 @@ interface GeneralCardProps {
 export const GeneralCard: React.FC<GeneralCardProps> = (props) => {
     return(
         <>
-            <div className="flex flex-col w-60 h-40 border-2 border-blue-400 rounded-2xl justify-center content-center items-center">
+            <div className="flex flex-col p-10 border-2 border-blue-400 rounded-2xl justify-center content-center items-center">
                 <Image src={props.icon} objectFit="contain" alt="ssa" width={45} height={45} />
                 <div className="flex w-full pt-4 justify-center content-center items-center font-10">{props.content}</div>
             </div>

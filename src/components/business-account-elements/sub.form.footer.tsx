@@ -18,9 +18,9 @@ interface SubFormFooterProps {
 export const SubFormFooter: React.FC<SubFormFooterProps> = (props) => {
     return (
         <>
-            <div className="flex flex-row w-full mt-8">
+            <div className="flex flex-row w-full mt-8 business-page-btn-group-mobileview">
                 <div className="business-page-gray-btn"><Link href={"#"} >{props.content.content}</Link></div>
-                <div className="flex w-full justify-end mr-4">
+                <div className="flex w-full justify-end mr-4 mt-2 ">
                     {props.content.previous &&
                         <div className="flex w-36 mr-6 business-page-previous-btn">
                             <Button href={props.content.preUrl} variant="outlined" startIcon={<ArrowLeft />} >Previous</Button>

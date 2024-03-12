@@ -161,14 +161,14 @@ export const BuildBusinessEntry = () => {
   };
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main">
-        <div className="flex flex-col w-[76%] justify-start mt-6">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main business-page-rightsection-mobileview">
+        <div className="flex flex-col w-[76%] justify-start mt-6  business-page-inner-mobileview">
           <SubHeader content={headerContent} />
           <div
             style={{
               boxShadow: "2px 4px 12px 0px #a3a3a324",
             }}
-            className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white"
+            className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white  business-page-namesection-mobileview"
           >
             <ArrowLineText
               type="flex flex-col w-[auto] pt-6 text-center text-gray-700"
@@ -201,7 +201,7 @@ export const BuildBusinessEntry = () => {
               />
             </div>
             {/* save buttong */}
-            <div className="flex w-80  business-save-btn  my-[80px]">
+            <div className="flex  max-w-xs  w-full business-save-btn  my-[80px] ">
               <Button
                 placeholder="save the address"
                 color="success"
@@ -216,7 +216,7 @@ export const BuildBusinessEntry = () => {
             </div>
 
             {/* general card */}
-            <div className="flex flex-row flex-wrap justify-center gap-[124px] w-full my-12 business-credit-general-card">
+            <div className="flex flex-row flex-wrap justify-center  business-page-grid-gap-124 w-full my-12 business-credit-general-card">
               <div className="flex  justify-center">
                 <GeneralCard
                   icon="/business-account/search.svg"
@@ -256,7 +256,7 @@ export const BuildBusinessEntry = () => {
             <SubFormFooter content={footerContent} />
           </div>
         </div>
-        <div className="flex w-[24%]">
+        <div className="flex w-[24%] business-page-mobileview-width">
           <MonitorReportForm />
         </div>
       </div>

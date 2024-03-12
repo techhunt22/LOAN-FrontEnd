@@ -96,11 +96,11 @@ export const BlogCardLeft: React.FC<BlogCardProps> = (props) => {
               height={450}
             />
           </div>
-          <div className="flex flex-col p-4 w-[60%] justify-center content-center items-center">
-            <strong className="mb-2 text-blue-500">
-              {props.content.title}
-            </strong>
-            <p>{props.content.content}</p>
+          <div className="flex flex-col p-4 w-[50%] justify-center content-center items-center business-page-banner-right-mobileview">
+            <strong className="mb-2  business-page-text-color-black text-lg ">{props.content.title}</strong>
+            <p  className="text-xs text-justify business-page-text-color-gray2	 ">{props.content.content}</p>
+<p className="mb-1 business-address-banner-subcontect">{props.content.subContent}</p>
+                        <p className="mb-1 text-xs text-justify business-page-text-color-gray2 mt-7">{props.content.content3}</p>
           </div>
         </div>
       </div>

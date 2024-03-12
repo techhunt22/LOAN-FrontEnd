@@ -25,7 +25,7 @@ export const VideoCard: React.FC<VideoCardProps> = (props) => {
         >
           <h2 className="flex  text-xs font-semibold business-page-text-color-green  mb-3">
             {props.videoContent.title}
-          </h2>
+          </h2>            
           <div className=" relative w-full h-[185px] rounded-2xl ">
             <Image
               src={props.videoContent.videoUrl}

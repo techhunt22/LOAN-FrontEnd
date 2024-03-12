@@ -182,7 +182,7 @@ export const MonitorReportForm = () => {
 
   return (
     <>
-      <div className="flex flex-col w-full h-max px-4 justify-start border-2 border-blue-600 rounded-2xl pt-8">
+      <div className="flex flex-col w-full h-max px-4 justify-start border-2 border-blue-600 rounded-2xl pt-8  mobileview">
         {/* step 1 */}
         <p className="text-blue-500">Step1</p>
         <div className="flex flex-row items-center w-full pl-2">

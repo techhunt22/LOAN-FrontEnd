@@ -87,10 +87,14 @@ const recordsType = {
 };
 
 const contentBlogCardLeft = {
-  picture: "/business-account/estho.png",
+  picture: "/business-account/business-address.png",
   title: "ESTABLISH A BUSINESS ADDRESS",
   content:
     "It’s important for a business to have a business address.In order to have a strong business foundation, your business should use a physical business address. Most lenders prefer that you have a business address but, you can use your residential address.",
+  subContent:
+    "What’s most important is that your business address shows the same on ALL business records.",
+  content3:
+    "Do NOT use any type of PO Box for your business address. Many lenders see this as a higher risk business address.",
 };
 
 const informationResuorce = {
@@ -161,13 +165,13 @@ export const BuildBusinessAddress = () => {
   return (
     <>
       <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 bg-[#f9f9f9] gap-6 rounded-2xl business-main">
-        <div className="flex flex-col w-[76%] justify-start mt-6">
+        <div className="flex flex-col w-[76%] justify-start mt-6  business-page-rightsection-inner-mobileview">
           <SubHeader content={headerContent} />
           <div
             style={{
               boxShadow: "2px 4px 12px 0px #a3a3a324",
             }}
-            className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white"
+            className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white business-page-namesection-mobileview"
           >
             <ArrowLineText
               type="flex flex-col w-[auto]  pt-6 text-center text-gray-700"
@@ -218,7 +222,7 @@ export const BuildBusinessAddress = () => {
                 </div>
 </div> */}
               <form className="business-page-checkbox-form">
-                <div className="flex items-center">
+                <div className="flex items-center mt-10-sm">
                   <input type="checkbox" name="" id="" className="mb-5" />
                   <label>
                     The business shouldn't use any type of PO Box as the
@@ -226,14 +230,14 @@ export const BuildBusinessAddress = () => {
                     typeof address as higher risk.
                   </label>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center mt-10-sm">
                   <input type="checkbox" name="" id="" className="mb-5" />
                   <label>
                     My business address is the main business address. The same
                     business address should be used on ALL business records.
                   </label>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center mt-10-sm">
                   <input type="checkbox" name="" id="" />
                   <label>
                     A business can use a residential address as the business
@@ -289,7 +293,7 @@ export const BuildBusinessAddress = () => {
             <SubFormFooter content={footerContent} />
           </div>
         </div>
-        <div className="flex w-[24%]">
+        <div className="flex w-[24%] business-page-mobileview-width">
           <MonitorReportForm />
         </div>
       </div>
