@@ -173,7 +173,7 @@ export const BuildBusinessEin = () => {
             </div>
 
             {/* save buttong */}
-            <div className="flex  w-80  business-save-btn mt-4">
+            <div className="flex  max-w-xs  w-full business-save-btn  mt-4">
               <Button
                 placeholder="save the address"
                 color="success"

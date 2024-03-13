@@ -280,7 +280,8 @@ li {
 .business-page-text-color-green {
   color: #38b000;
 }
-.business-page-grid-gap-50{
+
+.business-page-grid-gap-50 {
   grid-gap: 50px;
 }
 
@@ -615,9 +616,10 @@ li {
   .business-page-rightsection-inner-mobileview {
     width: 100%;
   }
-.business-page-mobileview-displaynone{
-  display: none;
-}
+
+  .business-page-mobileview-displaynone {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
@@ -756,7 +758,7 @@ li {
     }
 
     .business-page-fileupload-mobileview {
-      width: 19rem !important;
+      width: 18rem !important;
       height: 17rem;
     }
 

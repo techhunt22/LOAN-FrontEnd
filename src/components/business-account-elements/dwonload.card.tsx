@@ -9,7 +9,7 @@ export const DownloadCard = ({
 }) => {
   return (
     <>
-      <div className="flex w-96 h-80">
+      <div className="flex w-96 h-80 business-page-fileupload-mobileview">
         <div className="flex flex-col w-full m-4 h-full border-2 border-dotted rounded-xl border-gray-500 justify-center content-center items-center relative">
           <img
             src="/business-account/squreplus.svg"
