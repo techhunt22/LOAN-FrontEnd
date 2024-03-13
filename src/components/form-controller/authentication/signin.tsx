@@ -26,6 +26,7 @@ export const SignInForm = () => {
     password: "",
     remember: false,
   });
+  const link = localStorage.getItem("lastPageUrl") || "/";
   const { mutateAsync, isPending } = useMutation<
     Calls.IResponse.SignIn,
     Error,
@@ -45,7 +46,7 @@ export const SignInForm = () => {
         secure: false,
       });
       if (r?.urlPath != null) {
-        router.replace("/");
+        router.replace(link);
       }
     },
     onError: (e) => handleFormError(e as any, form),
@@ -160,7 +161,6 @@ export const SignInForm = () => {
           Create new account
           </Typography>
         </Link>
-
         </div>
     </form>
   );

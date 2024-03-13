@@ -2,7 +2,7 @@
 // @ts-ignore
 import useForm from "new-react-use-form";
 import React, { FormEventHandler, useEffect, useLayoutEffect } from "react";
-import {  IconButton, InputAdornment, TextField } from "@mui/material";
+import { IconButton, InputAdornment, TextField } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers-pro";
@@ -18,13 +18,13 @@ import { usePCR } from "@/context/onboarding/personal.credit.repair.context";
 import { handleFormError } from "@/utils/error";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
-import { useRouter, usePathname, useSearchParams    } from "next/navigation";
+import { useRouter } from "next/navigation";
 interface Option {
   label: string;
 }
 export const SignUpForm = () => {
-  debugger
   const router = useRouter();
+  const link = localStorage.getItem("lastPageUrl") || "/";
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (
@@ -65,10 +65,10 @@ export const SignUpForm = () => {
       Cookies.set("refreshToken", r.refreshToken, {
         expires: 30,
         path: "/",
-       secure: false,
+        secure: false,
       });
       if (r?.urlPath != null) {
-        router.replace("/");
+        router.replace(link);
       }
     },
     onError: (e) => {
@@ -88,9 +88,7 @@ export const SignUpForm = () => {
     <form
       onSubmit={onSubmit}
       id={"sign-up"}
-      className={
-        "mt-4 mb-10 flex flex-col gap-6"
-      }
+      className={"mt-4 mb-10 flex flex-col gap-6"}
     >
       <div
         className={
@@ -391,7 +389,7 @@ export const SignUpForm = () => {
           fullWidth={true}
           type={"submit"}
         >
-        SIGN UP
+          SIGN UP
         </Button>
       </div>
     </form>
@@ -399,6 +397,5 @@ export const SignUpForm = () => {
 };
 
 export function SignUp(variables: Calls.IRequest.SignUp): any {
-    throw new Error("Function not implemented.");
+  throw new Error("Function not implemented.");
 }
-

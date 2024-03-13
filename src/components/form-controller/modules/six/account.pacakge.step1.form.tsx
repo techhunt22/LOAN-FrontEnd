@@ -19,7 +19,7 @@ import { useAP } from "@/context/business-credit/account-package/personal.accoun
 import { handleFormError } from "@/utils/error";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { ArrowForward } from "@mui/icons-material";
 
 // import { LinkOption } from "@/components/link/add-client/link.option3";
@@ -31,6 +31,7 @@ import { getCookie } from "@/utils/getCookie";
 // }
 export const AccountPackageStep1Form = () => {
   const router = useRouter();
+  const customProp = usePathname();
   const [isLogin, setIsLogin] = useState<boolean>();
   const {
     SetFormID,
@@ -160,8 +161,14 @@ export const AccountPackageStep1Form = () => {
   const numericFullValue = parseFloat(
     data?.data[3]?.pricing.fullPrice.$numberDecimal
   );
-  const numericEmiValue = parseFloat(data?.data[3]?.pricing?.emiPrice.$numberDecimal);
-  
+  const numericEmiValue = parseFloat(
+    data?.data[3]?.pricing?.emiPrice.$numberDecimal
+  );
+
+  const setRouter = () => {
+    localStorage.setItem("lastPageUrl", customProp);
+  };
+
   return (
     <>
       {isLoading ? (
@@ -246,7 +253,7 @@ export const AccountPackageStep1Form = () => {
                 </h1>
               </div>
               <div className="text-[#151414] text-[15px] mt-2">
-              {Number(numericEmiValue|| 0)} Monthly             
+                {Number(numericEmiValue || 0)} Monthly
               </div>
 
               <div
@@ -285,15 +292,16 @@ export const AccountPackageStep1Form = () => {
 
               <div className="flex w-[80%] rounded-full mt-8">
                 <button
-                  // disabled={data?.data[3]?._id === undefined}
-                  // onClick={() => {
-                  //   const id = data?.data[3]?._id;
-                  //   if (isLogin) {
-                  //     router.push(`/checkout/one/${id}`);
-                  //   } else {
-                  //     router.push(`/authentication/sign-in`);
-                  //   }
-                  // }}
+                  //disabled={data?.data[3]?._id === undefined}
+                  onClick={() => {
+                    const id = data?.data[3]?._id;
+                    if (isLogin) {
+                      router.push(`/checkout/one/${id}`);
+                    } else {
+                      router.push(`/authentication/sign-in`);
+                      setRouter();
+                    }
+                  }}
                   className="relative overflow-hidden w-[100%] text-xl p-4 text-white font-semibold uppercase bg-gradient-to-r from-[#FB8500] to-[#FFD703] border-[1px] border-amber-400 tracking-tight transition-all duration-300"
                   style={{
                     boxShadow: "rgba(255, 183, 3, 0.65) 4px 6px 20px 1px",
@@ -319,7 +327,8 @@ export const AccountPackageStep1Form = () => {
                   if (isLogin) {
                     router.push(`/checkout/one/${id}`);
                   } else {
-                    router.push(`/authentication/sign-in`);
+                    router.push("/authentication/sign-in");
+                    setRouter();
                   }
                 }}
               >
