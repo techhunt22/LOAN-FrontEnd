@@ -108,7 +108,7 @@ export const BuildBusinessLicense = () => {
                   className="flex w-full h-[50rem] object-contain"
                 />
               </div>
-              <div className="flex w-full h-full justify-center content-center items-center ml-[-22rem] mt-[3rem] absolute  business-page-mobileview-displaynone  ">
+              <div className="flex w-[56%] h-full justify-center content-center items-center  mt-[3rem] absolute  business-page-mobileview-displaynone  ">
                 <GeneralCard
                   icon="/business-account/search.svg"
                   content="Search secretary of state records"
