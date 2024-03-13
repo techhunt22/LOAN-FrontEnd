@@ -40,7 +40,7 @@ export const LoanDetailsForm = () => {
     onError: (e) => handleFormError(e as any, Form),
   });
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
-    e.preventDefault();
+    e.preventDefault();  
     await mutateAsync(Form.data());
   };
   return (

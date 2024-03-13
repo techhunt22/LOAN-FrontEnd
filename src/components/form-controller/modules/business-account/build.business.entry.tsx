@@ -211,7 +211,7 @@ export const BuildBusinessEntry = () => {
               </Button>
             </div>
             {/* Bolg section */}
-            <div className="flex w-[90%] business-page-banner-bg-color">
+            <div className="flex w-[90%] business-page-banner-bg-color my-12">
               <BlogCardLeft content={contentBlogCardLeft} />
             </div>
 

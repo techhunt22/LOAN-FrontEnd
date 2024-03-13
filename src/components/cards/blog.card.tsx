@@ -86,8 +86,8 @@ export const BlogCardLeft: React.FC<BlogCardProps> = (props) => {
   return (
     <>
       <div className="flex w-full">
-        <div className="flex flex-row  overflow-hidden mb-4  py-10 px-6 relative">
-          <div className="flex w-[50%] justify-center content-center items-center">
+        <div className="flex flex-row  overflow-hidden mb-4  py-10 px-6 relative  business-page-banner-mobileview">
+          <div className="flex w-[50%] justify-center content-center items-center business-page-banner-left-mobileview ">
             <Image
               src={props.content.picture}
               objectFit="contain"

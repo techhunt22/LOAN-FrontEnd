@@ -140,7 +140,7 @@ export const BuildBusinessCredit = () => {
             </div>
 
             {/* general cards */}
-            <div className="flex flex-row flex-wrap justify-center gap-[124px] w-full mt-12 business-credit-general-card">
+            <div className="flex flex-row flex-wrap justify-center business-page-grid-gap-124 w-full mt-12 business-credit-general-card">
               <div className="flex  justify-center">
                 <GeneralCard
                   icon="/business-account/search.svg"
@@ -180,7 +180,7 @@ export const BuildBusinessCredit = () => {
             <SubFormFooter content={footerContent} />
           </div>
         </div>
-        <div className="flex w-[24%]  business-page-mobileview-width">
+        <div className="flex w-[24%] business-page-mobileview-width">
           <MonitorReportForm />
         </div>
       </div>

@@ -21,11 +21,11 @@ export const VideoCard: React.FC<VideoCardProps> = (props) => {
         <div
           className={`flex flex-col w-80 h-[208px] justify-center ${
             props.multiVideoCard ? "videoCard" : ""
-          }`}
+          } business-page-videocard-mobileview`}
         >
           <h2 className="flex  text-xs font-semibold business-page-text-color-green  mb-3">
             {props.videoContent.title}
-          </h2>            
+          </h2>
           <div className=" relative w-full h-[185px] rounded-2xl ">
             <Image
               src={props.videoContent.videoUrl}

@@ -12,12 +12,12 @@ export const GotoWebsiteThreeCard: React.FC<GotoWebsiteThreeCardProps> = (
 ) => {
   return (
     <>
-      <div className="flex flex-col w-52 h-40 border-2 border-blue-400 rounded-2xl ">
-        <div className="flex w-full justify-self-start justify-start pl-6 text-blue-600 text-md mt-3">
+      <div className="flex flex-col w-64     h-52 border-2 border-blue-400 rounded-2xl ">
+        <div className="flex w-full justify-self-start justify-start  text-blue-600 text-md mt-3 p-1.5 ">
           <b>Cost:</b>
           {props.content}
         </div>
-        <div className="flex justify-center content-center items-center w-full h-16">
+        <div className="flex justify-center content-center items-center w-full h-24">
           <Image
             src={props.icon}
             objectFit="contain"
@@ -26,15 +26,17 @@ export const GotoWebsiteThreeCard: React.FC<GotoWebsiteThreeCardProps> = (
             height={50}
           />
         </div>
-        <div className="flex justify-center content-center items-center w-full">
+        <div className="flex justify-center content-center items-center w-full mb-6">
           <Button
             href="#"
             endIcon={<OpenInNewIcon />}
             size="small"
             style={{
-              width: "10rem",
+              width: "13rem",
               borderRadius: "19px",
-              padding: "10px 12px",
+              padding: "12px 17px",
+              fontSize: "16px",
+              fontWeight: "800",
             }}
           >
             {" "}

@@ -8,6 +8,7 @@
 * {
   font-family: "League Spartan", sans-serif;
 }
+
 input[type="file"]::file-selector-button {
   visibility: hidden;
   color: transparent;
@@ -19,11 +20,9 @@ input[type="file"]::-webkit-file-upload-button {
 }
 
 .boxGradient1st {
-  background: linear-gradient(
-    126deg,
-    #1380ff 9.34%,
-    rgba(142, 202, 230, 0.9) 89.76%
-  );
+  background: linear-gradient(126deg,
+      #1380ff 9.34%,
+      rgba(142, 202, 230, 0.9) 89.76%);
 }
 
 .texto {
@@ -38,30 +37,24 @@ input[type="file"]::-webkit-file-upload-button {
 }
 
 .redfill {
-  background: linear-gradient(
-    20deg,
-    #a4133c 2.85%,
-    #eb6b7a 55.19%,
-    #a4133c 95.89%
-  );
+  background: linear-gradient(20deg,
+      #a4133c 2.85%,
+      #eb6b7a 55.19%,
+      #a4133c 95.89%);
 }
 
 .bluefill {
-  background: linear-gradient(
-    20deg,
-    #1e6ac3 17.65%,
-    rgba(149, 205, 232, 0.88) 49.95%,
-    #5da7fe 77.87%
-  );
+  background: linear-gradient(20deg,
+      #1e6ac3 17.65%,
+      rgba(149, 205, 232, 0.88) 49.95%,
+      #5da7fe 77.87%);
 }
 
 .greefill {
-  background: linear-gradient(
-    20deg,
-    #006d77 2.87%,
-    #7bd8d0 55.47%,
-    #006d77 96.39%
-  );
+  background: linear-gradient(20deg,
+      #006d77 2.87%,
+      #7bd8d0 55.47%,
+      #006d77 96.39%);
 }
 
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
@@ -265,12 +258,15 @@ li {
   height: 250px;
   object-fit: contain;
 }
+
 .green-color {
   color: #38b000;
 }
+
 .font-11 {
   font-size: 11px !important;
 }
+
 .business-page-tier {
   margin-left: auto;
   background: #f0ffff;
@@ -280,15 +276,18 @@ li {
   font-weight: 600;
   line-height: 18px;
 }
+
 .business-page-text-color-green {
   color: #38b000;
 }
-.business-page-grid-gap-50 {
+.business-page-grid-gap-50{
   grid-gap: 50px;
 }
+
 .business-page-grid-gap-22 {
   grid-gap: 22px;
 }
+
 .business-page-info {
   display: flex;
   align-items: center;
@@ -301,6 +300,7 @@ li {
   box-shadow: 0px 1px 52px -5px #00000014;
   width: 84%;
 }
+
 .business-page-info .business-page-half-circle {
   width: 115px;
   height: 125px;
@@ -310,45 +310,46 @@ li {
   position: absolute;
   left: -75px;
 }
+
 .business-page-info .business-page-green-info {
   background: linear-gradient(270deg, #38b000 -2.01%, rgb(255 255 255) 38.17%),
-    linear-gradient(
-      304.63deg,
+    linear-gradient(304.63deg,
       rgba(48, 130, 9, 0.2) 18.15%,
-      rgba(233, 233, 233, 0.112) 79.29%
-    );
+      rgba(233, 233, 233, 0.112) 79.29%);
 }
+
 .business-page-info .business-page-blue-info {
-  background: linear-gradient(
-      270deg,
+  background: linear-gradient(270deg,
       #88bfff -0.01%,
-      rgba(56, 176, 0, 0.06) 86.17%
-    ),
-    linear-gradient(
-      304.63deg,
+      rgba(56, 176, 0, 0.06) 86.17%),
+    linear-gradient(304.63deg,
       rgba(136, 191, 255, 0.2) 18.15%,
-      rgba(233, 233, 233, 0.112) 79.29%
-    );
+      rgba(233, 233, 233, 0.112) 79.29%);
 }
 
 .business-page-heading-info {
   text-align: start;
 }
+
 .business-page-heading-info p {
   font-size: 20px;
   font-weight: 700;
   line-height: 22px;
   color: #333333;
 }
+
 .business-page-heading-info span {
   font-size: 10px;
   font-weight: 400;
   line-height: 12px;
   color: #434343;
 }
+
 .business-page-grid-gap-124 {
   column-gap: 124px;
+  row-gap: 30px;
 }
+
 .business-page-gray-btn {
   font-size: 16px;
   font-weight: 600;
@@ -361,7 +362,11 @@ li {
   background-color: #ffffff;
   max-width: 290px;
   width: 100%;
+  display: flex;
+  align-items: center;
+
 }
+
 .green-btn a {
   font-size: 16px;
   font-weight: 600;
@@ -374,28 +379,33 @@ li {
   align-items: center;
   background-color: #ffffff;
 }
+
 .business-page-info-icon {
   min-width: 37px;
   width: 37px;
   height: 37px;
 }
+
 .business-page-from-input {
   width: 100%;
   padding: 35px 41px;
   border: 1px solid #efefef;
   border-radius: 13px;
 }
+
 .business-page-from-input::placeholder {
   font-size: 16px;
   font-weight: 400;
   list-style: 18px;
   color: #333333;
 }
+
 .business-page-from-box button {
   position: absolute;
   top: 34px;
   right: 42px;
 }
+
 .business-page-checkbbox-heading-color {
   color: rgba(0, 47, 135, 1);
 }
@@ -408,26 +418,27 @@ li {
   width: 100% !important;
   font-size: 18px !important;
   font-weight: 600 !important;
-  line-height: 24px !important ;
+  line-height: 24px !important;
   color: #ffffff !important;
   background: linear-gradient(270deg, #78f83d -3.45%, #38b000 100%),
-    linear-gradient(
-      90deg,
+    linear-gradient(90deg,
       rgba(83, 231, 14, 0.2) 0%,
-      rgba(56, 176, 0, 0.036) 86.93%
-    );
+      rgba(56, 176, 0, 0.036) 86.93%);
   border: none !important;
   border-radius: 24px !important;
   box-shadow: 0px 2px 20px 2px #38b00069;
 }
+
 .business-page-checkbox-form {
   margin-top: 10px;
 }
+
 .business-page-checkbox-form input {
   width: 23px;
   height: 17px;
   margin-right: 11px;
 }
+
 .business-page-checkbox-form label {
   font-size: 12px;
   line-height: 21px;
@@ -437,6 +448,7 @@ li {
 .business-page-banner-bg-color {
   background-color: rgba(252, 252, 255, 1);
 }
+
 .business-page-previous-btn a {
   font-size: 16px !important;
   font-weight: 600 !important;
@@ -456,24 +468,30 @@ li {
   border-radius: 18px;
   background-color: #f0f0f0;
 }
+
 .business-entry-page-indicatesection {
   border: 1px solid #f1f1f1;
   border-radius: 40px;
   text-align: justify;
   font-size: 14px;
 }
+
 .business-page-text-color-black {
   color: #333333;
 }
+
 .business-page-text-color-gray {
   color: #737373;
 }
+
 .business-page-text-color-gray2 {
   color: #929292;
 }
+
 .business-page-sidebar-border-bottom {
   position: relative;
 }
+
 .business-page-sidebar-border-bottom::after {
   content: "";
   height: 58px;
@@ -483,6 +501,7 @@ li {
   top: 27px;
   left: 23px;
 }
+
 .business-page-sidebar-border-bottom:last-child:after {
   display: none;
 }
@@ -490,15 +509,19 @@ li {
 .business-page-sidebar-sub-heading:last-child {
   color: #38b000;
 }
+
 .font-85 {
   font-size: 85px;
 }
+
 .max-w-580 {
   max-width: 580px;
 }
+
 .font-10 {
   font-size: 10px;
 }
+
 .business-page-bg-blue {
   background-color: #1c77ff;
 }
@@ -516,20 +539,25 @@ li {
   .videoCard {
     width: 14rem;
   }
+
   .business-main {
     margin-left: 2%;
     width: 99%;
   }
+
   .business-credit-video-card {
     gap: 25px;
   }
+
   .business-credit-general-card {
     gap: 50px;
   }
+
   .business-credit-website-card {
     gap: 2rem;
   }
 }
+
 /* responsive
 ============================================== */
 
@@ -544,112 +572,196 @@ li {
   .sidebar-mobileview {
     display: none;
   }
-  .business-page-mobileview-main {
-    display: flex;
-  }
+
   .business-page-padding-sm {
-    margin-left: 50px;
-    margin-right: 50px;
+    grid-column-start: 1;
   }
+
+  .business-page-padding-sm {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
   .business-page-rightsection-mobileview {
     width: 100%;
     margin: 0;
   }
+
+  .business-page-namesection-mobileview {
+    padding: 0.5rem;
+  }
 }
+
+@media (max-width: 1100px) {
+  .business-page-mobileview-width {
+    width: 27%;
+  }
+}
+
 @media (max-width: 980px) {
   .mobileview {
     display: none;
   }
+
   .business-page-mobileview-width {
     width: 0 !important;
     display: contents;
   }
+
   .business-page-inner-mobileview {
     width: 100%;
   }
+
   .business-page-rightsection-inner-mobileview {
     width: 100%;
   }
+.business-page-mobileview-displaynone{
+  display: none;
+}
 }
 
 @media (max-width: 768px) {
   .business-page-half-circle {
     display: none;
   }
-  .business-page-mobileview-main {
-    display: flex;
-  }
+
   .business-page-padding-sm {
     padding: 20px !important;
     margin: 0 !important;
   }
+
   .business-page-rightsection-mobileview {
     width: 100% !important;
     margin: 0 !important;
     gap: 0 !important;
   }
+
   .business-page-inner-mobileview {
     width: 100%;
   }
+
   .business-page-mobileview-width {
     width: 0 !important;
   }
+
   .business-page-namesection-mobileview {
     padding: 8px !important;
+    padding-top: 20px !important;
   }
+
   .business-page-margin-sm {
     margin: 0 !important;
   }
+
   .business-page-infoicon-mobileview {
     position: absolute;
     top: 12px;
     left: 8px;
   }
+
   .business-page-info-heading-mobileview {
     margin-left: 40px;
     margin-bottom: 21px;
   }
+
   .business-page-info {
     padding-left: 20px;
   }
+
   .business-page-btn-group-mobileview {
     flex-direction: column;
   }
+
   .business-page-gray-btn {
     text-align: center;
     max-width: 100%;
   }
+
   .green-btn {
     width: 100%;
   }
+
   .sidebar-mobileview {
     display: none;
   }
+
   .business-page-previous-btn {
     width: 100%;
   }
+
   .business-page-from-input {
     padding: 20px 41px;
   }
+
   .business-page-from-box button {
     position: absolute;
     top: 15px;
     right: 25px;
   }
+
   .business-page-banner-mobileview {
     flex-direction: column;
     padding: 32px 8px;
   }
+
   .business-page-banner-left-mobileview {
     width: 100%;
   }
+
   .business-page-banner-right-mobileview {
     width: 100%;
   }
+
   .business-page-rightsection-inner-mobileview {
     width: 100%;
   }
+
   .mt-10-sm {
     margin-top: 10px;
+  }
+
+  .business-page-step-btn-mobileview {
+    width: 91px;
+    font-size: 20px;
+  }
+
+  .buiness-page-savebtn-mobileview {
+    margin-left: 0;
+  }
+
+  .font-85 {
+    font-size: 56px;
+  }
+
+  @media(max-width:450px) {
+    .business-page-padding-sm {
+      padding: 10px !important;
+    }
+
+    .business-page-rightsection-mobileview {
+      padding: 0.5rem;
+    }
+
+    .business-page-step-btn-mobileview {
+      margin-left: -0.5rem;
+    }
+
+    .business-page-videocard-mobileview {
+      width: 16.5rem;
+    }
+
+    .business-page-arrowline-mobileview {
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .business-page-fileupload-mobileview {
+      width: 19rem !important;
+      height: 17rem;
+    }
+
+    .font-85 {
+      font-size: 43px;
+    }
   }
 }

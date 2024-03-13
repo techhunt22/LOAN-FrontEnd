@@ -10,7 +10,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { EditableContentRecordInvidual } from "./editable.content.record.invidual";
 interface MonitorRecordProps {
-  records: {
+  records?: {
     invidualRecords: {
       title: string;
       icon: string;

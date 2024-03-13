@@ -16,6 +16,7 @@ import { BlogCustomCardLeft } from "@/components/cards/blog.card";
 import { DownloadCard } from "@/components/business-account-elements/dwonload.card";
 import { PaymentCard } from "@/components/cards/payment.card";
 import { Notes } from "@/components/business-account-elements/notes";
+// @ts-ignore
 import useForm from "new-react-use-form";
 import { useRouter } from "next/navigation";
 import { ApiCalls } from "@/api/calls/calls";

@@ -22,7 +22,8 @@ import { useMutation } from "@tanstack/react-query";
 import { Calls } from "@/api/calls/type";
 import { ApiCalls } from "@/api/calls/calls";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation"; 
+// @ts-ignore
 import useForm from "new-react-use-form";
 const headerContent = {
   step: "STPE5",
@@ -408,16 +409,16 @@ export const TierTwoFull = () => {
   const router = useRouter();
   const fileName = "startBuildingTierTwoFile";
   const { mutateAsync, isPending } = useMutation<
-  Calls.IResponse.Business,
-  Error,
-  Calls.IRequest.ModulesBusinessStartBuildingTierTwo
->({
-  mutationFn: async (variables) =>
-    await ApiCalls.Module.businessStartBuildingTierTwo(variables),
-  onSuccess: (r) => {
-    toast.success(r.message);
-  },
-});
+    Calls.IResponse.Business,
+    Error,
+    Calls.IRequest.ModulesBusinessStartBuildingTierTwo
+  >({
+    mutationFn: async (variables) =>
+      await ApiCalls.Module.businessStartBuildingTierTwo(variables),
+    onSuccess: (r) => {
+      toast.success(r.message);
+    },
+  });
   const { mutateAsync: image } = useMutation<
     Calls.IResponse.BusinessFile,
     Error,

@@ -66,14 +66,14 @@ const footerContent = {
 export const BuildBusinessLicense = () => {
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main">
-        <div className="flex flex-col w-[76%] justify-start mt-6">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main business-page-rightsection-mobileview">
+        <div className="flex flex-col w-[76%] justify-start mt-6  business-page-inner-mobileview ">
           <SubHeader content={headerContent} />
           <div
             style={{
               boxShadow: "2px 4px 12px 0px #a3a3a324",
             }}
-            className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white"
+            className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white business-page-namesection-mobileview"
           >
             <ArrowLineText
               type="flex flex-col w-[auto] pt-6 text-center text-gray-700"
@@ -83,7 +83,7 @@ export const BuildBusinessLicense = () => {
             <VideoCard videoContent={videoConten} />
 
             {/* Bolg section */}
-            <div className="flex w-[90%] business-page-banner-bg-color">
+            <div className="flex w-[80%] my-12">
               <BlogCardLeft content={contentBlogCardLeft} />
             </div>
 
@@ -93,7 +93,7 @@ export const BuildBusinessLicense = () => {
             </div>
 
             {/* save buttong */}
-            <div className="flex w-80 business-save-btn mt-4 ml-80">
+            <div className="flex w-80 business-save-btn mt-4 ml-80 flex  max-w-xs  w-full business-save-btn  mt-4 ml-80 buiness-page-savebtn-mobileview">
               <Button placeholder="save the address" color="success">
                 SAVE
               </Button>
@@ -105,10 +105,10 @@ export const BuildBusinessLicense = () => {
                 <img
                   src="/business-account/bussinessAdreess2.png"
                   alt=""
-                  className="flex w-full h-[50rem]"
+                  className="flex w-full h-[50rem] object-contain"
                 />
               </div>
-              <div className="flex w-full h-full justify-center content-center items-center ml-[-22rem] mt-[3rem] absolute ">
+              <div className="flex w-full h-full justify-center content-center items-center ml-[-22rem] mt-[3rem] absolute  business-page-mobileview-displaynone  ">
                 <GeneralCard
                   icon="/business-account/search.svg"
                   content="Search secretary of state records"
@@ -133,7 +133,7 @@ export const BuildBusinessLicense = () => {
             <SubFormFooter content={footerContent} />
           </div>
         </div>
-        <div className="flex w-[24%]">
+        <div className="flex w-[24%]  business-page-mobileview-width">
           <MonitorReportForm />
         </div>
       </div>

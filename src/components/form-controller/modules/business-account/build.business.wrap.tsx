@@ -35,14 +35,14 @@ const footerContent = {
 export const BuildBusinessWrap = () => {
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main">
-        <div className="flex flex-col w-[76%] justify-start mt-6">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main business-page-rightsection-mobileview">
+        <div className="flex flex-col w-[76%] justify-start mt-6 business-page-inner-mobileview ">
           <SubHeader content={headerContent} />
           <div
             style={{
               boxShadow: "2px 4px 12px 0px #a3a3a324",
             }}
-            className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white"
+            className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white business-page-namesection-mobileview"
           >
             <ArrowLineText
               type="flex flex-col pt-6 w-[auto]  text-center text-gray-700"
@@ -51,11 +51,11 @@ export const BuildBusinessWrap = () => {
             {/* Vidio card */}
             <VideoCard videoContent={videoConten} />
 
-            <div className="flex font-85 text-green-400">TAHNK YOU!</div>
+            <div className="flex font-85 text-green-400">THANK YOU!</div>
             <div className="flex text-base font-semibold  text-blue-400 my-4">
               INFORMATION RECEIVED
             </div>
-            <div className="flex text-base font-semibold text-green-400 mb-12">
+            <div className="flex text-base font-semibold text-green-400 mb-12 text-center">
               You Can Success Fully Move To 2nd Step
             </div>
 
@@ -63,7 +63,7 @@ export const BuildBusinessWrap = () => {
             <SubFormFooter content={footerContent} />
           </div>
         </div>
-        <div className="flex w-[24%]">
+        <div className="flex w-[24%] business-page-mobileview-width">
           <MonitorReportForm />
         </div>
       </div>

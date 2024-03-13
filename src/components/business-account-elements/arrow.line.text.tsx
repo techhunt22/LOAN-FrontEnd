@@ -8,7 +8,7 @@ interface ArrowLineTextProps {
 export const ArrowLineText: React.FC<ArrowLineTextProps> = (props) => (
   <>
     <div className={props.type}>
-      <div className=" text-base text-justify mx-auto max-w-580 font-semibold business-page-text-color-black">
+      <div className=" text-base text-justify mx-auto max-w-580 font-semibold business-page-text-color-black  business-page-arrowline-mobileview ">
         {props.content}
       </div>
       <div className="flex flex-row w-full h-max">

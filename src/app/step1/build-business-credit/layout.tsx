@@ -11,9 +11,11 @@ let activeState = "improve";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <> 
-      <div className="flex w-[90%]"><AccountBanner /></div>
-      <div className="grid grid-cols-7 justify-between  business-page-mobileview-main">
+    <>
+      <div className="flex w-[90%]">
+        <AccountBanner />
+      </div>
+      <div className="grid grid-cols-7 justify-between  ">
         <div className="flex col-start-1 col-span-1 w-full justify-start content-start  sidebar-mobileview">
           <AddClientPanel activeState={activeState} />
         </div>
@@ -21,9 +23,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {children}
         </div>
       </div>
-      <p className="flex w-full justify-center content-center items-center text-red-400 py-4">@2024. Official TGIscalme.com Website</p>
-
+      <p className="flex w-full justify-center content-center items-center text-red-400 py-4">
+        @2024. Official TGIscalme.com Website
+      </p>
     </>
-
   );
 }

@@ -18,6 +18,7 @@ import { PaymentCard } from "@/components/cards/payment.card";
 import { ApiCalls } from "@/api/calls/calls";
 import { Calls } from "@/api/calls/type";
 import { useMutation } from "@tanstack/react-query";
+// @ts-ignore
 import useForm from "new-react-use-form";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";

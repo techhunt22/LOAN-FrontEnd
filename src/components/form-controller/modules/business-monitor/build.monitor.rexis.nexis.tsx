@@ -17,6 +17,7 @@ import { DownloadCard } from "@/components/business-account-elements/dwonload.ca
 import { PaymentCard } from "@/components/cards/payment.card";
 import { Notes } from "@/components/business-account-elements/notes";
 import { Alert, AlertURL } from "@/components/business-account-elements/alert";
+// @ts-ignore
 import useForm from "new-react-use-form";
 import { useRouter } from "next/navigation";
 import { ApiCalls } from "@/api/calls/calls";

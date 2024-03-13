@@ -87,7 +87,7 @@ const recordsType = {
 };
 
 const contentBlogCardLeft = {
-  picture: "/business-account/estho.png",
+  picture: "/business-account/business-address.png",
   title: "ESTABLISH A BUSINESS ADDRESS",
   content:
     "It’s important for a business to have a business address.In order to have a strong business foundation, your business should use a physical business address. Most lenders prefer that you have a business address but, you can use your residential address.",
@@ -164,8 +164,8 @@ export const BuildBusinessAddress = () => {
   };
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 bg-[#f9f9f9] gap-6 rounded-2xl business-main">
-        <div className="flex flex-col w-[76%] justify-start mt-6  business-page-rightsection-inner-mobileview">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 bg-[#f9f9f9] gap-6 rounded-2xl business-main business-page-rightsection-mobileview">
+        <div className="flex flex-col w-[76%] justify-start mt-6 business-page-inner-mobileview">
           <SubHeader content={headerContent} />
           <div
             style={{
@@ -248,7 +248,7 @@ export const BuildBusinessAddress = () => {
             </div>
 
             {/* save buttong */}
-            <div className="flex  w-80  business-save-btn  mt-10">
+            <div className="flex  max-w-xs  w-full business-save-btn  mt-4">
               <Button
                 placeholder="save the address"
                 color="success"

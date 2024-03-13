@@ -144,12 +144,12 @@ export const BuildBusinessPhone = () => {
   };
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main business-page-rightsection-mobileview ">
         <div
           style={{
             boxShadow: "2px 4px 12px 0px #a3a3a324",
           }}
-          className="flex flex-col w-[76%] justify-start mt-6"
+          className="flex flex-col w-[76%] justify-start mt-6  business-page-inner-mobileview"
         >
           <SubHeader content={headerContent} />
           <div className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white">
@@ -177,7 +177,7 @@ export const BuildBusinessPhone = () => {
             </div>
 
             {/* save buttong */}
-            <div className="flex w-80  business-save-btn mt-4 mb-8 ">
+            <div className="flex  max-w-xs  w-full business-save-btn  mt-4">
               <Button
                 placeholder="save the address"
                 color="success"
@@ -218,7 +218,7 @@ export const BuildBusinessPhone = () => {
             <SubFormFooter content={footerContent} />
           </div>
         </div>
-        <div className="flex w-[24%]">
+        <div className="flex w-[24%] business-page-mobileview-width">
           <MonitorReportForm />
         </div>
       </div>

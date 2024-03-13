@@ -18,6 +18,7 @@ import { PaymentCard } from "@/components/cards/payment.card";
 import { Notes } from "@/components/business-account-elements/notes";
 import { Alert, AlertURL } from "@/components/business-account-elements/alert";
 import { AlertCard } from "@/components/cards/alert.card";
+// @ts-ignore
 import useForm from "new-react-use-form";
 import { useRouter } from "next/navigation";
 import { ApiCalls } from "@/api/calls/calls";
