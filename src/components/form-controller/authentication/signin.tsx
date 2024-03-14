@@ -45,8 +45,14 @@ export const SignInForm = () => {
         path: "/",
         secure: false,
       });
+      Cookies.set("role", r.role );
       if (r?.urlPath != null) {
-        router.replace(link);
+        if(r.role =="PCR:Admin"){
+          router.replace(r?.urlPath);
+        } else {
+          router.replace("/");
+        }
+        
       }
     },
     onError: (e) => handleFormError(e as any, form),

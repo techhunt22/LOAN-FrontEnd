@@ -29,6 +29,7 @@ export namespace Calls {
       accessToken: string;
       refreshToken: string;
       redirectPath: string;
+      role: string;
     }
     export interface SignUp extends BaseResponse {
       accessToken: string;
