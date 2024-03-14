@@ -50,11 +50,10 @@ interface MonitorFooterProps {
   image?: any;
   form?: any;
   fileName?: string;
-  mutateAsync?:any
+  mutateAsync?: any;
 }
 
 export const MonitorFooter: React.FC<MonitorFooterProps> = (props) => {
-
   const [value, setValue] = useState<number | string | undefined | any>();
 
   const [selectedValue, setSelectedValue] = useState<any>("");
@@ -110,9 +109,15 @@ export const MonitorFooter: React.FC<MonitorFooterProps> = (props) => {
   };
   return (
     <>
-      <div className="flex flex-col w-full justify-center">
-        <div className="flex flex-row w-full justify-center">
-          <div className="flex w-[55%] px-6">
+      <div className="flex flex-col w-full justify-center ">
+        <div
+          style={{ border: "1px solid #D3D3D3" }}
+          className="flex flex-row w-full justify-center py-8 tier-monitor-footer"
+        >
+          <div
+            style={{ marginTop: "25px", borderRight: "1px solid #D3D3D3" }}
+            className="flex w-[55%] px-6 tier-monitor-record"
+          >
             <MonitorRecord
               records={monitorRecord}
               handleOnChange={handleOnChange}
@@ -128,7 +133,10 @@ export const MonitorFooter: React.FC<MonitorFooterProps> = (props) => {
               mutateAsync={props.mutateAsync}
             />
           </div>
-          <div className="flex flex-col w-[45%] pr-6 justify-center">
+          <div
+            className="flex flex-col w-[45%] px-8 justify-center 
+            items-center tier-monitor-download-card"
+          >
             <p className="text-gray-500 ml-4">
               Once you have at least 3 of the accounts above reporting, upload
               your credit report using the file uploader below:

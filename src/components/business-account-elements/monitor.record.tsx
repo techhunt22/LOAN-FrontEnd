@@ -10,7 +10,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { EditableContentRecordInvidual } from "./editable.content.record.invidual";
 interface MonitorRecordProps {
-  records?: {
+  records: {
     invidualRecords: {
       title: string;
       icon: string;
@@ -102,12 +102,12 @@ export const MonitorRecord: React.FC<MonitorRecordProps> = (props) => {
           })}
         </div>
         <div className="flex flex-row w-full gap-6 justify-end">
-          <div className="flex w-32 my-6">
+          <div className="flex w-32 mt-6 mb-4">
             <Button variant="outlined" color="success" onClick={handleOnSave}>
               SUBMIT
             </Button>
           </div>
-          <div className="flex w-32 my-6">
+          <div className="flex w-32 mt-6 mb-4">
             <Button variant="outlined" color="secondary">
               CANCEL
             </Button>

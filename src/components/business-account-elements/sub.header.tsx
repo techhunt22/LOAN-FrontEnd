@@ -14,7 +14,7 @@ export const SubHeader: React.FC<SubHeaderProps> = (props) => {
           {props.content.step}
         </div>
         <div className="flex w-full justify-center  mt-[-2.5rem] business-page-margin-sm">
-          <h1 className="text-2xl  font-bold  business-page-text-color-black">
+          <h1 className="text-2xl  font-bold business-page-text-color-black">
             {props.content.title}
           </h1>
         </div>

@@ -22,7 +22,7 @@ import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
 const headerContent = {
-  step: "STPE2",
+  step: "Step 2",
   title: "Establish Business Reports",
   subTitle: "BUSINESS EQUIFAX",
 };
@@ -125,12 +125,12 @@ export const BusinessReportEquifax = () => {
   };
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl">
-        <div className="flex flex-col w-[76%] justify-start mt-6">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 bg-[#f9f9f9] gap-6 rounded-2xl business-main business-page-rightsection-mobileview ">
+        <div className="flex flex-col w-[76%] justify-start mt-6 business-page-inner-mobileview">
           <SubHeader content={headerContent} />
-          <div className="flex flex-col w-full px-2 justify-center items-center content-center mt-6">
+          <div className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white business-page-namesection-mobileview" style={{boxShadow:'2px 4px 12px 0px #a3a3a324',}}>
             <ArrowLineText
-              type="flex flex-col w-[80%] text-center text-gray-700"
+              type="flex flex-col w-[auto] text-center text-gray-700 "
               content={headerString}
             />
 
@@ -141,7 +141,7 @@ export const BusinessReportEquifax = () => {
             />
 
             {/* Warning section */}
-            <div className="flex w-[90%] mt-4 mb-6 text-blue-300">
+            <div className="flex w-[90%] mt-4 mb-6 text-xs " style={{color:'rgba(80, 131, 193, 1)',}}>
               <p>
                 If your answer is <b className=" inline-block">Yes</b> to this
                 question than great job having your company already known by
@@ -179,21 +179,21 @@ export const BusinessReportEquifax = () => {
             </div>
 
             {/* Warning section */}
-            <div className="flex w-[70%] mt-8 text-gray-500">
+            <div className="flex w-[60%] mt-8 text-gray-500 text-xs  text-center " style={{maxWidth:'400px', color:' rgba(167, 169, 172, 1)',}}>
               If no,as long as you have it the same with the Secretary of State,
               IRS and your trade accounts, Experian will update it when your
               trade accounts report.
             </div>
 
             {/* save buttong */}
-            <div className="flex w-52 mt-8">
+            <div className="flex  max-w-xs  w-full business-save-btn  mt-4 mb-8">
               <Button type="button" onClick={onSubmit} color="success">
                 {isPending ? <Spinner /> : "SAVE"}
               </Button>
             </div>
 
             {/* general card */}
-            <div className="flex flex-row w-[85%] my-12 justify-center">
+            <div className="flex  justify-center business-page-dn-number mb-8">
               <GeneralCard
                 icon="/business-account/search.svg"
                 content="Search for a business Equifax Report"
@@ -217,7 +217,7 @@ export const BusinessReportEquifax = () => {
             <SubFormFooter content={footerContent} />
           </div>
         </div>
-        <div className="flex w-[24%]">
+        <div className="flex w-[24%] business-page-mobileview-width">
           <MonitorReportForm />
         </div>
       </div>

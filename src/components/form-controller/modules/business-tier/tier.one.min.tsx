@@ -189,16 +189,16 @@ export const TierOneMin = () => {
   const router = useRouter();
   const fileName = "startBuildingTierOneFile";
   const { mutateAsync, isPending } = useMutation<
-  Calls.IResponse.Business,
-  Error,
-  Calls.IRequest.ModulesBusinessStartBuildingTierOne
->({
-  mutationFn: async (variables) =>
-    await ApiCalls.Module.businessStartBuildingTierOne(variables),
-  onSuccess: (r) => {
-    toast.success(r.message);
-  },
-});
+    Calls.IResponse.Business,
+    Error,
+    Calls.IRequest.ModulesBusinessStartBuildingTierOne
+  >({
+    mutationFn: async (variables) =>
+      await ApiCalls.Module.businessStartBuildingTierOne(variables),
+    onSuccess: (r) => {
+      toast.success(r.message);
+    },
+  });
   const { mutateAsync: image } = useMutation<
     Calls.IResponse.BusinessFile,
     Error,
@@ -222,18 +222,23 @@ export const TierOneMin = () => {
   });
   return (
     <>
-      <div className="flex flex-col w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl">
-        <div className="flex flex-row w-full">
-          <div className="flex flex-col w-[76%] justify-start mt-6">
+      <div className="flex flex-col w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 bg-[#f9f9f9] gap-6 rounded-2xl business-main business-page-rightsection-mobileview">
+        <div className="flex flex-row w-full justify-center gap-6">
+          <div className="flex flex-col w-[74%] align-center mt-6 business-page-inner-mobileview">
             <SubHeader content={headerContent} />
-            <div className="flex flex-col w-full px-2 justify-center items-center content-center mt-6">
+            <div
+              style={{
+                boxShadow: "0px 14px 50px 20px #a3a3a324",
+              }}
+              className="flex flex-col w-full p-9 align-center items-center content-center mt-6 bg-white"
+            >
               <ArrowLineText
-                type="flex flex-col w-[80%] text-center text-gray-700"
+                type="flex flex-col w-[auto] text-center text-gray-700"
                 content={arrowLineCotent}
               />
 
               {/* other datas */}
-              <div className="flex w-full text-gray-500 justify-center text-center mt-4">
+              <div className="flex w-full text-gray-500 justify-center text-center mt-4 ">
                 <p>
                   You need{" "}
                   <b className="text-gray-700">at least 3 trade accounts</b>{" "}
@@ -250,9 +255,9 @@ export const TierOneMin = () => {
               </div>
 
               {/* blog section */}
-
-              <BlogCustomCardLeft content={blogCustomContent} />
-
+              <div className="flex w-[90%] my-12 business-page-banner-bg-color">
+                <BlogCustomCardLeft content={blogCustomContent} />
+              </div>
               {/*  */}
               <div className="flex w-[90%] justify-center text-center text-md text-gray-500 my-6">
                 <p>
@@ -264,7 +269,7 @@ export const TierOneMin = () => {
               </div>
 
               {/* Card group */}
-              <div className="flex flex-col w-[95%]">
+              <div className="flex flex-col w-[95%] flex-wrap">
                 <MonitorCardGroup paymentContents={monitorCardGroup} />
               </div>
 
@@ -280,34 +285,50 @@ export const TierOneMin = () => {
               </div>
 
               {/* button section */}
-              <div className="flex w-[95%] justify-center content-center text-center mb-6">
-                <p>
-                  Once you have applied for trade accounts please indicate which
-                  ones by using the buttons below:
-                </p>
-              </div>
-              <div className="flex w-[95%] gap-12 justify-center content-center text-center">
-                <button className="flex bg-gradient-to-r from-blue-400 to-blue-200 text-white text-2xl px-5 py-4 rounded-3xl">
-                  APPROVED ACCOUNT
-                </button>
-                <button className="flex bg-gradient-to-r from-pink-400 to-pink-200 text-white text-2xl px-5 py-4 rounded-3xl">
-                  DENED ACCOUNT
-                </button>
-              </div>
             </div>
           </div>
-          <div className="flex w-[24%]">
+
+          <div className="flex w-[24%] business-page-mobileview-width">
             <MonitorReportForm />
           </div>
         </div>
-        <div className="flex w-full mt-6">
-          <MonitorFooter
-            url="/step7/page1-full"
-            image={image}
-            form={form}
-            fileName={fileName}
-            mutateAsync={mutateAsync}
-          />
+        <div
+          style={{
+            paddingTop: "50px",
+            position: "relative",
+          }}
+        >
+          <div className="flex w-[95%] justify-center content-center text-center mb-6 tier-mobile-text">
+            <p>
+              Once you have applied for trade accounts please indicate which
+              ones by using the buttons below:
+            </p>
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              zIndex: "999",
+              top: "84px",
+              left: "60px",
+            }}
+            className="flex w-[95%] gap-12  content-center text-center tier-mobile-button"
+          >
+            <button className="flex bg-gradient-to-r from-blue-400 to-blue-200 text-white text-2xl px-5 py-4 rounded-3xl">
+              APPROVED ACCOUNT
+            </button>
+            <button className="flex bg-gradient-to-r from-pink-400 to-pink-200 text-white text-2xl px-5 py-4 rounded-3xl">
+              DENED ACCOUNT
+            </button>
+          </div>
+          <div className="flex w-full mt-10">
+            <MonitorFooter
+              url="/step7/page1-full"
+              image={image}
+              form={form}
+              fileName={fileName}
+              mutateAsync={mutateAsync}
+            />
+          </div>
         </div>
       </div>
     </>

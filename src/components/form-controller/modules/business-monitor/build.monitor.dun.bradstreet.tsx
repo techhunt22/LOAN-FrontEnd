@@ -181,9 +181,9 @@ export const BuildMonitorDunBradstreet = () => {
       <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl">
         <div className="flex flex-col w-[76%] justify-start mt-6">
           <SubHeader content={headerContent} />
-          <div className="flex flex-col w-full px-2 justify-center items-center content-center mt-6">
+          <div className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white  business-page-namesection-mobileview" style={{boxShadow:'rgba(163, 163, 163, 0.14) 2px 4px 12px 0px',}}>
             <ArrowLineText
-              type="flex flex-col w-[80%] text-center text-gray-700"
+              type="flex flex-col w-[auto] text-center text-gray-700 "
               content={arrowLineCotent}
             />
             {/* Vidio card */}

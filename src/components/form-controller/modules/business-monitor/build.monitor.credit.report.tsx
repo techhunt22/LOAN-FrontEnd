@@ -35,7 +35,7 @@ export const BuildMonitorCreditReport = () => {
                 <div className="flex flex-col w-[76%] justify-start mt-6">
                     <SubHeader content={headerContent} />
                     <div className="flex flex-col w-full px-2 pr-6 justify-center items-center content-center mt-6">
-                        <ArrowLineText type="flex flex-col w-[80%] text-center text-gray-700" content={arrowLineCotent} />
+                        <ArrowLineText type="flex flex-col w-[auto] text-center text-gray-700" content={arrowLineCotent} />
 
                         <div className="flex flex-row gap-6 justify-center content-center items-center mt-16">
                             <Input id="input-with-icon-adornment"

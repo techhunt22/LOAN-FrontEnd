@@ -220,7 +220,7 @@ export const BuildBusinessAddress = () => {
                     physical business address.{" "}
                   </p>
                 </div>
-</div> */}
+                    </div> */}
               <form className="business-page-checkbox-form">
                 <div className="flex items-center mt-10-sm">
                   <input type="checkbox" name="" id="" className="mb-5" />

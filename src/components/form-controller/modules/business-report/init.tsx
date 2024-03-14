@@ -18,7 +18,7 @@ import { SelectCard, SelectCardInvidual } from "@/components/cards/select.card";
 import { Alert } from "@/components/business-account-elements/alert";
 
 const headerContent = {
-    step: "STPE2",
+    step: "Step 2",
     title: "Establish Business Reports",
     subTitle: "D & B NUMBER",
 }
@@ -91,7 +91,7 @@ export const BusinessReportInit = () => {
                 <div className="flex flex-col w-[76%] justify-start mt-6">
                     <SubHeader content={headerContent} />
                     <div className="flex flex-col w-full px-2 justify-center items-center content-center mt-6">
-                        <ArrowLineText type="flex flex-col w-[80%] text-center text-gray-700" content={headerString} />
+                        <ArrowLineText type="flex flex-col w-[auto] text-center text-gray-700" content={headerString} />
 
                         {/* Alert Section */}
                         <Alert icon="/report/init/Shield-DoneVerifiedIcon.svg" content={alertContent} />

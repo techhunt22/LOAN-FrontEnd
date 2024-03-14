@@ -341,9 +341,11 @@ li {
 
 .business-page-heading-info span {
   font-size: 10px;
+  line-height: 12px;
   font-weight: 400;
   line-height: 12px;
   color: #434343;
+  display: flex;
 }
 
 .business-page-grid-gap-124 {
@@ -353,7 +355,7 @@ li {
 
 .business-page-gray-btn {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   color: #a3a3a3;
   border: none;
   border: 1px solid #d9d9d9;
@@ -365,12 +367,13 @@ li {
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
 
 }
 
 .green-btn a {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   display: flex;
   color: #38b000;
   border: none;
@@ -452,7 +455,7 @@ li {
 
 .business-page-previous-btn a {
   font-size: 16px !important;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   border-radius: 13px !important;
   border: 1px solid #d9d9d9 !important;
   background-color: #fff !important;
@@ -735,35 +738,119 @@ li {
     font-size: 56px;
   }
 
-  @media(max-width:450px) {
-    .business-page-padding-sm {
-      padding: 10px !important;
-    }
 
-    .business-page-rightsection-mobileview {
-      padding: 0.5rem;
-    }
 
-    .business-page-step-btn-mobileview {
-      margin-left: -0.5rem;
-    }
-
-    .business-page-videocard-mobileview {
-      width: 16.5rem;
-    }
-
-    .business-page-arrowline-mobileview {
-      text-align: center;
-      font-size: 14px;
-    }
-
-    .business-page-fileupload-mobileview {
-      width: 18rem !important;
-      height: 17rem;
-    }
-
-    .font-85 {
-      font-size: 43px;
-    }
+  .tier-mobile-text {
+    margin-bottom: 56px;
   }
+
+  .tier-mobile-button {
+    top: 115px !important;
+    left: 42px !important;
+  }
+
+  .business-page-fileupload-mobileview {
+    width: 18rem;
+    height: 15rem;
+  }
+
+  .mt-0 {
+    margin-top: 0;
+  }
+}
+
+@media(max-width:450px) {
+  .business-page-padding-sm {
+    padding: 10px !important;
+  }
+
+  .business-page-rightsection-mobileview {
+    padding: 0.5rem;
+  }
+
+  .business-page-step-btn-mobileview {
+    margin-left: -0.5rem;
+  }
+
+  .business-page-videocard-mobileview {
+    width: 16.5rem;
+  }
+
+  .business-page-arrowline-mobileview {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .business-page-fileupload-mobileview {
+    width: 18rem !important;
+    height: 17rem;
+  }
+
+  .font-85 {
+    font-size: 43px;
+  }
+
+  .business-page-gotowebsite-mobileview {
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+  }
+}
+
+@media(max-width:658px) {
+  .tier-mobile-button {
+    left: 15px !important;
+  }
+}
+
+@media(max-width:700px) {
+  .tier-monitor-footer {
+    flex-direction: column !important;
+    width: 100%;
+    align-items: center;
+  }
+
+  .tier-monitor-record {
+    width: 100%;
+    border-right: 0 !important;
+    border-bottom: 1px solid #D3D3D3;
+  }
+
+  .tier-monitor-download-card {
+    width: 100%;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+@media(max-width:1440px) {
+  .monitorCard {
+    flex-wrap: wrap;
+  }
+}
+
+@media(max-width:1040px) {
+  .business-page-fileupload-mobileview {
+    height: 15rem;
+    width: 18rem;
+  }
+}
+
+.business-page-dn-number>div>div {
+  background-color: #FFFFFF;
+  box-shadow: 0px 0.5812949538230896px 5.8129496574401855px 0px #A8AAAC26;
+  /* padding: 5px 10px; */
+  margin-top: 12px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 10px;
+}
+
+.max-width-320 {
+  max-width: 320px;
+}
+
+.business-page-dn-number>div {
+  width: 220px;
+  border-radius: 50px;
+
 }

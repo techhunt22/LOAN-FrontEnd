@@ -14,12 +14,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <div className="grid grid-cols-7 justify-between">
-        <div className="flex col-start-1 col-span-1 w-full justify-start content-start">
+        <div className="flex col-start-1 col-span-1 w-full justify-start content-start sidebar-mobileview">
           <AddClientPanel activeState={activeState} />
         </div>
         <div className="flex col-start-2 col-span-7 justify-start">
           <ACContextProvider>
-            <div className={"pb-0"}> {children}</div>
+            <div className={"pb-0 business-page-padding-sm"}> {children}</div>
           </ACContextProvider>
         </div>
       </div>

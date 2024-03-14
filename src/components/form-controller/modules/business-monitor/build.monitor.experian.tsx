@@ -169,7 +169,8 @@ export const BuildMonitorExperian = () => {
           <SubHeader content={headerContent} />
           <div className="flex flex-col w-full px-2 justify-center items-center content-center mt-6">
             <ArrowLineText
-              type="flex flex-col w-[80%] text-center text-gray-700"
+              type="flex flex-col w-[auto] text-center text-gray-700"
+
               content={arrowLineCotent}
             />
             {/* Vidio card */}
@@ -239,7 +240,7 @@ export const BuildMonitorExperian = () => {
             <SubFormFooter content={footerContent} />
           </div>
         </div>
-        <div className="flex w-[24%]">
+        <div className="flex w-[24%] business-page-mobileview-width">
           <MonitorReportForm />
         </div>
       </div>

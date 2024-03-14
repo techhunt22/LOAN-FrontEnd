@@ -96,7 +96,7 @@ export const SelectCardInvidual: React.FC<SelectCardInvidualProps> = (
 ) => {
   return (
     <>
-      <div className="flex flex-col  w-64 h-52 justify-center content-center ">
+      <div className="flex flex-col  w-64 h-52 justify-center content-center  business-entry-page-indicatesection ">
         <div className="flex w-full pt-6 px-4 justify-center content-center h-32">
           {props.content.contents1}
         </div>
