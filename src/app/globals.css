@@ -888,7 +888,7 @@ li {
 
 /* monitor report form css 
 ========================================================== */
-.business-page-sort-btn{
+.business-page-sort-btn {
   padding: 18px 23px;
   border: 1px solid #E9E9E9;
   border-radius: 18px;
@@ -901,7 +901,7 @@ li {
   gap: 13px;
 }
 
-.business-page-searchname-input{
+.business-page-searchname-input {
   font-size: 16px;
   font-weight: 400;
   color: #3A354161;
@@ -910,7 +910,8 @@ li {
   border: 1px solid #3A35413B;
   border-radius: 6px;
 }
-.business-page-blue-btn{
+
+.business-page-blue-btn {
   font-size: 14px;
   font-weight: 600;
   color: #ffffff;
@@ -918,42 +919,59 @@ li {
   background-color: #2684FF;
   padding: 7px 22px;
   border-radius: 5px;
- 
+
 }
-.business-page-border-right{
+
+.business-page-border-right {
   border-right: 1px solid #D3D3D3;
 }
-.business-page-showdata{
+
+.business-page-showdata {
   padding: 16px;
   border-top: 1px solid #C0C0C0;
-  border-bottom: 1px solid #C0C0C0 ;
+  border-bottom: 1px solid #C0C0C0;
   color: #686666;
 }
-.business-page-showdata:last-child{
-  border-right: 1px solid  #C0C0C0 ;
+
+.business-page-showdata:last-child {
+  border-right: 1px solid #C0C0C0;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-.business-page-showdata:first-child{
-  border-left: 1px solid  #C0C0C0;
+
+.business-page-showdata:first-child {
+  border-left: 1px solid #C0C0C0;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 
 }
-.business-page-sort-btn svg:last-child{
-  color:#2684FF;
+
+.business-page-sort-btn svg:last-child {
+  color: #2684FF;
 }
+
 .business-page-viewprofile-section svg {
   width: 35px;
   height: 35px;
-  color:#2684FF;
+  color: #2684FF;
 }
 
 
-.table-responsive{
-    overflow-x: auto;
-    
- } 
-.business-page-table{
-  min-width: 1100px;
+.table-responsive {
+  overflow-x: auto;
+
+}
+
+.business-page-table {
+  min-width: 1200px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #aeaeae;
+  border-radius: 15px;
 }

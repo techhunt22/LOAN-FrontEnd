@@ -249,7 +249,10 @@ export namespace ApiCalls {
     ): Promise<Calls.IResponse.BusinessFile> => {
       const formData = new FormData();
       if (data) {
-        formData.append("startBuildingTierOneFile", data.startBuildingTierOneFile as File);
+        formData.append(
+          "startBuildingTierOneFile",
+          data.startBuildingTierOneFile as File
+        );
       }
       return await api
         .post("/business/start.building/tier.one.file", formData)
@@ -261,7 +264,10 @@ export namespace ApiCalls {
     ): Promise<Calls.IResponse.BusinessFile> => {
       const formData = new FormData();
       if (data) {
-        formData.append("startBuildingTierTwoFile", data.startBuildingTierTwoFile as File);
+        formData.append(
+          "startBuildingTierTwoFile",
+          data.startBuildingTierTwoFile as File
+        );
       }
       return await api
         .post("/business/start.building/tier.two.file", formData)
@@ -273,7 +279,10 @@ export namespace ApiCalls {
     ): Promise<Calls.IResponse.BusinessFile> => {
       const formData = new FormData();
       if (data) {
-        formData.append("startBuildingTierThreeFile", data.startBuildingTierThreeFile as File);
+        formData.append(
+          "startBuildingTierThreeFile",
+          data.startBuildingTierThreeFile as File
+        );
       }
       return await api
         .post("/business/start.building/tier.three.file", formData)
@@ -285,7 +294,10 @@ export namespace ApiCalls {
     ): Promise<Calls.IResponse.BusinessFile> => {
       const formData = new FormData();
       if (data) {
-        formData.append("startBuildingTierFourFile", data.startBuildingTierFourFile as File);
+        formData.append(
+          "startBuildingTierFourFile",
+          data.startBuildingTierFourFile as File
+        );
       }
       return await api
         .post("/business/start.building/tier.four.file", formData)
@@ -411,5 +423,14 @@ export namespace ApiCalls {
         params: { ...data },
       })
       .then((res) => res.data.data);
+  };
+  export const Users = async () => {
+    try {
+      const response = await api.get("/get.all.users");
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching users:", error);
+      throw error; // Rethrow the error to be caught by the caller
+    }
   };
 }
