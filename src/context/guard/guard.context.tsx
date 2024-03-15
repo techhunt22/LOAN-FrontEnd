@@ -1,6 +1,6 @@
 "use client";
 import React, { createContext, useContext, useEffect, useState } from "react";
-
+import Cookies from "js-cookie";
 const GuardContext = createContext<AuthContextType | undefined>(undefined);
 
 interface AuthContextType {
@@ -15,10 +15,13 @@ export const GuardContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
+  debugger
   const systemGroup = ["0", "1", "3"];
   const roles = ["pmfwmfwfwnwfwnwnfwfwf"];
   const contextValue = undefined;
 
+  const loginRole = Cookies.get("role");
+  
   const [isAdmin, setIsAdmin] = useState<boolean>(false); // Assuming admin state
 
   const login = () => {
@@ -30,6 +33,12 @@ export const GuardContextProvider = ({
     // Perform your logout logic here
     setIsAdmin(false);
   };
+
+  useEffect(() => {
+    if(loginRole =="PCR:Admin"){
+      setIsAdmin(true);
+    }
+  }, []);
 
   return (
     <GuardContext.Provider  value={{ isAdmin, login, logout }}>
