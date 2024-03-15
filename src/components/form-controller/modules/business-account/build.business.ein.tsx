@@ -23,6 +23,7 @@ import toast from "react-hot-toast";
 // @ts-ignore
 import useForm from "new-react-use-form";
 import { useRouter } from "next/navigation";
+import { staticId } from "@/components/const/cookies";
 
 const headerContent = {
   step: "Step 1",
@@ -132,7 +133,7 @@ export const BuildBusinessEin = () => {
   });
   const handleOnSave = async (e: any) => {
     e.preventDefault();
-    const data = await mutateAsync({ number: value });
+    const data = await mutateAsync({ number: value, id: staticId });
     const formData = await image(form.data());
     const updatedData = { ...data, ...formData };
     return updatedData;

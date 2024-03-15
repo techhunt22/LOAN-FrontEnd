@@ -747,6 +747,8 @@ li {
   .tier-mobile-button {
     top: 115px !important;
     left: 42px !important;
+    display: flex;
+    justify-content: center
   }
 
   .business-page-fileupload-mobileview {
@@ -799,6 +801,8 @@ li {
 @media(max-width:658px) {
   .tier-mobile-button {
     left: 15px !important;
+    display: flex;
+    justify-content: center
   }
 }
 
@@ -807,6 +811,7 @@ li {
     flex-direction: column !important;
     width: 100%;
     align-items: center;
+    padding: 10px;
   }
 
   .tier-monitor-record {
@@ -838,11 +843,13 @@ li {
 .business-page-dn-number>div>div {
   background-color: #FFFFFF;
   box-shadow: 0px 0.5812949538230896px 5.8129496574401855px 0px #A8AAAC26;
-  /* padding: 5px 10px; */
+  padding: 5px 10px;
   margin-top: 12px;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   border-radius: 10px;
+  width: auto;
+
 }
 
 .max-width-320 {
@@ -850,7 +857,31 @@ li {
 }
 
 .business-page-dn-number>div {
-  width: 220px;
+  width: 250px;
   border-radius: 50px;
 
+}
+
+@media(max-width:500px) {
+  .tier-mobile-button {
+    gap: 10px !important;
+    display: flex;
+    justify-content: center;
+    top: 126px !important
+  }
+
+  .tier-mobile-button button {
+    font-size: 16px;
+    height: 56px;
+    width: 140px;
+    display: flex;
+    line-height: 15px;
+  }
+}
+
+@media(max-width:380px) {
+  .tier-mobile-button {
+    top: 150px !important;
+    left: 6px !important;
+  }
 }

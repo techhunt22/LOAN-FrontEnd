@@ -46,7 +46,7 @@ export namespace Calls {
     export interface BusinessEin extends Business {}
     export interface BusinessFile extends Business {
       urlPath: null;
-}
+    }
     export interface BusinessPhone extends Business {}
     export interface BusinessEmail extends Business {}
     export interface BusinessLicense extends Business {}
@@ -136,6 +136,7 @@ export namespace Calls {
 
     export interface ModulesBusinessName {
       business_name: string;
+      id: string;
     }
     export interface ModulesBusinessEntity {
       entityType: string;
@@ -143,9 +144,11 @@ export namespace Calls {
       dateIncorporated: string;
       policyOne: boolean;
       policyTwo: boolean;
+      id: string | undefined;
     }
     export interface ModulesBusinessEin {
       number: string;
+      id: string | undefined;
     }
     export interface ModulesBusinessEinFile {
       einFile: File;
@@ -181,31 +184,39 @@ export namespace Calls {
       phoneNumber: string;
       serviceProvider: string;
       faxNumber: string;
+      id: string | undefined;
     }
     export interface ModulesBusinessEmail {
       website: string;
       email: string;
+      id: string | undefined;
     }
     export interface ModulesBusinessLicense {
       businessLicense: string;
+      id: string | undefined;
     }
     export interface ModulesBusinessBank {
       account: string;
+      id: string | undefined;
     }
     export interface ModulesBusinessMerchant {
       account: string;
+      id: string | undefined;
     }
     export interface ModulesBusinessReport {
       address: string;
       policy: boolean;
+      id: string | undefined;
     }
     export interface ModulesBusinessExperian {
       identificationNumber: string;
       policy: boolean;
+      id: string | undefined;
     }
     export interface ModulesBusinessEquifax {
       identificationNumber: string;
       policy: boolean;
+      id: string | undefined;
     }
     export interface ModulesBusinessStartBuildingTierOne {
       tradeAccount: string;
@@ -213,6 +224,7 @@ export namespace Calls {
       paymentDate: string;
       approvedAmount: string;
       personalGrant: string;
+      id: string | undefined;
     }
     export interface ModulesBusinessStartBuildingTierTwo {
       tradeAccount: string;
@@ -220,6 +232,7 @@ export namespace Calls {
       paymentDate: string;
       approvedAmount: string;
       personalGrant: string;
+      id: string | undefined;
     }
     export interface ModulesBusinessStartBuildingTierThree {
       tradeAccount: string;
@@ -243,6 +256,7 @@ export namespace Calls {
       state: string;
       businessAddressType: string;
       policy: boolean;
+      id: string | undefined;
     }
     export interface Docs {
       identityCard1?: File;

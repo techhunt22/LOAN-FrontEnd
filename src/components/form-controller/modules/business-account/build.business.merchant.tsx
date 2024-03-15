@@ -16,6 +16,7 @@ import { Calls } from "@/api/calls/type";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { Spinner } from "@material-tailwind/react";
+import { staticId } from "@/components/const/cookies";
 
 const headerContent = {
   step: "Step 1",
@@ -87,7 +88,7 @@ export const BuildBusinessMerchant = () => {
   });
   const handleOnSave = async (e: any) => {
     e.preventDefault();
-    const data = await mutateAsync({ account: value });
+    const data = await mutateAsync({ account: value, id: staticId });
     return data;
   };
   return (

@@ -20,6 +20,7 @@ import { Calls } from "@/api/calls/type";
 import { Spinner } from "@material-tailwind/react";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import { staticId } from "@/components/const/cookies";
 
 const headerContent = {
   step: "Step 2",
@@ -130,6 +131,7 @@ export const BusinessReportExperian = () => {
     const data = await mutateAsync({
       identificationNumber: value,
       policy: bsPolicyOne,
+      id: staticId,
     });
     return data;
   };
@@ -138,7 +140,10 @@ export const BusinessReportExperian = () => {
       <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 bg-[#f9f9f9] gap-6 rounded-2xl business-main business-page-rightsection-mobileview">
         <div className="flex flex-col w-[76%] justify-start mt-6 business-page-inner-mobileview">
           <SubHeader content={headerContent} />
-          <div className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white business-page-namesection-mobileview " style={{boxShadow:'2px 4px 12px 0px #a3a3a324',}}>
+          <div
+            className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white"
+            style={{ boxShadow: "2px 4px 12px 0px #a3a3a324" }}
+          >
             <ArrowLineText
               type="flex flex-col w-[auto] text-center text-gray-700"
               content={headerString}
@@ -151,7 +156,10 @@ export const BusinessReportExperian = () => {
             />
 
             {/* Warning section */}
-            <div className="flex w-[90%] mt-4 mb-6 text-xs " style={{color:'rgba(80, 131, 193, 1)',}}>
+            <div
+              className="flex w-[90%] mt-4 mb-6 text-xs "
+              style={{ color: "rgba(80, 131, 193, 1)" }}
+            >
               <p>
                 If your answer is <b className=" inline-block">Yes</b> to this
                 question than great job having your company already known by
@@ -189,7 +197,10 @@ export const BusinessReportExperian = () => {
             </div>
 
             {/* Warning section */}
-            <div className="flex w-[60%] mt-8 text-gray-500 text-xs  text-center " style={{maxWidth:'400px', color:' rgba(167, 169, 172, 1)',}}>
+            <div
+              className="flex w-[60%] mt-8 text-gray-500 text-xs  text-center "
+              style={{ maxWidth: "400px", color: " rgba(167, 169, 172, 1)" }}
+            >
               If no,as long as you have it the same with the Secretary of State,
               IRS and your trade accounts, Experian will update it when your
               trade accounts report.

@@ -71,7 +71,7 @@ export const BusinessReportWrap = () => {
 
                 <div className="flex flex-col w-[76%] justify-start mt-6 business-page-inner-mobileview">
                     <SubHeader content={headerContent} />
-                    <div className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white  business-page-namesection-mobileview" style={{boxShadow:'rgba(163, 163, 163, 0.14) 2px 4px 12px 0px;',}}>
+                    <div className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white" style={{boxShadow:'rgba(163, 163, 163, 0.14) 2px 4px 12px 0px;',}}>
                         <ArrowLineText type="flex flex-col w-[auto] text-center text-gray-700" content={headerString} />
 
                         {/* Alert Section */}

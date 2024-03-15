@@ -9,6 +9,7 @@ import Image from "next/image";
 
 import { useState, useEffect } from "react";
 import { EditableContentRecordInvidual } from "./editable.content.record.invidual";
+import { staticId } from "../const/cookies";
 interface MonitorRecordProps {
   records: {
     invidualRecords: {
@@ -48,6 +49,7 @@ export const MonitorRecord: React.FC<MonitorRecordProps> = (props) => {
       paymentDate: props.selectedDateTwo,
       approvedAmount: props.value,
       personalGrant: props.selectedValue[4],
+      id: staticId,
     });
     return data;
   };

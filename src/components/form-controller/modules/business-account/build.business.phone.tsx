@@ -19,6 +19,7 @@ import { Calls } from "@/api/calls/type";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { Spinner } from "@material-tailwind/react";
+import { staticId } from "@/components/const/cookies";
 
 const headerContent = {
   step: "Step 1",
@@ -139,6 +140,7 @@ export const BuildBusinessPhone = () => {
       phoneNumber: values.Phone,
       serviceProvider: values.PSP,
       faxNumber: values.Fax,
+      id: staticId,
     });
     return data;
   };

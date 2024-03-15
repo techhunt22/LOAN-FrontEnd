@@ -18,6 +18,7 @@ import { ApiCalls } from "@/api/calls/calls";
 import { Calls } from "@/api/calls/type";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import { staticId } from "@/components/const/cookies";
 
 const headerContent = {
   step: "Step 1",
@@ -159,6 +160,7 @@ export const BuildBusinessAddress = () => {
       state: selectedValue[3],
       businessAddressType: selectedValue[0],
       policy: false,
+      id: staticId,
     });
     return data;
   };

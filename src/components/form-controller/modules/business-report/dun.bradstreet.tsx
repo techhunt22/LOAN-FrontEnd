@@ -20,6 +20,7 @@ import { Calls } from "@/api/calls/type";
 import { Spinner } from "@material-tailwind/react";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import { staticId } from "@/components/const/cookies";
 
 const headerContent = {
   step: "Step 2",
@@ -122,7 +123,11 @@ export const BusinessReportDunBradstreet = () => {
 
   const onSubmit = async (e: any) => {
     e.preventDefault();
-    const data = await mutateAsync({ address: value, policy: bsPolicyOne });
+    const data = await mutateAsync({
+      address: value,
+      policy: bsPolicyOne,
+      id: staticId,
+    });
     return data;
   };
   return (
@@ -130,7 +135,10 @@ export const BusinessReportDunBradstreet = () => {
       <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main business-page-rightsection-mobileview">
         <div className="flex flex-col w-[76%] justify-start mt-6   business-page-inner-mobileview ">
           <SubHeader content={headerContent} />
-          <div className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white  business-page-namesection-mobileview" style={{boxShadow:'rgba(163, 163, 163, 0.14) 2px 4px 12px 0px',}}>
+          <div
+            className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white"
+            style={{ boxShadow: "rgba(163, 163, 163, 0.14) 2px 4px 12px 0px" }}
+          >
             <ArrowLineText
               type="flex flex-col w-[auto] text-center text-gray-700 "
               content={headerString}
@@ -171,14 +179,18 @@ export const BusinessReportDunBradstreet = () => {
 
             {/* Warning section */}
             <div className="flex  mt-8 mx-auto text-xs max-width-320">
-              <span className="inline-box">If no,
-              <a href="#" className="inline-box ml-1 text-blue-400">click here</a>
-              to update your business name & address with so it matches exactly with the Secretary of State & IRS
+              <span className="inline-box">
+                If no,
+                <a href="#" className="inline-box ml-1 text-blue-400">
+                  click here
+                </a>
+                to update your business name & address with so it matches
+                exactly with the Secretary of State & IRS
               </span>
 
               {/* <span className="inline-block">to update your business name & address with D&B so it matches exactly with the Secretary of State & IRS</span> */}
             </div>
-            
+
             {/* <div className="flex mx-auto">
               <span className="inline-block">
                 so it matches exactly with the Secretary of State & IRS
@@ -196,15 +208,12 @@ export const BusinessReportDunBradstreet = () => {
             <div className="flex flex-row flex-wrap justify-center  business-page-grid-gap-124 w-full my-12 business-credit-general-card ">
               <div className="flex  justify-center business-page-dn-number">
                 <GeneralCard
-
                   icon="/report/init/Export.svg"
                   content="Apply for a D&N Number"
-
                 />
               </div>
               <div className="flex  justify-center business-page-dn-number">
                 <GeneralCard
-
                   icon="/report/init/Chart.svg"
                   content="D&N basic report information"
                 />

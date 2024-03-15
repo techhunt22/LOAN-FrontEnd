@@ -19,6 +19,8 @@ import { ApiCalls } from "@/api/calls/calls";
 import { Calls } from "@/app/api/calls/type";
 import toast from "react-hot-toast";
 import { Spinner } from "@material-tailwind/react";
+import { staticId } from "@/components/const/cookies";
+
 const headerContent = {
   step: "Step 1",
   title: "Fundability Foundation",
@@ -61,7 +63,6 @@ export const BuildBusinessCredit = () => {
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
-
   const { mutateAsync, isPending } = useMutation<
     Calls.IResponse.Business,
     Error,
@@ -76,7 +77,10 @@ export const BuildBusinessCredit = () => {
 
   const onSubmit = async (e: any) => {
     e.preventDefault();
-    const data = await mutateAsync({ name: value });
+    const data = await mutateAsync({
+      name: value,
+      id: staticId,
+    });
     return data;
   };
   return (

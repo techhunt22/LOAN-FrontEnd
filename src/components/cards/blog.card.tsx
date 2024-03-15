@@ -13,8 +13,8 @@ interface BlogCardProps {
     picture: string;
     title: string;
     content: string;
-    subContent: string;
-    content3: any;
+    subContent?: string;
+    content3?: any;
   };
 }
 
@@ -250,13 +250,13 @@ export const BlogCustomCardLeft: React.FC<BlogCustomCardProps> = (props) => {
   return (
     <>
       <div className="flex w-full">
-        <div className="flex flex-row w-full border-0 rounded-lg overflow-hidden mb-4 shadow-sm py-7 px-4 relative  business-page-banner-mobileview business-page-banner-bg-color ">
+        <div className="flex flex-row w-full  rounded-lg overflow-hidden mb-4 py-7 px-4 relative  business-page-banner-mobileview business-page-banner-bg-color ">
           <div className="flex w-[50%] justify-center content-center items-center business-page-banner-left-mobileview">
             {/* <Image src={props.content.picture} objectFit="fill" alt="ssa" /> */}
             <img src={props.content.picture} alt="" style={{}} />
           </div>
           <div className="flex flex-col p-4 w-[50%] justify-center content-center items-center business-page-banner-right-mobileview">
-            <strong className="mb-2 text-blue-500 text-center business-page-text-color-black" >
+            <strong className="mb-2 text-blue-500 text-center business-page-text-color-black">
               {props.content.title}
             </strong>
             {props.content.contents.map((invidualContent) => (
@@ -297,7 +297,7 @@ export const BlogCustomCardBoldLeft: React.FC<BlogCustomCardBoldProps> = (
   return (
     <>
       <div className="flex w-full">
-        <div className="flex flex-row w-full border-0 rounded-lg overflow-hidden mb-4 shadow-sm py-7 px-4 relative business-page-banner-mobileview">
+        <div className="flex flex-row w-full rounded-lg overflow-hidden mb-4  py-7 px-4 relative business-page-banner-mobileview">
           <div className="flex w-[50%] justify-center content-center items-center  business-page-banner-left-mobileview">
             {/* <Image src={props.content.picture} objectFit="fill" alt="ssa" /> */}
             <img src={props.content.picture} alt="" style={{}} />
