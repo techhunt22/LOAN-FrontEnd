@@ -50,7 +50,7 @@ export const SignInForm = () => {
         if(r.role =="PCR:Admin"){
           router.replace(r?.urlPath);
         } else {
-          router.replace("/");
+          router.replace(link);
         }
         
       }
