@@ -9,7 +9,6 @@ export const TypeofServices = () => {
   const [isLogin, setIsLogin] = useState<boolean>();
 
   useEffect(() => {
-    debugger
     const myCookieValue =   getCookie('accessToken');
     setIsLogin(myCookieValue ? true : false );
   }, []);
