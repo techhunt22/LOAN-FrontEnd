@@ -249,8 +249,8 @@ interface BlogCustomCardProps {
 export const BlogCustomCardLeft: React.FC<BlogCustomCardProps> = (props) => {
   return (
     <>
-      <div className="flex w-full">
-        <div className="flex flex-row w-full  rounded-lg overflow-hidden mb-4 py-7 px-4 relative  business-page-banner-mobileview business-page-banner-bg-color ">
+      <div className="flex w-full mt-16">
+        <div className="flex flex-row  overflow-hidden mb-4  py-10 px-6 relative  business-page-banner-mobileview business-page-banner-bg-color ">
           <div className="flex w-[50%] justify-center content-center items-center business-page-banner-left-mobileview">
             {/* <Image src={props.content.picture} objectFit="fill" alt="ssa" /> */}
             <img src={props.content.picture} alt="" style={{}} />

@@ -24,7 +24,7 @@ import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
 const headerContent = {
-  step: "STPE4",
+  step: "Step 4",
   title: "Moniter Business Reports",
   subTitle: "MONITOR EXPERIAN",
 };
@@ -164,21 +164,23 @@ export const BuildMonitorExperian = () => {
   };
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl">
-        <div className="flex flex-col w-[76%] justify-start mt-6">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main business-page-rightsection-mobileview">
+        <div className="flex flex-col w-[76%] justify-start mt-6 business-page-inner-mobileview">
           <SubHeader content={headerContent} />
-          <div className="flex flex-col w-full px-2 justify-center items-center content-center mt-6">
+          <div
+            className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white  business-page-namesection-mobileview"
+            style={{ boxShadow: "2px 4px 12px 0px #a3a3a324" }}
+          >
             <ArrowLineText
               type="flex flex-col w-[auto] text-center text-gray-700"
-
               content={arrowLineCotent}
             />
             {/* Vidio card */}
-            <div className="flex flex-row w-full">
-              <div className="flex w-[50%] justify-start">
+            <div className="flex flex-row w-full flex-wrap justify-center">
+              <div className="flex  justify-start">
                 <VideoCard videoContent={videoConten} />
               </div>
-              <div className="flex w-[50%] justify-end">
+              <div className="flex justify-end">
                 <VideoCard videoContent={videoConten1} />
               </div>
             </div>
@@ -188,7 +190,10 @@ export const BuildMonitorExperian = () => {
             <BlogCustomCardLeft content={blogCustomContent} />
 
             {/*  */}
-            <div className="flex w-[90%] justify-center text-center text-md text-gray-500 my-6">
+            <div
+              className="flex w-[80%] justify-center text-center text-md text-gray-500 my-6"
+              style={{ color: "#737373" }}
+            >
               <p>
                 DO YOU HAVE EXPERIAN MONITORING ALREADY? IF SO PLEASE UPLOAD
                 YOUR REPORT HERE SO A BUSINESS CREDIT ADVISOR CAN REVIEW IT WITH
@@ -204,7 +209,7 @@ export const BuildMonitorExperian = () => {
             />
 
             {/* save buttong */}
-            <div className="flex w-72 h-12 mt-8">
+            <div className="flex  max-w-xs  w-full business-save-btn  my-16  mt-12 ">
               <Button
                 placeholder="save the address"
                 color="success"
@@ -215,7 +220,7 @@ export const BuildMonitorExperian = () => {
               </Button>
             </div>
 
-            <div className="flex w-full mt-14 flex-col">
+            <div className="flex w-full my-14 flex-col">
               <PaymentCard
                 title={paymentTitle}
                 paymentContents1={paymentCard1}

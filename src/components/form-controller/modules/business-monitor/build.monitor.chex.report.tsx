@@ -27,7 +27,7 @@ import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
 const headerContent = {
-  step: "STPE4",
+  step: "Step 4",
   title: "Moniter Business Reports",
   subTitle: "CHEX REPORT",
 };
@@ -156,12 +156,13 @@ export const BuildMonitorChexReport = () => {
   };
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl">
-        <div className="flex flex-col w-[76%] justify-start mt-6">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main  business-page-rightsection-mobileview">
+        <div className="flex flex-col w-[76%] justify-start mt-6   business-page-inner-mobileview">
           <SubHeader content={headerContent} />
-          <div className="flex flex-col w-full px-2 justify-center items-center content-center mt-6">
+          <div className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white  business-page-namesection-mobileview" 
+          style={{boxShadow:'2px 4px 12px 0px #a3a3a324',}}>
             <ArrowLineText
-              type="flex flex-col w-[80%] text-center text-gray-700"
+              type="flex flex-col w-[auto] text-center text-gray-700"
               content={arrowLineCotent}
             />
             {/* Vidio card */}
@@ -176,7 +177,7 @@ export const BuildMonitorChexReport = () => {
             {/*  */}
             <Notes content={notesContent} />
             {/*  */}
-            <div className="flex w-[90%] justify-center text-center text-md text-gray-500 my-6">
+            <div className="flex w-[60%] justify-center text-center text-md text-gray-500 my-8 business-page-font-sm">
               <p>
                 IF SO, PLEASE UPLOAD YOUR REPORT HERE SO A BUSINESS CREDIT
                 ADVISOR CAN REVIEW IT WITH YOU.
@@ -191,7 +192,7 @@ export const BuildMonitorChexReport = () => {
             />
 
             {/* save buttong */}
-            <div className="flex w-72 h-12 mt-8">
+            <div className="flex  max-w-xs  w-full business-save-btn  mt-12">
               <Button
                 placeholder="save the address"
                 color="success"
@@ -203,21 +204,21 @@ export const BuildMonitorChexReport = () => {
             </div>
 
             {/* Website cards */}
-            <div className="flex flex-row w-full mt-12 gap-3 justify-center">
+            <div className="flex flex-row w-full mt-12 gap-3 justify-center flex-wrap">
               <AlertCard alertContents={alertCard1} />
               <AlertCard alertContents={alertCard2} />
               <AlertCard alertContents={alertCard3} />
             </div>
-            <div className="flex flex-row w-full mt-2 mb-16 gap-3 justify-center">
-              <AlertCard alertContents={alertCard1} />
-              <AlertCard alertContents={alertCard2} />
-              <AlertCard alertContents={alertCard3} />
+            <div className="flex flex-row w-full mt-2 mb-16 gap-3 justify-center flex-wrap">
+              <AlertCard alertContents={alertCard4} />
+              <AlertCard alertContents={alertCard5} />
+              <AlertCard alertContents={alertCard6} />
             </div>
-            <div className="flex text-[5rem] text-green-400">GREAT WORK!</div>
-            <div className="flex text-2xl text-blue-400 my-4">
+            <div className="flex  font-85 " style={{color:'#38B000',}}>GREAT WORK!</div>
+            <div className="flex text-2xl text-blue-400 my-4 text-center">
               STEP 4 IS COMPLETE!
             </div>
-            <div className="flex text-xl text-green-400 mb-12">
+            <div className="flex text-xl text-green-400 mb-12  text-center">
               You Can Success Fully Move To 5nd Step
             </div>
 
@@ -225,7 +226,7 @@ export const BuildMonitorChexReport = () => {
             <SubFormFooter content={footerContent} />
           </div>
         </div>
-        <div className="flex w-[24%]">
+        <div className="flex w-[24%] business-page-mobileview-width">
           <MonitorReportForm />
         </div>
       </div>

@@ -596,6 +596,13 @@ li {
   }
 }
 
+@media(max-width:1150px) {
+
+  .mt-0 {
+    margin-top: 0;
+  }
+}
+
 @media (max-width: 1100px) {
   .business-page-mobileview-width {
     width: 27%;
@@ -754,6 +761,11 @@ li {
   .business-page-fileupload-mobileview {
     width: 18rem;
     height: 15rem;
+  }
+
+  .business-page-font-sm {
+    font-size: 14px;
+    text-align: justify;
   }
 
   .mt-0 {
@@ -974,4 +986,53 @@ li {
 ::-webkit-scrollbar-thumb {
   background: #aeaeae;
   border-radius: 15px;
+}
+
+.business-page-left-top-box {
+  width: 20px;
+  height: 20px;
+  border-top: 1px solid #A3A3A3;
+  border-left: 1px solid #A3A3A3;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.business-page-right-top-box {
+  width: 20px;
+  height: 20px;
+  border-top: 1px solid #A3A3A3;
+  border-right: 1px solid #A3A3A3;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.business-page-left-bottom-box {
+  width: 20px;
+  height: 20px;
+  border-bottom: 1px solid #A3A3A3;
+  border-left: 1px solid #A3A3A3;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.business-page-right-bottom-box {
+  width: 20px;
+  height: 20px;
+  border-bottom: 1px solid #A3A3A3;
+  border-right: 1px solid #A3A3A3;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.business-page-close-btn {
+  color: #2684FF;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid #DFDDDD;
+  border-radius: 8px;
+  padding: 7px 30px;
 }

@@ -178,16 +178,22 @@ export const BuildMonitorDunBradstreet = () => {
   };
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl">
-        <div className="flex flex-col w-[76%] justify-start mt-6">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main business-page-rightsection-mobileview">
+        <div className="flex flex-col w-[76%] justify-start mt-6  business-page-inner-mobileview">
           <SubHeader content={headerContent} />
-          <div className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white  business-page-namesection-mobileview" style={{boxShadow:'rgba(163, 163, 163, 0.14) 2px 4px 12px 0px',}}>
+          <div
+            className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white  business-page-namesection-mobileview"
+            style={{ boxShadow: "rgba(163, 163, 163, 0.14) 2px 4px 12px 0px" }}
+          >
             <ArrowLineText
               type="flex flex-col w-[auto] text-center text-gray-700 "
               content={arrowLineCotent}
             />
             {/* Vidio card */}
-            <div className="flex flex-row w-full">
+            <div
+              className="flex flex-row flex-wrap justify-center business-page-grid-gap-50 w-full   business-credit-video-card"
+              style={{ marginTop: "80px" }}
+            >
               <div className="flex justify-start">
                 <VideoCard videoContent={videoConten} />
               </div>
@@ -201,7 +207,10 @@ export const BuildMonitorDunBradstreet = () => {
             <BlogCustomCardLeft content={blogCustomContent} />
 
             {/*  */}
-            <div className="flex w-[90%] justify-center text-center text-md text-gray-500 my-6">
+            <div
+              className="flex w-[90%] justify-center text-center text-md  my-6"
+              style={{ color: "#737373" }}
+            >
               <p>
                 ALREADY MONITORING YOUR D & B REPORT? IF SO, PLEASE UPLOAD YOUR
                 REPORT HERE SO A BUSINESS CREDIT ADVISOR CAN REVIEW IT WITH YOU.
@@ -216,7 +225,7 @@ export const BuildMonitorDunBradstreet = () => {
             />
 
             {/* save buttong */}
-            <div className="flex w-72 h-12 mt-8">
+            <div className="flex  max-w-xs  w-full business-save-btn  my-[80px]  mt-12 ">
               <Button
                 placeholder="save the address"
                 color="success"
@@ -227,7 +236,7 @@ export const BuildMonitorDunBradstreet = () => {
               </Button>
             </div>
 
-            <div className="flex w-full mt-14 flex-col">
+            <div className="flex w-full my-14 flex-col ">
               <PaymentCard
                 title={paymentTitle}
                 paymentContents1={paymentCard1}
@@ -252,7 +261,7 @@ export const BuildMonitorDunBradstreet = () => {
             <SubFormFooter content={footerContent} />
           </div>
         </div>
-        <div className="flex w-[24%]">
+        <div className="flex w-[24%]  business-page-mobileview-width">
           <MonitorReportForm />
         </div>
       </div>
