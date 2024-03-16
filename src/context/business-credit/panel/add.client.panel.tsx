@@ -9,15 +9,13 @@ interface AddClientPanelProps {
 }
 
 export const AddClientPanel: React.FC<AddClientPanelProps> = (props) => {
-    debugger
     const { isAdmin } = useAuth();
-
     return (
         <>
             <div className="flex flex-col w-full mt-36">
 
 
-                <div className={props.activeState === "dashboard" ? "flex flex-col w-full bg-blue-500 justify-center mt-20 content-center items-center rounded-r-full" : (isAdmin ? "flex flex-col w-full justify-center content-center items-center rounded-r-full bg-blue-500" : "flex flex-col w-full justify-center content-center items-center rounded-r-full bg-gray-100")} >
+                <div className={props.activeState === "dashboard" ? "flex flex-col w-full bg-blue-500 justify-center mt-20 content-center items-center rounded-r-full" : (isAdmin ? "flex flex-col w-full justify-center content-center items-center rounded-r-full bg-gray-100" : "flex flex-col w-full justify-center content-center items-center rounded-r-full bg-gray-100")} >
                 <UsersIcon className="flex w-24 h-20 text-white pt-5"/>
                 <Link href={"/client-dashboard"}>
                     <div className="flex text-lg text-gray-300 pb-5">Client Dashboard</div>

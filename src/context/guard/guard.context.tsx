@@ -15,7 +15,6 @@ export const GuardContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  debugger
   const systemGroup = ["0", "1", "3"];
   const roles = ["pmfwmfwfwnwfwnwnfwfwf"];
   const contextValue = undefined;
