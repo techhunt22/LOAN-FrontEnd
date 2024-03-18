@@ -6,9 +6,19 @@ import { TypeofServiceScreen } from "@/screen/service_types/typeof.service.scree
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 export default function Home() {
-  debugger
+
+  const { isAdmin, setIsAdmin } = useAuth();
+  useEffect(() => {
+    const loginRole = Cookies.get("role");
+    if (loginRole == "PCR:Admin") {
+      setIsAdmin(true);
+    } else if (loginRole === undefined) {
+      setIsAdmin(false);
+      router.push("/");
+    }
+  }, [Cookies.get("role")]);
+
   const router = useRouter();
-  const { isAdmin } = useAuth();
   const loginRole = Cookies.get("role");
   if (isAdmin) {
     router.replace("/client-dashboard");
@@ -16,7 +26,6 @@ export default function Home() {
   if (loginRole == "PCR:Admin") {
     router.replace("/client-dashboard");
   }
-
 
   return (
     <>

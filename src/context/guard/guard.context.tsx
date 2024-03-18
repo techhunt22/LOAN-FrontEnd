@@ -1,25 +1,25 @@
 "use client";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
 const GuardContext = createContext<AuthContextType | undefined>(undefined);
 
 interface AuthContextType {
   isAdmin: boolean;
   login: () => void;
   logout: () => void;
+  setIsAdmin: any;
 }
-
 
 export const GuardContextProvider = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
+  const router = useRouter();
   const systemGroup = ["0", "1", "3"];
   const roles = ["pmfwmfwfwnwfwnwnfwfwf"];
   const contextValue = undefined;
-
-  const loginRole = Cookies.get("role");
   
   const [isAdmin, setIsAdmin] = useState<boolean>(false); // Assuming admin state
 
@@ -34,13 +34,18 @@ export const GuardContextProvider = ({
   };
 
   useEffect(() => {
-    if(loginRole =="PCR:Admin"){
+    debugger;
+    const loginRole = Cookies.get("role");
+    if (loginRole == "PCR:Admin") {
       setIsAdmin(true);
+    } else {
+      setIsAdmin(false);
+      router.push("/");
     }
-  }, []);
+  }, [Cookies.get("role")]);
 
   return (
-    <GuardContext.Provider  value={{ isAdmin, login, logout }}>
+    <GuardContext.Provider value={{ isAdmin, login, logout, setIsAdmin }}>
       {children}
     </GuardContext.Provider>
   );
@@ -49,7 +54,7 @@ export const GuardContextProvider = ({
 export const useAuth = (): AuthContextType => {
   const context = useContext(GuardContext);
   if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
 };

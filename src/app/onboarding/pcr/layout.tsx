@@ -23,7 +23,6 @@ export default function PCRLayout({ children }: { children: React.ReactNode }) {
         style={{ margin: "0 !important" }}
         className={"pb-20"}
       >
-        {" "}
         {children}
       </div>
     </PCRContextProvider>

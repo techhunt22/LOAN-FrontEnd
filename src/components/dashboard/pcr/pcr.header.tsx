@@ -1,8 +1,16 @@
 "use client";
 import { Button } from "@material-tailwind/react";
 import Link from "next/link";
-
+import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
 export const PcrHeader = () => {
+  const router = useRouter();
+  const clearRefreshToken = () => {
+    Cookies.remove("accessToken", { path: "/" });
+    Cookies.remove("refreshToken", { path: "/" });
+    Cookies.remove("role", { path: "/" });
+    router.push("/");
+  };
   return (
     <div
       className={
@@ -24,7 +32,7 @@ export const PcrHeader = () => {
         </div>
       </div>
       <div className={" w-fit"}>
-        <Button color={"blue"} variant={"outlined"}>
+        <Button color={"blue"} variant={"outlined"} onClick={clearRefreshToken}>
           Logout
         </Button>
       </div>
