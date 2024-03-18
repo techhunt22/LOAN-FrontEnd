@@ -37,7 +37,7 @@ export const GuardContextProvider = ({
     const loginRole = Cookies.get("role");
     if (loginRole == "PCR:Admin") {
       setIsAdmin(true);
-    } else {
+    } else if (loginRole === undefined) {
       setIsAdmin(false);
       router.push("/");
     }

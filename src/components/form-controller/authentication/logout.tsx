@@ -30,7 +30,10 @@ export const SignOut = () => {
   });
 
   const onLogout = async () => {
-    await mutateAsync();
+    Cookies.remove("accessToken", { path: "/" });
+    Cookies.remove("refreshToken", { path: "/" });
+    Cookies.remove("role", { path: "/" });
+    router.push("/");
   };
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
