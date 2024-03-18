@@ -63,7 +63,6 @@ export const MonitorFooter: React.FC<MonitorFooterProps> = (props) => {
   const [state, setState] = useState<any>(true);
   const [fileUploaded, setFileUploaded] = useState(false);
   useEffect(() => {
-    debugger;
     setState(selectedDateOne === null ? true : false);
   }, [selectedDateOne]);
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -79,17 +78,14 @@ export const MonitorFooter: React.FC<MonitorFooterProps> = (props) => {
     console.log("Selected value for index", index, value);
   };
   const handleDateChange = (newValue: any) => {
-    debugger;
     setSelectedDateOne(newValue); // Update the state with the selected date
     console.log("Selected date:", newValue); // Log the selected date
   };
   const handleDateChangeTwo = (newValue: any) => {
-    debugger;
     setSelectedDateTwo(newValue); // Update the state with the selected date
     console.log("Selected date:", newValue); // Log the selected date
   };
   const handleFileChange = (event: any) => {
-    debugger;
     const fileList = event.target.files;
     const file = fileList[0];
     props.form.set(props.fileName, file);

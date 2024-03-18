@@ -100,7 +100,6 @@ export const BuildBusinessEmail = () => {
   });
   const buildBusinessPhone = "BuildBusinessPhone";
   const handleInputChange = (e: { target: { name: any; value: any } }) => {
-    debugger;
     const { name, value } = e.target;
     setValues({
       ...values,

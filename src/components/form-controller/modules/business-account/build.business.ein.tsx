@@ -88,7 +88,6 @@ export const BuildBusinessEin = () => {
   const [fileUploaded, setFileUploaded] = useState(false);
 
   const handleFileChange = (event: any) => {
-    debugger;
     const fileList = event.target.files;
     const file = fileList[0];
     form.set("einFile", file);

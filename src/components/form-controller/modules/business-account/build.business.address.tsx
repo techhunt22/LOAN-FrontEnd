@@ -121,7 +121,6 @@ export const BuildBusinessAddress = () => {
   const options = ["Option 1", "Option 2", "Option 3"]; // Example array of options
 
   const handleChange = (event: any, index: any) => {
-    debugger;
     const { value } = event.target;
     setSelectedValue((prevSelectedValues: any) => {
       const updatedSelectedValues = [...prevSelectedValues];
@@ -131,7 +130,6 @@ export const BuildBusinessAddress = () => {
     console.log("Selected value for index", index, value);
   };
   const handleInputChange = (e: { target: { name: any; value: any } }) => {
-    debugger;
     const { name, value } = e.target;
     setValues({
       ...values,

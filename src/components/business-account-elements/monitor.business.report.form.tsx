@@ -105,7 +105,6 @@ const advance = [];
 const revolving = [];
 
 export const MonitorBusinessReportForm = () => {
-  debugger;
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [allUrl, setAllUrl] = useState<DataInterface[]>([]);
   const currentUrl = usePathname();

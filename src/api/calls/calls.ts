@@ -12,7 +12,7 @@ export namespace ApiCalls {
   };
   export const SignOut = async () => {
     return await api
-      .get("/authentication.logout")
+      .get("/logout")
       .then((res) => res.data)
       .catch((rej) => rej.response.data);
   };

@@ -20,7 +20,7 @@ export const GuardContextProvider = ({
   const systemGroup = ["0", "1", "3"];
   const roles = ["pmfwmfwfwnwfwnwnfwfwf"];
   const contextValue = undefined;
-  
+
   const [isAdmin, setIsAdmin] = useState<boolean>(false); // Assuming admin state
 
   const login = () => {
@@ -34,7 +34,6 @@ export const GuardContextProvider = ({
   };
 
   useEffect(() => {
-    debugger;
     const loginRole = Cookies.get("role");
     if (loginRole == "PCR:Admin") {
       setIsAdmin(true);

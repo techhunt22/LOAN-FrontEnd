@@ -52,21 +52,19 @@ export const UsersList = () => {
   console.log(data);
   return (
     <>
-      <div className="flex w-[80%] ml-[10%] mt-10 justify-center content-center items-center">
+      <div className="flex w-[80%] ml-[10%] mt-10 justify-center content-center items-center flex-col gap-[16px]">
         <div className="flex flex-col w-full px-4 justify-start border-2 border-blue-600 rounded-2xl pt-8 pb-16 h-[85vh] overflow-hidden">
           <div>
             <div className="flex mb-8  items-center flex-wrap">
               <div className="flex mt-8">
                 <div className="mr-3">
                   <button className="business-page-sort-btn ">
-                    {" "}
                     <AddRoadIcon />
                     Sort by A To Z <KeyboardArrowDownIcon />
                   </button>
                 </div>
                 <div>
                   <button className="business-page-sort-btn">
-                    {" "}
                     <CalendarMonthIcon />
                     Sort by Date
                     <KeyboardArrowDownIcon />
@@ -146,6 +144,163 @@ export const UsersList = () => {
             </div>
           </div>
         </div> */}
+        </div>
+        <div>
+          <div className="text-center">
+            <div className="inline-block">
+              <p className="text-xl font-bold " style={{ color: "#333333" }}>
+                Recent Note
+              </p>
+              <div className="business-page-dashboard-border-bottom"></div>
+            </div>
+          </div>
+
+          <div className="flex flex-row flex-wrap justify-center gap-20  mt-12">
+            <div
+              className="flex flex-col w-60 border-2 border-blue-400 rounded-2xl p-6 relative"
+              style={{
+                border: "none",
+                backgroundColor: "#FDFDFD",
+                borderRadius: "26px",
+              }}
+            >
+              <img
+                src={"/dashboard-img.png"}
+                alt=""
+                style={{
+                  width: "40px",
+                  position: "absolute",
+                  top: "-24px",
+                  left: "5px",
+                  zIndex: "9",
+                }}
+              />
+              <div className="business-page-left-top-box"></div>
+              <div className="business-page-right-top-box"></div>
+              <div className="business-page-left-bottom-box"></div>
+              <div className="business-page-right-bottom-box"></div>
+              <p
+                className="text-xs text-justify mb-5"
+                style={{ color: "#737373" }}
+              >
+                tt - Coaching call to help move forward. Stated that he already
+                canceled his subscription and no longer part of the company.
+                Advice to call us if help is needed.
+              </p>
+              <p
+                className="text-xs pt-5 font-medium"
+                style={{ borderTop: "1px solid #D8D8D8", color: "#737373" }}
+              >
+                Rochelle Gandamra
+                <span
+                  style={{
+                    color: "#C0C0C0",
+                    fontWeight: "400",
+                    marginLeft: "10px",
+                  }}
+                >
+                  AT 20.49 OCT25,2022
+                </span> 
+              </p>
+            </div>
+            <div
+              className="flex flex-col w-60 border-2 border-blue-400 rounded-2xl p-6 relative"
+              style={{
+                border: "none",
+                backgroundColor: "#FDFDFD",
+                borderRadius: "26px",
+              }}
+            >
+              <img
+                src={"/dashboard-img.png"}
+                alt=""
+                style={{
+                  width: "40px",
+                  position: "absolute",
+                  top: "-24px",
+                  left: "5px",
+                  zIndex: "9",
+                }}
+              />
+              <div className="business-page-left-top-box"></div>
+              <div className="business-page-right-top-box"></div>
+              <div className="business-page-left-bottom-box"></div>
+              <div className="business-page-right-bottom-box"></div>
+              <p
+                className="text-xs text-justify mb-5"
+                style={{ color: "#737373" }}
+              >
+                tt - Coaching call to help move forward. Stated that he already
+                canceled his subscription and no longer part of the company.
+                Advice to call us if help is needed.
+              </p>
+              <p
+                className="text-xs pt-5 font-medium"
+                style={{ borderTop: "1px solid #D8D8D8", color: "#737373" }}
+              >
+                Rochelle Gandamra
+                <span
+                  style={{
+                    color: "#C0C0C0",
+                    fontWeight: "400",
+                    marginLeft: "10px",
+                  }}
+                >
+                  AT 20.49 OCT25,2022
+                </span>
+              </p>
+            </div>
+            <div
+              className="flex flex-col w-60 border-2 border-blue-400 rounded-2xl p-6 relative"
+              style={{
+                border: "none",
+                backgroundColor: "#FDFDFD",
+                borderRadius: "26px",
+              }}
+            >
+              <img
+                src={"/dashboard-img.png"}
+                alt=""
+                style={{
+                  width: "40px",
+                  position: "absolute",
+                  top: "-24px",
+                  left: "5px",
+                  zIndex: "9",
+                }}
+              />
+              <div className="business-page-left-top-box"></div>
+              <div className="business-page-right-top-box"></div>
+              <div className="business-page-left-bottom-box"></div>
+              <div className="business-page-right-bottom-box"></div>
+              <p
+                className="text-xs text-justify mb-5"
+                style={{ color: "#737373" }}
+              >
+                tt - Coaching call to help move forward. Stated that he already
+                canceled his subscription and no longer part of the company.
+                Advice to call us if help is needed.
+              </p>
+              <p
+                className="text-xs pt-5 font-medium"
+                style={{ borderTop: "1px solid #D8D8D8", color: "#737373" }}
+              >
+                Rochelle Gandamra
+                <span
+                  style={{
+                    color: "#C0C0C0",
+                    fontWeight: "400",
+                    marginLeft: "10px",
+                  }}
+                >
+                  AT 20.49 OCT25,2022
+                </span>
+              </p>
+            </div>
+          </div>
+          <div className="text-center mt-12">
+            <button className="business-page-close-btn">Close</button>
+          </div>
         </div>
       </div>
     </>

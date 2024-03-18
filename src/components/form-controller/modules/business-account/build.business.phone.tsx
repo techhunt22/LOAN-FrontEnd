@@ -114,7 +114,6 @@ export const BuildBusinessPhone = () => {
   });
   const buildBusinessPhone = "BuildBusinessPhone";
   const handleInputChange = (e: { target: { name: any; value: any } }) => {
-    debugger;
     const { name, value } = e.target;
     setValues({
       ...values,
@@ -147,14 +146,14 @@ export const BuildBusinessPhone = () => {
   return (
     <>
       <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main business-page-rightsection-mobileview ">
-        <div
-          style={{
-            boxShadow: "2px 4px 12px 0px #a3a3a324",
-          }}
-          className="flex flex-col w-[76%] justify-start mt-6  business-page-inner-mobileview"
-        >
+        <div className="flex flex-col w-[76%] justify-start mt-6  business-page-inner-mobileview">
           <SubHeader content={headerContent} />
-          <div className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white">
+          <div
+            style={{
+              boxShadow: "2px 4px 12px 0px #a3a3a324",
+            }}
+            className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white "
+          >
             <ArrowLineText
               type="flex flex-col w-[auto] pt-6 text-center text-gray-700"
               content="DO YOU HAVE A BUSINESS PHONE NUMBER?"

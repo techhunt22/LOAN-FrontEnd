@@ -128,7 +128,6 @@ export const BuildMonitorEquifax = () => {
   const [fileUploaded, setFileUploaded] = useState(false);
 
   const handleFileChange = (event: any) => {
-    debugger;
     const fileList = event.target.files;
     const file = fileList[0];
     form.set("monitorEquifaxFile", file);
@@ -172,7 +171,7 @@ export const BuildMonitorEquifax = () => {
           <SubHeader content={headerContent} />
           <div
             className="flex flex-col w-full p-9 justify-center items-center content-center mt-6 bg-white  business-page-namesection-mobileview"
-            style={{ boxShadow: "2px 4px 12px 0px #a3a3a324", }}
+            style={{ boxShadow: "2px 4px 12px 0px #a3a3a324" }}
           >
             <ArrowLineText
               type="flex flex-col w-[auto] text-center text-gray-700"

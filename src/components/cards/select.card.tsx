@@ -30,6 +30,7 @@ export const SelectCard: React.FC<SelectCardProps> = (props) => {
             <div className="flex flex-row w-full px-8">
               <div className="flex w-[3rem] ml-4 justify-start">
                 <Input
+className="business-page-select-input"
                   type="radio"
                   id="option1"
                   name="firstOption"
@@ -39,6 +40,7 @@ export const SelectCard: React.FC<SelectCardProps> = (props) => {
               <div className="flex ml-4">Yes</div>
               <div className="flex w-full mr-4 justify-end">
                 <Input
+className="business-page-select-input"
                   type="radio"
                   id="option2"
                   name="firstOption"
@@ -57,6 +59,7 @@ export const SelectCard: React.FC<SelectCardProps> = (props) => {
             <div className="flex flex-row w-full px-8">
               <div className="flex w-[3rem] ml-4 justify-start">
                 <Input
+className="business-page-select-input"
                   type="radio"
                   id="option3"
                   name="secondOption"
@@ -66,6 +69,7 @@ export const SelectCard: React.FC<SelectCardProps> = (props) => {
               <div className="flex ml-4">Yes</div>
               <div className="flex w-full mr-4 justify-end">
                 <Input
+className="business-page-select-input"
                   type="radio"
                   name="secondOption"
                   onChange={() => props.handleInputCard?.("0", props.name)}

@@ -127,8 +127,7 @@ export const BuildBusinessCredit = () => {
               />
             </div>
             <Input
-              placeholder=""
-              defaultValue={"Type your business name here"}
+              placeholder="Type your business name here"
               name="business_name"
               className="flex w-[80%] my-8 text-gray-500"
               aria-hidden

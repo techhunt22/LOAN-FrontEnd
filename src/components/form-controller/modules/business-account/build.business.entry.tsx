@@ -115,7 +115,6 @@ export const BuildBusinessEntry = () => {
     console.log("Selected date:", newValue); // Log the selected date
   };
   const handleChange = (event: any, index: any) => {
-    debugger;
     const { value } = event.target;
     setSelectedValue((prevSelectedValues: any) => {
       const updatedSelectedValues = [...prevSelectedValues];
