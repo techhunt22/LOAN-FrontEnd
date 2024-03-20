@@ -143,7 +143,7 @@ export const BuildBusinessBank = () => {
             <div className="flex w-full my-24 justify-center">
               <GotoWebsiteThreeCard
                 content="Varies"
-                icon="/business-account/MyCorporation.svg"
+                icon="/business-account/NorthOne.svg"
               />
             </div>
 

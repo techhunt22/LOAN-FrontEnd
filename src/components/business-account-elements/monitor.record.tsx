@@ -38,7 +38,7 @@ interface MonitorRecordProps {
   handleDateChangeTwo?: any;
   mutateAsync?: any;
 }
-export const MonitorRecord: React.FC<MonitorRecordProps> = (props) => {
+export const MonitorRecord: React.FC<MonitorRecordProps | any> = (props) => {
   const [editable, setEditable] = useState<boolean[]>([]);
 
   const handleOnSave = async (e: any) => {
@@ -73,35 +73,37 @@ export const MonitorRecord: React.FC<MonitorRecordProps> = (props) => {
     <>
       <div className="flex flex-col w-full justify-center content-center items-center text-gray-600">
         <div className="flex flex-col w-[95%]">
-          {props.records.invidualRecords.map((invidualRecord, index) => {
-            return (
-              <EditableContentRecordInvidual
-                invidualRecord={invidualRecord}
-                handleOnChange={props.handleOnChange}
-                value={props.value}
-                name={props.name}
-                buildBusinessPhone={props.buildBusinessPhone}
-                buildBusinessEntry={props.buildBusinessEntry}
-                selectedValue={
-                  props.buildBusinessEntry
-                    ? props.selectedValue[index]?.contents
-                    : props.selectedValue
-                }
-                options={props.options}
-                handleChange={
-                  props.buildBusinessEntry
-                    ? (event: any) => props.handleChange(event, index)
-                    : props.handleChange
-                }
-                handleDateChange={
-                  props.state === true
-                    ? props.handleDateChange
-                    : props.handleDateChangeTwo
-                }
-                selectedDate={props.selectedDate}
-              />
-            );
-          })}
+          {props.records.invidualRecords.map(
+            (invidualRecord: any, index: any) => {
+              return (
+                <EditableContentRecordInvidual
+                  invidualRecord={invidualRecord}
+                  handleOnChange={props.handleOnChange}
+                  value={props.value}
+                  name={props.name}
+                  buildBusinessPhone={props.buildBusinessPhone}
+                  buildBusinessEntry={props.buildBusinessEntry}
+                  selectedValue={
+                    props.buildBusinessEntry
+                      ? props.selectedValue[index]?.contents
+                      : props.selectedValue
+                  }
+                  options={props.options}
+                  handleChange={
+                    props.buildBusinessEntry
+                      ? (event: any) => props.handleChange(event, index)
+                      : props.handleChange
+                  }
+                  handleDateChange={
+                    props.state === true
+                      ? props.handleDateChange
+                      : props.handleDateChangeTwo
+                  }
+                  selectedDate={props.selectedDate}
+                />
+              );
+            }
+          )}
         </div>
         <div className="flex flex-row w-full gap-6 justify-end">
           <div className="flex w-32 mt-6 mb-4">

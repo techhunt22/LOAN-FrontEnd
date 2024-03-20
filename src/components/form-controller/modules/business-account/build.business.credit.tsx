@@ -166,10 +166,7 @@ export const BuildBusinessCredit = () => {
             {/* Website cards */}
             <div className="flex flex-row w-full mt-12 flex-wrap justify-center gap-20 business-credit-website-card">
               <div className="flex justify-center">
-                <GotoWebsiteCard
-                  content="Varies"
-                  icon="/business-account/NorthOne.svg"
-                />
+                <GotoWebsiteCard content="Varies" icon="/northwest-logo.png" />
               </div>
               <div className="flex  justify-center">
                 <GotoWebsiteCard

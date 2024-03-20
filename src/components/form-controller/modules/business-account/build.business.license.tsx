@@ -125,7 +125,7 @@ export const BuildBusinessLicense = () => {
             <div className="flex w-full my-24 justify-center">
               <GotoWebsiteThreeCard
                 content="Varies"
-                icon="/business-account/MyCorporation.svg"
+                icon="/business-account/City Applications - png.png"
               />
             </div>
 

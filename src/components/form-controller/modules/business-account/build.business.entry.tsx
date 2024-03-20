@@ -240,10 +240,7 @@ export const BuildBusinessEntry = () => {
             {/* Website cards */}
             <div className="flex flex-row flex-wrap justify-center gap-20 w-full mt-12 business-credit-website-card">
               <div className="flex justify-center">
-                <GotoWebsiteCard
-                  content="Varies"
-                  icon="/business-account/NorthOne.svg"
-                />
+                <GotoWebsiteCard content="Varies" icon="/northwest-logo.png" />
               </div>
               <div className="flex justify-center">
                 <GotoWebsiteCard

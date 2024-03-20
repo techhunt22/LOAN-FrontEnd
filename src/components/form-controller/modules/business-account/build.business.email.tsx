@@ -183,19 +183,19 @@ export const BuildBusinessEmail = () => {
               <div className="flex justify-center">
                 <GotoWebsiteThreeCard
                   content="Varies"
-                  icon="/business-account/Phone.svg"
+                  icon="/business-account/GoDaddy svg.svg"
                 />
               </div>
               <div className="flex  justify-center">
                 <GotoWebsiteThreeCard
                   content="Varies"
-                  icon="/business-account/RingCentral.svg"
+                  icon="/business-account/webpaz logo.svg"
                 />
               </div>
               <div className="flex  justify-center">
                 <GotoWebsiteThreeCard
                   content="Varies"
-                  icon="/business-account/MyCorporation.svg"
+                  icon="/business-account/MyWebChef - png.svg"
                 />
               </div>
             </div>
@@ -203,13 +203,13 @@ export const BuildBusinessEmail = () => {
               <div className="flex  justify-">
                 <GotoWebsiteThreeCard
                   content="Varies"
-                  icon="/business-account/Phone.svg"
+                  icon="/business-account/Squarespace.svg"
                 />
               </div>
               <div className="flex  justify-start">
                 <GotoWebsiteThreeCard
                   content="Varies"
-                  icon="/business-account/RingCentral.svg"
+                  icon="/business-account/google app icon and logo.svg"
                 />
               </div>
             </div>

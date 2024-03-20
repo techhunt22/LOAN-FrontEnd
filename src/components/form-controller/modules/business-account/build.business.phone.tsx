@@ -195,22 +195,23 @@ export const BuildBusinessPhone = () => {
 
             {/* Website cards */}
             <div className="flex flex-row w-full flex-wrap justify-center business-page-grid-gap-22   mt-12">
-              <div className="flex justify-center">
-                <GotoWebsiteThreeCard
-                  content="Varies"
-                  icon="/business-account/Phone.svg"
-                />
-              </div>
               <div className=" justify-center">
                 <GotoWebsiteThreeCard
                   content="Varies"
                   icon="/business-account/RingCentral.svg"
                 />
               </div>
+
               <div className=" justify-center">
                 <GotoWebsiteThreeCard
                   content="Varies"
-                  icon="/business-account/MyCorporation.svg"
+                  icon="/business-account/Vonage svg.svg"
+                />
+              </div>
+              <div className="flex justify-center">
+                <GotoWebsiteThreeCard
+                  content="Varies"
+                  icon="/business-account/Phone.svg"
                 />
               </div>
             </div>

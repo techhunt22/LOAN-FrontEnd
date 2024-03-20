@@ -144,19 +144,19 @@ export const BuildBusinessMerchant = () => {
               <div className="flexjustify-center">
                 <GotoWebsiteThreeCard
                   content="Varies"
-                  icon="/business-account/Phone.svg"
+                  icon="/business-account/FireShot.svg"
                 />
               </div>
               <div className="flex justify-center">
                 <GotoWebsiteThreeCard
                   content="Varies"
-                  icon="/business-account/RingCentral.svg"
+                  icon="/business-account/Capital.svg"
                 />
               </div>
               <div className="flex justify-center">
                 <GotoWebsiteThreeCard
                   content="Varies"
-                  icon="/business-account/MyCorporation.svg"
+                  icon="/business-account/Square.svg"
                 />
               </div>
             </div>

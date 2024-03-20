@@ -393,7 +393,7 @@ export default function Page() {
     <>
       <div className="flex flex-col justify-center content-center items-center">
         <TierDetailCard contents={tierContents} />
-        <MonitorRecord invidualRecord={monitorRecord} />
+        <MonitorRecord invidualRecord ={monitorRecord} />
         <MonitorCardGroup paymentContents={monitorCardGroup} />
         <MonitorCard paymentContents1={paymentContents1} />
         <AlertCard alertContents={alertCard} />

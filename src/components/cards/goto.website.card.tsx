@@ -15,12 +15,16 @@ export const GotoWebsiteCard: React.FC<GotoWebsiteCardProps> = (props) => {
           <b>Cost:</b>
           {props.content}
         </div>
-        <div className="flex justify-center content-center items-center w-full h-24">
-          <Image
-            src={"/northwest-logo.png"}
-            objectFit="contain"
+        <div className="flex justify-center content-center  w-full h-24">
+          <img
+            src={props.icon}
+            style={{
+              objectFit: "contain",
+              height: "50px !important",
+              width: "200px!important",
+            }}
             alt="ssa"
-            width={200}
+width={200}
             height={50}
           />
         </div>
@@ -36,8 +40,8 @@ export const GotoWebsiteCard: React.FC<GotoWebsiteCardProps> = (props) => {
               background:
                 "linear-gradient(250.65deg, #085ABB -4.03%, #1380FF 73.66%, rgba(136, 191, 255, 0.92) 156.36%)",
               marginBottom: "20px",
-              fontSize:'16px',
-              fontWeight:'800',
+              fontSize: "16px",
+              fontWeight: "800",
             }}
           >
             Go to Website

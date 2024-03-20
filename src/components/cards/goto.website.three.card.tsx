@@ -17,10 +17,14 @@ export const GotoWebsiteThreeCard: React.FC<GotoWebsiteThreeCardProps> = (
           <b>Cost:</b>
           {props.content}
         </div>
-        <div className="flex justify-center content-center items-center w-full h-24">
-          <Image
+        <div className="flex justify-center content-center  w-full h-24">
+          <img
             src={props.icon}
-            objectFit="contain"
+            style={{
+              objectFit: "contain",
+              height: "50px !important",
+              width: "180px !important",
+            }}
             alt="ssa"
             width={180}
             height={50}

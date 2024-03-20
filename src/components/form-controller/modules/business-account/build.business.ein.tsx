@@ -197,13 +197,13 @@ export const BuildBusinessEin = () => {
               <div className="flex  justify-center">
                 <GotoWebsiteCard
                   content="Varies"
-                  icon="/business-account/NorthOne.svg"
+                  icon="/northwest-logo.png"
                 />
               </div>
               <div className="flex justify-center">
                 <GotoWebsiteCard
                   content="Varies"
-                  icon="/business-account/MyCorporation.svg"
+                  icon="/business-account/IRSnews svg.png"
                 />
               </div>
             </div>

@@ -272,19 +272,19 @@ export const BuildBusinessAddress = () => {
               <div className="flex  justify-center">
                 <GotoWebsiteThreeCard
                   content="Varies"
-                  icon="/business-account/Phone.svg"
+                  icon="/business-account/divinci-virtual-office.png"
                 />
               </div>
               <div className="flex  justify-center">
                 <GotoWebsiteThreeCard
                   content="Varies"
-                  icon="/business-account/RingCentral.svg"
+                  icon="/business-account/Alliance-Virtual-png.png"
                 />
               </div>
               <div className="flex  justify-center">
                 <GotoWebsiteThreeCard
                   content="Varies"
-                  icon="/business-account/MyCorporation.svg"
+                  icon="/business-account/Regus-png.png"
                 />
               </div>
             </div>
