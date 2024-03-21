@@ -393,7 +393,7 @@ export default function Page() {
     <>
       <div className="flex flex-col justify-center content-center items-center">
         <TierDetailCard contents={tierContents} />
-        <MonitorRecord invidualRecord ={monitorRecord} />
+        {/* <MonitorRecord invidualRecord ={monitorRecord} /> */}
         <MonitorCardGroup paymentContents={monitorCardGroup} />
         <MonitorCard paymentContents1={paymentContents1} />
         <AlertCard alertContents={alertCard} />
@@ -406,7 +406,7 @@ export default function Page() {
         <GotoWebsiteCard content="Variable" icon="/business-account/MyCorporation svg.svg" />
         <EditableContentRecordInvidual invidualRecord={invidualRecords} />
         <EditableContentRecord records={records} />
-        <SelectCard content={selectCardProps.content} />
+        {/* <SelectCard content={selectCardProps.content} /> */}
 
         {/* <BlogCardRight /> */}
         <Alert icon="/report/init/Shield-DoneVerifiedIcon.svg" content={alertContent} />

@@ -166,7 +166,8 @@ export const AccountPackageStep1Form = () => {
   );
 
   const setRouter = () => {
-    localStorage.setItem("lastPageUrl", customProp);
+    // localStorage.setItem("lastPageUrl", customProp);
+    Cookies.set("lastPageUrl", customProp); 
   };
 
   return (

@@ -24,7 +24,8 @@ interface Option {
 }
 export const SignUpForm = () => {
   const router = useRouter();
-  const link = localStorage.getItem("lastPageUrl") || "/";
+  // const link = window.localStorage.getItem("lastPageUrl") || "/";
+  const link =  Cookies.get("lastPageUrl") || "/";
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (

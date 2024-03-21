@@ -26,7 +26,8 @@ export const SignInForm = () => {
     password: "",
     remember: false,
   });
-  const link = localStorage.getItem("lastPageUrl") || "/";
+  // const link = window.localStorage.getItem("lastPageUrl") || "/";
+  const link =  Cookies.get("lastPageUrl") || "/";
   const { mutateAsync, isPending } = useMutation<
     Calls.IResponse.SignIn,
     Error,
