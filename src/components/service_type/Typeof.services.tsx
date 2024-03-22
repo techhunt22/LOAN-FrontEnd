@@ -29,7 +29,7 @@ export const TypeofServices = () => {
           }
         >
           <PersonalUserSVG />
-          <p className={"text-white"}>Personal Credit Repair</p>
+          <p className={"text-white"}>Personal Credit Restoration</p>
         </Link>
         <Link
           href={"/business-account"}
