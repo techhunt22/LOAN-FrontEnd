@@ -7,7 +7,7 @@ export const HeaderTitle = () => {
   return (
     <div
       className={
-        "w-[75%] flex flex-col items-center justify-center text-center rounded-[18px] bg-gray-100  p-4 h-[160px]"
+        "w-[75%] flex flex-col items-center justify-center text-center rounded-[18px] bg-gray-100  px-4 pb-0 min-h-[160px]"
       }
     >
       {title}

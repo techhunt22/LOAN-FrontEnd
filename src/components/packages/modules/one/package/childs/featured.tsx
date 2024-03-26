@@ -52,13 +52,29 @@ export const Featured: React.FC<NormalProps> = (props) => {
           <h3 className={"uppercase text-[20px] text-white font-bold "}>
             {props?.name || "Credit Ascend Activator"}
           </h3>
-          <div className={" text-white flex flex-row items-center"}>
-            <h2 className={" align-top font-extrabold text-[50px]"}>
-              ${numericFullValue || 999}
+          <div className={" text-white flex flex-row items-center py-4"}>
+            <h2
+              style={{
+                display: "flex",
+                lineHeight: "normal",
+                alignItems: "flex-start",
+              }}
+              className={" align-top font-extrabold text-[50px]"}
+            >
+              <span
+                style={{
+                  fontSize: "28px",
+                  paddingRight: "5px",
+                  paddingTop: "3px",
+                }}
+              >
+                $
+              </span>
+              {numericFullValue || 999}
             </h2>
             <p className={"ml-3 text-base font-medium w-[185px]"}>
               One time payment saves you{" "}
-              <span className={"font-bold"}>
+              <span className={"font-bold text-[18px]"}>
                 $
                 {/* {Number(props?.emiPrice) * Number(props?.validity) -
                   Number(props?.fullPrice)} */}
@@ -70,15 +86,15 @@ export const Featured: React.FC<NormalProps> = (props) => {
           </div>
           <div
             className={
-              "font-bold rounded-md bg-white w-[60px] h-[36px] flex flex-row items-center justify-center p-2 text-[36px]"
+              "font-bold rounded-xl bg-white w-[81px] h-[49px] flex flex-row items-center justify-center p-2 text-[36px] pt-[14px] text-[#1380FF]"
             }
           >
             OR
           </div>
-          <h4 className={"mt-2 text-[18px] font-bold  text-white w-[197px]"}>
-           {props?.intervalCount} payments of
-            ${numericEmiValue || 299}/
-            <span className={"font-normal text-sm"}>Month</span>
+          <h4 className={"font-normal text-[18px]  text-white w-[197px] mt-2"}>
+            {/* {props?.intervalCount} payments of{" "} */}
+            Monthly payment of{" "}
+            <span className={"font-bold"}>${numericEmiValue || 299}</span>
           </h4>
         </div>
       </div>
@@ -99,14 +115,19 @@ export const Featured: React.FC<NormalProps> = (props) => {
         </div>
         <button
           onClick={props.onClick}
-          className="relative overflow-hidden w-[80%] p-2 text-white font-semibold uppercase bg-gradient-to-r from-amber-400 to-amber-600 border-[1px] border-amber-400 tracking-tight transition-all duration-300"
+          className="relative overflow-hidden h-[59px] w-[245px] text-white font-semibold uppercase bg-gradient-to-r from-amber-400 to-amber-600 border-[1px] border-amber-400 tracking-tight transition-all duration-300"
           style={{
             boxShadow: "rgba(255, 183, 3, 0.65) 4px 6px 20px 1px",
-            borderRadius: "20px 5px",
+            borderRadius: "35px 10px",
           }}
         >
           <span className="absolute inset-0 bg-gray-600 opacity-0 hover:opacity-25 transition-opacity duration-300"></span>
-          <span className="relative z-10">Choose Plan</span>
+          <span
+            style={{ fontSize: "20px", fontWeight: "600" }}
+            className="relative z-10"
+          >
+            Choose Plan
+          </span>
         </button>
       </div>
       <div
@@ -124,8 +145,8 @@ export const Featured: React.FC<NormalProps> = (props) => {
           borderTopLeftRadius: "20px",
           borderTopRightRadius: "20px",
           color: "#FFFFFF",
-          fontSize: "14px",
-          fontWeight: 600,
+          fontSize: "20px",
+          fontWeight: 700,
         }}
       >
         Duration 60-90 days

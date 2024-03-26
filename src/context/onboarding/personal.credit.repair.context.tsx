@@ -35,7 +35,10 @@ export const PCRContextProvider = ({
       title: (
         <>
           {currentPage.textTransform ? (
-            <h3 className="textforHederTitle uppercase font-bold">
+            <h3
+              style={{ lineHeight: "normal" }}
+              className="textforHederTitle uppercase font-bold"
+            >
               <strong
                 style={{
                   color: "#BC272E",
@@ -75,7 +78,7 @@ export const PCRContextProvider = ({
             marginTop: "116px",
           }}
           className={
-            "md:flex hidden md:px-8 px-[16px] py-[8px] w-full justify-center"
+            "md:flex hidden md:px-8 px-[16px] py-[8px] w-full justify-center "
           }
         >
           <HeaderTitle />
