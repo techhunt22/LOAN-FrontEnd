@@ -115,15 +115,15 @@ export const Package = () => {
           >
             <Normal
               imgUrl={"/module/one/red.png"}
-              name={data?.data[2]?.name}
-              fullPrice={data?.data[2]?.pricing.fullPrice.$numberDecimal}
-              emiPrice={data?.data[2]?.pricing.emiPrice.$numberDecimal}
-              validity={data?.data[2]?.pricing.intervalCount}
-              bulletPoints={data?.data[2]?.bulletPoints}
-              downPaymentAmount={data?.data[2]?.pricing.downPaymentAmount}
-              intervalCount={data?.data[2]?.pricing.intervalCount}
+              name={data?.data[0]?.name}
+              fullPrice={data?.data[0]?.pricing.fullPrice.$numberDecimal}
+              emiPrice={data?.data[0]?.pricing.emiPrice.$numberDecimal}
+              validity={data?.data[0]?.pricing.intervalCount}
+              bulletPoints={data?.data[0]?.bulletPoints}
+              downPaymentAmount={data?.data[0]?.pricing.downPaymentAmount}
+              intervalCount={data?.data[0]?.pricing.intervalCount}
               Blue={Blue}
-              onClick={() => router.push(`/checkout/one/${data?.data[2]?._id}`)}
+              onClick={() => router.push(`/checkout/one/${data?.data[0]?._id}`)}
             />
             <Featured
               imgUrl={"/module/one/blue.png"}
@@ -138,15 +138,15 @@ export const Package = () => {
             />
             <Normal
               imgUrl={"/module/one/green.png"}
-              name={data?.data[0]?.name}
-              fullPrice={data?.data[0]?.pricing.fullPrice.$numberDecimal}
-              emiPrice={data?.data[0]?.pricing.emiPrice.$numberDecimal}
-              validity={data?.data[0]?.pricing.intervalCount}
-              bulletPoints={data?.data[0]?.bulletPoints}
-              downPaymentAmount={data?.data[0]?.pricing.downPaymentAmount}
-              intervalCount={data?.data[0]?.pricing.intervalCount}
+              name={data?.data[2]?.name}
+              fullPrice={data?.data[2]?.pricing.fullPrice.$numberDecimal}
+              emiPrice={data?.data[2]?.pricing.emiPrice.$numberDecimal}
+              validity={data?.data[2]?.pricing.intervalCount}
+              bulletPoints={data?.data[2]?.bulletPoints}
+              downPaymentAmount={data?.data[2]?.pricing.downPaymentAmount}
+              intervalCount={data?.data[2]?.pricing.intervalCount}
               Green={Green}
-              onClick={() => router.push(`/checkout/one/${data?.data[0]?._id}`)}
+              onClick={() => router.push(`/checkout/one/${data?.data[2]?._id}`)}
             />
           </div>
         )}

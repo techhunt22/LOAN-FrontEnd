@@ -6,7 +6,7 @@ import { TypeofServiceScreen } from "@/screen/service_types/typeof.service.scree
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 export default function Home() {
-
+  const router = useRouter();
   const { isAdmin, setIsAdmin } = useAuth();
   useEffect(() => {
     const loginRole = Cookies.get("role");
@@ -18,7 +18,7 @@ export default function Home() {
     }
   }, [Cookies.get("role")]);
 
-  const router = useRouter();
+ 
   const loginRole = Cookies.get("role");
   if (isAdmin) {
     router.replace("/client-dashboard");

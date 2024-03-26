@@ -13,9 +13,9 @@ export const AccountBanner = () => {
   return (
     <>
       <div className="flex w-full justify-end">
-        <div className="text-xl mr-2 mt-2">
+        {/* <div className="text-xl mr-2 mt-2">
           <SignOut />
-        </div>
+        </div> */}
         <div className="text-xl mr-8 mt-2">...</div>
         <AlarmOn
           style={{

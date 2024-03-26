@@ -18,7 +18,10 @@ import { Calls } from "@/api/calls/type";
 import Link from "next/link";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/guard/guard.context";
 export const SignInForm = () => {
+
+  const { setIsSignIn } = useAuth();
   const [typeInput, setTypeInput] = useState(true);
   const router = useRouter();
   const form = useForm({
@@ -55,6 +58,10 @@ export const SignInForm = () => {
         }
         
       }
+      if(r?.Success){
+        setIsSignIn(true)
+      }
+
     },
     onError: (e) => handleFormError(e as any, form),
   });

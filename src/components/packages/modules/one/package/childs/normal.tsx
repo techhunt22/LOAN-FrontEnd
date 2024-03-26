@@ -59,14 +59,13 @@ export const Normal: React.FC<NormalProps> = (props) => {
                 {numericFullValue || 999}
               </h2>
               <p className={"ml-3 text-base font-medium w-[185px]"}>
-                One time payment saves you{" "}
-                <span className={"font-bold text-[18px]"}>
+                One time payment saves you{" "} $200
+                {/* <span className={"font-bold text-[18px]"}>
                   $
-                  {/* { Number(props?.fullPrice) - Number(props?.emiPrice) * Number(props?.validity)} */}
                   {Number(props?.downPaymentAmount) +
                     Number(numericEmiValue) * Number(props?.validity) -
                     Number(numericFullValue)}
-                </span>
+                </span> */}
               </p>
             </div>
             <div

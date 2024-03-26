@@ -25,6 +25,7 @@ import { ArrowForward } from "@mui/icons-material";
 // import { LinkOption } from "@/components/link/add-client/link.option3";
 import Image from "next/image";
 import { getCookie } from "@/utils/getCookie";
+import { useAuth } from "@/context/guard/guard.context";
 // import { objectUtil } from "zod";
 // interface Option {
 //   label: string;
@@ -32,7 +33,7 @@ import { getCookie } from "@/utils/getCookie";
 export const AccountPackageStep1Form = () => {
   const router = useRouter();
   const customProp = usePathname();
-  const [isLogin, setIsLogin] = useState<boolean>();
+  const { isSignIn } = useAuth();
   const {
     SetFormID,
     SetIsPending,
@@ -96,11 +97,6 @@ export const AccountPackageStep1Form = () => {
         "Stay updated on your scaling journey with regular progress reports.",
     },
   ];
-
-  useEffect(() => {
-    const myCookieValue = getCookie("accessToken");
-    setIsLogin(myCookieValue ? true : false);
-  }, []);
 
   const { data, isLoading } =
     useQuery<Calls.IResponse.ModuleOnePackageResponse>({
@@ -296,7 +292,7 @@ export const AccountPackageStep1Form = () => {
                   //disabled={data?.data[3]?._id === undefined}
                   onClick={() => {
                     const id = data?.data[3]?._id;
-                    if (isLogin) {
+                    if (isSignIn) {
                       router.push(`/checkout/one/${id}`);
                     } else {
                       router.push(`/authentication/sign-in`);
@@ -325,7 +321,7 @@ export const AccountPackageStep1Form = () => {
                 // disabled={data?.data[3]?._id === undefined}
                 onClick={() => {
                   const id = data?.data[3]?._id;
-                  if (isLogin) {
+                  if (isSignIn) {
                     router.push(`/checkout/one/${id}`);
                   } else {
                     router.push("/authentication/sign-in");

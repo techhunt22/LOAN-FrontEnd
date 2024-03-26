@@ -19,11 +19,13 @@ import { handleFormError } from "@/utils/error";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/guard/guard.context";
 interface Option {
   label: string;
 }
 export const SignUpForm = () => {
   const router = useRouter();
+  const { setIsSignIn } = useAuth();
   // const link = window.localStorage.getItem("lastPageUrl") || "/";
   const link =  Cookies.get("lastPageUrl") || "/";
   const [showPassword, setShowPassword] = React.useState(false);
@@ -68,8 +70,11 @@ export const SignUpForm = () => {
         path: "/",
         secure: false,
       });
-      if (r?.urlPath != null) {
+      if (r?.urlPath != null) { 
         router.replace(link);
+      }
+      if(r?.Success){
+        setIsSignIn(true)
       }
     },
     onError: (e) => {

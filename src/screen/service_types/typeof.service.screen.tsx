@@ -5,23 +5,10 @@ import Link from "next/link";
 import { Button } from "@material-tailwind/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useAuth } from "@/context/guard/guard.context";
 export const TypeofServiceScreen = () => {
-  const router = useRouter();
- 
-
-  const [isLogin, setIsLogin] = useState<boolean>();
-
-  useEffect(() => {
-    const getCookie = (name: string) => {
-      const cookieName = name + "=";
-      const decodedCookie = decodeURIComponent(document.cookie);
-      const cookieArray = decodedCookie.split(';').map(cookie => cookie.trim());
-      const targetCookie = cookieArray.find(cookie => cookie.startsWith(cookieName));
-      return targetCookie ? targetCookie.substring(cookieName.length) : null;
-    };
-    const myCookieValue = getCookie('accessToken');
-    setIsLogin(myCookieValue ? false : true);
-  }, []);
+  const router = useRouter(); 
+   const { isSignIn } = useAuth();
   return (
     <div className={"bg-[#FDFCFC] flex  justify-center items-center md:p-16"}>
       <div
@@ -41,7 +28,7 @@ export const TypeofServiceScreen = () => {
             <Back size="20" color="#2684ff" />
             BACK
           </Button>
-         { isLogin ? <Button
+         { !isSignIn ? <Button
             onClick={() => router.push("/authentication/sign-in")}
             className={"text-sm flex items-center gap-2 rounded-full"}
             variant="filled"
