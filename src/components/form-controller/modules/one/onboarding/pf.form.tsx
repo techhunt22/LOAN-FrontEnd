@@ -96,6 +96,7 @@ const freezeAccountTableData: TableRow[] = [
   {
     name: "https://www.chexsystems.com/security-freeze/place-freeze",
     slogan: "",
+    url: "https://www.chexsystems.com/security-freeze/place-freeze"
   },
   // Add more rows as needed
 ];
