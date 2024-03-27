@@ -26,7 +26,7 @@ export const DesktopStepper = () => {
       label: "Upload verification IDs",
     },
     {
-      label: "Positive account",
+      label: `Positive account & Freeze account`,
     },
   ];
   return (

@@ -20,6 +20,7 @@ interface TableRow {
   slogan: string;
   url?: string;
 }
+
 interface PFProps {
   onChange: (selected: string[] | []) => void;
   accountName?: string;
@@ -34,6 +35,35 @@ const tableData: TableRow[] = [
   {
     name: "Self Credit Builder",
     slogan: "Build Credit. Build Savings. Build Dreams",
+  },
+  {
+    name: "CreditStrong ",
+    slogan: "Get a Credit Builder Loan that Builds Credit and Savings ",
+  },
+  {
+    name: "Experian Boost",
+    slogan: "Improve Your Credit Scores Instantly for Free",
+  },
+  {
+    name: "ExtraCredit",
+    slogan: "Trackit",
+  },
+  { name: "rentreporters.com", slogan: "" },
+  { name: "extra.app", slogan: "" },
+  { name: "rentalkharma.com", slogan: "" },
+  { name: "tomocredit.com", slogan: "" },
+  { name: "meetava.com", slogan: "" },
+  // Add more rows as needed
+];
+const freezeAccountTableData: TableRow[] = [
+  { name: "https://optout.lexisnexis.com/", slogan: "" },
+  { name: "https://www.innovis.com/securityFreeze/index", slogan: "" },
+  { name: "https://consumers.teletrack.com/freeze/", slogan: "" },
+  { name: "https://ars-consumeroffice.com/add ", slogan: "" },
+  { name: "https://clarityservices.com", slogan: "" },
+  {
+    name: "https://www.chexsystems.com/security-freeze/place-freeze",
+    slogan: "",
   },
   // Add more rows as needed
 ];
@@ -93,25 +123,32 @@ export const TableComponent: React.FC<PFProps> = (props) => {
       <div className="flex flex-col gap-4 justify-center items-center p-4 w-full h-fit">
         {props?.data?.map((row, index) => (
           <>
-            <label
-              htmlFor={row.name}
-              className="w-full h-full flex flex-row justify-between items-center"
+            <div
               key={index}
+              className="w-full h-full flex flex-row justify-between items-center"
             >
-              <div>
-                <div className="text-[13px] text-gray-500">{row.slogan}</div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    alignItems: "center",
-                    gap: "10px",
-                  }}
-                  className="text-gray-700 font-medium"
-                >
-                  {row.name} <img src="/launch-icon.png" alt="gh" />
+              <label
+                htmlFor={row.name}
+                className="w-full h-full flex flex-row justify-between items-center"
+                key={index}
+              >
+                <div>
+                  <div className="text-[13px] text-gray-500">{row.slogan}</div>
+                  <a
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                      gap: "10px",
+                    }}
+                    className="text-gray-700 font-medium"
+                    href={row.name}
+                    target="_blank"
+                  >
+                    {row.name} <img src="/launch-icon.png" alt="gh" />
+                  </a>
                 </div>
-              </div>
+              </label>
               <input
                 id={row.name}
                 className="w-[26px] h-[26px]"
@@ -119,7 +156,7 @@ export const TableComponent: React.FC<PFProps> = (props) => {
                 checked={selectedRows.includes(row.name)}
                 onChange={() => toggleRowSelection(row.name)}
               />
-            </label>
+            </div>
             <Divider sx={{ width: "100%", color: "#929292" }} />
           </>
         ))}
@@ -218,10 +255,8 @@ export const PFForm = () => {
             <div
               className={" space-y-2 w-full h-full text-center align-middle"}
             >
-              <h3 className={" text-white text-[22px] font-semibold "}>
-                Set up
-              </h3>
-              <p className={" text-white text-[13px] "}>
+              <h3 className={" text-white text-[32px] font-bold "}>Set up</h3>
+              <p className={" text-white text-[16px] font-semibold "}>
                 Primary accounts and be sure to pay them all on time. After
                 setting up the primary accounts then place a freeze on all your
                 secondary bureaus.
@@ -233,7 +268,11 @@ export const PFForm = () => {
               "flex flex-col justify-between items-center w-full space-y-3"
             }
           >
-            <div className={"mt-16 w-full h-fit text-center align-middle"}>
+            <div
+              className={
+                "mt-16 w-full h-fit text-center align-middle mb-[35px]"
+              }
+            >
               <p>Choose from the following websites</p>
               <h3 className={"uppercase text-[#085ABB] text-[32px] font-bold "}>
                 Create your Primary accounts :
@@ -254,18 +293,18 @@ export const PFForm = () => {
               "flex flex-col justify-between items-center w-full space-y-3"
             }
           >
-            <div className={"mt-8 mb-2 w-full h-fit text-center align-middle"}>
-              <h3
-                className={
-                  "uppercase text-[#085ABB] text-[24px] font-semibold "
-                }
-              >
+            <div
+              className={
+                "mt-[60px] mb-[38px] w-full h-fit text-center align-middle"
+              }
+            >
+              <h3 className={"uppercase text-[#085ABB] text-[32px] font-bold "}>
                 Freeze the Secondary Bureaus :
               </h3>
             </div>
             <div className={"md:w-[80%] w-full"}>
               <TableComponent
-                data={tableData}
+                data={freezeAccountTableData}
                 accountName={"Freeze Account"}
                 onChange={(selected) => {
                   form.set("freezeAccount", selected);
