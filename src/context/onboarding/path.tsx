@@ -42,7 +42,7 @@ export const DesktopOnboardingPages: DesktopOnboardingPagesType = {
     description: <HeaderSubTitle />,
   },
   "/onboarding/pcr/pf": {
-    title: "Freeze or make your positive account !",
+    title: "Freeze Or Make Your Positive Account !",
     description: <HeaderSubTitle />,
   },
 };

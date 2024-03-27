@@ -36,6 +36,7 @@ input[type="file"]::-webkit-file-upload-button {
   }
 }
 
+
 .redfill {
   background: linear-gradient(20deg,
       #a4133c 2.85%,
@@ -1103,4 +1104,8 @@ li {
 
 .business-page-select-input::before {
   display: none;
+}
+
+.space-y-2> :not([hidden])~ :not([hidden]) {
+  margin: 0;
 }

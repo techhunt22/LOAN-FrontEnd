@@ -49,7 +49,10 @@ export const PCRContextProvider = ({
               {currentPage.subTitle}
             </h3>
           ) : (
-            <h3 className="textforHederTitle font-bold">
+            <h3
+              style={{ fontSize: "64px" }}
+              className="textforHederTitle font-bold"
+            > 
               {currentPage.title} {currentPage.subTitle}
             </h3>
           )}

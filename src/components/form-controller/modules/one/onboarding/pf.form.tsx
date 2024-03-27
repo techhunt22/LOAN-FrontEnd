@@ -13,6 +13,7 @@ import { useMutation } from "@tanstack/react-query";
 import { ApiCalls } from "@/api/calls/calls";
 import { Calls } from "@/api/calls/type";
 import toast from "react-hot-toast";
+import { Divider } from "@mui/material";
 
 interface TableRow {
   name: string;
@@ -69,54 +70,73 @@ export const TableComponent: React.FC<PFProps> = (props) => {
 
   return (
     <div className=" select-none flex flex-col items-center justify-center md:px-[60] px-[16px]  w-full h-full">
-      <div className="w-full h-fit flex flex-col">
-        <div className="shadow-tremor-card rounded-md w-full h-fit bg-white flex flex-row items-center">
+      <div className="w-full h-fit  flex flex-col">
+        <div
+          style={{ boxShadow: "rgb(0 0 0 / 11%) 0px 1px 60px 0px" }}
+          className=" rounded-md w-full min-h-[67px] bg-white flex flex-row items-center mb-2"
+        >
           <div
             style={{
               background: "linear-gradient(180deg, #2684FF 0%, #88BFFF 100%)",
+              display: "flex",
+              alignItems: "center",
             }}
-            className="pl-4 rounded-l-md text-[18px] text-white font-medium w-[60%] p-3 "
+            className="pl-4 rounded-l-md text-[24px] text-white font-medium w-[60%] p-3 min-h-[67px] "
           >
             {props.accountName}
           </div>
-          <div className="bg-white rounded-r-md text-gray-700 pl-4 text-[18px] font-medium w-[40%] p-3">
+          <div className="bg-white rounded-r-md text-[#1380FF] pl-4 text-[15px] font-medium w-[40%] p-3 text-center">
             Mark when done!
           </div>
         </div>
       </div>
       <div className="flex flex-col gap-4 justify-center items-center p-4 w-full h-fit">
         {props?.data?.map((row, index) => (
-          <label
-            htmlFor={row.name}
-            className="w-full h-full flex flex-row justify-between items-center"
-            key={index}
-          >
-            <div>
-              <div className="text-[13px] text-gray-500">{row.slogan}</div>
-              <div className="text-gray-700 font-medium">{row.name}</div>
-            </div>
-            <input
-              id={row.name}
-              className="w-[16px] h-[16px]"
-              type="checkbox"
-              checked={selectedRows.includes(row.name)}
-              onChange={() => toggleRowSelection(row.name)}
-            />
-          </label>
+          <>
+            <label
+              htmlFor={row.name}
+              className="w-full h-full flex flex-row justify-between items-center"
+              key={index}
+            >
+              <div>
+                <div className="text-[13px] text-gray-500">{row.slogan}</div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    gap: "10px",
+                  }}
+                  className="text-gray-700 font-medium"
+                >
+                  {row.name} <img src="/launch-icon.png" alt="gh" />
+                </div>
+              </div>
+              <input
+                id={row.name}
+                className="w-[26px] h-[26px]"
+                type="checkbox"
+                checked={selectedRows.includes(row.name)}
+                onChange={() => toggleRowSelection(row.name)}
+              />
+            </label>
+            <Divider sx={{ width: "100%", color: "#929292" }} />
+          </>
         ))}
       </div>
+
       <div className="w-full flex flex-row gap-4 items-center justify-end mt-4">
         <div
-          className="cursor-pointer text-red-700"
-          onClick={selectedRows.length === 0 ? () => {} : handleDeselectAll}
-        >
-          Clear all
-        </div>
-        <div
-          className="cursor-pointer  mr-2 bg-green-500 p-2 h-auto px-3 w-fit text-white rounded-full"
+          className="cursor-pointer flex items-center justify-center mr-2 bg-green-500 p-2 h-auto px-3 w-[122px] text-white rounded-full"
           onClick={handleSelectAll}
         >
           {selectedRows.length !== 0 ? " Selected" : " Select All"}
+        </div>
+        <div
+          className="cursor-pointer text-[#EB6B7A]"
+          onClick={selectedRows.length === 0 ? () => {} : handleDeselectAll}
+        >
+          Clear all
         </div>
       </div>
     </div>
@@ -176,68 +196,82 @@ export const PFForm = () => {
     <form
       id={"pf"}
       onSubmit={onSubmit}
-      className={
-        "mt-36 mb-36   flex flex-col justify-center items-center w-full h-screen "
-      }
+      className={"mb-36   flex flex-col justify-center items-center w-full "}
     >
       <div
+        style={{
+          boxShadow: "0px 0px 30px 6px rgb(30 30 30 / 10%)",
+          borderBottomLeftRadius: "14px",
+          borderBottomRightRadius: "14px",
+          overflow: "auto",
+        }}
         className={
-          "rounded-b-[30px] flex flex-col justify-between items-center bg-gray-50 md:w-[70%] w-full h-fit pb-8"
+          "flex flex-col h-fit justify-center items-center px-[30px] pt-[100px] pb-[60px] w-[75%]"
         }
       >
-        <div className={"p-4 rounded-b-[30px] bg-red-600/60 w-[80%] h-auto"}>
-          <div className={" space-y-2 w-full h-full text-center align-middle"}>
-            <h3 className={" text-white text-[22px] font-semibold "}>Set up</h3>
-            <p className={" text-white text-[13px] "}>
-              Primary accounts and be sure to pay them all on time. After
-              setting up the primary accounts then place a freeze on all your
-              secondary bureaus.
-            </p>
-          </div>
-        </div>
         <div
           className={
-            "flex flex-col justify-between items-center w-full space-y-3"
+            "rounded-[25px] flex flex-col justify-between items-center bg-gray-50 md:w-[70%] w-full h-fit pb-8"
           }
         >
-          <div className={"mt-8 w-full h-fit text-center align-middle"}>
-            <p>Choose from the following websites</p>
-            <h3
-              className={"uppercase text-blue-900 text-[24px] font-semibold "}
+          <div className={"p-4 rounded-b-[30px] bg-[#EB6B7A] w-[80%] h-auto"}>
+            <div
+              className={" space-y-2 w-full h-full text-center align-middle"}
             >
-              Create your Primary accounts :
-            </h3>
+              <h3 className={" text-white text-[22px] font-semibold "}>
+                Set up
+              </h3>
+              <p className={" text-white text-[13px] "}>
+                Primary accounts and be sure to pay them all on time. After
+                setting up the primary accounts then place a freeze on all your
+                secondary bureaus.
+              </p>
+            </div>
           </div>
-          <div className={"md:w-[80%] w-full"}>
-            <TableComponent
-              data={tableData}
-              accountName={"Primary accounts"}
-              onChange={(selected) => {
-                form.set("primaryAccounts", selected);
-              }}
-            />
+          <div
+            className={
+              "flex flex-col justify-between items-center w-full space-y-3"
+            }
+          >
+            <div className={"mt-16 w-full h-fit text-center align-middle"}>
+              <p>Choose from the following websites</p>
+              <h3 className={"uppercase text-[#085ABB] text-[32px] font-bold "}>
+                Create your Primary accounts :
+              </h3>
+            </div>
+            <div className={"md:w-[80%] w-full"}>
+              <TableComponent
+                data={tableData}
+                accountName={"Primary accounts"}
+                onChange={(selected) => {
+                  form.set("primaryAccounts", selected);
+                }}
+              />
+            </div>
           </div>
-        </div>
-        <div
-          className={
-            "flex flex-col justify-between items-center w-full space-y-3"
-          }
-        >
-          <div className={"mt-8 mb-2 w-full h-fit text-center align-middle"}>
-            <h3
-              className={"uppercase text-blue-900 text-[24px] font-semibold "}
-            >
-              Freeze the Secondary Bureaus :
-            </h3>
-          </div>
-          <div className={"md:w-[80%] w-full"}>
-            <TableComponent
-              data={tableData}
-              accountName={"Freeze Account"}
-              onChange={(selected) => {
-                form.set("freezeAccount", selected);
-              }}
-            />
+          <div
+            className={
+              "flex flex-col justify-between items-center w-full space-y-3"
+            }
+          >
+            <div className={"mt-8 mb-2 w-full h-fit text-center align-middle"}>
+              <h3
+                className={
+                  "uppercase text-[#085ABB] text-[24px] font-semibold "
+                }
+              >
+                Freeze the Secondary Bureaus :
+              </h3>
+            </div>
+            <div className={"md:w-[80%] w-full"}>
+              <TableComponent
+                data={tableData}
+                accountName={"Freeze Account"}
+                onChange={(selected) => {
+                  form.set("freezeAccount", selected);
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>

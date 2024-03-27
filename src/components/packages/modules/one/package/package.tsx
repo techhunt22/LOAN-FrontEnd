@@ -110,7 +110,7 @@ export const Package = () => {
         ) : (
           <div
             className={
-              "flex md:flex-row flex-col gap-20 md:items-end items-center md:justify-center justify-start w-full"
+              "flex  flex-wrap md:flex-row flex-col gap-20 md:items-end items-center md:justify-center justify-start w-full"
             }
           >
             <Normal
