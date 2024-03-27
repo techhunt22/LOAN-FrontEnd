@@ -27,7 +27,11 @@ interface PFProps {
   data?: TableRow[];
 }
 const tableData: TableRow[] = [
-  { name: "Boom (boompay.app)", slogan: "Build credit with rent" },
+  {
+    name: "Boom (boompay.app)",
+    slogan: "Build credit with rent",
+    url: "https://www.boompay.app/download",
+  },
   {
     name: "Kikoff Credit Builder",
     slogan: "Build Credit Safely & Responsibly",
@@ -48,19 +52,47 @@ const tableData: TableRow[] = [
     name: "ExtraCredit",
     slogan: "Trackit",
   },
-  { name: "rentreporters.com", slogan: "" },
-  { name: "extra.app", slogan: "" },
-  { name: "rentalkharma.com", slogan: "" },
-  { name: "tomocredit.com", slogan: "" },
-  { name: "meetava.com", slogan: "" },
+  {
+    name: "rentreporters.com",
+    slogan: "",
+    url: "https://www.rentreporters.com/",
+  },
+  { name: "extra.app", slogan: "", url: "https://extra.app/" },
+  {
+    name: "rentalkharma.com",
+    slogan: "",
+    url: "https://www.rentalkharma.com/",
+  },
+  { name: "tomocredit.com", slogan: "", url: "https://tomocredit.com/" },
+  { name: "meetava.com", slogan: "", url: "https://www.meetava.com/" },
   // Add more rows as needed
 ];
 const freezeAccountTableData: TableRow[] = [
-  { name: "https://optout.lexisnexis.com/", slogan: "" },
-  { name: "https://www.innovis.com/securityFreeze/index", slogan: "" },
-  { name: "https://consumers.teletrack.com/freeze/", slogan: "" },
-  { name: "https://ars-consumeroffice.com/add ", slogan: "" },
-  { name: "https://clarityservices.com", slogan: "" },
+  {
+    name: "https://optout.lexisnexis.com/",
+    slogan: "",
+    url: "https://optout.lexisnexis.com/",
+  },
+  {
+    name: "https://www.innovis.com/securityFreeze/index",
+    slogan: "",
+    url: "https://www.innovis.com/securityFreeze/index",
+  },
+  {
+    name: "https://consumers.teletrack.com/freeze/",
+    slogan: "",
+    url: "https://consumers.teletrack.com/freeze/",
+  },
+  {
+    name: "https://ars-consumeroffice.com/add ",
+    slogan: "",
+    url: "https://ars-consumeroffice.com/add ",
+  },
+  {
+    name: "https://clarityservices.com",
+    slogan: "",
+    url: "https://clarityservices.com",
+  },
   {
     name: "https://www.chexsystems.com/security-freeze/place-freeze",
     slogan: "",
@@ -142,7 +174,7 @@ export const TableComponent: React.FC<PFProps> = (props) => {
                       gap: "10px",
                     }}
                     className="text-gray-700 font-medium"
-                    href={row.name}
+                    href={row.url}
                     target="_blank"
                   >
                     {row.name} <img src="/launch-icon.png" alt="gh" />
