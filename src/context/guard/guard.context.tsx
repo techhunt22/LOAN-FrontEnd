@@ -37,7 +37,7 @@ export const GuardContextProvider = ({
   };
 
   useEffect(() => {
-    const myCookieValue = getCookie('accessToken');
+    const myCookieValue = getCookie("accessToken");
     if (myCookieValue !== null) {
       setIsSignIn(true);
       const loginRole = Cookies.get("role");
@@ -50,10 +50,8 @@ export const GuardContextProvider = ({
     } else {
       setIsSignIn(false);
     }
-
   }, [isSignIn, Cookies.get("role")]);
 
-  
   const onLogout = async () => {
     Cookies.remove("accessToken", { path: "/" });
     Cookies.remove("refreshToken", { path: "/" });
@@ -62,22 +60,41 @@ export const GuardContextProvider = ({
     setIsSignIn(false);
   };
 
-
-
   return (
-    <GuardContext.Provider value={{isSignIn, isAdmin, login, logout, setIsAdmin, setIsSignIn, onLogout }}>
-      {isSignIn &&
-        <div style={{ display: "flex", justifyContent: "center", position: "absolute", right: "120px", top:"6px" }}>
+    <GuardContext.Provider
+      value={{
+        isSignIn,
+        isAdmin,
+        login,
+        logout,
+        setIsAdmin,
+        setIsSignIn,
+        onLogout,
+      }}
+    >
+      {isSignIn && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            position: "absolute",
+            right: "120px",
+            top: "6px",
+          }}
+        >
           <Button
-            className={"flex items-center justify-center rounded-full text-[#DFDDDD] bg-[transparent] h-[40px] w-[40px] shadow-none text-[16px]"}
+            className={
+              "flex items-center justify-center rounded-full text-[#DFDDDD] bg-[transparent] h-[40px] w-[40px] bg-[#137FFF] shadow-none text-[16px]"
+            }
             onClick={onLogout}
             size={"lg"}
             type={"button"}
+            style={{ height: "40px", maxWidth: "40px", padding: "0" }}
           >
-            <LogoutIcon />
+            <LogoutIcon height={20} width={20} />
           </Button>
         </div>
-      }
+      )}
 
       {children}
     </GuardContext.Provider>

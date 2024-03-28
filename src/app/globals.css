@@ -561,6 +561,15 @@ li {
   .business-credit-website-card {
     gap: 2rem;
   }
+
+  .stepper-text {
+    width: 100px;
+    text-wrap: wrap;
+  }
+
+  .main-pf {
+    width: 78%;
+  }
 }
 
 /* responsive
@@ -571,11 +580,19 @@ li {
     width: 100%;
     margin-left: 24px;
   }
+
+  .main-pf {
+    width: 76%;
+  }
 }
 
 @media (max-width: 1450px) {
   .sidebar-mobileview {
     display: none;
+  }
+
+  .main-pf {
+    width: 78%;
   }
 
   .business-page-padding-sm {
@@ -601,6 +618,14 @@ li {
 
   .mt-0 {
     margin-top: 0;
+  }
+
+  .main-pf {
+    width: 80%;
+  }
+
+  .main-stepper {
+    padding-left: 6rem;
   }
 }
 
@@ -630,6 +655,15 @@ li {
 
   .business-page-mobileview-displaynone {
     display: none;
+  }
+
+  .stepper-text {
+    width: 100px;
+    text-wrap: wrap;
+  }
+
+  .main-stepper {
+    padding-left: 3rem;
   }
 }
 
@@ -745,8 +779,6 @@ li {
   .font-85 {
     font-size: 56px;
   }
-
-
 
   .tier-mobile-text {
     margin-bottom: 56px;

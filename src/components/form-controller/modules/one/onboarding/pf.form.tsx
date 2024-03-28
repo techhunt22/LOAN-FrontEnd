@@ -96,7 +96,7 @@ const freezeAccountTableData: TableRow[] = [
   {
     name: "https://www.chexsystems.com/security-freeze/place-freeze",
     slogan: "",
-    url: "https://www.chexsystems.com/security-freeze/place-freeze"
+    url: "https://www.chexsystems.com/security-freeze/place-freeze",
   },
   // Add more rows as needed
 ];
@@ -173,6 +173,7 @@ export const TableComponent: React.FC<PFProps> = (props) => {
                       flexDirection: "row",
                       alignItems: "center",
                       gap: "10px",
+                      marginRight: "10px",
                     }}
                     className="text-gray-700 font-medium"
                     href={row.url}
@@ -276,7 +277,7 @@ export const PFForm = () => {
           overflow: "auto",
         }}
         className={
-          "flex flex-col h-fit justify-center items-center px-[30px] pt-[100px] pb-[60px] w-[75%]"
+          "main-pf flex flex-col h-fit justify-center items-center px-[30px] pt-[100px] pb-[60px] w-[76%]"
         }
       >
         <div

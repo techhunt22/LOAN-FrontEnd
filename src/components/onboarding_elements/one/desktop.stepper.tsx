@@ -31,7 +31,7 @@ export const DesktopStepper = () => {
   ];
   return (
     <div className={" flex flex-row items-center justify-center w-full h-auto"}>
-      <div className=" rounded-l-xl flex flex-row justify-center items-center w-[70%] bg-[#137FFF] h-[225px] py-4 pl-32 ">
+      <div className=" rounded-l-xl flex flex-row justify-center items-center w-[70%] bg-[#137FFF] h-[225px] py-4 pl-32 main-stepper">
         <Stepper
           className={"-mt-6"}
           lineClassName=" h-2 bg-white"
@@ -48,10 +48,11 @@ export const DesktopStepper = () => {
               completedClassName="bg-[#137FFF] ring-[20px] ring-white"
             >
               <CheckIcon className={"w-[24px] h-[24px]"} />
-              <div className=" absolute -bottom-[3.5rem] w-max text-center">
+              <div className="absolute -bottom-[5.5rem] w-max text-center h-[50px]">
                 <Typography
                   variant="small"
                   color={ActiveTab === index ? "white" : "white"}
+                  className="stepper-text text-wrap w-[150px]"
                 >
                   {item.label}
                 </Typography>
