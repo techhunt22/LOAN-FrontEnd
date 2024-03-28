@@ -60,6 +60,7 @@ export const GuardContextProvider = ({
     Cookies.remove("accessToken", { path: "/" });
     Cookies.remove("refreshToken", { path: "/" });
     Cookies.remove("role", { path: "/" });
+    Cookies.remove("lastPageUrl", { path: "/" });
     router.push("/");
     setIsSignIn(false);
   };
