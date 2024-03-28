@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/context/guard/guard.context";
 export const TypeofServiceScreen = () => {
   const router = useRouter(); 
-   const { isSignIn } = useAuth();
+   const { isSignIn, onLogout } = useAuth();
   return (
     <div className={"bg-[#FDFCFC] flex  justify-center items-center md:p-16"}>
       <div
@@ -36,7 +36,17 @@ export const TypeofServiceScreen = () => {
           >
             <Login size="20" color="#FFFFFF" />
             SIGN IN 
-          </Button>:null}
+          </Button>
+          :
+          <Button
+            onClick={() => onLogout()}
+            className={"text-sm flex items-center gap-2 rounded-full"}
+            variant="filled"
+            color={"blue"}
+          >
+            <Login size="20" color="#FFFFFF" />
+            LOGOUT 
+          </Button>}
         </div>
         <div className={"mt-2 mb-5 flex flex-col text-center gap-3"}>
           <h4 className={"text-2xl font-semibold"}>

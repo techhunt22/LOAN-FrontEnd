@@ -1,7 +1,7 @@
 "use client";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Button, Spinner } from "@material-tailwind/react";
 import { getCookie } from "@/utils/getCookie";
@@ -22,7 +22,9 @@ export const GuardContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
+  debugger
   const router = useRouter();
+  const pathName = usePathname()
   const [isAdmin, setIsAdmin] = useState<boolean>(false); // Assuming admin state
   const [isSignIn, setIsSignIn] = useState<boolean>(false);
 
@@ -49,10 +51,12 @@ export const GuardContextProvider = ({
       }
     } else {
       setIsSignIn(false);
+      setIsAdmin(false);
     }
   }, [isSignIn, Cookies.get("role")]);
 
   const onLogout = async () => {
+    debugger
     Cookies.remove("accessToken", { path: "/" });
     Cookies.remove("refreshToken", { path: "/" });
     Cookies.remove("role", { path: "/" });
@@ -72,26 +76,24 @@ export const GuardContextProvider = ({
         onLogout,
       }}
     >
-      {isSignIn && (
+      {isSignIn && pathName !== "/" && (
         <div
           style={{
             display: "flex",
             justifyContent: "center",
             position: "absolute",
-            right: "120px",
+            right: "60px",
             top: "6px",
           }}
         >
           <Button
-            className={
-              "flex items-center justify-center rounded-full text-[#DFDDDD] bg-[transparent] h-[40px] w-[40px] bg-[#137FFF] shadow-none text-[16px]"
-            }
             onClick={onLogout}
-            size={"lg"}
-            type={"button"}
-            style={{ height: "40px", maxWidth: "40px", padding: "0" }}
+            className={"text-sm flex items-center gap-2 rounded-full"}
+            variant="filled"
+            color={"blue"}
+            size={"sm"}
           >
-            <LogoutIcon height={20} width={20} />
+            <LogoutIcon height={20} width={20} />LOGOUT 
           </Button>
         </div>
       )}
