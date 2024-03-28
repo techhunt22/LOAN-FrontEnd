@@ -5,6 +5,7 @@ interface FileUploadWithOutCropWithOutMultipleProps {
   onChange?: (file: File | null) => void;
   nameofFile?: string;
   fileId?: string;
+  error?: boolean;
 }
 
 export const FileUploadWithOutCropWithOutMultiple: React.FC<
@@ -52,8 +53,7 @@ export const FileUploadWithOutCropWithOutMultiple: React.FC<
     <div className={"max-h-auto cursor-pointer"}>
       <label htmlFor={props.fileId}>
         {!selectedFile && (
-          <div
-            className={ "drop-content-upper"}>
+          <div className={"drop-content-upper"}>
             <img src={"/module/upload-icon.png"} />
             <div className={"drop-content"}>
               <h3>Drop file to upload or <span className="browse-name">browse</span></h3>
@@ -77,6 +77,9 @@ export const FileUploadWithOutCropWithOutMultiple: React.FC<
           alt="Preview"
           style={{ maxWidth: "100%", maxHeight: "200px" }}
         />
+      )}
+      {props.error && (
+        <div className="font-semibold mt-2 text-red-700">Required</div>
       )}
       {selectedFile && (
         <button

@@ -63,8 +63,42 @@ export const DocsUpload = () => {
   });
 
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
+    debugger;
     e.preventDefault();
-    await mutateAsync(form.data());
+    checkInputError();
+    const data = form.data();
+    if (
+      data.identityCard1 !== null &&
+      data.proofOfAddress1 !== null &&
+      data.socialSecurityCard1 !== null &&
+      data.identityCard2 !== null &&
+      data.socialSecurityCard2 !== null
+    ) {
+      await mutateAsync(form.data());
+    }
+  };
+
+  const checkInputError = () => {
+    debugger;
+    const data = form.data();
+    if (data.identityCard1 === null) {
+      form.errors.set("identityCard1", "identityCard1 is required");
+    }
+    if (data.proofOfAddress1 === null) {
+      form.errors.set("proofOfAddress1", "proofOfAddress1 is required");
+    }
+    if (data.socialSecurityCard1 === null) {
+      form.errors.set("socialSecurityCard1", "socialSecurityCard1 is required");
+    }
+    if (data.identityCard2 === null) {
+      form.errors.set("identityCard2", "identityCard2 is required");
+    }
+    // if (data.proofOfAddress2 === null) {
+    //   form.errors.set("proofOfAddress2", "proofOfAddress2 is required");
+    // }
+    if (data.socialSecurityCard2 === null) {
+      form.errors.set("socialSecurityCard2", "socialSecurityCard2 is required");
+    }
   };
 
   useLayoutEffect(() => {
@@ -178,8 +212,12 @@ export const DocsUpload = () => {
                       <FileUploadWithOutCropWithOutMultiple
                         key={"01"}
                         fileId={"0"}
-                        onChange={(file) => form.set("identityCard1", file)}
+                        onChange={(file) => {
+                          form.set("identityCard1", file);
+                          form.errors.clear("identityCard1");
+                        }}
                         nameofFile={"Front Side"}
+                        error={form.errors.has("identityCard1")}
                       />
                     </div>
                   </div>
@@ -189,8 +227,12 @@ export const DocsUpload = () => {
                       <FileUploadWithOutCropWithOutMultiple
                         key={"02"}
                         fileId={"1"}
-                        onChange={(file) => form.set("identityCard2", file)}
+                        onChange={(file) => {
+                          form.set("identityCard2", file);
+                          form.errors.clear("identityCard2");
+                        }}
                         nameofFile={"Back Side"}
+                        error={form.errors.has("identityCard2")}
                       />
                     </div>
                   </div>
@@ -226,8 +268,12 @@ export const DocsUpload = () => {
                       </h4>
                       <FileUploadWithOutCropWithOutMultiple
                         fileId={"2"}
-                        onChange={(file) => form.set("proofOfAddress1", file)}
+                        onChange={(file) => {
+                          form.set("proofOfAddress1", file);
+                          form.errors.clear("proofOfAddress1");
+                        }}
                         nameofFile={"Front Side"}
+                        error={form.errors.has("proofOfAddress1")}
                       />
                     </div>
                   </div>
@@ -272,10 +318,12 @@ export const DocsUpload = () => {
                       </h4>
                       <FileUploadWithOutCropWithOutMultiple
                         fileId={"4"}
-                        onChange={(file) =>
-                          form.set("socialSecurityCard1", file)
-                        }
+                        onChange={(file) => {
+                          form.set("socialSecurityCard1", file);
+                          form.errors.clear("socialSecurityCard1");
+                        }}
                         nameofFile={"Front Side"}
+                        error={form.errors.has("socialSecurityCard1")}
                       />
                     </div>
                   </div>
@@ -284,10 +332,12 @@ export const DocsUpload = () => {
                       <h4 className={"text-[18px] font-semibold"}>Back Side</h4>
                       <FileUploadWithOutCropWithOutMultiple
                         fileId={"5"}
-                        onChange={(file) =>
-                          form.set("socialSecurityCard2", file)
-                        }
+                        onChange={(file) => {
+                          form.set("socialSecurityCard2", file);
+                          form.errors.clear("socialSecurityCard2");
+                        }}
                         nameofFile={"Back Side"}
+                        error={form.errors.has("socialSecurityCard2")}
                       />
                     </div>
                   </div>

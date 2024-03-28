@@ -176,6 +176,10 @@ export const MonitorReportForm = () => {
       updatedUrl.push(...fundability, ...establish);
       const newArray = monitor.slice(0, index + 1);
       updatedUrl.push(...newArray);
+    } else if (currentUrl === "/step7/page1-min") {
+      updatedUrl.push(...fundability, ...establish);
+    } else {
+      updatedUrl.push(...fundability, ...establish, ...monitor);
     }
     setAllUrl(updatedUrl);
   }, [currentUrl, selectedItem]);
