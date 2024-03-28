@@ -22,9 +22,9 @@ export const GuardContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  debugger
+  debugger;
   const router = useRouter();
-  const pathName = usePathname()
+  const pathName = usePathname();
   const [isAdmin, setIsAdmin] = useState<boolean>(false); // Assuming admin state
   const [isSignIn, setIsSignIn] = useState<boolean>(false);
 
@@ -56,7 +56,7 @@ export const GuardContextProvider = ({
   }, [isSignIn, Cookies.get("role")]);
 
   const onLogout = async () => {
-    debugger
+    debugger;
     Cookies.remove("accessToken", { path: "/" });
     Cookies.remove("refreshToken", { path: "/" });
     Cookies.remove("role", { path: "/" });
@@ -86,15 +86,19 @@ export const GuardContextProvider = ({
             right: "60px",
             top: "6px",
           }}
+          className="logout-main"
         >
           <Button
             onClick={onLogout}
-            className={"text-sm flex items-center gap-2 rounded-full"}
+            className={
+              "text-sm flex items-center gap-2 rounded-full logout-button"
+            }
             variant="filled"
             color={"blue"}
             size={"sm"}
           >
-            <LogoutIcon height={20} width={20} />LOGOUT 
+            <LogoutIcon height={20} width={20} />
+            <p> LOGOUT</p>
           </Button>
         </div>
       )}
