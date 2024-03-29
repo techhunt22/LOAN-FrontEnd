@@ -34,10 +34,9 @@ const arrowLineCotent =
 
 const videoConten = {
   title: "Watch Video Transcript:",
-  videoUrl: "/report/reports/v-1.png",
+  videoUrl: "/report/reports/v-2.png",
   content: "MONITOR D&B",
 };
-
 const videoConten1 = {
   title: "Watch Video Transcript:",
   videoUrl: "/report/reports/v-1.png",
@@ -45,7 +44,7 @@ const videoConten1 = {
 };
 
 const blogCustomContent = {
-  picture: "/report/reports/b-2.svg",
+  picture: "/report/reports/b-1.png",
   title: "MONITOR D & B REPORT",
   contents: [
     {
@@ -117,7 +116,7 @@ const paymentCard2 = {
 const informationResuorce = {
   title: "RESOURCES",
   content:
-    "There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name!There is a lot that goes into a name!There is a lot that goes into a name!",
+    "We hope you love the products and services we recommend! We research and update these on a regular basis. Just so you know, we may receive a commission from links on this page. We are diligent to ensure any compensation we receive does not affect the price or level of service offered to you.",
   color: "blue",
 };
 
@@ -175,6 +174,8 @@ export const BuildMonitorDunBradstreet = () => {
     const formData = await image(form.data());
     return formData;
   };
+
+  const informationResourceProps = "Information Resource";
   return (
     <>
       <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl  gap-6 business-main business-page-rightsection-mobileview">
@@ -245,7 +246,10 @@ export const BuildMonitorDunBradstreet = () => {
 
             {/* Resuouces importante */}
             <div className="flex w-full my-12">
-              <ImportantInformation information={informationResuorce} />
+              <ImportantInformation
+                information={informationResuorce}
+                informationResourceProps={informationResourceProps}
+              />
             </div>
 
             {/* Website cards */}

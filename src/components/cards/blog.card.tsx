@@ -15,6 +15,8 @@ interface BlogCardProps {
     content: string;
     subContent?: string;
     content3?: any;
+    link?: any;
+    linkTitle?: any;
   };
 }
 
@@ -99,18 +101,31 @@ export const BlogCardLeft: React.FC<BlogCardProps> = (props) => {
             />
           </div>
           <div className="flex flex-col p-4 w-[50%] justify-center content-center items-center business-page-banner-right-mobileview">
-            <strong className="mb-2  business-page-text-color-black text-lg ">
+            <strong className="mb-2  business-page-text-color-black text-lg text-center">
               {props.content.title}
             </strong>
             <p className="text-xs text-justify business-page-text-color-gray2	 ">
               {props.content.content}
             </p>
-            <p className="mb-1 business-address-banner-subcontect">
-              {props.content.subContent}
-            </p>
-            <p className="mb-1 text-xs text-justify business-page-text-color-gray2 mt-7">
-              {props.content.content3}
-            </p>
+            {props.content.subContent && (
+              <p className="mb-1 business-address-banner-subcontect">
+                {props.content.subContent}
+              </p>
+            )}
+            {props.content.content3 && (
+              <p className="mb-1 text-xs text-justify business-page-text-color-gray2 mt-7">
+                {props.content.content3}
+              </p>
+            )}
+
+            <div className="flex flex-col p-4 mt-[30px] w-[full] justify-center content-center items-center business-page-banner-right-mobileview">
+              <strong className="mb-2 text-[#929292] font-bold text-[12px] ">
+                {props.content.linkTitle}
+              </strong>
+              <p className="text-xs text-justify text-[#0A7CB7] text-[12px] ">
+                {props.content.link}
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -144,13 +159,13 @@ export const BlogMultiCardLeft: React.FC<BlogMultiCardProps> = (props) => {
             />
           </div>
           <div className="flex flex-col p-4 w-[60%] justify-center content-center items-center">
-            <strong className="mb-2 text-blue-500">
+            <strong className="mb-2 text-[#333333] text-[18px] font-bold text-center">
               {props.content.title}
             </strong>
             <p className="mb-1 text-gray-500 text-sm">
               {props.content.content1}
             </p>
-            <p className="mb-1 text-gray-500 text-sm">
+            <p className="mb-1 text-gray-500 text-sm mt-[38px]">
               {props.content.content2}
             </p>
             <p className="mb-1 text-gray-500 text-sm">
@@ -192,7 +207,7 @@ export const BlogEmailCardLeft: React.FC<BlogEmailCardProps> = (props) => {
           </div>
           <div className="flex flex-col p-4 w-[60%] justify-start">
             <div className="flex justify-center content-center items-center">
-              <strong className="mb-2 text-blue-500">
+              <strong className="mb-2 text-[#333333] text-[18px] font-bold text-center">
                 {props.content.title}
               </strong>
             </div>
@@ -256,7 +271,7 @@ export const BlogCustomCardLeft: React.FC<BlogCustomCardProps> = (props) => {
             <img src={props.content.picture} alt="" style={{}} />
           </div>
           <div className="flex flex-col p-4 w-[50%] justify-center content-center items-center business-page-banner-right-mobileview">
-            <strong className="mb-2 text-blue-500 text-center business-page-text-color-black">
+            <strong className="mb-2 text-blue-500 text-center business-page-text-color-black text-center">
               {props.content.title}
             </strong>
             {props.content.contents.map((invidualContent) => (
@@ -303,7 +318,7 @@ export const BlogCustomCardBoldLeft: React.FC<BlogCustomCardBoldProps> = (
             <img src={props.content.picture} alt="" style={{}} />
           </div>
           <div className="flex flex-col p-4 w-[50%] justify-center content-center items-center business-page-banner-right-mobileview">
-            <strong className="mb-2 text-blue-500 text-center">
+            <strong className="mb-2 text-blue-500 text-center text-center">
               {props.content.title}
             </strong>
             {props.content.contents.map((invidualContent) => (

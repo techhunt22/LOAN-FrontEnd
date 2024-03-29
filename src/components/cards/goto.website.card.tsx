@@ -16,17 +16,22 @@ export const GotoWebsiteCard: React.FC<GotoWebsiteCardProps> = (props) => {
           {props.content}
         </div>
         <div className="flex justify-center content-center  w-full h-24">
-          <img
-            src={props.icon}
+          <div
             style={{
-              objectFit: "contain",
               height: "50px !important",
-              width: "200px!important",
+              width: "180px !important",
             }}
-            alt="ssa"
-width={200}
-            height={50}
-          />
+          >
+            <img
+              src={props.icon}
+              style={{
+                objectFit: "contain",
+                height: "50px !important",
+                width: "200px!important",
+              }}
+              alt="ssa"
+            />
+          </div>
         </div>
         <div className="flex justify-center content-center items-center w-full">
           <Button
@@ -42,6 +47,7 @@ width={200}
               marginBottom: "20px",
               fontSize: "16px",
               fontWeight: "800",
+              boxShadow: "0px 8px 11px 0px #085abb66",
             }}
           >
             Go to Website

@@ -34,7 +34,7 @@ const arrowLineCotent = "DOES YOUR BUSINESS HAVE BUSINESS EQUIFAX MONITORING?";
 
 const videoConten = {
   title: "Watch Video Transcript:",
-  videoUrl: "/report/reports/v-6.png",
+  videoUrl: "/report/reports/v-5.png",
   content: "BUSINESS EQUIFAX REPORT",
 };
 
@@ -106,7 +106,7 @@ const paymentCard2 = {
 const informationResuorce = {
   title: "RESOURCES",
   content:
-    "There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name!There is a lot that goes into a name!There is a lot that goes into a name!",
+    "We hope you love the products and services we recommend! We research and update these on a regular basis. Just so you know, we may receive a commission from links on this page. We are diligent to ensure any compensation we receive does not affect the price or level of service offered to you.",
   color: "blue",
 };
 
@@ -164,6 +164,8 @@ export const BuildMonitorEquifax = () => {
     const formData = await image(form.data());
     return formData;
   };
+
+  const informationResourceProps = "Information Resource";
   return (
     <>
       <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl  gap-6 business-main business-page-rightsection-mobileview">
@@ -230,7 +232,10 @@ export const BuildMonitorEquifax = () => {
 
             {/* Resuouces importante */}
             <div className="flex w-full my-12">
-              <ImportantInformation information={informationResuorce} />
+              <ImportantInformation
+                information={informationResuorce}
+                informationResourceProps={informationResourceProps}
+              />
             </div>
 
             {/* Website cards */}

@@ -71,9 +71,10 @@ const footerContent = {
 };
 
 export const BusinessReportWrap = () => {
+  const informationResourceProps = "Information Resource";
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main business-page-rightsection-mobileview ">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl  gap-6 business-main business-page-rightsection-mobileview ">
         <div className="flex flex-col w-[76%] justify-start mt-6 business-page-inner-mobileview">
           <SubHeader content={headerContent} />
           <div
@@ -102,20 +103,20 @@ export const BusinessReportWrap = () => {
               TAHNK YOU!
             </div>
             <div
-              className="flex text-2xl my-4"
-              style={{ color: " rgba(38, 132, 255, 1);" }}
+              className="flex text-[16px] font-semibold my-4"
+              style={{ color: "#2684FF" }}
             >
               INFORMATION RECEIVED
             </div>
             <div
-              className="flex text-xl  mb-12 text-center"
-              style={{ color: " rgba(56, 176, 0, 1)" }}
+              className="flex text-[16px] font-semibold mb-12 text-center"
+              style={{ color: "#38B000" }}
             >
               You Can Success Fully Move To 3nd Step
             </div>
 
             {/* Bolg section */}
-            <div className="flex w-[90%] my-12">
+            <div className="flex w-[100%]  bg-white my-12">
               <BlogCustomCardLeft content={contentBlogCardLeft} />
             </div>
 
@@ -150,7 +151,10 @@ export const BusinessReportWrap = () => {
 
             {/* Resuouces importante */}
             <div className="flex w-full my-2">
-              <ImportantInformation information={informationResuorce} />
+              <ImportantInformation
+                information={informationResuorce}
+                informationResourceProps={informationResourceProps}
+              />
             </div>
 
             {/* Website cards */}

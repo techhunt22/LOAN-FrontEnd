@@ -477,7 +477,7 @@ export const TierThreeFull = () => {
               <TierDetailCard contents={tierContents} />
 
               {/*  */}
-              <div className="flex w-[100%]  bg-white justify-center text-center text-md text-gray-500 my-6">
+              <div className="flex w-[90%] justify-center text-center text-md text-gray-500 my-6">
                 <p>
                   If you have any questions reach out to our{" "}
                   <b className="text-blue-400">Advisor Team</b>. Once you have
@@ -516,7 +516,7 @@ export const TierThreeFull = () => {
             position: "relative",
           }}
         >
-          <div className="flex w-[95%] justify-center content-center text-center mb-6 tier-mobile-text">
+          <div className="flex w-[95%]  content-center text-center mb-6 tier-mobile-text">
             <p>
               Once you have applied for trade accounts please indicate which
               ones by using the buttons below:
@@ -531,10 +531,12 @@ export const TierThreeFull = () => {
             }}
             className="flex w-[95%] gap-12  content-center text-center tier-mobile-button"
           >
-            <button className="flex bg-gradient-to-r from-blue-400 to-blue-200 text-white text-2xl px-5 py-4 rounded-3xl">
+            <button className="flex  text-white text-2xl px-5 py-4 rounded-3xl" style={{background: 'linear-gradient(94.55deg, #1380FF -9.18%, #9FC9EB 104.32%)',
+}}>
               APPROVED ACCOUNT
             </button>
-            <button className="flex bg-gradient-to-r from-pink-400 to-pink-200 text-white text-2xl px-5 py-4 rounded-3xl">
+            <button className="flex text-white text-2xl px-5 py-4 rounded-3xl" style={{background: 'linear-gradient(90deg, #EB6B7A 0%, rgba(251, 111, 146, 0.76) 103.62%)',
+}}>
               DENED ACCOUNT
             </button>
           </div>

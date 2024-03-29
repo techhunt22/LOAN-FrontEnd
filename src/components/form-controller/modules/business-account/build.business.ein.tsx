@@ -33,7 +33,7 @@ const headerContent = {
 
 const videoConten = {
   title: "Watch Video Transcript:",
-  videoUrl: "/business-account/address.png",
+  videoUrl: "/business-account/entry-img.png",
   content: "BUSINESS EIN#",
 };
 
@@ -55,16 +55,18 @@ const records = {
 };
 
 const contentBlogCardLeft = {
-  picture: "/business-account/estho.png",
+  picture: "/business-account/cybersecurity 1.png",
   title: "APPLY FOR YOUR BUSINESS'S EIN#",
   content:
     "The United States requires all business entities to file for an EIN#. Like a social security number is to an individual an EIN# is to a business.",
+  linkTitle: "GO TO THE LINK TO APPLY ONLINE",
+  link: "https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online",
 };
 
 const informationResuorce = {
   title: "RESOURCES",
   content:
-    "There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name!There is a lot that goes into a name!There is a lot that goes into a name!",
+    "We hope you love the products and services we recommend! We research and update these on a regular basis. Just so you know, we may receive a commission from links on this page. We are diligent to ensure any compensation we receive does not affect the price or level of service offered to you.",
   color: "blue",
 };
 
@@ -137,6 +139,8 @@ export const BuildBusinessEin = () => {
     const updatedData = { ...data, ...formData };
     return updatedData;
   };
+
+  const informationResourceProps = "Information Resource";
   return (
     <>
       <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl  gap-6 business-main business-page-rightsection-mobileview">
@@ -189,16 +193,16 @@ export const BuildBusinessEin = () => {
 
             {/* Resuouces importante */}
             <div className="flex w-full my-2">
-              <ImportantInformation information={informationResuorce} />
+              <ImportantInformation
+                information={informationResuorce}
+                informationResourceProps={informationResourceProps}
+              />
             </div>
 
             {/* Website cards */}
             <div className="flex flex-row w-full flex-wrap justify-center gap-20 mt-12 business-credit-website-card">
               <div className="flex  justify-center">
-                <GotoWebsiteCard
-                  content="Varies"
-                  icon="/northwest-logo.png"
-                />
+                <GotoWebsiteCard content="Varies" icon="/northwest-logo.png" />
               </div>
               <div className="flex justify-center">
                 <GotoWebsiteCard

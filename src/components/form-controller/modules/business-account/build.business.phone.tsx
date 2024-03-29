@@ -29,7 +29,7 @@ const headerContent = {
 
 const videoConten = {
   title: "Watch Video Transcript:",
-  videoUrl: "/business-account/address.png",
+  videoUrl: "/business-account/phone-img.png",
   content: "BUSINESS PHONE NUMBER",
 };
 
@@ -79,17 +79,17 @@ const contentBlogCardLeft = {
   content1:
     "Does your business have a phone number? Creditors prefer to see actual business phone numbers opposed to personal cell phones or residential phones. It’s important to also list your business phone number in the National 411 directory. Keep in mind that unfortunately cell phone numbers can’t be listed in the National 411 directory.",
   content2:
-    "We can list your Business Phone number if you choose one of our recommendations below. The companies we recommend allow us to list your number in the National 411 directory. All you have to do is choose Yes below and fill in the information requested.",
+    ". We can list your Business Phone number if you choose one of our recommendations below. The companies we recommend allow us to list your number in the National 411 directory. All you have to do is choose Yes below and fill in the information requested.",
   content3:
-    "If you want to use a different Business Phone provider that is completely your choice. You can contact your Business Phone provider to confirm that the number can be listed in the National 411 directory and if there is any specific criteria to do so. If they allow a third party to list it on your behalf please choose Yes below and fill in the information requested.",
+    ". If you want to use a different Business Phone provider that is completely your choice. You can contact your Business Phone provider to confirm that the number can be listed in the National 411 directory and if there is any specific criteria to do so. If they allow a third party to list it on your behalf please choose Yes below and fill in the information requested.",
   content4:
-    "Some vendors will check to make sure your Business Phone number is listed in the National 411 directory and if not they might choose to decline you for the account. We want you to have the best success so that is why we wanted to inform you of all the above information.",
+    ". Some vendors will check to make sure your Business Phone number is listed in the National 411 directory and if not they might choose to decline you for the account. We want you to have the best success so that is why we wanted to inform you of all the above information.",
 };
 
 const informationResuorce = {
   title: "RESOURCES",
   content:
-    "There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name!There is a lot that goes into a name!There is a lot that goes into a name!",
+    "We hope you love the products and services we recommend! We research and update these on a regular basis. Just so you know, we may receive a commission from links on this page. We are diligent to ensure any compensation we receive does not affect the price or level of service offered to you.",
   color: "blue",
 };
 
@@ -143,6 +143,8 @@ export const BuildBusinessPhone = () => {
     });
     return data;
   };
+
+  const informationResourceProps = "Information Resource";
   return (
     <>
       <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl  gap-6 business-main business-page-rightsection-mobileview ">
@@ -190,7 +192,10 @@ export const BuildBusinessPhone = () => {
 
             {/* Resuouces importante */}
             <div className="flex w-full my-2">
-              <ImportantInformation information={informationResuorce} />
+              <ImportantInformation
+                information={informationResuorce}
+                informationResourceProps={informationResourceProps}
+              />
             </div>
 
             {/* Website cards */}

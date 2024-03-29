@@ -7,7 +7,7 @@ import { SubHeader } from "@/components/business-account-elements/sub.header";
 import { ArrowLineText } from "@/components/business-account-elements/arrow.line.text";
 import { VideoCard } from "@/components/cards/video-card";
 import { ImportantInformation } from "@/components/business-account-elements/important.imformation";
-import { Button, Input } from "@mui/material";
+import { Button, Input, InputAdornment } from "@mui/material";
 import { GeneralCard } from "@/components/cards/general.cad";
 import { GotoWebsiteCard } from "@/components/cards/goto.website.card";
 import { SubFooter } from "@/components/footer/footer";
@@ -32,7 +32,11 @@ const videoConten = {
   videoUrl: "/business-account/Rectangle 115.png",
   content: "BUSINESS CREDIBILITY",
 };
-
+const videoContent = {
+  title: "Watch Video Transcript:",
+  videoUrl: "/business-account/address.png",
+  content: "WHAT SHOULD BE YOUR BUSINESS NAME",
+};
 const information = {
   title: "INFO",
   content:
@@ -43,7 +47,7 @@ const information = {
 const informationResuorce = {
   title: "RESOURCES",
   content:
-    "There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name!There is a lot that goes into a name!There is a lot that goes into a name!",
+    "We hope you love the products and services we recommend! We research and update these on a regular basis. Just so you know, we may receive a commission from links on this page. We are diligent to ensure any compensation we receive does not affect the price or level of service offered to you.",
   color: "blue",
 };
 
@@ -74,7 +78,7 @@ export const BuildBusinessCredit = () => {
       toast.success(r.message);
     },
   });
-
+const informationResourceProps = "Information Resource";
   const onSubmit = async (e: any) => {
     e.preventDefault();
     const data = await mutateAsync({
@@ -108,7 +112,7 @@ export const BuildBusinessCredit = () => {
               </div>
               <div className="flex justify-end">
                 <VideoCard
-                  videoContent={videoConten}
+                  videoContent={videoContent}
                   multiVideoCard={multiVideoCard}
                 />
               </div>
@@ -133,7 +137,12 @@ export const BuildBusinessCredit = () => {
               aria-hidden
               onChange={handleOnChange}
               value={value}
-              style={{ padding: "25px 0px " }}
+              style={{ padding: "25px 19px ", gap: "35px" }}
+startAdornment={
+                <InputAdornment position="start">
+                  <img src="/credit-input-icon.png" alt="" />
+                </InputAdornment>
+              }
             />
 
             <div className="flex  max-w-xs  w-full business-save-btn  mt-4">
@@ -160,7 +169,10 @@ export const BuildBusinessCredit = () => {
 
             {/* Resuouces importante */}
             <div className="flex w-full my-12">
-              <ImportantInformation information={informationResuorce} />
+              <ImportantInformation
+                information={informationResuorce}
+                informationResourceProps={informationResourceProps}
+              />
             </div>
 
             {/* Website cards */}

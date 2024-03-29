@@ -135,6 +135,8 @@ export const BusinessReportExperian = () => {
     });
     return data;
   };
+
+  const informationResourceProps = "Information Resource";
   return (
     <>
       <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6  gap-6 rounded-2xl business-main business-page-rightsection-mobileview">
@@ -215,7 +217,10 @@ export const BusinessReportExperian = () => {
 
             {/* Resuouces importante */}
             <div className="flex w-full my-2">
-              <ImportantInformation information={informationResuorce} />
+              <ImportantInformation
+                information={informationResuorce}
+                informationResourceProps={informationResourceProps}
+              />
             </div>
 
             {/* Website cards */}

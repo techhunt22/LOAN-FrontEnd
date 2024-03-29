@@ -5,7 +5,9 @@ interface EditableContentRecordProps {
     title: string;
     method: string;
     invidualRecords: {
+      image?: any;
       title: string;
+      subTitle?: string;
       icon: string;
       contents: {
         recordName: string;
@@ -37,7 +39,7 @@ export const EditableContentRecord: React.FC<EditableContentRecordProps> = (
             <div className="flex w-[50%] justify-start  text-base font-semibold">
               {props.records.title}
             </div>
-            <div className="flex  justify-end font-medium text-base   business-page-edit-btn ">
+            <div className="flex  justify-end font-medium text-base  business-page-edit-btn ">
               {props.records.method}
             </div>
           </div>

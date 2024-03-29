@@ -1,7 +1,7 @@
 "use client";
 
 import { EditOff, Edit, DateRangeSharp } from "@mui/icons-material";
-import { IconButton, Input } from "@mui/material";
+import { IconButton, Input, colors } from "@mui/material";
 import { LocalizationProvider, MobileDatePicker } from "@mui/x-date-pickers";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -13,7 +13,9 @@ import { useState, useEffect } from "react";
 
 interface EditableContentRecordInvidualProps {
   invidualRecord: {
+    image?: any;
     title: string;
+    subTitle?: string;
     icon: string;
     contents: {
       recordName: string;
@@ -79,8 +81,16 @@ export const EditableContentRecordInvidual: React.FC<
                 height={30}
               />
             )}
-            <div className="flex w-full text-blue-400 text-lg ml-2">
+            <div className="flex w-full text-blue-400 text-lg ml-2 items-center">
+              <img
+                src={props.invidualRecord.image}
+                alt=""
+                style={{ marginRight: "5px" }}
+              />
               {props.invidualRecord.title}
+              <span style={{ color: "#A7A9AC", fontSize: "11px" }}>
+                {props.invidualRecord.subTitle}
+              </span>
             </div>
           </div>
         )}
@@ -106,8 +116,9 @@ export const EditableContentRecordInvidual: React.FC<
                   )}
                 {content.iconName === "arrow" && (
                   <select
+                    style={{ border: "1px solid #e8e5e5" }}
                     className={`w-full business-page-from-input ${
-                      !editable[key] ? "text-gray-100  " : ""
+                      !editable[key] ? "text-[black] bg-[#F8F8F8] " : ""
                     } appearance-none`}
                     key={key}
                     placeholder={content.recordName}
@@ -130,7 +141,7 @@ export const EditableContentRecordInvidual: React.FC<
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <MobileDatePicker
                       className={`w-full business-page-from-input ${
-                        !editable[key] ? "text-gray-100  " : ""
+                        !editable[key] ? "text-[black] bg-[#F8F8F8] " : ""
                       } appearance-none`}
                       disabled={!editable[key]}
                       sx={{
@@ -158,6 +169,9 @@ export const EditableContentRecordInvidual: React.FC<
                           listStyle: "18px",
                           color: "#333333",
                         },
+                        "& .Mui-disabled": {
+                          color: "black",
+                        },
                       }}
                       value={selectedDate}
                       onChange={handleDateChange}
@@ -172,8 +186,16 @@ export const EditableContentRecordInvidual: React.FC<
                       handleEdit(key);
                     }}
                   >
-                    {editable[key] && <EditOff />}
-                    {!editable[key] && <Edit />}
+                    {editable[key] && (
+                      <>
+                        <img src="/edit-off-icon.png" alt="" />
+                      </>
+                    )}
+                    {!editable[key] && (
+                      <>
+                        <img src="/edit-icon.png" alt="" />
+                      </>
+                    )}
                   </IconButton>
                 )}
                 {content.iconName === "arrow" && (
@@ -183,7 +205,9 @@ export const EditableContentRecordInvidual: React.FC<
                       handleEdit(key);
                     }}
                   >
-                    <ArrowDown2 />
+                    <>
+                      <img src="/select-icon.png" alt="" />
+                    </>
                   </IconButton>
                 )}
                 {content.iconName === "date" && (
@@ -193,7 +217,9 @@ export const EditableContentRecordInvidual: React.FC<
                       handleEdit(key);
                     }}
                   >
-                    <DateRangeSharp />
+                    <>
+                      <img src="/calendar-icon.png" alt="" />
+                    </>
                   </IconButton>
                 )}
               </div>

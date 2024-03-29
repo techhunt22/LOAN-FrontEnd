@@ -25,7 +25,7 @@ const headerContent = {
 
 const videoConten = {
   title: "Watch Video Transcript:",
-  videoUrl: "/business-account/address.png",
+  videoUrl: "/business-account/licenses-img.png",
   content: "USE CORRECT BUSINESS INFORMATION",
 };
 
@@ -34,6 +34,7 @@ const records = {
   method: "Edit",
   invidualRecords: [
     {
+      image: "/bank.png",
       title: "My Bank Name",
       icon: "",
       contents: [
@@ -56,7 +57,7 @@ const contentBlogCardLeft = {
 const informationResuorce = {
   title: "RESOURCES",
   content:
-    "There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name!There is a lot that goes into a name!There is a lot that goes into a name!",
+    "We hope you love the products and services we recommend! We research and update these on a regular basis. Just so you know, we may receive a commission from links on this page. We are diligent to ensure any compensation we receive does not affect the price or level of service offered to you.",
   color: "blue",
 };
 
@@ -90,6 +91,8 @@ export const BuildBusinessBank = () => {
     const data = await mutateAsync({ account: value, id: staticId });
     return data;
   };
+
+  const informationResourceProps = "Information Resource";
   return (
     <>
       <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl  gap-6 business-main business-page-rightsection-mobileview">
@@ -123,7 +126,7 @@ export const BuildBusinessBank = () => {
             </div>
 
             {/* save buttong */}
-            <div className="flex  max-w-xs  w-full business-save-btn  mt-4 ml-80 buiness-page-savebtn-mobileview">
+            <div className="flex  max-w-xs  w-full business-save-btn  my-8 ml-80 buiness-page-savebtn-mobileview">
               <Button
                 placeholder="save the address"
                 color="success"
@@ -135,7 +138,10 @@ export const BuildBusinessBank = () => {
 
             {/* Resuouces importante */}
             <div className="flex w-full my-2 ">
-              <ImportantInformation information={informationResuorce} />
+              <ImportantInformation
+                information={informationResuorce}
+                informationResourceProps={informationResourceProps}
+              />
             </div>
 
             {/* Website cards */}

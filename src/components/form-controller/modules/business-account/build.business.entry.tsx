@@ -31,7 +31,7 @@ const headerContent = {
 
 const videoConten = {
   title: "Watch Video Transcript:",
-  videoUrl: "/business-account/address.png",
+  videoUrl: "/business-account/entry-img.png",
   content: "CHOOSE YOUR BUSINESS STRUCTURE",
 };
 
@@ -76,13 +76,14 @@ const contentSelect = {
   title:
     "Please indicate your response(Yes or No) for both of the following questionsbefore proceeding.",
   contents1:
-    "Is the business address and ownership information accurate on your official documents? ",
-  contents2:
     "Are the business address and ownership information accurate on your official documents? ",
+  contents2:
+    "Is the business address and ownership information accurate on your official documents? ",
 };
 
 const contentBlogCardLeft = {
-  picture: "/business-account/estho.png",
+  picture:
+    "/business-account/image illustration for business address.png",
   title: "FILE A BUSINESS ENTITY",
   content:
     "It’s important that you have a strong business foundation and it all starts with filing your business entity with your Secretary of State. Each state has a different filing and fee structure. Like a birth certificate is to an individual a business entity is the birth of a business.",
@@ -91,7 +92,7 @@ const contentBlogCardLeft = {
 const informationResuorce = {
   title: "RESOURCES",
   content:
-    "There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name!There is a lot that goes into a name!There is a lot that goes into a name!",
+    "We hope you love the products and services we recommend! We research and update these on a regular basis. Just so you know, we may receive a commission from links on this page. We are diligent to ensure any compensation we receive does not affect the price or level of service offered to you.",
   color: "blue",
 };
 
@@ -160,6 +161,8 @@ export const BuildBusinessEntry = () => {
     });
     return data;
   };
+
+  const informationResourceProps = "Information Resource";
   return (
     <>
       <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl  gap-6 business-main business-page-rightsection-mobileview">
@@ -212,7 +215,7 @@ export const BuildBusinessEntry = () => {
               </Button>
             </div>
             {/* Bolg section */}
-            <div className="flex w-[100%]  bg-white business-page-banner-bg-color my-12">
+            <div className="flex w-[100%]  bg-white business-page-banner-bg-color mb-12">
               <BlogCardLeft content={contentBlogCardLeft} />
             </div>
 
@@ -234,7 +237,10 @@ export const BuildBusinessEntry = () => {
 
             {/* Resuouces importante */}
             <div className="flex w-full my-2">
-              <ImportantInformation information={informationResuorce} />
+              <ImportantInformation
+                information={informationResuorce}
+                informationResourceProps={informationResourceProps}
+              />
             </div>
 
             {/* Website cards */}

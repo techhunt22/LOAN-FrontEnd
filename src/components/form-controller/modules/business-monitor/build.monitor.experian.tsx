@@ -103,7 +103,7 @@ const paymentCard2 = {
 const informationResuorce = {
   title: "RESOURCES",
   content:
-    "There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name!There is a lot that goes into a name!There is a lot that goes into a name!",
+    "We hope you love the products and services we recommend! We research and update these on a regular basis. Just so you know, we may receive a commission from links on this page. We are diligent to ensure any compensation we receive does not affect the price or level of service offered to you.",
   color: "blue",
 };
 
@@ -140,6 +140,7 @@ export const BuildMonitorExperian = () => {
     }
   };
 
+  const informationResourceProps = "Information Resource";
   const { mutateAsync: image, isPending: pending } = useMutation<
     Calls.IResponse.BusinessFile,
     Error,
@@ -229,7 +230,10 @@ export const BuildMonitorExperian = () => {
 
             {/* Resuouces importante */}
             <div className="flex w-full my-12">
-              <ImportantInformation information={informationResuorce} />
+              <ImportantInformation
+                information={informationResuorce}
+                informationResourceProps={informationResourceProps}
+              />
             </div>
 
             {/* Website cards */}

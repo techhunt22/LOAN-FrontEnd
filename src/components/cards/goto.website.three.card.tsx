@@ -18,17 +18,22 @@ export const GotoWebsiteThreeCard: React.FC<GotoWebsiteThreeCardProps> = (
           {props.content}
         </div>
         <div className="flex justify-center content-center  w-full h-24">
-          <img
-            src={props.icon}
+          <div
             style={{
-              objectFit: "contain",
               height: "50px !important",
               width: "180px !important",
             }}
-            alt="ssa"
-            width={180}
-            height={50}
-          />
+          >
+            <img
+              src={props.icon}
+              style={{
+                objectFit: "contain",
+                height: "50px !important",
+                width: "180px !important",
+              }}
+              alt="ssa"
+            />
+          </div>
         </div>
         <div className="flex justify-center content-center items-center w-full mb-6">
           <Button
@@ -41,6 +46,7 @@ export const GotoWebsiteThreeCard: React.FC<GotoWebsiteThreeCardProps> = (
               padding: "12px 17px",
               fontSize: "16px",
               fontWeight: "800",
+              boxShadow: "0px 8px 11px 0px #085abb66",
             }}
           >
             {" "}

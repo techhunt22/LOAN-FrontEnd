@@ -23,14 +23,14 @@ export const SelectCard: React.FC<SelectCardProps> = (props) => {
       </div>
       <div className="flex w-full flex-row flex-wrap justify-center mt-10  gap-10 ">
         <div className="flex justify-start ">
-          <div className="flex flex-col  w-64 h-52 justify-center content-center  business-entry-page-indicatesection  ">
-            <div className="flex w-full pt-6 px-4 justify-center content-center h-32">
+          <div className="flex flex-col  w-[255px] h-52 justify-center content-center  business-entry-page-indicatesection  ">
+            <div className="flex w-full pt-6 px-8 justify-center content-center h-32">
               {props.content.contents1}
             </div>
             <div className="flex flex-row w-full px-8">
               <div className="flex w-[3rem] ml-4 justify-start">
                 <Input
-className="business-page-select-input"
+                  className="business-page-select-input"
                   type="radio"
                   id="option1"
                   name="firstOption"
@@ -40,7 +40,7 @@ className="business-page-select-input"
               <div className="flex ml-4">Yes</div>
               <div className="flex w-full mr-4 justify-end">
                 <Input
-className="business-page-select-input"
+                  className="business-page-select-input"
                   type="radio"
                   id="option2"
                   name="firstOption"
@@ -52,14 +52,14 @@ className="business-page-select-input"
           </div>
         </div>
         <div className="flex  justify-end ">
-          <div className="flex flex-col w-64 h-52 justify-center content-center   business-entry-page-indicatesection">
-            <div className="flex w-full pt-6 px-4 justify-center content-center h-32">
+          <div className="flex flex-col w-[255px] h-52 justify-center content-center   business-entry-page-indicatesection">
+            <div className="flex w-full pt-6 px-8 justify-center content-center h-32">
               {props.content.contents2}
             </div>
             <div className="flex flex-row w-full px-8">
               <div className="flex w-[3rem] ml-4 justify-start">
                 <Input
-className="business-page-select-input"
+                  className="business-page-select-input"
                   type="radio"
                   id="option3"
                   name="secondOption"
@@ -69,7 +69,7 @@ className="business-page-select-input"
               <div className="flex ml-4">Yes</div>
               <div className="flex w-full mr-4 justify-end">
                 <Input
-className="business-page-select-input"
+                  className="business-page-select-input"
                   type="radio"
                   name="secondOption"
                   onChange={() => props.handleInputCard?.("0", props.name)}

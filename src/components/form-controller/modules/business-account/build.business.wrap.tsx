@@ -20,7 +20,7 @@ const headerContent = {
 
 const videoConten = {
   title: "Watch Video Transcript:",
-  videoUrl: "/business-account/address.png",
+  videoUrl: "/business-account/licenses-img.png",
   content: "MAKE SURE YOU ALL LISTS RECORD ARE CORRECT",
 };
 

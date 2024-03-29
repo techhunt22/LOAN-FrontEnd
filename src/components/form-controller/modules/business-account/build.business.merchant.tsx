@@ -26,7 +26,7 @@ const headerContent = {
 
 const videoConten = {
   title: "Watch Video Transcript:",
-  videoUrl: "/business-account/address.png",
+  videoUrl: "/business-account/licenses-img.png",
   content: "DOING MORE TO YOUR BUSINESS",
 };
 
@@ -35,6 +35,7 @@ const records = {
   method: "Edit",
   invidualRecords: [
     {
+      image:"/merchent.png",
       title: "My Merchant Card Processor",
       icon: "",
       contents: [
@@ -48,7 +49,7 @@ const records = {
 };
 
 const contentBlogCardLeft = {
-  picture: "/business-account/estho.png",
+  picture: "/business-account/image illustration for business address (3).png",
   title: "MERCHANT ACCOUNT",
   content:
     "A Merchant accounts allows your business to accept credit cards and debit cards. Statistically customers will spend more if they can purchase by card. Merchant processing under your business name alse increases your finance options.",
@@ -57,7 +58,7 @@ const contentBlogCardLeft = {
 const informationResuorce = {
   title: "RESOURCES",
   content:
-    "There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name!There is a lot that goes into a name!There is a lot that goes into a name!",
+    "We hope you love the products and services we recommend! We research and update these on a regular basis. Just so you know, we may receive a commission from links on this page. We are diligent to ensure any compensation we receive does not affect the price or level of service offered to you.",
   color: "blue",
 };
 
@@ -75,6 +76,7 @@ export const BuildBusinessMerchant = () => {
     setValue(e.target.value);
   };
 
+  const informationResourceProps = "Information Resource";
   const { mutateAsync, isPending } = useMutation<
     Calls.IResponse.Business,
     Error,
@@ -124,7 +126,7 @@ export const BuildBusinessMerchant = () => {
             </div>
 
             {/* save buttong */}
-            <div className="flex  max-w-xs  w-full business-save-btn  mt-4 ml-80 buiness-page-savebtn-mobileview">
+            <div className="flex  max-w-xs  w-full business-save-btn  mt-4 mb-8 ml-80 buiness-page-savebtn-mobileview">
               <Button
                 placeholder="save the address"
                 color="success"
@@ -136,7 +138,10 @@ export const BuildBusinessMerchant = () => {
 
             {/* Resuouces importante */}
             <div className="flex w-full my-12 ">
-              <ImportantInformation information={informationResuorce} />
+              <ImportantInformation
+                information={informationResuorce}
+                informationResourceProps={informationResourceProps}
+              />
             </div>
 
             {/* Website cards */}

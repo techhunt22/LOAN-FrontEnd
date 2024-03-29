@@ -130,8 +130,9 @@ export const MonitorFooter: React.FC<MonitorFooterProps> = (props) => {
             />
           </div>
           <div
-            className="flex flex-col w-[45%] px-8 justify-center 
+            className="flex flex-col  px-8 justify-center 
             items-center tier-monitor-download-card"
+            style={{ width: "35%" }}
           >
             <p className="text-gray-500 ml-4">
               Once you have at least 3 of the accounts above reporting, upload
@@ -152,6 +153,17 @@ export const MonitorFooter: React.FC<MonitorFooterProps> = (props) => {
               <button
                 className="flex bg-gradient-to-r from-blue-400 to-blue-300 text-white text-lg px-10 py-2 rounded-3xl"
                 onClick={handleOnSave}
+                style={{
+                  fontSize: "18px",
+                  fontWeight: "600",
+                  color: "#fff",
+                  background:
+                    "linear-gradient(270deg, #88BFFF -3.45%, #88A8D3 100%),linear-gradient(90deg, rgba(138, 176, 220, 0.2) 0%, rgba(185, 250, 248, 0.146) 86.93%)",
+                  boxShadow: " 0px 2px 20px 2px #8AB7E65C",
+                  padding: "12px 30px",
+                  borderRadius: "23px",
+                  lineHeight: "18px",
+                }}
               >
                 SAVE
               </button>
@@ -159,7 +171,10 @@ export const MonitorFooter: React.FC<MonitorFooterProps> = (props) => {
           </div>
         </div>
         <Link href={"/step7/page1-min"}>
-          <p className="flex w-full text-red-400 underline mt-4 justify-center mb-3">
+          <p
+            className="flex w-full  underline mt-4 justify-center mb-3"
+            style={{ color: "#EB6B7A", fontSize: "12px" }}
+          >
             Not sure? Click To View Business Credit Reports
           </p>
         </Link>
@@ -168,7 +183,7 @@ export const MonitorFooter: React.FC<MonitorFooterProps> = (props) => {
             <Button
               variant="outlined"
               href={props.url}
-              className="px-6 py-4 outline outline-1 outline-gray-200 rounded-3xl text-4xl text-gray-300 w-[40rem]"
+              className="px-6 py-4 outline outline-1 outline-gray-200 rounded-3xl text-4xl text-gray-300 w-[40rem] business-page-continue-btn"
             >
               CONTINUE TO NEXT STEP
             </Button>

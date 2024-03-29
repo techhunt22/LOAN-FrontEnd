@@ -97,6 +97,7 @@ export const BusinessReportEquifax = () => {
   };
   const [bsPolicyOne, setbsPolicyOne] = useState<any>("");
 
+  const informationResourceProps = "Information Resource";
   const handlePolicyOne = (event: string) => {
     if (event === "1") {
       setbsPolicyOne(true);
@@ -213,7 +214,10 @@ export const BusinessReportEquifax = () => {
 
             {/* Resuouces importante */}
             <div className="flex w-full my-2">
-              <ImportantInformation information={informationResuorce} />
+              <ImportantInformation
+                information={informationResuorce}
+                informationResourceProps={informationResourceProps}
+              />
             </div>
 
             {/* Website cards */}

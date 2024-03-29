@@ -20,7 +20,7 @@ const headerContent = {
 
 const videoConten = {
   title: "Watch Video Transcript:",
-  videoUrl: "/business-account/address.png",
+  videoUrl: "/business-account/licenses-img.png",
   content: "WHY A BUSINESS LICENSE",
 };
 
@@ -29,7 +29,9 @@ const records = {
   method: "Edit",
   invidualRecords: [
     {
-      title: "bUSINESS lICENSE(If Any)",
+      image: "/Licence.png",
+      title: "Business License",
+      subTitle: "(if any):",
       icon: "",
       contents: [
         {
@@ -51,7 +53,7 @@ const contentBlogCardLeft = {
 const informationResuorce = {
   title: "RESOURCES",
   content:
-    "There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name!There is a lot that goes into a name!There is a lot that goes into a name!",
+    "We hope you love the products and services we recommend! We research and update these on a regular basis. Just so you know, we may receive a commission from links on this page. We are diligent to ensure any compensation we receive does not affect the price or level of service offered to you.",
   color: "blue",
 };
 
@@ -64,6 +66,7 @@ const footerContent = {
 };
 
 export const BuildBusinessLicense = () => {
+  const informationResourceProps = "Information Resource";
   return (
     <>
       <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl  gap-6 business-main business-page-rightsection-mobileview">
@@ -106,6 +109,7 @@ export const BuildBusinessLicense = () => {
                   src="/business-account/bussinessAdreess2.png"
                   alt=""
                   className="flex w-full h-[50rem] object-contain"
+                  style={{ zIndex: "1" }}
                 />
               </div>
               <div className="flex w-[56%] h-full justify-center content-center items-center  mt-[3rem] absolute  business-page-mobileview-displaynone  ">
@@ -117,7 +121,10 @@ export const BuildBusinessLicense = () => {
             </div>
             {/* Resuouces importante */}
             <div className="flex w-full my-2 mt-[-14.5rem]">
-              <ImportantInformation information={informationResuorce} />
+              <ImportantInformation
+                information={informationResuorce}
+                informationResourceProps={informationResourceProps}
+              />
             </div>
 
             {/* Website cards */}

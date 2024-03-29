@@ -83,7 +83,7 @@ const contentSelect = {
 const informationResuorce = {
   title: "RESOURCES",
   content:
-    "There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name!There is a lot that goes into a name!There is a lot that goes into a name!",
+    "We hope you love the products and services we recommend! We research and update these on a regular basis. Just so you know, we may receive a commission from links on this page. We are diligent to ensure any compensation we receive does not affect the price or level of service offered to you.",
   color: "blue",
 };
 
@@ -101,7 +101,7 @@ export const BusinessReportDunBradstreet = () => {
     setValue(e.target.value);
   };
   const [bsPolicyOne, setbsPolicyOne] = useState<any>("");
-
+  const informationResourceProps = "Information Resource";
   const handlePolicyOne = (event: string) => {
     if (event === "1") {
       setbsPolicyOne(true);
@@ -222,7 +222,10 @@ export const BusinessReportDunBradstreet = () => {
 
             {/* Resuouces importante */}
             <div className="flex w-full my-2">
-              <ImportantInformation information={informationResuorce} />
+              <ImportantInformation
+                information={informationResuorce}
+                informationResourceProps={informationResourceProps}
+              />
             </div>
 
             {/* Website cards */}
