@@ -14,7 +14,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <div className="grid grid-cols-7 justify-between">
-        <div className="flex col-start-1 col-span-1 w-full justify-start content-start sidebar-mobileview">
+        <div className="flex col-start-1 col-span-1 w-full justify-start content-start bg-white sidebar-mobileview">
           <AddClientPanel activeState={activeState} />
         </div>
         <div className="flex col-start-2 col-span-7 justify-start">

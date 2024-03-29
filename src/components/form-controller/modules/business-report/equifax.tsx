@@ -127,7 +127,7 @@ export const BusinessReportEquifax = () => {
   };
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 bg-[#f9f9f9] gap-6 rounded-2xl business-main business-page-rightsection-mobileview ">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6  gap-6 rounded-2xl business-main business-page-rightsection-mobileview ">
         <div className="flex flex-col w-[76%] justify-start mt-6 business-page-inner-mobileview">
           <SubHeader content={headerContent} />
           <div
@@ -147,7 +147,7 @@ export const BusinessReportEquifax = () => {
 
             {/* Warning section */}
             <div
-              className="flex w-[90%] mt-4 mb-6 text-xs "
+              className="flex w-[100%]  bg-white mt-4 mb-6 text-xs "
               style={{ color: "rgba(80, 131, 193, 1)" }}
             >
               <p>
@@ -163,7 +163,7 @@ export const BusinessReportEquifax = () => {
             <VideoCard videoContent={videoConten} />
 
             {/* Bolg section */}
-            <div className="flex w-[90%] my-12">
+            <div className="flex w-[100%]  bg-white my-12">
               <BlogCustomCardLeft content={contentBlogCardLeft} />
             </div>
 

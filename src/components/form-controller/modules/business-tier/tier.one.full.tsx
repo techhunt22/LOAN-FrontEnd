@@ -445,7 +445,7 @@ export const TierOneFull = () => {
               <BlogCustomCardLeft content={blogCustomContent} />
 
               {/*  */}
-              <div className="flex w-[90%] justify-center text-center text-md text-gray-500 my-6">
+              <div className="flex w-[100%]  bg-white justify-center text-center text-md text-gray-500 my-6">
                 <p>If you have any questions reach out to our <b className="text-blue-400">Advisor Team</b>. Once you have applied for your trade accounts submit the information by clicking on the button below.</p>
               </div>
 

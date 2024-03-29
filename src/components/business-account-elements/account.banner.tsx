@@ -12,7 +12,7 @@ interface accountInformationsProps {
 export const AccountBanner = () => {
   return (
     <>
-      <div className="flex w-full justify-end">
+      <div className="flex w-[90%] justify-end items-center">
         {/* <div className="text-xl mr-2 mt-2">
           <SignOut />
         </div> */}

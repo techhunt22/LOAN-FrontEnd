@@ -164,7 +164,7 @@ export const BuildBusinessAddress = () => {
   };
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 bg-[#f9f9f9] gap-6 rounded-2xl business-main business-page-rightsection-mobileview">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6  gap-6 rounded-2xl business-main business-page-rightsection-mobileview">
         <div className="flex flex-col w-[76%] justify-start mt-6 business-page-inner-mobileview">
           <SubHeader content={headerContent} />
           <div
@@ -258,7 +258,7 @@ export const BuildBusinessAddress = () => {
               </Button>
             </div>
             {/* Bolg section */}
-            <div className="flex w-[90%] my-12 business-page-banner-bg-color">
+            <div className="flex w-[100%]  bg-white my-12 business-page-banner-bg-color">
               <BlogCardLeft content={contentBlogCardLeft} />
             </div>
 

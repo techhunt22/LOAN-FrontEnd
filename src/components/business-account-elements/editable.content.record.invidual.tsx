@@ -107,7 +107,7 @@ export const EditableContentRecordInvidual: React.FC<
                 {content.iconName === "arrow" && (
                   <select
                     className={`w-full business-page-from-input ${
-                      !editable[key] ? "text-gray-100  bg-gray-100" : ""
+                      !editable[key] ? "text-gray-100  " : ""
                     } appearance-none`}
                     key={key}
                     placeholder={content.recordName}
@@ -130,7 +130,7 @@ export const EditableContentRecordInvidual: React.FC<
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <MobileDatePicker
                       className={`w-full business-page-from-input ${
-                        !editable[key] ? "text-gray-100  bg-gray-100" : ""
+                        !editable[key] ? "text-gray-100  " : ""
                       } appearance-none`}
                       disabled={!editable[key]}
                       sx={{

@@ -127,7 +127,7 @@ export const BuildMonitorRexisNexis = () => {
   };
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main business-page-rightsection-mobileview">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl  gap-6 business-main business-page-rightsection-mobileview">
         <div className="flex flex-col w-[76%] justify-start mt-6  business-page-inner-mobileview">
           <SubHeader content={headerContent} />
           <div
@@ -150,7 +150,7 @@ export const BuildMonitorRexisNexis = () => {
             {/*  */}
             <Notes content={notesContent} />
             {/*  */}
-            <div className="flex w-[90%] justify-center text-center text-md text-gray-500 my-6">
+            <div className="flex w-[100%]  bg-white justify-center text-center text-md text-gray-500 my-6">
               <p>
                 IF SO, PLEASE UPLOAD YOUR REPORT HERE SO A BUSINESS CREDIT
                 ADVISOR CAN REVIEW IT WITH YOU.

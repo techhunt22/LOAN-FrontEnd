@@ -145,7 +145,7 @@ export const BuildBusinessPhone = () => {
   };
   return (
     <>
-      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main business-page-rightsection-mobileview ">
+      <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl  gap-6 business-main business-page-rightsection-mobileview ">
         <div className="flex flex-col w-[76%] justify-start mt-6  business-page-inner-mobileview">
           <SubHeader content={headerContent} />
           <div
@@ -162,7 +162,7 @@ export const BuildBusinessPhone = () => {
             <VideoCard videoContent={videoConten} />
 
             {/* Bolg section */}
-            <div className="flex w-[90%] business-page-banner-bg-color my-12">
+            <div className="flex w-[100%]  bg-white business-page-banner-bg-color my-12">
               <BlogMultiCardLeft content={contentBlogCardLeft} />
             </div>
 

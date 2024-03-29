@@ -84,7 +84,7 @@ export const GuardContextProvider = ({
             justifyContent: "center",
             position: "absolute",
             right: "60px",
-            top: "6px",
+            top: "10px",
           }}
           className="logout-main"
         >

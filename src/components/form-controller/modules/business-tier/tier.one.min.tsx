@@ -222,7 +222,7 @@ export const TierOneMin = () => {
   });
   return (
     <>
-      <div className="flex flex-col w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 bg-[#f9f9f9] gap-6 rounded-2xl business-main business-page-rightsection-mobileview">
+      <div className="flex flex-col w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6  gap-6 rounded-2xl business-main business-page-rightsection-mobileview">
         <div className="flex flex-row w-full justify-center gap-6">
           <div className="flex flex-col w-[74%] align-center mt-6 business-page-inner-mobileview">
             <SubHeader content={headerContent} />
@@ -255,11 +255,11 @@ export const TierOneMin = () => {
               </div>
 
               {/* blog section */}
-              <div className="flex w-[90%] my-12 business-page-banner-bg-color">
+              <div className="flex w-[100%]  bg-white my-12 business-page-banner-bg-color">
                 <BlogCustomCardLeft content={blogCustomContent} />
               </div>
               {/*  */}
-              <div className="flex w-[90%] justify-center text-center text-md text-gray-500 my-6">
+              <div className="flex w-[100%]  bg-white justify-center text-center text-md text-gray-500 my-6">
                 <p>
                   If you have any questions reach out to our{" "}
                   <b className="text-blue-400">Advisor Team</b>. Once you have

@@ -20,7 +20,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={"h-fit md:bg-white bg-white"}>
+      <body className={"h-fit bg-[#f9f9f9]"}>
         <GuardContextProvider>
           <ReactQuery>
             <Toaster />

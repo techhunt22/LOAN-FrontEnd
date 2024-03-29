@@ -67,7 +67,7 @@ const footerContent = {
 export const BusinessReportWrap = () => {
     return (
         <>
-            <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl bg-[#f9f9f9] gap-6 business-main business-page-rightsection-mobileview ">
+            <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl  gap-6 business-main business-page-rightsection-mobileview ">
 
                 <div className="flex flex-col w-[76%] justify-start mt-6 business-page-inner-mobileview">
                     <SubHeader content={headerContent} />
@@ -86,7 +86,7 @@ export const BusinessReportWrap = () => {
                         <div className="flex text-xl  mb-12 text-center" style={{color:' rgba(56, 176, 0, 1)',}}>You Can Success Fully Move To 3nd Step</div>
 
                         {/* Bolg section */}
-                        <div className="flex w-[90%] my-12">
+                        <div className="flex w-[100%]  bg-white my-12">
                             <BlogCustomCardLeft content={contentBlogCardLeft} />
                         </div>
 

@@ -100,7 +100,7 @@ export const BusinessReportInit = () => {
                         <VideoCard videoContent={videoConten} />
 
                         {/* Bolg section */}
-                        <div className="flex w-[90%] my-12">
+                        <div className="flex w-[100%]  bg-white my-12">
                             <BlogCustomCardLeft content={contentBlogCardLeft} />
                         </div>
 

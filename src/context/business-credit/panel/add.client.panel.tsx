@@ -18,11 +18,11 @@ export const AddClientPanel: React.FC<AddClientPanelProps> = (props) => {
             props.activeState === "dashboard"
               ? "flex flex-col w-full bg-blue-500 justify-center mt-20 content-center items-center rounded-r-full"
               : isAdmin
-              ? "flex flex-col w-full justify-center content-center items-center rounded-r-full bg-gray-100"
-              : "flex flex-col w-full justify-center content-center items-center rounded-r-full bg-gray-100"
+              ? "flex flex-col w-full justify-center content-center items-center rounded-r-full "
+              : "flex flex-col w-full justify-center content-center items-center rounded-r-full "
           }
         >
-          <UsersIcon className="flex w-24 h-20 text-white pt-5" />
+          <UsersIcon className="flex w-24 h-20  pt-5 text-gray-300" />
           <Link href={"/client-dashboard"}>
             <div className="flex text-lg text-gray-300 pb-5">
               Client Dashboard
@@ -34,10 +34,10 @@ export const AddClientPanel: React.FC<AddClientPanelProps> = (props) => {
           className={
             props.activeState === "add"
               ? "flex flex-col w-full bg-blue-500 justify-center mt-20 content-center items-center rounded-r-full"
-              : "flex flex-col w-full justify-center content-center items-center rounded-r-full  bg-gray-100"
+              : "flex flex-col w-full justify-center content-center items-center rounded-r-full  "
           }
         >
-          <UserPlusIcon className="flex w-24 h-20 text-white pt-5" />
+          <UserPlusIcon className="flex w-24 h-20  pt-5 text-gray-300"/>
           <div className="flex text-lg text-gray-300 pb-5">Add Client</div>
         </div>
         <div className="h-12"></div>
@@ -45,10 +45,10 @@ export const AddClientPanel: React.FC<AddClientPanelProps> = (props) => {
           className={
             props.activeState === "improve"
               ? "flex flex-col w-full bg-blue-500 justify-center mt-20 content-center items-center rounded-r-full"
-              : "flex flex-col w-full justify-center content-center items-center rounded-r-full bg-gray-100"
+              : "flex flex-col w-full justify-center content-center items-center rounded-r-full "
           }
         >
-          <FaceSmileIcon className="flex w-24 h-20 text-white pt-5" />
+          <FaceSmileIcon className="flex w-24 h-20  pt-5 text-gray-300"/>
           <div className="flex text-lg text-gray-300 pb-5">
             Improve Standing
           </div>
