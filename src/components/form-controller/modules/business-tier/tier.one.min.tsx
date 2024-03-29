@@ -322,7 +322,7 @@ export const TierOneMin = () => {
           </div>
           <div className="flex w-full mt-10">
             <MonitorFooter
-              url="/step7/page1-full"
+              url="/step4/credit"
               image={image}
               form={form}
               fileName={fileName}

@@ -92,7 +92,7 @@ const footerContent = {
   previous: true,
   next: true,
   url: "/step2/experian",
-  preUrl: "/step2/dun-bradstreet",
+  preUrl: "/step1/build-business-wrap",
 };
 
 export const BusinessReportDunBradstreet = () => {

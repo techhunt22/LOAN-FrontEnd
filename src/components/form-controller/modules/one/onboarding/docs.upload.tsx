@@ -63,7 +63,6 @@ export const DocsUpload = () => {
   });
 
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
-    debugger;
     e.preventDefault();
     checkInputError();
     const data = form.data();
@@ -79,7 +78,6 @@ export const DocsUpload = () => {
   };
 
   const checkInputError = () => {
-    debugger;
     const data = form.data();
     if (data.identityCard1 === null) {
       form.errors.set("identityCard1", "identityCard1 is required");

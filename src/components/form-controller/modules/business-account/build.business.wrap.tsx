@@ -28,7 +28,7 @@ const footerContent = {
   content: "Return To Business Credit Builder",
   previous: true,
   next: true,
-  url: "/step1/monitor-report",
+  url: "/step2/dun-bradstreet",
   preUrl: "/step1/build-business-merchant",
 };
 

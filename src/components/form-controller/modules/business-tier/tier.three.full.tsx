@@ -540,7 +540,7 @@ export const TierThreeFull = () => {
           </div>
           <div className="flex w-full mt-10">
             <MonitorFooter
-              url="/step7/page4-start"
+              url="/step7/page4-full"
               image={image}
               form={form}
               fileName={fileName}

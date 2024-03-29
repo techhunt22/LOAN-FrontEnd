@@ -15,7 +15,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 // @ts-ignore
 import useForm from "new-react-use-form";
-
+import Modal from "@/components/business-account-elements/modal";
 const headerContent = {
   step: "STPE7",
   title: "Revoling Accounts",
@@ -451,6 +451,7 @@ export const TierFourFull = () => {
                 </p>
               </div>
 
+              <Modal />
               {/* tier detail section */}
               <TierDetailCard contents={tierContents} />
 
@@ -518,7 +519,7 @@ export const TierFourFull = () => {
           </div>
           <div className="flex w-full mt-10">
             <MonitorFooter
-              url="#"
+              url="/client-dashboard"
               image={image}
               form={form}
               fileName={fileName}

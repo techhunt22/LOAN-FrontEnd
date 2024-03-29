@@ -22,10 +22,12 @@ export const GuardContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  debugger;
   const router = useRouter();
   const pathName = usePathname();
-  const [isAdmin, setIsAdmin] = useState<boolean>(false); // Assuming admin state
+  const loginRole = Cookies.get("role");
+  const [isAdmin, setIsAdmin] = useState<boolean>(
+    loginRole === "PCR:Admin" ? true : false
+  ); // Assuming admin state
   const [isSignIn, setIsSignIn] = useState<boolean>(false);
 
   const login = () => {
@@ -42,8 +44,7 @@ export const GuardContextProvider = ({
     const myCookieValue = getCookie("accessToken");
     if (myCookieValue !== null) {
       setIsSignIn(true);
-      const loginRole = Cookies.get("role");
-      if (loginRole == "PCR:Admin") {
+      if (loginRole === "PCR:Admin") {
         setIsAdmin(true);
       } else if (loginRole === undefined) {
         setIsAdmin(false);
@@ -53,10 +54,9 @@ export const GuardContextProvider = ({
       setIsSignIn(false);
       setIsAdmin(false);
     }
-  }, [isSignIn, Cookies.get("role")]);
+  }, [isSignIn, Cookies.get("role"), isAdmin]);
 
   const onLogout = async () => {
-    debugger;
     Cookies.remove("accessToken", { path: "/" });
     Cookies.remove("refreshToken", { path: "/" });
     Cookies.remove("role", { path: "/" });
@@ -64,6 +64,8 @@ export const GuardContextProvider = ({
     router.push("/");
     setIsSignIn(false);
   };
+
+  console.log(isAdmin, "isAdmin");
 
   return (
     <GuardContext.Provider

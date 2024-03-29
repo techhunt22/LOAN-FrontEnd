@@ -337,8 +337,8 @@ export const MonitorReportForm = () => {
           <div className="flex w-full justify-end">
             <div className="h-8 text-blue-600">
               <Link href={"/step7/page2-full"} className="business-page-tier">
-                Tier2{" "}
-              </Link>{" "}
+                Tier2
+              </Link>
             </div>
           </div>
         </div>

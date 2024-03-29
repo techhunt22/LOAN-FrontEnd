@@ -22,8 +22,8 @@ export const AddClientPanel: React.FC<AddClientPanelProps> = (props) => {
               : "flex flex-col w-full justify-center content-center items-center rounded-r-full "
           }
         >
-          <UsersIcon className="flex w-24 h-20  pt-5 text-gray-300" />
-          <Link href={"/client-dashboard"}>
+          <UsersIcon className="flex w-24 h-20 text-white pt-5" />
+          <Link href={isAdmin ? "/client-dashboard" : ""}>
             <div className="flex text-lg text-gray-300 pb-5">
               Client Dashboard
             </div>

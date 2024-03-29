@@ -22,7 +22,7 @@ const footerContent = {
   previous: true,
   next: true,
   url: "/step4/dun-bradstreet",
-  preUrl: "/step2/wrap",
+  preUrl: "/step7/page1-min",
 };
 interface Option {
   label: string;
