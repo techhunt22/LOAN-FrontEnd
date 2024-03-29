@@ -412,7 +412,12 @@ export const TierFourFullModal = () => {
 
               {/*  */}
               <div className="flex w-[90%] justify-center text-center text-md text-gray-500 my-6">
-                <p>If you have any questions reach out to our <b className="text-blue-400">Advisor Team</b>. Once you have applied for your trade accounts submit the information by clicking on the button below.</p>
+                <p>
+                  If you have any questions reach out to our{" "}
+                  <b className="text-blue-400">Advisor Team</b>. Once you have
+                  applied for your trade accounts submit the information by
+                  clicking on the button below.
+                </p>
               </div>
 
               {/* Card group */}
@@ -439,11 +444,24 @@ export const TierFourFullModal = () => {
                 </p>
               </div>
               <div className="flex w-[95%] gap-12 justify-center content-center text-center">
-                <button className="flex text-white text-2xl px-5 py-4 rounded-3xl" style={{background: 'linear-gradient(94.55deg, #1380FF -9.18%, #9FC9EB 104.32%)',
-}}>APPROVED ACCOUNT</button>
-                <button className="flex  text-white text-2xl px-5 py-4 rounded-3xl" style={{background: 'linear-gradient(90deg, #EB6B7A 0%, rgba(251, 111, 146, 0.76) 103.62%)',
-}}>DENED ACCOUNT</button>
-
+                <button
+                  className="flex text-white text-2xl px-5 py-4 rounded-3xl"
+                  style={{
+                    background:
+                      "linear-gradient(94.55deg, #1380FF -9.18%, #9FC9EB 104.32%)",
+                  }}
+                >
+                  APPROVED ACCOUNT
+                </button>
+                <button
+                  className="flex  text-white text-2xl px-5 py-4 rounded-3xl"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, #EB6B7A 0%, rgba(251, 111, 146, 0.76) 103.62%)",
+                  }}
+                >
+                  DENED ACCOUNT
+                </button>
               </div>
             </div>
           </div>

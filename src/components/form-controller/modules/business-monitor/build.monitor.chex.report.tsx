@@ -218,10 +218,10 @@ export const BuildMonitorChexReport = () => {
             <div className="flex  font-85 " style={{ color: "#38B000" }}>
               GREAT WORK!
             </div>
-            <div className="flex text-2xl text-blue-400 my-4 text-center">
+            <div className="flex text-[16px] text-[#2684FF] mb-4 text-center">
               STEP 4 IS COMPLETE!
             </div>
-            <div className="flex text-xl text-green-400 mb-12  text-center">
+            <div className="flex text-[16px] text-[#38B000] mb-12  text-center">
               You Can Success Fully Move To 5nd Step
             </div>
 
