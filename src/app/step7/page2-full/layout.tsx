@@ -12,7 +12,9 @@ let activeState = "improve";
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <div className="flex w-[100%]  bg-white"><AccountBanner /></div>
+      <div className="flex w-[100%]  bg-white">
+        <AccountBanner />
+      </div>
       {/* <div className="flex w-[90%]">
         <AccountBanner />
       </div> */}
@@ -24,9 +26,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {children}
         </div>
       </div>
-      <p className="flex w-full justify-center content-center items-center text-red-400 py-4 bg-white">@2024. Official TGIscalme.com Website</p>
-
-      <p className="flex w-full justify-center content-center items-center text-red-400 py-4">
+      <p className="flex w-full justify-center content-center items-center text-red-400 py-4 bg-white">
         @2024. Official TGIscalme.com Website
       </p>
     </>
