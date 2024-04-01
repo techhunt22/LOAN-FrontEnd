@@ -17,6 +17,7 @@ export const GotoWebsiteCard: React.FC<GotoWebsiteCardProps> = (props) => {
         </div>
         <div className="flex justify-center content-center  w-full h-24">
           <div
+          className="goto-website-image"
             style={{
               height: "50px !important",
               width: "180px !important",

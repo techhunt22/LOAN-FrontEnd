@@ -119,7 +119,7 @@ export const BuildBusinessEmail = () => {
   });
   console.log(values, "values");
 
-const informationResourceProps = "Information Resource";
+  const informationResourceProps = "Information Resource";
   const handleOnSave = async (e: any) => {
     e.preventDefault();
     const data = await mutateAsync({
@@ -164,7 +164,7 @@ const informationResourceProps = "Information Resource";
             </div>
 
             {/* save buttong */}
-            <div className="flex  max-w-xs  w-full business-save-btn  mt-4 ml-80 buiness-page-savebtn-mobileview">
+            <div className="flex  max-w-xs  w-full business-save-btn mt-4 mb-8 ml-80 buiness-page-savebtn-mobileview">
               <Button
                 placeholder="save the address"
                 color="success"

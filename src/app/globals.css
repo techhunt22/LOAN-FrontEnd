@@ -1224,3 +1224,7 @@ li {
   line-height: 24px;
   border: 1px solid #D5D5D5 !important;
 }
+
+.goto-website-image img {
+  margin-bottom: 10px;
+}

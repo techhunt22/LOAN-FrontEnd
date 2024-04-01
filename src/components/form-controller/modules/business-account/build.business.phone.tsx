@@ -180,7 +180,7 @@ export const BuildBusinessPhone = () => {
             </div>
 
             {/* save buttong */}
-            <div className="flex  max-w-xs  w-full business-save-btn  mt-4">
+            <div className="flex w-[85%] business-save-btn  mt-4 mb-8 justify-end">
               <Button
                 placeholder="save the address"
                 color="success"
