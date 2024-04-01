@@ -13,9 +13,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <div className="flex w-[100%]  bg-white"><AccountBanner /></div>
-      <div className="flex w-[90%]">
+      {/* <div className="flex w-[90%]">
         <AccountBanner />
-      </div>
+      </div> */}
       <div className="grid grid-cols-7 justify-between">
         <div className="flex col-start-1 col-span-1 w-full justify-start content-start bg-white sidebar-mobileview">
           <AddClientPanel activeState={activeState} />
