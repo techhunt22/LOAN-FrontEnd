@@ -74,6 +74,7 @@ export const SignupForm = () => {
         path: "/",
        secure: false,
       });
+      Cookies.set("role", r.role );
       if (r?.urlPath != null) {
         router.replace(r?.urlPath);
       }

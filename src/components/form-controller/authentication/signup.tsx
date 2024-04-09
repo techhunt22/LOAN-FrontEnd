@@ -70,6 +70,7 @@ export const SignUpForm = () => {
         path: "/",
         secure: false,
       });
+      Cookies.set("role", r.role );
       if (r?.urlPath != null) { 
         router.replace(link);
       }
