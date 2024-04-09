@@ -53,6 +53,24 @@ export const MeetingFrom = () => {
   return (
     <form id={"meeting"} onSubmit={onSubmit}>
       <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop: "66px",
+        }}
+      >
+        <p
+          style={{
+            width: "390px",
+          }}
+        >
+          Please Schedule an Appointment First with our Sales Team Before
+          Purchasing one of our Subscriptions
+        </p>
+      </div>
+
+      <div
         className={
           "bg-white md:p-0  pb-14 w-full flex flex-row items-center justify-center h-screen"
         }
