@@ -1,23 +1,14 @@
-"use client";
-import {
-  Input,
-  Button,
-  Checkbox,
-  Typography,
-  Spinner,
-} from "@material-tailwind/react";
-import { FormEventHandler } from "react";
-import toast, { Toaster } from "react-hot-toast";
-import { handleFormError } from "@/utils/error";
-import { useMutation } from "@tanstack/react-query";
+"use client"
+import { Form, Input, Button, Typography, message, Spin } from 'antd';
 // @ts-ignore
-import useForm from "new-react-use-form";
-import { ApiCalls } from "@/api/calls/calls";
-import { Calls } from "@/api/calls/type";
+import { useForm } from 'new-react-use-form';
+import { useMutation } from '@tanstack/react-query';
+import { ApiCalls } from '@/api/calls/calls';
+import { Calls } from '@/api/calls/type';
+
 export const ForgotPasswordForm = () => {
-  const form = useForm({
-    email: "",
-  });
+  const [form] = Form.useForm();
+
   const { mutateAsync, isPending } = useMutation<
     Calls.IResponse.ForgotPassword,
     Error,
@@ -25,52 +16,53 @@ export const ForgotPasswordForm = () => {
   >({
     mutationFn: async (variables) => await ApiCalls.ForgotPassword(variables),
     onSuccess: (r) => {
-      toast.success(r.message);
+      message.success(r.message);
     },
-    onError: (e) => handleFormError(e as any, form),
+    onError: (e) => {
+      message.error('Failed to reset password');
+    },
   });
-  const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
-    e.preventDefault();
-    await mutateAsync(form.originalData);
+
+  const onSubmit = async () => {
+    try {
+      const values = await form.validateFields();
+      await mutateAsync(values);
+    } catch (error) {
+      console.error('Validation failed:', error);
+    }
   };
 
   return (
-    <form className={"mt-4 flex flex-col gap-6 "} onSubmit={onSubmit}>
-      <div className={" min-h-[40px] max-h-auto"}>
+    <Form
+      form={form}
+      onFinish={onSubmit}
+      className="mt-4 flex flex-col gap-6"
+    >
+      <Form.Item
+        name="email"
+        rules={[
+          { required: true, message: 'Please enter your email address' },
+          { type: 'email', message: 'Please enter a valid email address' },
+        ]}
+      >
         <Input
-          required={true}
-          disabled={form.busy}
-          value={form.email}
-          onChange={(e) => {
-            form.set("email", e.target.value);
-            form.errors.clear("email");
-          }}
-          className={""}
-          color={"blue"}
-          size={"lg"}
-          variant="static"
-          placeholder={"Enter Email Address"}
-          label="Email "
-          error={form.errors.has("email")}
-          crossOrigin={undefined}
+          disabled={isPending}
+          size="large"
+          placeholder="Enter Email Address"
         />
-        <Typography color="red" className="mt-1 text-[12px] font-medium">
-          {form.errors.has("email") && form.errors.get("email")}
-        </Typography>
-      </div>
-
-      <div className={""}>
+      </Form.Item>
+      <div className="">
         <Button
-          className={"flex items-center justify-center rounded-full"}
-          disabled={isPending || form.busy}
-          color={"blue"}
-          size={"lg"}
-          fullWidth={true}
-          type={"submit"}
+          loading={isPending}
+          className="flex items-center justify-center rounded-full"
+          type="primary"
+          htmlType="submit"
+          size="large"
+          block
         >
-          {isPending ? <Spinner /> : "Submit"}
+          {isPending ? <Spin /> : 'Submit'}
         </Button>
       </div>
-    </form>
+    </Form>
   );
 };

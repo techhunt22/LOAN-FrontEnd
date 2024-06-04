@@ -6,7 +6,8 @@ import { SubHeader } from "@/components/business-account-elements/sub.header";
 import { ArrowLineText } from "@/components/business-account-elements/arrow.line.text";
 import { VideoCard } from "@/components/cards/video-card";
 import { ImportantInformation } from "@/components/business-account-elements/important.imformation";
-import { Button, Input } from "@mui/material";
+import {  Input } from "@mui/material";
+import { Button } from "antd";
 import { GeneralCard } from "@/components/cards/general.cad";
 import { GotoWebsiteCard } from "@/components/cards/goto.website.card";
 import { SubFormFooter } from "@/components/business-account-elements/sub.form.footer";
@@ -210,8 +211,14 @@ export const BusinessReportExperian = () => {
 
             {/* save buttong */}
             <div className="flex  max-w-xs  w-full business-save-btn  mt-12 mb-16">
-              <Button type="button" onClick={onSubmit} color="success">
-                {isPending ? <Spinner /> : "SAVE"}
+             
+              <Button
+              className="bg-green-600 w-[350px] h-[50px] text-white"
+                // placeholder="save the address"
+                // loading={true}
+                onClick={onSubmit}
+              >
+                  SAVE
               </Button>
             </div>
 

@@ -1,6 +1,7 @@
 "use client";
 // @ts-ignore
 import useForm from "new-react-use-form";
+import { Checkbox, Button, Typography } from 'antd';
 import React, { FormEventHandler, useEffect, useLayoutEffect } from "react";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
@@ -13,7 +14,6 @@ import { Calls } from "@/api/calls/type";
 import Autocomplete from "@mui/material/Autocomplete";
 import { states } from "@/data/ states";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { Checkbox, Typography, Button } from "@material-tailwind/react";
 import { usePCR } from "@/context/onboarding/personal.credit.repair.context";
 import { handleFormError } from "@/utils/error";
 import toast from "react-hot-toast";
@@ -367,37 +367,31 @@ export const SignUpForm = () => {
         </div>
 
         <div className={"w-full"}>
-          <Checkbox
-            checked={form.policy}
-            onChange={(e) => {
-              form.set("policy", e.target.checked);
-              form.errors.clear("policy");
-            }}
-            color="blue"
-            crossOrigin={undefined}
-            label={
-              <div>
-                <Typography
-                  variant="small"
-                  color="gray"
-                  className="font-normal"
-                >
-                  I agree to terms and conditions.
-                </Typography>
-              </div>
-            }
-          />
-        </div>
-        <Button
-          className={"flex items-center justify-center rounded-full"}
-          // disabled={isPending || form.busy}
-          color={"blue"}
-          size={"lg"}
-          fullWidth={true}
-          type={"submit"}
-        >
-          SIGN UP
-        </Button>
+        <Checkbox
+    checked={form.policy}
+    onChange={(e) => {
+      form.set("policy", e.target.checked);
+      form.errors.clear("policy");
+    }}
+  >
+    <Typography.Text type="secondary">
+      I agree to terms and conditions.
+    </Typography.Text>
+  </Checkbox>
+
+    
+  {/* Ant Design Button */}
+  <Button
+    className="rounded-full"
+    // disabled={isPending || form.busy}
+    type="primary"
+    size="large"
+    htmlType="submit"
+  >
+    SIGN UP
+  </Button>
+  
+      </div>
       </div>
     </form>
   );

@@ -67,7 +67,12 @@ export const FileUploadWithOutCropWithOutMultiple: React.FC<
           id={props.fileId}
           type="file"
           onChange={handleFileChange}
-          ref={(ref) => (fileInputRef.current = ref)}
+          ref={(ref: HTMLInputElement | null) => {
+            if (ref) {
+              fileInputRef.current = ref;
+            }
+          }}
+         
         />
       </label>
       {previewImage && (

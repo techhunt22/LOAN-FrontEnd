@@ -1,19 +1,16 @@
-"use client";
-import { useRouter, useSearchParams } from "next/navigation";
+"use client"
 // @ts-ignore
 import useForm from "new-react-use-form";
-import {
-  Input,
-  Button,
-  Typography,
-  Select,
-  Option,
-} from "@material-tailwind/react";
+import { Typography, Input, Button, Select } from "antd";
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { FormEventHandler } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { Calls } from "@/api/calls/type";
 import { ApiCalls } from "@/api/calls/calls";
 import { handleFormError } from "@/utils/error";
+
+const { Option } = Select;
+
 export const ApplicantDetailsForm = () => {
   const searchParams = useSearchParams();
 
@@ -49,18 +46,16 @@ export const ApplicantDetailsForm = () => {
     e.preventDefault();
     await mutateAsync(Form.data());
   };
+
   return (
     <form onSubmit={onSubmit} className={"p-[16px] w-full h-full"}>
-      <Typography className={"px-[16px]  text-center"} variant="paragraph">
+      <Typography.Paragraph className={"px-[16px] text-center text-[22px]"}>
         Please fill all Applicant Details in the required field and one of our
         agents will contact you within 24 hours
-      </Typography>
+      </Typography.Paragraph>
+
       <div className={"flex flex-col gap-11 mt-12 justify-between"}>
-        <div
-          className={
-            "flex flex-col md:flex-row items-center gap-y-8  md:gap-3.5 "
-          }
-        >
+        <div className={"flex flex-col md:flex-row items-center gap-y-8  md:gap-3.5 "}>
           <Input
             required={true}
             value={Form.firstName}
@@ -68,13 +63,10 @@ export const ApplicantDetailsForm = () => {
               Form.set("firstName", e.target.value);
               Form.errors.clear("firstName");
             }}
-            error={Form.errors.has("firstName")}
             color={"red"}
-            variant="static"
-            label="First Name"
+            addonBefore="First Name"
             placeholder="Enter First Name"
-            type={"text"}
-            crossOrigin={undefined}
+            type="text"
           />
           <Input
             required={true}
@@ -83,37 +75,29 @@ export const ApplicantDetailsForm = () => {
               Form.set("lastName", e.target.value);
               Form.errors.clear("lastName");
             }}
-            error={Form.errors.has("lastName")}
+           
             color={"red"}
-            variant="static"
-            label="Last Name "
+            addonBefore="Last Name"
             placeholder="Enter Last Name"
-            type={"text"}
-            crossOrigin={undefined}
+            type="text"
           />
         </div>
-        <div className={"flex flex-col  items-center gap-y-8 "}>
-          <Input
-            required={true}
-            value={Form.creditScore}
-            onChange={(e) => {
-              Form.set("creditScore", e.target.value);
-              Form.errors.clear("creditScore");
-            }}
-            error={Form.errors.has("creditScore")}
-            color={"red"}
-            variant="static"
-            label="Approx Credit Ccore"
-            placeholder="Enter Approx Credit Ccore"
-            type={"text"}
-            crossOrigin={undefined}
-          />
-        </div>
-        <div
-          className={
-            "flex flex-col md:flex-row items-center gap-y-8  md:gap-3.5 "
-          }
-        >
+        
+        <Input
+          required={true}
+          value={Form.creditScore}
+          onChange={(e) => {
+            Form.set("creditScore", e.target.value);
+            Form.errors.clear("creditScore");
+          }}
+         
+          color={"red"}
+          addonBefore="Approx Credit Score"
+          placeholder="Enter Approx Credit Score"
+          type="text"
+        />
+        
+        <div className={"flex flex-col md:flex-row items-center gap-y-8  md:gap-3.5 "}>
           <Input
             required={true}
             value={Form.dob}
@@ -121,13 +105,11 @@ export const ApplicantDetailsForm = () => {
               Form.set("dob", e.target.value);
               Form.errors.clear("dob");
             }}
-            error={Form.errors.has("dob")}
+          
             color={"red"}
-            variant="static"
-            label="Date of birth"
+            addonBefore="Date of Birth"
             placeholder="Enter Date Of Birth"
-            type={"date"}
-            crossOrigin={undefined}
+            type="date"
           />
           <Input
             required={true}
@@ -136,21 +118,15 @@ export const ApplicantDetailsForm = () => {
               Form.set("ssn", e.target.value);
               Form.errors.clear("ssn");
             }}
-            error={Form.errors.has("ssn")}
+           
             color={"red"}
-            variant="static"
-            label="SSN"
+            addonBefore="SSN"
             placeholder="Enter SSN"
-            type={"text"}
-            crossOrigin={undefined}
+            type="text"
           />
         </div>
 
-        <div
-          className={
-            "flex flex-col md:flex-row items-center gap-y-8  md:gap-3.5 "
-          }
-        >
+        <div className={"flex flex-col md:flex-row items-center gap-y-8  md:gap-3.5 "}>
           <Input
             required={true}
             value={Form.addressLine1}
@@ -158,13 +134,11 @@ export const ApplicantDetailsForm = () => {
               Form.set("addressLine1", e.target.value);
               Form.errors.clear("addressLine1");
             }}
-            error={Form.errors.has("addressLine1")}
+           
             color={"red"}
-            variant="static"
-            label="Address Line 1"
-            placeholder="Enter address line 1"
-            type={"text"}
-            crossOrigin={undefined}
+            addonBefore="Address Line 1"
+            placeholder="Enter Address Line 1"
+            type="text"
           />
           <Input
             value={Form.addressLine2}
@@ -172,20 +146,15 @@ export const ApplicantDetailsForm = () => {
               Form.set("addressLine2", e.target.value);
               Form.errors.clear("addressLine2");
             }}
-            error={Form.errors.has("addressLine2")}
+         
             color={"red"}
-            variant="static"
-            label="Address Line 2"
-            placeholder="Enter address line 2"
-            type={"text"}
-            crossOrigin={undefined}
+            addonBefore="Address Line 2"
+            placeholder="Enter Address Line 2"
+            type="text"
           />
         </div>
-        <div
-          className={
-            "flex flex-col md:flex-row items-center gap-y-8  md:gap-3.5 "
-          }
-        >
+
+        <div className={"flex flex-col md:flex-row items-center gap-y-8  md:gap-3.5 "}>
           <Input
             required={true}
             value={Form.city}
@@ -193,23 +162,19 @@ export const ApplicantDetailsForm = () => {
               Form.set("city", e.target.value);
               Form.errors.clear("city");
             }}
-            error={Form.errors.has("city")}
             color={"red"}
-            variant="static"
-            label="City"
+            addonBefore="City"
             placeholder="Enter City"
-            type={"text"}
-            crossOrigin={undefined}
+            type="text"
           />
           <Select
             onChange={(e) => {
               Form.set("state", e);
               Form.errors.clear("state");
             }}
-            color={"red"}
-            error={Form.errors.has("state")}
-            variant="static"
-            label="State"
+            
+          
+            placeholder="Select State"
           >
             {[
               "Alabama",
@@ -223,6 +188,8 @@ export const ApplicantDetailsForm = () => {
               "Florida",
               "Georgia",
               "Hawaii",
+              "Idaho",
+              "Illinois",
               "Idaho",
               "Illinois",
               "Indiana",
@@ -269,37 +236,31 @@ export const ApplicantDetailsForm = () => {
             ))}
           </Select>
         </div>
-        <div className={"flex flex-col  items-center gap-y-8   "}>
-          <Input
-            required={true}
-            value={Form.zipCode}
-            onChange={(e) => {
-              Form.set("zipCode", e.target.value);
-              Form.errors.clear("zipCode");
-            }}
-            error={Form.errors.has("zipCode")}
-            color={"red"}
-            variant="static"
-            label="Zip Code"
-            placeholder="zip Code"
-            type={"text"}
-            crossOrigin={undefined}
-          />
-        </div>
+        
+        <Input
+          required={true}
+          value={Form.zipCode}
+          onChange={(e) => {
+            Form.set("zipCode", e.target.value);
+            Form.errors.clear("zipCode");
+          }}
+        
+          color={"red"}
+          addonBefore="Zip Code"
+          placeholder="Enter Zip Code"
+          type="text"
+        />
+
       </div>
-      <Button className={"mt-6"} color={"red"} fullWidth={true} type={"submit"}>
+
+      <Button type="primary" htmlType="submit" className="mt-6 w-full bg-red-500" loading={isPending}>
         Next
       </Button>
-      <Button
-        onClick={() => router.back()}
-        variant={"outlined"}
-        className={"mt-6"}
-        color={"red"}
-        fullWidth={true}
-        type={"submit"}
-      >
+
+      <Button onClick={() => router.back()} className="mt-6 w-full border-red-500 text-red-500" type="default">
         Cancel
       </Button>
     </form>
   );
 };
+

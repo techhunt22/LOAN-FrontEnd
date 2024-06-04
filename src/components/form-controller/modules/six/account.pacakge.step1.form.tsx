@@ -206,7 +206,7 @@ export const AccountPackageStep1Form = () => {
           </div>
           <div className="flex flex-col w-full justify-center content-center items-center">
             <div className="w-[75%] justify-center text-center text-2xl mt-8">
-              Your Journey Begins Here With TGI Scale ME, The Key To AxLINF Up
+              Your Journey Begins Here With TGI Scale ME, The Key To Scaling Up
               Your <span className=" text-blue-800">Financial Future!</span>
             </div>
             <div className="w-[50 %] justify-center text-center text-base mt-6">

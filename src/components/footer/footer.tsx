@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
-import { Button } from "@material-tailwind/react";
+// import { Button } from "@material-tailwind/react";
+import { Button } from "antd";
 
 export const Footer = () => {
   return (
@@ -126,9 +127,7 @@ export const Footer = () => {
               className={"rounded-md outline-none px-2 w-full py-2 bg-white"}
             />
             <Button
-              fullWidth={true}
-              type={"submit"}
-              variant={"outlined"}
+              className="w-full"
               color={"red"}
             >
               Subscribe
@@ -148,6 +147,6 @@ export const SubFooter = () => {
       }
     >
       © 2024. Official TGIscalme.com Website
-    </div>
+    </div> 
   );
 };

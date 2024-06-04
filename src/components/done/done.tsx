@@ -1,7 +1,8 @@
 "use client";
 // Import statements
-import { Button } from "@material-tailwind/react";
+
 import { useRouter } from "next/navigation";
+import {Button} from "antd"
 
 // Component
 export const Done = () => {
@@ -39,7 +40,7 @@ export const Done = () => {
           onClick={() => router.back()}
           className="mt-5"
           color="red"
-          variant="outlined"
+         
         >
           Back
         </Button>

@@ -1,5 +1,7 @@
 "use client";
-import { Button, Spinner } from "@material-tailwind/react";
+
+import { Button, Spin } from 'antd';
+import { LogoutOutlined } from '@ant-design/icons';
 import { FormEventHandler, useState } from "react";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import toast, { Toaster } from "react-hot-toast";
@@ -37,17 +39,15 @@ export const SignOut = () => {
   };
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
-      <Button
-        className={
-          "flex items-center justify-center rounded-full text-[#DFDDDD] bg-[transparent] h-[40px] w-[40px] shadow-none text-[16px]"
-        }
-        disabled={isPending || form.busy}
-        onClick={onLogout}
-        size={"lg"}
-        type={"button"}
-      >
-        {isPending ? <Spinner /> : <LogoutIcon />}
-      </Button>
+  <Button
+  className="flex items-center justify-center rounded-full text-[#DFDDDD] bg-transparent h-[40px] w-[40px] shadow-none text-[16px]"
+  disabled={isPending || form.busy}
+  onClick={onLogout}
+  size="large"
+ 
+>
+  {isPending ? <Spin /> : <LogoutOutlined />}
+</Button>
     </div>
   );
 };

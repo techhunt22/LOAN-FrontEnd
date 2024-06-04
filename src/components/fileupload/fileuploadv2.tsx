@@ -66,7 +66,11 @@ export const FileUploadV2: React.FC<FileUploadV2Props> = (props) => {
           id={props.fileId}
           type="file"
           onChange={handleFileChange}
-          ref={(ref) => (fileInputRef.current = ref)}
+          ref={(ref: HTMLInputElement | null) => {
+            if (ref) {
+              fileInputRef.current = ref;
+            }
+          }}
         />
       </label>
       {previewImage && (

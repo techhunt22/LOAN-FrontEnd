@@ -1,10 +1,11 @@
 "use client";
-import { Typography } from "@material-tailwind/react";
+// import { Typography } from "@material-tailwind/react";
+import { Typography } from "antd";
 import React from "react";
 
 export const HeaderSubAddClientTitle = () => {
   return (
-    <Typography variant={"h6"} color="gray" className=" font-medium">
+    <Typography  color="gray" className=" font-medium">
       Please fill out all necessary{" "}
       <span
         style={{ color: "#1380FF" }}

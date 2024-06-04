@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@material-tailwind/react";
+import { Button } from "antd";
 import React from "react";
 
 export const GreetingCard = () => {
@@ -21,8 +21,7 @@ export const GreetingCard = () => {
         <Button
           className="border border-blue-600 bg-white rounded-full text-blue-500"
           color="white"
-          size="sm"
-          variant="gradient"
+                 
         >
           Update Profile
         </Button>

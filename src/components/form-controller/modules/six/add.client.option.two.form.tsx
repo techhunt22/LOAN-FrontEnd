@@ -13,7 +13,8 @@ import { Calls } from "@/api/calls/type";
 import Autocomplete from "@mui/material/Autocomplete";
 import { states } from "@/data/ states";
 import { Settings, Visibility, VisibilityOff } from "@mui/icons-material";
-import { Button, Checkbox, Typography } from "@material-tailwind/react";
+import {  Checkbox, Typography } from "@material-tailwind/react";
+import {Button} from 'antd'
 import { usePCR } from "@/context/onboarding/personal.credit.repair.context";
 import { useAC } from "@/context/business-credit/add-client/personal.credit.repair.context";
 import { handleFormError } from "@/utils/error";
@@ -119,7 +120,9 @@ export const AddClientOptionTwoForm = () => {
               <div className="flex w-max">
                 <TextField label="Search by name" style={{ marginTop: '1rem' }} />
               </div>
-              <Link href={"/admin/option2"}><Button className="h-6 mt-8 pb-6 bg-blue-600">ADD CLIENTS</Button></Link>
+              <Link href={"/admin/option2"}>
+                <Button className="h-6 mt-8 pb-6 bg-blue-600">ADD CLIENTS</Button>               
+                </Link>
           </div>
         </div>
 

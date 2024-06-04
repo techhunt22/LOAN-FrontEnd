@@ -6,6 +6,7 @@ import { IconButton, InputAdornment, TextField } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers-pro";
+import { Checkbox, Typography } from 'antd';
 import { DatePicker } from "@mui/x-date-pickers-pro";
 import { useMutation } from "@tanstack/react-query";
 import { ApiCalls } from "@/api/calls/calls";
@@ -13,7 +14,7 @@ import { Calls } from "@/api/calls/type";
 import Autocomplete from "@mui/material/Autocomplete";
 import { states } from "@/data/ states";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { Checkbox, Typography } from "@material-tailwind/react";
+// import { Checkbox, Typography } from "@material-tailwind/react";
 import { usePCR } from "@/context/onboarding/personal.credit.repair.context";
 import { handleFormError } from "@/utils/error";
 import toast from "react-hot-toast";
@@ -383,26 +384,18 @@ export const SignupForm = () => {
         </div>
 
         <div className={"w-full"}>
-          <Checkbox
-            checked={form.policy}
-            onChange={(e) => {
-              form.set("policy", e.target.checked);
-              form.errors.clear("policy");
-            }}
-            color="blue"
-            crossOrigin={undefined}
-            label={
-              <div>
-                <Typography
-                  variant="small"
-                  color="gray"
-                  className="font-normal"
-                >
-                  I agree to terms and conditions.
-                </Typography>
-              </div>
-            }
-          />
+        <Checkbox
+      checked={form.policy}
+      onChange={(e) => {
+        form.set("policy", e.target.checked);
+        form.errors.clear("policy");
+      }}
+    >
+      <Typography.Text type="secondary" className="font-normal">
+        I agree to terms and conditions.
+      </Typography.Text>
+    </Checkbox>
+             
         </div>
       </div>
     </form>

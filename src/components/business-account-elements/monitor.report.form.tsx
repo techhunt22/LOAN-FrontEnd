@@ -47,7 +47,7 @@ const fundability: DataInterface[] = [
     color: "text-blue-500",
   },
   {
-    name: "Bussiness Merchant Account",
+    name: "Business Merchant Account",
     url: "/step1/build-business-merchant",
     color: "text-blue-500",
   },

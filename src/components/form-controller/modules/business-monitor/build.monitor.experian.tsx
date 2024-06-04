@@ -7,7 +7,7 @@ import { SubHeader } from "@/components/business-account-elements/sub.header";
 import { ArrowLineText } from "@/components/business-account-elements/arrow.line.text";
 import { VideoCard } from "@/components/cards/video-card";
 import { ImportantInformation } from "@/components/business-account-elements/important.imformation";
-import { Button, Input } from "@mui/material";
+import {  Input } from "@mui/material";
 import { GeneralCard } from "@/components/cards/general.cad";
 import { GotoWebsiteCard } from "@/components/cards/goto.website.card";
 import { SubFooter } from "@/components/footer/footer";
@@ -15,6 +15,7 @@ import { SubFormFooter } from "@/components/business-account-elements/sub.form.f
 import { BlogCustomCardLeft } from "@/components/cards/blog.card";
 import { DownloadCard } from "@/components/business-account-elements/dwonload.card";
 import { PaymentCard } from "@/components/cards/payment.card";
+import { Button } from "antd";
 // @ts-ignore
 import useForm from "new-react-use-form";
 import { useRouter } from "next/navigation";
@@ -49,13 +50,13 @@ const blogCustomContent = {
   contents: [
     {
       dataString:
-        "mONITOR YOUR bUSINESS eXPERIAN rEPORT eVERY BUSINESS CREDIT BUREAU HAS THEIR OWN MONITORING AND SCORING MODELS. iT'S IMPORTANT TO MONITOR YOUR BUSINESS CREDIT REPORTS REGULARLY SO YOU ARE AWARE OF ANY CHANGES. wE HAVE OUR FREE FEED THAT TELLS YOU HAOW MANY trade accounts are reporting but to see the full detail including whetehr payents are on time or not experian requires that you purchase monitoring.",
+        "monitor your buisness experian report every buisness credit burea has their own monitoring and scoring models . its important to monitor your buisness credit reports regularly so you are aware of any changes. . we have our  free feed that tells you how many  trade accounts are reporting but to see the full detail including whetehr payents are on time or not experian requires that you purchase monitoring.",
       dataColor: "text-gray-500",
       dataSize: "",
     },
     {
       dataString:
-        "Be practive. What are your goals with your business credit reports> Increase credit limits?",
+        "Be practive. What are your goals with your business credit reports > Increase credit limits?",
       dataColor: "text-gray-500",
       dataSize: "text-sm",
     },
@@ -210,13 +211,15 @@ export const BuildMonitorExperian = () => {
 
             {/* save buttong */}
             <div className="flex  max-w-xs  w-full business-save-btn  my-16  mt-12 ">
+             
+
               <Button
-                placeholder="save the address"
-                color="success"
-                size="large"
+              className="bg-green-600 w-[350px] h-[50px] text-white"
+                // placeholder="save the address"
+                // loading={true}
                 onClick={handleOnSave}
               >
-                SAVE
+                  SAVE
               </Button>
             </div>
 

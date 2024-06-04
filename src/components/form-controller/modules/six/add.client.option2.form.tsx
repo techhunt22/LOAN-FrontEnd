@@ -13,13 +13,15 @@ import { Calls } from "@/api/calls/type";
 import Autocomplete from "@mui/material/Autocomplete";
 import { states } from "@/data/ states";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { Checkbox, Typography } from "@material-tailwind/react";
+
 import { usePCR } from "@/context/onboarding/personal.credit.repair.context";
 import { useAC } from "@/context/business-credit/add-client/personal.credit.repair.context";
 import { handleFormError } from "@/utils/error";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
+import { Checkbox, Typography } from 'antd';
+
 interface Option {
   label: string;
 }
@@ -219,26 +221,17 @@ export const AddClientOption2Form = () => {
           </div>
         
         <div className={"w-full"}>
-          <Checkbox
-            checked={form.policy}
-            onChange={(e) => {
-              form.set("policy", e.target.checked);
-              form.errors.clear("policy");
-            }}
-            color="blue"
-            crossOrigin={undefined}
-            label={
-              <div>
-                <Typography
-                  variant="small"
-                  color="gray"
-                  className="font-normal"
-                >
-                  I agree to terms and conditions.
-                </Typography>
-              </div>
-            }
-          />
+        <Checkbox
+      checked={form.policy}
+      onChange={(e) => {
+        form.set("policy", e.target.checked);
+        form.errors.clear("policy");
+      }}
+    >
+      <Typography.Text style={{ color: 'gray', fontSize: 'small' }}>
+        I agree to terms and conditions.
+      </Typography.Text>
+    </Checkbox>
         </div>
       </div>
     </form>

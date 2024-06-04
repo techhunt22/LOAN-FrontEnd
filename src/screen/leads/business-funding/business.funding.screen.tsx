@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Typography } from "@material-tailwind/react";
+import { Typography } from "antd";
 
 export const BusinessFundingScreen = ({
   children,
@@ -14,7 +14,7 @@ export const BusinessFundingScreen = ({
       }
     >
       <div className={"w-full md:w-[40%]"}>
-        <Typography className={"px-[16px] mt-4 text-center"} variant="h4">
+        <Typography className={"px-[16px] mt-4 text-center text-[25px] font-bold"} >
           Scaling Above and Beyond Competitor's Pricing
         </Typography>
         {children}

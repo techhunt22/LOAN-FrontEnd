@@ -1,5 +1,7 @@
+
 "use client";
-import { Input, Button, Typography } from "@material-tailwind/react";
+// import { Input, Button, Typography } from "@material-tailwind/react";
+import { Typography,Button,Input } from "antd";
 import { useRouter } from "next/navigation";
 // @ts-ignore
 import useForm from "new-react-use-form";
@@ -10,6 +12,7 @@ import { Calls } from "@/api/calls/type";
 import { handleFormError } from "@/utils/error";
 export const LeadForm = () => {
   const router = useRouter();
+  const { Title, Paragraph, Text } = Typography;
   const Form = useForm({
     companyName: "",
     ownerName: "",
@@ -34,113 +37,84 @@ export const LeadForm = () => {
     await mutateAsync(Form.data());
   };
   return (
-    <form onSubmit={onSubmit} className={"p-[16px] w-full h-full"}>
-      <Typography className={"text-center"} variant="h4">
-        Request For Digital Marketing
-      </Typography>
-      <div
-        className={
-          "mt-12 items-center justify-center flex flex-col w-full gap-8"
-        }
-      >
-        <div className={"w-full"}>
-          <Input
-            value={Form.companyName}
-            onChange={(e) => {
-              Form.set("companyName", e.target.value);
-              Form.errors.clear("companyName");
-            }}
-            required={true}
-            color={"red"}
-            variant="static"
-            label="Company Name"
-            placeholder="Enter legal name of company"
-            error={Form.errors.has("companyName")}
-            crossOrigin={undefined}
-          />
-          <Typography color="red" className="mt-1 text-[12px] font-medium">
-            {Form.errors.has("companyName") && Form.errors.get("companyName")}
-          </Typography>
-        </div>
+    <form onSubmit={onSubmit} className="p-16 w-full h-full ">
+    <Title level={2} className="text-center">
+      Request For Digital Marketing
+    </Title>
+    <div className="mt-12 flex flex-col gap-8">
+      <div>
+       
         <Input
-          value={Form.ownerName}
+          value={Form.companyName}
           onChange={(e) => {
-            Form.set("ownerName", e.target.value);
+            Form.set('companyName', e.target.value);
+            Form.errors.clear('companyName');
           }}
-          required={true}
-          color={"red"}
-          variant="static"
-          label="Owner Name"
-          placeholder="Enter registerd owner name"
-          crossOrigin={undefined}
+          required
+          className="w-full outline-none  "
+         
+          placeholder="Enter legal name of company"
+          addonAfter={Form.errors.has('companyName') && <Text type="danger">{Form.errors.get('companyName')}</Text>}
         />
-        <Input
-          value={Form.email}
-          onChange={(e) => {
-            Form.set("email", e.target.value);
-          }}
-          required={true}
-          color={"red"}
-          variant="static"
-          type={"email"}
-          label="Email"
-          placeholder="Enter email address"
-          crossOrigin={undefined}
-        />
-        <Input
-          value={Form.phone}
-          onChange={(e) => {
-            Form.set("phone", e.target.value);
-          }}
-          type={"tel"}
-          required={true}
-          color={"red"}
-          variant="static"
-          label="Phone"
-          placeholder="Enter conatct phone number"
-          crossOrigin={undefined}
-        />
-        <Input
-          value={Form.days}
-          onChange={(e) => {
-            Form.set("days", Number(e.target.value));
-          }}
-          required={true}
-          type={"number"}
-          color={"red"}
-          variant={"static"}
-          label="Days"
-          placeholder="Enter the duration of the camping"
-          crossOrigin={undefined}
-        />
-        <Input
-          value={Form.budget}
-          onChange={(e) => {
-            Form.set("budget", Number(e.target.value));
-          }}
-          required={true}
-          type={"number"}
-          color={"red"}
-          variant="static"
-          label="Budget "
-          placeholder="Enter your budget"
-          crossOrigin={undefined}
-        />
-
-        <div className={"w-full h-fit space-y-4"}>
-          <Button color={"red"} fullWidth={true} type={"submit"}>
-            Submit
-          </Button>
-          <Button
-            onClick={() => router.push("/")}
-            color={"red"}
-            variant={"outlined"}
-            fullWidth={true}
-          >
-            Back
-          </Button>
-        </div>
       </div>
-    </form>
+      <Input
+        value={Form.ownerName}
+        onChange={(e) => {
+          Form.set('ownerName', e.target.value);
+        }}
+        required
+        className="w-full"
+        placeholder="Enter registered owner name"
+      />
+      <Input
+        value={Form.email}
+        onChange={(e) => {
+          Form.set('email', e.target.value);
+        }}
+        required
+        className="w-full"
+        type="email"
+        placeholder="Enter email address"
+      />
+      <Input
+        value={Form.phone}
+        onChange={(e) => {
+          Form.set('phone', e.target.value);
+        }}
+        required
+        className="w-full"
+        type="tel"
+        placeholder="Enter contact phone number"
+      />
+      <Input
+        value={Form.days}
+        onChange={(e) => {
+          Form.set('days', Number(e.target.value));
+        }}
+        required
+        className="w-full"
+        type="number"
+        placeholder="Enter the duration of the campaign"
+      />
+      <Input
+        value={Form.budget}
+        onChange={(e) => {
+          Form.set('budget', Number(e.target.value));
+        }}
+        required
+        className="w-full"
+        type="number"
+        placeholder="Enter your budget"
+      />
+      <div className="flex flex-col space-y-4">
+        <Button type="primary" htmlType="submit"  className="w-full bg-red-400 font-bold ">
+          Submit
+        </Button>
+        <Button onClick={() => router.push('/')} className="w-full border-red-400 text" type="default">
+          Back
+        </Button>
+      </div>
+    </div>
+  </form>
   );
 };

@@ -2,7 +2,7 @@
 import { TypeofServices } from "@/components/service_type/Typeof.services";
 import { Back, Login } from "iconsax-react";
 import Link from "next/link";
-import { Button } from "@material-tailwind/react";
+import { Button } from "antd";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/context/guard/guard.context";
@@ -22,7 +22,7 @@ export const TypeofServiceScreen = () => {
           <Button
             onClick={() => router.back()}
             className={"text-sm flex items-center gap-2 rounded-full"}
-            variant="outlined"
+         
             color={"blue"}
           >
             <Back size="20" color="#2684ff" />
@@ -30,18 +30,18 @@ export const TypeofServiceScreen = () => {
           </Button>
          { !isSignIn ? <Button
             onClick={() => router.push("/authentication/sign-in")}
-            className={"text-sm flex items-center gap-2 rounded-full"}
-            variant="filled"
+            className={"text-sm flex items-center gap-2 rounded-full bg-blue-400 text-white"}
+            
             color={"blue"}
           >
-            <Login size="20" color="#FFFFFF" />
+            <Login size="20" color="blue" />
             SIGN IN 
           </Button>
           :
           <Button
             onClick={() => onLogout()}
             className={"text-sm flex items-center gap-2 rounded-full"}
-            variant="filled"
+         
             color={"blue"}
           >
             <Login size="20" color="#FFFFFF" />

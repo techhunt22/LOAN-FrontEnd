@@ -6,7 +6,8 @@ import { SubHeader } from "@/components/business-account-elements/sub.header";
 import { ArrowLineText } from "@/components/business-account-elements/arrow.line.text";
 import { VideoCard } from "@/components/cards/video-card";
 import { ImportantInformation } from "@/components/business-account-elements/important.imformation";
-import { Button, Input } from "@mui/material";
+// import { Button, Input } from "@mui/material";
+import {Button,Spin} from 'antd'
 import { SubFormFooter } from "@/components/business-account-elements/sub.form.footer";
 import { EditableContentRecord } from "@/components/business-account-elements/edaitable.content.record";
 import { BlogCardLeft } from "@/components/cards/blog.card";
@@ -127,13 +128,13 @@ export const BuildBusinessMerchant = () => {
 
             {/* save buttong */}
             <div className="flex  max-w-xs  w-full business-save-btn  mt-4 mb-8 ml-80 buiness-page-savebtn-mobileview">
-              <Button
-                placeholder="save the address"
-                color="success"
-                onClick={handleOnSave}
-              >
-                {isPending ? <Spinner /> : "SAVE"}
-              </Button>
+            <Button
+  type="primary" // Specify the button type, like 'primary', 'default', or 'danger'
+  onClick={handleOnSave}
+  loading={isPending} // Show loading state when 'isPending' is true
+>
+  {isPending ? <Spin /> : "SAVE"} {/* Use Spin component as a loading indicator */}
+</Button>
             </div>
 
             {/* Resuouces importante */}

@@ -1,73 +1,65 @@
-"use client";
-import { useRouter, useSearchParams } from "next/navigation";
-// @ts-ignore
-import useForm from "new-react-use-form";
-import {
-  Input,
-  Button,
-  Typography,
-  Select,
-  Option,
-  Checkbox,
-} from "@material-tailwind/react";
-import React, { FormEventHandler } from "react";
-import { useMutation } from "@tanstack/react-query";
-import { Calls } from "@/api/calls/type";
-import { ApiCalls } from "@/api/calls/calls";
-import { handleFormError } from "@/utils/error";
-import { FileUploadWithOutCropWithOutMultiple } from "@/components/fileupload/fileupload";
-import { FileUploadV2 } from "@/components/fileupload/fileuploadv2";
+"use client"
+import { Form, Input, Button, Typography, Checkbox, Upload } from 'antd';
+import React from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useMutation } from '@tanstack/react-query';
+import { Calls } from '@/api/calls/type';
+import { ApiCalls } from '@/api/calls/calls';
+import { handleFormError } from '@/utils/error';
+import { UploadOutlined } from '@ant-design/icons';
+
+const { TextArea } = Input;
+
 export const DocumentationDetailsForm = () => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const Form = useForm({
-    application_id: searchParams.get("id"),
-    bankStatement: null,
-    tAndC: false,
-    signature: null,
-    ownership: null,
-  });
-  const { mutateAsync, isPending } = useMutation<
-    Calls.IResponse.IBusinessFundingDocumentation,
-    Error,
-    Calls.IRequest.IBusinessFundingDocumentation
-  >({
-    mutationFn: (variables) => ApiCalls.Module.three.Documentation(variables),
-    onSuccess: (res) => {
-      router.push(`/done?id=${searchParams.get("id")}`);
-    },
-    onError: (e) => handleFormError(e as any, Form),
-  });
-  const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
-    e.preventDefault();
-    await mutateAsync(Form.data());
-  };
-  return (
-    <form onSubmit={onSubmit} className={"p-[16px] w-full h-full"}>
-      <Typography className={"px-[16px]  text-center"} variant="paragraph">
-        Please fill all Loan Details in the required field and one of our agents
-        will contact you within 24 hours
-      </Typography>
-      <div className={"flex flex-col gap-11 mt-12 justify-between"}>
-        <div className={"flex flex-col  items-center gap-y-8  "}>
-          <div className={"w-full"}>
-            <h4>Upload Business bank statement of last 4 month</h4>
-            <FileUploadV2
-              fileId={"01"}
-              nameofFile={"Business bank statement of last 4 month"}
-              onChange={(file) => {
-                Form.set("bankStatement", file);
-                Form.errors.clear("bankStatement");
-              }}
-            />
-          </div>
-        </div>
-        <div
-          className={"w-full flex flex-col  items-center gap-y-8  md:gap-3.5 "}
-        >
-          <h3 className={"text-xl font-medium"}>Terms and conditions</h3>
-          <div className={" w-full h-[200px] space-y-2  overflow-y-auto"}>
-            <div className={"w-full"}>
+    const router = useRouter();
+    const [form] = Form.useForm();
+    const searchParams = useSearchParams();
+
+    const { mutateAsync, isPending } = useMutation<
+        Calls.IResponse.IBusinessFundingDocumentation,
+        Error,
+        Calls.IRequest.IBusinessFundingDocumentation
+    >({
+        mutationFn: (variables) => ApiCalls.Module.three.Documentation(variables),
+        onSuccess: (res) => {
+            router.push(`/done?id=${searchParams.get('id')}`);
+        },
+        onError: (e) => handleFormError(e as any, form),
+    });
+
+    const onFinish = async (values: any) => {
+        await mutateAsync(values);
+    };
+
+    return (
+        <Form form={form} onFinish={onFinish} className={'p-[16px] w-full h-full'}>
+            <Typography.Paragraph className={'px-[16px] text-center'}>
+                Please fill all Loan Details in the required field and one of our agents will contact you within 24 hours
+            </Typography.Paragraph>
+            <div className={'flex flex-col gap-11 mt-12 justify-between'}>
+                <div className={'flex flex-col items-center gap-y-8'}>
+                    <div className={'w-full'}>
+                        <h4>Upload Business bank statement of last 4 month</h4>
+                        <Form.Item
+                            name="bankStatement"
+                            valuePropName="fileList"
+                            getValueFromEvent={(e) => e && e.fileList}
+                        >
+                            <Upload
+                                name="logo"
+                                action="/upload.do"
+                                listType="picture"
+                            >
+                                <Button icon={<UploadOutlined />}>Click to upload</Button>
+                            </Upload>
+                        </Form.Item>
+                    </div>
+                </div>
+                <div className={'w-full flex flex-col items-center gap-y-8 md:gap-3.5'}>
+                    <h3 className={'text-xl font-medium'}>Terms and conditions</h3>
+                    <div className={'w-full h-[200px] space-y-2 overflow-y-auto'}>
+                       
+                    <div className={"w-full"}>
               <h4 className={"font-medium"}>Loan Amount and Interest Rate</h4>
               <p>
                 Specify the amount of funding being provided and the interest
@@ -90,76 +82,125 @@ export const DocumentationDetailsForm = () => {
                 expansion, etc.
               </p>
             </div>
-          </div>
-        </div>
+        
 
-        <div className={"flex flex-col  items-center gap-y-8  "}>
-          <div className={"w-full"}>
-            <h4>Upload Original Signature</h4>
-            <FileUploadV2
-              fileId={"02"}
-              nameofFile={"Business bank statement of last 4 month"}
-              onChange={(file) => {
-                Form.set("signature", file);
-                Form.errors.clear("signature");
-              }}
-            />
-          </div>
-        </div>
-        <div className={"flex flex-col  items-center gap-y-8   "}>
-          <Input
-            required={true}
-            value={Form.ownership}
-            onChange={(e) => {
-              Form.set("ownership", e.target.value);
-              Form.errors.clear("ownership");
-            }}
-            error={Form.errors.has("ownership")}
-            color={"red"}
-            variant="static"
-            label="Ownership %"
-            placeholder="0"
-            type={"number"}
-            crossOrigin={undefined}
-          />
-        </div>
-        <div className={"w-full"}>
-          <Checkbox
-            checked={Form.tAndC}
-            onChange={(e) => {
-              Form.set("tAndC", e.target.checked);
-              Form.errors.clear("tAndC");
-            }}
-            color="blue"
-            crossOrigin={undefined}
-            label={
-              <div>
-                <Typography
-                  variant="small"
-                  color="gray"
-                  className="font-normal"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+                <div className={'flex flex-col items-center gap-y-8'}>
+                    <div className={'w-full'}>
+                        <h4>Upload Original Signature</h4>
+                        <Form.Item
+                            name="signature"
+                            valuePropName="fileList"
+                            getValueFromEvent={(e) => e && e.fileList}
+                        >
+                            <Upload
+                                name="logo"
+                                action="/upload.do"
+                                listType="picture"
+                            >
+                                <Button icon={<UploadOutlined />}>Click to upload</Button>
+                            </Upload>
+                        </Form.Item>
+                    </div>
+                </div>
+                <div className={'flex flex-col items-center gap-y-8'}>
+                    <Form.Item
+
+                        name="ownership"
+                        rules={[{ required: true, message: 'Please input your ownership percentage!' }]}
+                    >
+                        <Input
+                            placeholder="Ownership %"
+                            type="number"
+                            className='w-[300px]'
+                        />
+                    </Form.Item>
+                </div>
+                <div className={'w-full'}>
+                    <Form.Item name="tAndC" valuePropName="checked" initialValue={false}>
+                        <Checkbox>
+                            <Typography.Text type="secondary">By clicking the submit button, I agree to the terms & condition.</Typography.Text>
+                        </Checkbox>
+                    </Form.Item>
+                </div>
+            </div>
+            <Form.Item>
+                <Button type="primary" htmlType="submit" className='w-full bg-red-500' loading={isPending}>
+                    Next
+                </Button>
+                <Button
+                className='w-full border-red-500 text-red-500 mt-4'
+                    type="default"
+                    onClick={() => router.back()}
+                    style={{ marginLeft: 8 }}
                 >
-                  By clicking the submit button, I agree to the terms &
-                  condition.
-                </Typography>
-              </div>
-            }
-          />
-        </div>
-      </div>
-      <Button className={"mt-6"} color={"red"} fullWidth={true} type={"submit"}>
-        Next
-      </Button>
-      <Button
-        onClick={() => router.back()}
-        variant={"outlined"}
-        className={"mt-6"}
-        color={"red"}
-        fullWidth={true}
-        type={"submit"}
-      >
-        Cancel
-      </Button>
-    </form>
-  );
+                    Cancel
+                </Button>
+            </Form.Item>
+        </Form>
+    );
 };

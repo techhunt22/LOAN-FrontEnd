@@ -35,7 +35,7 @@ export const DownloadCard = ({
           />
           <div className="flex flex-row text-gray-400">
             <span>You can upload</span>
-            <span className="text-md text-gray-600 ml-1">PDF, CVF, XLXS</span>
+            <span className="text-md text-gray-600 ml-1">PDF, CSV, XLXS</span>
           </div>
         </div>
         <img

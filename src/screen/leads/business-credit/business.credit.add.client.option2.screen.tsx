@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Typography } from "@material-tailwind/react";
+import { Typography } from "antd";
 
 export const BusinessCreditAddClientOption2Screen = ({
   children,
@@ -14,7 +14,7 @@ export const BusinessCreditAddClientOption2Screen = ({
       }
     >
       <div className={"w-full md:w-[60%]"}>
-        <Typography className={"px-[16px] mt-4 text-center"} variant="h4">
+        <Typography className={"px-[16px] mt-4 text-center"} >
           Choose From below options
         </Typography>
         {children}

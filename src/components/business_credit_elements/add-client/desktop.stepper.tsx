@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Step, Stepper, Typography } from "@material-tailwind/react";
+import { Steps } from 'antd';
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { useAC } from "@/context/business-credit/add-client/personal.credit.repair.context";
 interface steps {
@@ -24,42 +24,20 @@ export const DesktopAddClientStepper = () => {
     },
   ];
   return (
-    <div className={" flex flex-row items-center justify-center w-full h-auto"}>
-      <div className="  rounded-l-md flex flex-row justify-center items-center w-[80%] bg-[#ffffff] h-[100px] py-4 pl-20 ">
-        <Stepper
-          className={"-mt-5"}
-          lineClassName=" h-1 bg-blue-200"
-          activeLineClassName="h-1 bg-white"
-          activeStep={ActiveTab}
-        >
-          {dataArray.map((item, index) => (
-              <Step
-                key={index}
-                className={
-                  "text-gray-500 bg-blue-gray-50 h-[32px] w-[32px] ring-4 ring-white border-2 border-blue-gray-300"
-                }
-                activeClassName={"bg-[#137FFF]  ring-4 ring-white"}
-                completedClassName="bg-[#137FFF] ring-4 ring-white"
-              >
-                <div className={"w-[19px] h-[19px]"}>
-                  <img className="" src={item.imgURL} alt="image" />
-                </div>
-                <div className=" absolute -bottom-[3rem] w-max text-center">
-                  <Typography
-                    variant="small"
-                    color={ActiveTab === index ? "black" : "black"}
-                  >
-                    {item.label}<br />
-                    {item.desc}
-                  </Typography>
-                </div>
-              </Step>
-          ))}
-        </Stepper>
-      </div>
-      <div
-        className="   flex flex-row justify-center items-center w-[2%] bg-[#ffffff] h-[100px] py-4 px-20"
-      ></div>
+    <div className={"flex flex-row items-center justify-center w-full h-auto"}>
+    <div className="rounded-l-md flex flex-row justify-center items-center w-[80%] bg-[#ffffff] h-[100px] py-4 pl-20">
+      <Steps current={ActiveTab} className="-mt-5" progressDot>
+        {dataArray.map((item, index) => (
+          <Steps.Step
+            key={index}
+            title={item.label}
+            description={item.desc}
+            icon={<img src={item.imgURL} alt="image" />}
+          />
+        ))}
+      </Steps>
     </div>
+    <div className="flex flex-row justify-center items-center w-[2%] bg-[#ffffff] h-[100px] py-4 px-20"></div>
+  </div>
   );
 };

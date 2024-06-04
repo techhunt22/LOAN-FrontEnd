@@ -6,7 +6,7 @@ import { SubHeader } from "@/components/business-account-elements/sub.header";
 import { ArrowLineText } from "@/components/business-account-elements/arrow.line.text";
 import { VideoCard } from "@/components/cards/video-card";
 import { ImportantInformation } from "@/components/business-account-elements/important.imformation";
-import { Button, Input } from "@mui/material";
+import { Button} from "antd";
 import { SubFormFooter } from "@/components/business-account-elements/sub.form.footer";
 import { EditableContentRecord } from "@/components/business-account-elements/edaitable.content.record";
 import { BlogCardLeft } from "@/components/cards/blog.card";
@@ -97,7 +97,7 @@ export const BuildBusinessLicense = () => {
 
             {/* save buttong */}
             <div className="flex w-80 business-save-btn mt-4 ml-80 flex  max-w-xs  w-full business-save-btn  mt-4 ml-80 buiness-page-savebtn-mobileview">
-              <Button placeholder="save the address" color="success">
+              <Button  >
                 SAVE
               </Button>
             </div>

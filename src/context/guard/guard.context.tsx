@@ -3,7 +3,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useRouter, usePathname } from "next/navigation";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { Button, Spinner } from "@material-tailwind/react";
+import { Button } from "antd";
 import { getCookie } from "@/utils/getCookie";
 const GuardContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -28,6 +28,7 @@ export const GuardContextProvider = ({
   const [isAdmin, setIsAdmin] = useState<boolean>(
     loginRole === "PCR:Admin" ? true : false
   ); // Assuming admin state
+  // const [isAdmin,setIsAdmin]=useState(true)
   const [isSignIn, setIsSignIn] = useState<boolean>(false);
 
   const login = () => {
@@ -95,9 +96,9 @@ export const GuardContextProvider = ({
             className={
               "text-sm flex items-center gap-2 rounded-full logout-button"
             }
-            variant="filled"
+           
             color={"blue"}
-            size={"sm"}
+           
           >
             <LogoutIcon height={20} width={20} />
             <p> LOGOUT</p>

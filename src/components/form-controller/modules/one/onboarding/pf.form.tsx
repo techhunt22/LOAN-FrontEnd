@@ -35,22 +35,27 @@ const tableData: TableRow[] = [
   {
     name: "Kikoff Credit Builder",
     slogan: "Build Credit Safely & Responsibly",
+    url:"https://kikoff.com/?msclkid=4ab3c3b2532c1b11f4bda5e47228692d"
   },
   {
     name: "Self Credit Builder",
     slogan: "Build Credit. Build Savings. Build Dreams",
+    url:"https://www.self.inc/?msclkid=61025b5b9e681cb8ce383d0dbf2a52f1"
   },
   {
     name: "CreditStrong ",
     slogan: "Get a Credit Builder Loan that Builds Credit and Savings ",
+    url:"https://www.creditstrong.com/?utm_medium=cpc&utm_source=bing&utm_campaign=413186949&utm_content=_c_&utm_term=credit%20strong&msclkid=e51f0e6286e81f0672d66834a76ed09f"
   },
   {
     name: "Experian Boost",
     slogan: "Improve Your Credit Scores Instantly for Free",
+    url:"https://www.experian.com/consumer-products/score-boost.html?pc=sem_exp_bing&cc=sem_exp_bing_ad_268877240_1186373808589981_74148567015209_74148458192873_e__k_209d8e17be95169b9510e8419f522910_k_&ref=brand&awsearchcpc=1&msclkid=209d8e17be95169b9510e8419f522910"
   },
   {
     name: "ExtraCredit",
     slogan: "Trackit",
+    url:"https://www.credit.com/extracredit"
   },
   {
     name: "rentreporters.com",
@@ -264,6 +269,7 @@ export const PFForm = () => {
     }
   }, [isPending]);
   return (
+
     <form
       id={"pf"}
       onSubmit={onSubmit}
@@ -349,5 +355,7 @@ export const PFForm = () => {
         </div>
       </div>
     </form>
+
+    
   );
 };

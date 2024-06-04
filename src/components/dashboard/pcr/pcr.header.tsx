@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@material-tailwind/react";
+import { Button } from "antd";
 import Link from "next/link";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
@@ -32,7 +32,10 @@ export const PcrHeader = () => {
         </div>
       </div>
       <div className={" w-fit"}>
-        <Button color={"blue"} variant={"outlined"} onClick={clearRefreshToken}>
+        <Button color={"blue"} 
+         onClick={clearRefreshToken}
+         
+         >
           Logout
         </Button>
       </div>

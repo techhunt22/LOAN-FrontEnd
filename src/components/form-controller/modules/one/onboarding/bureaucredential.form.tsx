@@ -1,5 +1,5 @@
 "use client";
-import { Typography } from "@material-tailwind/react";
+// import { Typography } from "@material-tailwind/react";
 // @ts-ignore
 import useForm from "new-react-use-form";
 import React, { FormEventHandler, useEffect, useLayoutEffect } from "react";
@@ -13,9 +13,11 @@ import toast from "react-hot-toast";
 import Cookies from "js-cookie";
 import { handleFormError } from "@/utils/error";
 import { useRouter } from "next/navigation";
+import { Typography, Input, Button } from 'antd';
 import { useMutation } from "@tanstack/react-query";
 export const BureauCredentialForm = () => {
   const router = useRouter();
+  const { Title, Text } = Typography;
   const {
     SetActiveTab,
     SetFormID,
@@ -87,13 +89,10 @@ export const BureauCredentialForm = () => {
         " my-10 flex flex-col h-fit justify-center items-center  md:px-8 px-[16px] w-full"
       }
     >
-      <Typography
-        variant={"h5"}
-        color="blue-gray"
-        className="text-center md:w-[35%] w-full capitalize font-semibold"
-      >
-        Complete the form below and submit credentials before proceeding
-      </Typography>
+    
+       <Title level={4}  className="text-center md:w-[35%] w-full capitalize font-semibold">
+       Complete the form below and submit credentials before proceeding
+      </Title>
       <div
         className={
           "mt-6 h-fit flex flex-col justify-center items-center gap-8 md:w-[35%] w-full"

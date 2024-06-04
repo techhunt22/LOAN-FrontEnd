@@ -121,7 +121,7 @@ export const EditableContentRecordInvidual: React.FC<
                       !editable[key] ? "text-[black] bg-[#F8F8F8] " : ""
                     } appearance-none`}
                     key={key}
-                    placeholder={content.recordName}
+                    // placeholder={content.recordName}
                     disabled={!editable[key]}
                     onChange={(event) => handleChange(event, key)}
                     value={

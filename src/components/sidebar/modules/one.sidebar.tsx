@@ -1,76 +1,49 @@
-"use client";
+"use client"
+import { Card, Typography, List } from "antd";
 import {
-  Card,
-  Typography,
-  List,
-  ListItem,
-  ListItemPrefix,
-  ListItemSuffix,
-  Chip,
-} from "@material-tailwind/react";
-import {
-  PresentationChartBarIcon,
-  ShoppingBagIcon,
-  UserCircleIcon,
-  Cog6ToothIcon,
-  InboxIcon,
-  PowerIcon,
-  DocumentIcon,
-} from "@heroicons/react/24/solid";
+  BarChartOutlined,
+  InboxOutlined,
+  FileOutlined,
+  UserOutlined,
+  SettingOutlined,
+  PoweroffOutlined,
+} from "@ant-design/icons";
+import { Badge } from "antd";
+
 export const OneSidebar = () => {
   return (
     <Card className="rounded-none shadow-none h-[calc(100vh)] w-full p-4 bg-blue-gray-50/10">
-      <div className=" px-4 py-1">
-        <Typography variant="h5" color="blue-gray">
+      <div className="px-4 py-1">
+        <Typography.Title level={5} type="secondary">
           Menus
-        </Typography>
+        </Typography.Title>
       </div>
       <List>
-        <ListItem selected={true}>
-          <ListItemPrefix>
-            <PresentationChartBarIcon className="h-5 w-5" />
-          </ListItemPrefix>
+        <List.Item key="dashboard" className="ant-list-item-selected">
+          <BarChartOutlined className="h-5 w-5" />
           Dashboard
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <InboxIcon className="h-5 w-5" />
-          </ListItemPrefix>
+        </List.Item>
+        <List.Item key="inbox">
+          <InboxOutlined className="h-5 w-5" />
           Inbox
-          <ListItemSuffix>
-            <Chip
-              value="14"
-              size="sm"
-              variant="ghost"
-              color="blue-gray"
-              className="rounded-full"
-            />
-          </ListItemSuffix>
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <DocumentIcon className="h-5 w-5" />
-          </ListItemPrefix>
+          <Badge count={14} overflowCount={99} className="ml-1" />
+        </List.Item>
+        <List.Item key="documents">
+          <FileOutlined className="h-5 w-5" />
           Documents
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <UserCircleIcon className="h-5 w-5" />
-          </ListItemPrefix>
+        </List.Item>
+        <List.Item key="profile">
+          <UserOutlined className="h-5 w-5" />
           Profile
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <Cog6ToothIcon className="h-5 w-5" />
-          </ListItemPrefix>
+        </List.Item>
+        <List.Item key="settings">
+          <SettingOutlined className="h-5 w-5" />
           Settings
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <PowerIcon className="h-5 w-5" />
-          </ListItemPrefix>
+        </List.Item>
+        <List.Item key="logout">
+          <PoweroffOutlined className="h-5 w-5" />
           Log Out
-        </ListItem>
+        </List.Item>
       </List>
     </Card>
   );
