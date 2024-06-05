@@ -2,6 +2,8 @@ import api from "@/api/config/config";
 import { Calls } from "@/api/calls/type";
 
 export namespace ApiCalls {
+
+  
   export const SignIn = async (
     data: Calls.IRequest.SignIn
   ): Promise<Calls.IResponse.SignIn> => {

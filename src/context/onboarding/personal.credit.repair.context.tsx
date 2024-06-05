@@ -74,6 +74,10 @@ export const PCRContextProvider = ({
     SetMobileText: (text) => SetMobileText(text),
     SetMobileH4: (h4) => SetMobileH4(h4),
   };
+
+  console.log(buttonText)
+  console.log(formID)
+  console.log(isPending)
   return (
     <PCRContext.Provider value={contextValue}>
       <div className={"space-y-2 h-fit w-full"}>

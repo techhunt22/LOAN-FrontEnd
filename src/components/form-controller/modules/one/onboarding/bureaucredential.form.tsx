@@ -16,8 +16,8 @@ import { useRouter } from "next/navigation";
 import { Typography, Input, Button } from 'antd';
 import { useMutation } from "@tanstack/react-query";
 export const BureauCredentialForm = () => {
+  const {Title}=Typography
   const router = useRouter();
-  const { Title, Text } = Typography;
   const {
     SetActiveTab,
     SetFormID,
@@ -81,6 +81,7 @@ export const BureauCredentialForm = () => {
       SetIsPending(false);
     }
   }, [isPending]);
+    
   return (
     <form
       onSubmit={onSubmit}

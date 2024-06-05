@@ -87,6 +87,7 @@ export const SignupForm = () => {
       toast.error(error?.message);
     },
   });
+  
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     console.log(form.originalData);
