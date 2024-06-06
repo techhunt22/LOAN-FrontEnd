@@ -12,16 +12,18 @@ import { EditableContentRecord } from "@/components/business-account-elements/ed
 import { BlogCardLeft } from "@/components/cards/blog.card";
 import { GotoWebsiteThreeCard } from "@/components/cards/goto.website.three.card";
 import { GeneralCard } from "@/components/cards/general.cad";
+import video from '@/video/step1.mp4'
 const headerContent = {
   step: "Step 1",
   title: "Fundability Foundation",
   subTitle: "GET BUSINESS LICENSE",
 };
 
-const videoConten = {
+const videoContent = {
   title: "Watch Video Transcript:",
   videoUrl: "/business-account/licenses-img.png",
   content: "WHY A BUSINESS LICENSE",
+  src:video
 };
 
 const records = {
@@ -83,7 +85,12 @@ export const BuildBusinessLicense = () => {
               content="DO YOU HAVE ALL REQUIRED BUSINESS LICENSES?"
             />
             {/* Vidio card */}
-            <VideoCard videoContent={videoConten} />
+            <VideoCard
+              title={videoContent.title}
+              videoUrl={videoContent.videoUrl}
+              content={videoContent.content}
+              src={videoContent.src}
+                  />
 
             {/* Bolg section */}
             <div className="flex w-[80%] my-12">

@@ -94,7 +94,7 @@ export const AddClientOptionTwoForm = () => {
   ];
   return (
     <>
-      <h1>hello</h1>
+      <h1 className="text-[65px] ml-4 mt-4 font-bold text-[#686666]">CURRENT USERS</h1>
     </>
   );
 };

@@ -16,6 +16,7 @@ import { BlogCardLeft, BlogCustomCardLeft } from "@/components/cards/blog.card";
 import { GotoWebsiteThreeCard } from "@/components/cards/goto.website.three.card";
 import { SelectCard, SelectCardInvidual } from "@/components/cards/select.card";
 import { Alert } from "@/components/business-account-elements/alert";
+import video from '@/video/step2.mp4'
 
 const headerContent = {
   step: "Step 2",
@@ -31,10 +32,11 @@ const alertContent =
 const alertContent1 =
   "It is important to watch the video below before going to Step 3(Round 1) to ensure smooth sailing in that Step.";
 
-const videoConten = {
+const videoContent = {
   title: "Watch Video Transcript:",
   videoUrl: "/report/init/wrap.png",
   content: "FIX CREDIT REPORT",
+  src:video
 };
 
 const contentBlogCardLeft = {
@@ -95,7 +97,12 @@ export const BusinessReportWrap = () => {
             <Alert icon="/report/init/warning.svg" content={alertContent1} />
 
             {/* Vidio card */}
-            <VideoCard videoContent={videoConten} />
+            <VideoCard
+              title={videoContent.title}
+              videoUrl={videoContent.videoUrl}
+              content={videoContent.content}
+              src={videoContent.src}
+                  />
 
             <div
               className="flex font-85 "

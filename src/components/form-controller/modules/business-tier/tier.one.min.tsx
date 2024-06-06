@@ -24,6 +24,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 // @ts-ignore
 import useForm from "new-react-use-form";
+import video from "@/video/step3.mp4"
 
 const headerContent = {
   step: "STPE3",
@@ -182,6 +183,14 @@ const monitorCardGroup = [
   },
 ];
 
+const videoContent = {
+  title: "Watch Video Transcript:",
+  videoUrl: "/business-account/Rectangle 115.png", // This seems to be an unrelated image URL
+  content: "START BUILDING",
+  src: video,
+};
+
+
 interface Option {
   label: string;
 }
@@ -253,6 +262,14 @@ export const TierOneMin = () => {
               <div className="flex w-full my-12">
                 <ImportantInformation information={informationImportant} />
               </div>
+
+              <VideoCard
+              title={videoContent.title}
+              videoUrl={videoContent.videoUrl}
+              content={videoContent.content}
+              src={videoContent.src}
+                  />
+
 
               {/* blog section */}
               <div className="flex w-[90%] my-12 business-page-banner-bg-color">

@@ -16,10 +16,22 @@ import { useRouter } from "next/navigation";
 // @ts-ignore
 import useForm from "new-react-use-form";
 import Modal from "@/components/business-account-elements/modal";
+import video from "@/video/step7.mp4"
+import { VideoCard } from "@/components/cards/video-card";
+
+
+
 const headerContent = {
   step: "STPE7",
   title: "Revoling Accounts",
   subTitle: "TIER4",
+};
+
+const videoContent = {
+  title: "Watch Video Transcript:",
+  videoUrl: "/report/reports/v-2.png",
+  content: "MONITOR D&B",
+  src: video,
 };
 
 const arrowLineCotent = "Welcome to Tier 4!";
@@ -43,6 +55,8 @@ const tierContents = {
     },
   ],
 };
+
+
 
 const monitorCardGroup = [
   {
@@ -450,6 +464,14 @@ export const TierFourFull = () => {
                   3”. Please scroll apply for trade accounts.
                 </p>
               </div>
+
+              <VideoCard
+              title={videoContent.title}
+              videoUrl={videoContent.videoUrl}
+              content={videoContent.content}
+              src={videoContent.src}
+                  />
+
 
               <Modal />
               {/* tier detail section */}

@@ -20,6 +20,7 @@ import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { staticId } from "@/components/const/cookies";
 import { Button } from "antd";
+import video from '@/video/step1.mp4'
 
 const headerContent = {
   step: "Step 1",
@@ -27,10 +28,11 @@ const headerContent = {
   subTitle: "SAVE YOUR BUSINESS ADDRESS",
 };
 
-const videoConten = {
+const videoContent = {
   title: "Watch Video Transcript:",
   videoUrl: "/business-account/business-address-png.png",
   content: "WHY A BUSINESS ADDRESS",
+  src:video
 };
 const initialValues = [
   { name: "company" },
@@ -180,7 +182,12 @@ const informationResourceProps = "Information Resource";
               content="DO YOU HAVE A BUSINESS ADDRESS?"
             />
             {/* Vidio card */}
-            <VideoCard videoContent={videoConten} />
+            <VideoCard
+              title={videoContent.title}
+              videoUrl={videoContent.videoUrl}
+              content={videoContent.content}
+              src={videoContent.src}
+                  />
 
             {/* edit your details */}
             <div className="flex flex-col w-[85%]">

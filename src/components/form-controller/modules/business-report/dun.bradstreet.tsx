@@ -22,6 +22,7 @@ import { Spinner } from "@material-tailwind/react";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { staticId } from "@/components/const/cookies";
+import video from "@/video/step2.mp4"
 
 const headerContent = {
   step: "Step 2",
@@ -34,11 +35,6 @@ const headerString = "DOES YOUR BUSINESS HAVE A DUNS # WITH DUN & BRADSTREET?";
 const alertContent =
   "The Goal of Step 2.1 is to apply for your DUNS number if you don’t already have it, and to verify the address listed for your D&B account";
 
-const videoConten = {
-  title: "Watch Video Transcript:",
-  videoUrl: "/report/init/movie.png",
-  content: "HOW TO APPLY FOR DUNS NO#",
-};
 
 const contentBlogCardLeft = {
   picture: "/report/init/imageillustrationforbusinessaddress.png",
@@ -131,6 +127,15 @@ export const BusinessReportDunBradstreet = () => {
     });
     return data;
   };
+
+  const videoContent = {
+    title: "Watch Video Transcript:",
+  videoUrl: "/report/init/movie.png",
+  content: "HOW TO APPLY FOR DUNS NO#",
+    src: video,
+  };
+  
+  
   return (
     <>
       <div className="flex flex-row w-[80%] ml-[10%] mt-10 justify-center border-2 border-blue-400 p-6 rounded-2xl  gap-6 business-main business-page-rightsection-mobileview">
@@ -152,7 +157,12 @@ export const BusinessReportDunBradstreet = () => {
             />
 
             {/* Vidio card */}
-            <VideoCard videoContent={videoConten} />
+           < VideoCard
+              title={videoContent.title}
+              videoUrl={videoContent.videoUrl}
+              content={videoContent.content}
+              src={videoContent.src}
+                />
 
             {/* Bolg section */}
             <div className="flex w-[100%]  bg-white my-12">

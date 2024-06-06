@@ -11,6 +11,8 @@ import { SubFormFooter } from "@/components/business-account-elements/sub.form.f
 import { EditableContentRecord } from "@/components/business-account-elements/edaitable.content.record";
 import { BlogCardLeft } from "@/components/cards/blog.card";
 import { GotoWebsiteThreeCard } from "@/components/cards/goto.website.three.card";
+import video from '@/video/step1.mp4'
+
 
 const headerContent = {
   step: "Step 1",
@@ -18,10 +20,11 @@ const headerContent = {
   subTitle: "WRAP ALL",
 };
 
-const videoConten = {
+const videoContent = {
   title: "Watch Video Transcript:",
   videoUrl: "/business-account/licenses-img.png",
   content: "MAKE SURE YOU ALL LISTS RECORD ARE CORRECT",
+  src:video
 };
 
 const footerContent = {
@@ -49,7 +52,12 @@ export const BuildBusinessWrap = () => {
               content="DO ALL BUSINESS RECORDS LIST THE CORRECT BUSINESS NAME, ADDRESS, OWNERSHOP AND CONTRACT INFORMATION?"
             />
             {/* Vidio card */}
-            <VideoCard videoContent={videoConten} />
+            <VideoCard
+              title={videoContent.title}
+              videoUrl={videoContent.videoUrl}
+              content={videoContent.content}
+              src={videoContent.src}
+                  />
 
             <div className="flex font-85 text-green-400">THANK YOU!</div>
             <div className="flex text-base font-semibold  text-blue-400 my-4">

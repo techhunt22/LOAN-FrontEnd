@@ -24,6 +24,7 @@ import { ApiCalls } from "@/api/calls/calls";
 import { Calls } from "@/api/calls/type";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import video from "@/video/step4.mp4"
 
 const headerContent = {
   step: "Step 4",
@@ -33,11 +34,14 @@ const headerContent = {
 
 const arrowLineCotent = "DOES YOUR BUSINESS HAVE BUSINESS EQUIFAX MONITORING?";
 
-const videoConten = {
+
+const videoContent = {
   title: "Watch Video Transcript:",
-  videoUrl: "/report/reports/v-5.png",
-  content: "BUSINESS EQUIFAX REPORT",
+  videoUrl: "/report/reports/v-2.png",
+  content: "MONITOR D&B",
+  src: video,
 };
+
 
 const videoConten1 = {
   title: "Watch Video Transcript:",
@@ -183,11 +187,14 @@ export const BuildMonitorEquifax = () => {
             {/* Vidio card */}
             <div className="flex flex-row flex-wrap justify-center business-page-grid-gap-50 w-full   business-credit-video-card">
               <div className="flex  justify-start">
-                <VideoCard videoContent={videoConten} />
+              <VideoCard
+              title={videoContent.title}
+              videoUrl={videoContent.videoUrl}
+              content={videoContent.content}
+              src={videoContent.src}
+                  />
               </div>
-              <div className="flex  justify-end">
-                <VideoCard videoContent={videoConten1} />
-              </div>
+           
             </div>
 
             {/* blog section */}

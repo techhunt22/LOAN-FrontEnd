@@ -25,11 +25,22 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 // @ts-ignore
 import useForm from "new-react-use-form";
+import video from "@/video/step5.mp4"
+
 const headerContent = {
   step: "STPE5",
   title: "Building Credit",
   subTitle: "TIER2",
 };
+
+const videoContent = {
+  title: "Watch Video Transcript:",
+  videoUrl: "/report/reports/v-2.png",
+  content: "BUILDING CREDIT",
+  src: video,
+};
+
+
 
 const arrowLineCotent = "Welcome to Tier 2!";
 
@@ -471,6 +482,13 @@ export const TierTwoFull = () => {
               <div className="flex w-full my-12">
                 <ImportantInformation information={informationImportant} />
               </div>
+              
+              <VideoCard
+              title={videoContent.title}
+              videoUrl={videoContent.videoUrl}
+              content={videoContent.content}
+              src={videoContent.src}
+                  />
 
               {/* tier detail section */}
               <TierDetailCard contents={tierContents} />

@@ -22,6 +22,7 @@ import { Spinner } from "@material-tailwind/react";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { staticId } from "@/components/const/cookies";
+import video from '@/video/step2.mp4'
 
 const headerContent = {
   step: "Step 2",
@@ -35,10 +36,11 @@ const headerString =
 const alertContent =
   "Goal for this Step is to see if your company is listed with Equifax yet and to see if any discrepancies which can be fixed by the directions in Reporting Step";
 
-const videoConten = {
+const videoContent = {
   title: "Watch Video Transcript:",
   videoUrl: "/report/init/movie.png",
   content: "BUSINESS CREDIT EQUIFAX",
+  src:video
 };
 
 const contentBlogCardLeft = {
@@ -162,7 +164,12 @@ export const BusinessReportEquifax = () => {
             </div>
 
             {/* Vidio card */}
-            <VideoCard videoContent={videoConten} />
+            <VideoCard
+              title={videoContent.title}
+              videoUrl={videoContent.videoUrl}
+              content={videoContent.content}
+              src={videoContent.src}
+                  />
 
             {/* Bolg section */}
             <div className="flex w-[100%]  bg-white my-12">

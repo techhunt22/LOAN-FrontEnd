@@ -23,6 +23,7 @@ import { ApiCalls } from "@/api/calls/calls";
 import { Calls } from "@/api/calls/type";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import video from '@/video/step4.mp4'
 
 const headerContent = {
   step: "Step 4",
@@ -32,10 +33,11 @@ const headerContent = {
 
 const arrowLineCotent = "DOES YOUR BUSINESS HAVE BUSINESS EXPERIAN MONITORING?";
 
-const videoConten = {
+const videoContent = {
   title: "Watch Video Transcript:",
   videoUrl: "/report/reports/v-3.png",
   content: "READ YOUR BUSINESS CREDIT REPORT",
+  src:video
 };
 
 const videoConten1 = {
@@ -179,11 +181,14 @@ export const BuildMonitorExperian = () => {
             {/* Vidio card */}
             <div className="flex flex-row w-full flex-wrap justify-center">
               <div className="flex  justify-start">
-                <VideoCard videoContent={videoConten} />
+              <VideoCard
+              title={videoContent.title}
+              videoUrl={videoContent.videoUrl}
+              content={videoContent.content}
+              src={videoContent.src}
+                  />
               </div>
-              <div className="flex justify-end">
-                <VideoCard videoContent={videoConten1} />
-              </div>
+              
             </div>
 
             {/* blog section */}

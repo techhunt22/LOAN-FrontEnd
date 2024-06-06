@@ -18,6 +18,7 @@ import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { Spinner } from "@material-tailwind/react";
 import { staticId } from "@/components/const/cookies";
+import video from '@/video/step1.mp4'
 
 const headerContent = {
   step: "Step 1",
@@ -25,10 +26,11 @@ const headerContent = {
   subTitle: "BUSINESS MERCHANT ACCOUNT",
 };
 
-const videoConten = {
+const videoContent = {
   title: "Watch Video Transcript:",
   videoUrl: "/business-account/licenses-img.png",
   content: "DOING MORE TO YOUR BUSINESS",
+  src:video
 };
 
 const records = {
@@ -110,7 +112,12 @@ export const BuildBusinessMerchant = () => {
               content="DO YOU HAVE A BUSINESS MERCHANT ACCOUNT?"
             />
             {/* Vidio card */}
-            <VideoCard videoContent={videoConten} />
+            <VideoCard
+              title={videoContent.title}
+              videoUrl={videoContent.videoUrl}
+              content={videoContent.content}
+              src={videoContent.src}
+                  />
 
             {/* Bolg section */}
             <div className="flex w-[95%] my-12">

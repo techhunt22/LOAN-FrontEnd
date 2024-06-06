@@ -17,6 +17,7 @@ import { BlogCardLeft, BlogCustomCardLeft } from "@/components/cards/blog.card";
 import { GotoWebsiteThreeCard } from "@/components/cards/goto.website.three.card";
 import { SelectCard, SelectCardInvidual } from "@/components/cards/select.card";
 import { Alert } from "@/components/business-account-elements/alert";
+import video from '@/video/step2.mp4'
 
 const headerContent = {
   step: "Step 2",
@@ -29,10 +30,11 @@ const headerString = "DOES YOUR BUSINESS HAVE A DUNS # WITH DUN & BRADSTREET?";
 const alertContent =
   "The Goal of Step 2.1 is to apply for your DUNS number if you don’t already have it, and to verify the address listed for your D&B account";
 
-const videoConten = {
+const videoContent = {
   title: "Watch Video Transcript:",
   videoUrl: "/report/init/movie.png",
   content: "HOW TO APPLY FOR DUNS NO#",
+  src:video
 };
 
 const contentBlogCardLeft = {
@@ -109,7 +111,13 @@ export const BusinessReportInit = () => {
             />
 
             {/* Vidio card */}
-            <VideoCard videoContent={videoConten} />
+            
+         <VideoCard
+              title={videoContent.title}
+              videoUrl={videoContent.videoUrl}
+              content={videoContent.content}
+              src={videoContent.src}
+                  />
 
             {/* Bolg section */}
             <div className="flex w-[100%]  bg-white my-12">

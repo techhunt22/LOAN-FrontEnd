@@ -32,6 +32,7 @@
     "axios": "^1.6.2",
     "date-fns": "^2.30.0",
     "dayjs": "^1.11.10",
+    "file-loader": "^6.2.0",
     "iconsax-react": "^0.0.8",
     "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.2",

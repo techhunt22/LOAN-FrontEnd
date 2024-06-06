@@ -26,6 +26,7 @@ import { Calls } from "@/api/calls/type";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { Button } from "antd";
+import video from '@/video/step4.mp4'
 
 const headerContent = {
   step: "Step 4",
@@ -35,10 +36,11 @@ const headerContent = {
 
 const arrowLineCotent = "REQUEST CHEX SYSTEMS REPORT";
 
-const videoConten = {
+const videoContent = {
   title: "Watch Video Transcript:",
   videoUrl: "/report/reports/v-8.png",
   content: "REQUEST FOR CHEX REPORT",
+  src:video
 };
 
 const blogCustomContent = {
@@ -169,7 +171,12 @@ export const BuildMonitorChexReport = () => {
             />
             {/* Vidio card */}
             <div className="flex flex-row w-full">
-              <VideoCard videoContent={videoConten} />
+            <VideoCard
+              title={videoContent.title}
+              videoUrl={videoContent.videoUrl}
+              content={videoContent.content}
+              src={videoContent.src}
+                  />
             </div>
 
             {/* blog section */}

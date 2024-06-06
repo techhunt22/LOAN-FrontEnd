@@ -18,6 +18,7 @@ import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { staticId } from "@/components/const/cookies";
 import { Button } from "antd";
+import video from '@/video/step1.mp4'
 
 
 const headerContent = {
@@ -26,10 +27,11 @@ const headerContent = {
   subTitle: "BUSINESS BANK ACCOUNT",
 };
 
-const videoConten = {
+const videoContent = {
   title: "Watch Video Transcript:",
   videoUrl: "/business-account/licenses-img.png",
   content: "USE CORRECT BUSINESS INFORMATION",
+  src:video
 };
 
 const records = {
@@ -112,7 +114,12 @@ export const BuildBusinessBank = () => {
               content="DO YOU HAVE A BUSINESS BANK ACCOUNT?"
             />
             {/* Vidio card */}
-            <VideoCard videoContent={videoConten} />
+            <VideoCard
+              title={videoContent.title}
+              videoUrl={videoContent.videoUrl}
+              content={videoContent.content}
+              src={videoContent.src}
+                  />
 
             {/* Bolg section */}
             <div className="flex w-[80%] my-12">

@@ -25,6 +25,7 @@ import toast from "react-hot-toast";
 import useForm from "new-react-use-form";
 import { useRouter } from "next/navigation";
 import { staticId } from "@/components/const/cookies";
+import video from '@/video/step1.mp4'
 
 const headerContent = {
   step: "Step 1",
@@ -32,10 +33,11 @@ const headerContent = {
   subTitle: "SET UP BUSINESS EIN#",
 };
 
-const videoConten = {
+const videoContent = {
   title: "Watch Video Transcript:",
   videoUrl: "/business-account/entry-img.png",
   content: "BUSINESS EIN#",
+  src:video
 };
 
 const records = {
@@ -158,7 +160,12 @@ export const BuildBusinessEin = () => {
               content="DO YOU HAVE A BUSINESS EIN#"
             />
             {/* Vidio card */}
-            <VideoCard videoContent={videoConten} />
+            <VideoCard
+              title={videoContent.title}
+              videoUrl={videoContent.videoUrl}
+              content={videoContent.content}
+              src={videoContent.src}
+                  />
 
             {/* edit your details */}
             <div className="flex flex-col w-[85%]">

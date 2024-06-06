@@ -19,6 +19,7 @@ import { PaymentCard } from "@/components/cards/payment.card";
 import { ApiCalls } from "@/api/calls/calls";
 import { Calls } from "@/api/calls/type";
 import { useMutation } from "@tanstack/react-query";
+import video from "@/video/step4.mp4"
 // @ts-ignore
 import useForm from "new-react-use-form";
 import { useRouter } from "next/navigation";
@@ -33,15 +34,13 @@ const headerContent = {
 const arrowLineCotent =
   "IS YOUR BUSINESS MONITORING ITS DUN & BRADSTREEET(D & B) REPORT?";
 
-const videoConten = {
+
+
+const videoContent = {
   title: "Watch Video Transcript:",
   videoUrl: "/report/reports/v-2.png",
   content: "MONITOR D&B",
-};
-const videoConten1 = {
-  title: "Watch Video Transcript:",
-  videoUrl: "/report/reports/v-1.png",
-  content: "BUSINESS CREDIBILITY",
+  src: video,
 };
 
 const blogCustomContent = {
@@ -196,11 +195,9 @@ export const BuildMonitorDunBradstreet = () => {
               style={{ marginTop: "80px" }}
             >
               <div className="flex justify-start">
-                <VideoCard videoContent={videoConten} />
+            
               </div>
-              <div className="flex justify-end">
-                <VideoCard videoContent={videoConten1} />
-              </div>
+              
             </div>
 
             {/* blog section */}

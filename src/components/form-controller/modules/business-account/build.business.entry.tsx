@@ -23,6 +23,7 @@ import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { Spinner } from "@material-tailwind/react";
 import { staticId } from "@/components/const/cookies";
+import video from '@/video/step1.mp4'
 
 const headerContent = {
   step: "Step 1",
@@ -30,10 +31,11 @@ const headerContent = {
   subTitle: "BUSINESS ENTITY TYPE",
 };
 
-const videoConten = {
+const videoContent = {
   title: "Watch Video Transcript:",
   videoUrl: "/business-account/entry-img.png",
   content: "CHOOSE YOUR BUSINESS STRUCTURE",
+  src:video
 };
 
 const records = {
@@ -180,7 +182,12 @@ export const BuildBusinessEntry = () => {
               content="DO YOU HAVE A BUSINESS ENTRY?"
             />
             {/* Vidio card */}
-            <VideoCard videoContent={videoConten} />
+            <VideoCard
+              title={videoContent.title}
+              videoUrl={videoContent.videoUrl}
+              content={videoContent.content}
+              src={videoContent.src}
+                  />
 
             {/* edit your details */}
             <div className="flex flex-col w-[85%]">

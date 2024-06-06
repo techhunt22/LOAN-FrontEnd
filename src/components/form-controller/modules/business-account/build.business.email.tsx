@@ -21,6 +21,7 @@ import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { Spinner } from "@material-tailwind/react";
 import { staticId } from "@/components/const/cookies";
+import video from '@/video/step1.mp4'
 
 const headerContent = {
   step: "Step 1",
@@ -28,10 +29,11 @@ const headerContent = {
   subTitle: "YOUR WEBSITE & EMAIL",
 };
 
-const videoConten = {
+const videoContent = {
   title: "Watch Video Transcript:",
   videoUrl: "/business-account/phone-img.png",
   content: "WEBSITE FOR BUSINESS",
+  src:video
 };
 
 const records = {
@@ -146,7 +148,13 @@ export const BuildBusinessEmail = () => {
               content="DOES YOUR BUSINESS HAVE A WEBSITE & EMAIL?"
             />
             {/* Vidio card */}
-            <VideoCard videoContent={videoConten} />
+         
+   <VideoCard
+              title={videoContent.title}
+              videoUrl={videoContent.videoUrl}
+              content={videoContent.content}
+              src={videoContent.src}
+                  />
 
             {/* Bolg section */}
             <div className="flex w-[100%]  bg-white business-page-banner-bg-color my-12">

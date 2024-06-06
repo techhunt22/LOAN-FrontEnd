@@ -21,6 +21,7 @@ import { Calls } from "@/app/api/calls/type";
 import toast from "react-hot-toast";
 import { Spinner } from "@material-tailwind/react";
 import { staticId } from "@/components/const/cookies";
+import video from '@/video/step1.mp4'
 
 const headerContent = {
   step: "Step 1",
@@ -28,23 +29,20 @@ const headerContent = {
   subTitle: "CREATE A BUSINESS NAME",
 };
 
-const videoConten = {
-  title: "Watch Video Transcript:",
-  videoUrl: "/business-account/Rectangle 115.png",
-  content: "BUSINESS CREDIBILITY",
-};
-const videoContent = {
-  title: "Watch Video Transcript:",
-  videoUrl: "/business-account/address.png",
-  content: "WHAT SHOULD BE YOUR BUSINESS NAME",
-};
+
+
 const information = {
   title: "INFO",
   content:
     "There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name! There is a lot that goes into a name!There is a lot that goes into a name!There is a lot that goes into a name!",
   color: "green",
 };
-
+const videoContent = {
+  title: "Watch Video Transcript:",
+  videoUrl: "/business-account/Rectangle 115.png", // This seems to be an unrelated image URL
+  content: "BUSINESS CREDIBILITY",
+  src: video,
+};
 const informationResuorce = {
   title: "RESOURCES",
   content:
@@ -59,6 +57,9 @@ const footerContent = {
   url: "/step1/build-business-address",
   preUrl: "/business-account",
 };
+
+
+
 interface Option {
   label: string;
 }
@@ -106,17 +107,16 @@ const informationResourceProps = "Information Resource";
             {/* Vidio card */}
             <div className="flex flex-row flex-wrap justify-center business-page-grid-gap-50 w-full mt-[38px]  business-credit-video-card">
               <div className="flex  justify-start">
-                <VideoCard
-                  videoContent={videoConten}
-                  multiVideoCard={multiVideoCard}
-                />
+               
+              <VideoCard
+              title={videoContent.title}
+              videoUrl={videoContent.videoUrl}
+              content={videoContent.content}
+              src={videoContent.src}
+                  />
+
               </div>
-              <div className="flex justify-end">
-                <VideoCard
-                  videoContent={videoContent}
-                  multiVideoCard={multiVideoCard}
-                />
-              </div>
+             
             </div>
 
             {/* import data */}
