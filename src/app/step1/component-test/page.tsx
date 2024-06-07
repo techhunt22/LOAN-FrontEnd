@@ -399,7 +399,7 @@ export default function Page() {
         <AlertCard alertContents={alertCard} />
         <PaymentCard title={paymentTitle} paymentContents1={paymentCard1} paymentContents2={paymentCard2} />
         <Notes content={notesContent} />
-        <VideoCard videoContent={videoConten} />
+        {/* <VideoCard videoContent={videoConten} /> */}
         <ImportantInformation information={information} />
         <ArrowLineText type="flex flex-col w-[auto] text-center text-gray-700" content="DO YOU HAVE A BUSINESS NAME?" />
         <GeneralCard icon="/business-account/search.svg" content="Search secretary of state records" />

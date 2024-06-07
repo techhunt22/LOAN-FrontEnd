@@ -1,100 +1,136 @@
 "use client";
 // @ts-ignore
-import useForm from "new-react-use-form";
-import React, { FormEventHandler, useEffect, useLayoutEffect } from "react";
-import { IconButton, InputAdornment, TextField } from "@mui/material";
-import MenuItem from "@mui/material/MenuItem";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { DateRangeIcon, LocalizationProvider } from "@mui/x-date-pickers-pro";
-import { DatePicker } from "@mui/x-date-pickers-pro";
-import { useMutation } from "@tanstack/react-query";
-import { ApiCalls } from "@/api/calls/calls";
-import { Calls } from "@/api/calls/type";
-import Autocomplete from "@mui/material/Autocomplete";
-import { states } from "@/data/ states";
-import { Settings, Visibility, VisibilityOff } from "@mui/icons-material";
-import {  Checkbox, Typography } from "@material-tailwind/react";
-import {Button} from 'antd'
-import { usePCR } from "@/context/onboarding/personal.credit.repair.context";
-import { useAC } from "@/context/business-credit/add-client/personal.credit.repair.context";
-import { handleFormError } from "@/utils/error";
-import toast from "react-hot-toast";
-import Cookies from "js-cookie";
-import { useRouter } from "next/navigation";
-import { SortByAlpha } from "@mui/icons-material";
-import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import { AddClientInformation } from "@/components/business_credit_elements/add-client/client.information";
-import { AddClientInformationCard } from "@/components/business_credit_elements/add-client/client.information.card";
-import Link from "next/link";
-interface Option {
-  label: string;
-}
+
+import React, { useState } from "react";
+import { MoreOutlined } from "@ant-design/icons";
+import { MenuOutlined } from "@ant-design/icons";
+
+
+
+
+
+
 export const AddClientOptionTwoForm = () => {
-  // Client's informations
-  let clientInformations = [
-    {
-      firstName: "Fric",
-      lastName: "Carnes",
-      email: "brakeralexc@gmail.com",
-      date: "Oct 25 2022 20:49",
-      funding: "Business Credit Builder",
-    },
-    {
-      firstName: "Fric",
-      lastName: "Carnes",
-      email: "brakeralexc@gmail.com",
-      date: "Oct 25 2022 20:49",
-      funding: "Business Credit Builder",
-    },
-    {
-      firstName: "Fric",
-      lastName: "Carnes",
-      email: "brakeralexc@gmail.com",
-      date: "Oct 25 2022 20:49",
-      funding: "Business Credit Builder",
-    },
-    {
-      firstName: "Fric",
-      lastName: "Carnes",
-      email: "brakeralexc@gmail.com",
-      date: "Oct 25 2022 20:49",
-      funding: "Business Credit Builder",
-    },
-    {
-      firstName: "Fric",
-      lastName: "Carnes",
-      email: "brakeralexc@gmail.com",
-      date: "Oct 25 2022 20:49",
-      funding: "Business Credit Builder",
-    },
-    {
-      firstName: "Fric",
-      lastName: "Carnes",
-      email: "brakeralexc@gmail.com",
-      date: "Oct 25 2022 20:49",
-      funding: "Business Credit Builder",
-    },
-  ];
-  let clientDetailInformations = [
-    {
-      imgUrl: "/userBig.png",
-      detail: "Open http://localhost:3000 with your browser to see the result.You can start editing the page by modifying app/page.tsx. The page auto-updates as you edit the file This project uses next/font to automatically optimize and load Inter, a custom Google Font.",
-      name: "Angel GANDAMRA"
-    },
-    {
-      imgUrl: "/userBig.png",
-      detail: "Open http://localhost:3000 with your browser to see the result.You can start editing the page by modifying app/page.tsx. The page auto-updates as you edit the file This project uses next/font to automatically optimize and load Inter, a custom Google Font.",
-      name: "Angel GANDAMRA"
-    },
-    {
-      imgUrl: "/userBig.png",
-      detail: "Open http://localhost:3000 with your browser to see the result.You can start editing the page by modifying app/page.tsx. The page auto-updates as you edit the file This project uses next/font to automatically optimize and load Inter, a custom Google Font.",
-      name: "Angel GANDAMRA"
-    },
-  ];
+  const [hidden,setHidden]=useState(true)
+  const setHiddenDiv = ( )=>{
+    setHidden(!hidden)
+  }
+ 
   return (
     <>
-      <h1 className="text-[65px] ml-4 mt-4 font-bold text-[#686666]">CURRENT USERS</h1>
+    <h1 className="text-[40px] md:text-[50px] lg:text-[65px] ml-10 xl:ml-0 mt-4 font-bold text-[#686666]">Current Users</h1>
+    <section className=" min-h-screen flex flex-col ml-4 items-start">
+      <div className="buttons w-full h-[100px] flex items-center justify-between ">
+        <div className="1 w-[50%] h-full flex items-center gap-6">
+        <button className="w-[150px] h-[45px] bg-[#EFF6FF] text-[#1380FF] font-bold flex items-center gap-2 px-4"> <span className="text-white bg-[#1380FF] rounded-full font-bold px-1 py-[1px]">12</span> ACTIVE</button>
+        <button className="w-[180px] h-[45px]  text-[#8A8D93] font-bold border-[1px] border-gray-400 flex items-center gap-2 px-4 rounded-lg"> <span className="text-black bg-[#E9E9E9] font-bold rounded-full px-1 py-[1px]">6</span> INACTIVE</button>
+        </div>
+        <div className="2  w-[50%] h-full flex items-center  justify-end  md:justify-center ">
+          <div className="w-full h-full hidden md:flex items-center justify-center gap-4">
+          <input type="text" placeholder="Search By Name" className="w-[250px] h-[40px] px-2 rounded-lg outline-none border-[1px]"/>
+          <button className="bg-[#2684FF] text-white w-[140px] h-[40px] rounded-lg">Add New User</button>
+          <button className="text-[#3A3541] text-xl"><MoreOutlined /></button>
+          </div>
+          <button className="md:hidden sm:mr-10  "
+        onClick={setHiddenDiv}
+        >
+            <MenuOutlined />
+         </button>
+        </div>
+     
+
+      
+
+      </div>
+      
+         <div className={`${hidden?'absolute':'hidden'} flex bg-gray-400 rounded-lg top-36 gap-4 right-1 w-[300px] h-max py-2 flex-col items-center justify-center`}>
+         <input type="text" placeholder="Search By Name" className="w-[250px] h-[40px] px-2 rounded-lg outline-none border-[1px]"/>
+          <button className="bg-[#2684FF] text-white w-[140px] h-[40px] rounded-lg">Add New User</button>
+          <button className="text-[#3A3541] text-xl"><MoreOutlined /></button>
+         </div>
+
+
+      <table className="  w-[90%] h-full border-[1px] h-[800px]">
+        <thead className='w-full h-12 bg-[#F4F4F4] rounded-2xl'>
+          <tr className="w-full h-full flex items-center rounded-xl text-left px-2 text-[12px] text-[#333333]">
+          <div className="w-[13%] h-[12px] border-r-2 border-l-2 border-gray-500 gap-3 flex items-center justify-center">
+          <input type="checkbox" name="chck" id="check" />
+          <p>USERS</p>
+          </div>
+          <div className="w-[13%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
+          <p>EMAIL</p>
+          </div>
+          <div className="w-[10%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
+          <p>PASSWORDS</p>
+          </div>
+          <div className="w-[12%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
+          <p>PHONE NUMBER</p>
+          </div>
+          <div className="w-[10%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
+          <p>CITY</p>
+          </div>
+          <div className="w-[10%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
+          <p>STATE</p>
+          </div>
+          <div className="w-[10%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
+          <p>ZIP CODE</p>
+          </div>
+          <div className="w-[10%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
+          <p>SS NUMBER</p>
+          </div>
+          <div className="w-[10%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
+          <p>ACTION REQUIRED</p>
+          </div>
+          
+
+          </tr>
+        </thead>
+
+        <tbody className="w-full h-full">
+        <tr className="w-full h-full flex items-center rounded-xl text-left px-2 text-[12px] text-[#737373]">
+         <div className="w-[13%] flex items-center gap-3  justify-center">
+         <input type="checkbox" name="chck" id="check" />
+          tashanda powell
+         </div>
+       <div className="w-[13%] flex items-center justify-center">
+          brokeralexa@gmail.com
+         </div>
+         <div className="w-[10%] flex items-center justify-center">
+          sadasd
+         </div>
+         <div className="w-[12%] flex items-center justify-center">
+          131312312
+         </div> 
+         <div className="w-[10%] flex items-center justify-center">
+         Brooklyn
+         </div>
+          <div className="w-[10%] flex items-center justify-center">
+         New York
+         </div>
+          <div className="w-[10%] flex items-center justify-center">
+          11210
+         </div> 
+         <div className="w-[10%] flex items-center justify-center">
+         243296532
+         </div>
+          <div className="w-[10%] flex items-center justify-center">
+          brokeralexa@gmail.com
+         </div>
+          
+         
+          
+
+          </tr>
+        </tbody>
+
+      </table>
+
+    </section>
+
+  
+  
+  
+  
     </>
   );
 };

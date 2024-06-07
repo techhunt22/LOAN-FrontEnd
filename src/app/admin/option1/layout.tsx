@@ -28,9 +28,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       
       <div className="w-full h-full flex ">
       <Sider/>
-      <div>
+
+      <div className="w-full h-full">
      { children}
       </div>
+
+      
       </div>
 
 
