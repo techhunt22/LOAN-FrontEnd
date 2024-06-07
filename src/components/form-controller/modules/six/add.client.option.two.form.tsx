@@ -4,6 +4,10 @@
 import React, { useState } from "react";
 import { MoreOutlined } from "@ant-design/icons";
 import { MenuOutlined } from "@ant-design/icons";
+import { HolderOutlined } from "@ant-design/icons";
+import { EditOutlined } from "@ant-design/icons";
+
+
 
 
 
@@ -11,9 +15,15 @@ import { MenuOutlined } from "@ant-design/icons";
 
 
 export const AddClientOptionTwoForm = () => {
-  const [hidden,setHidden]=useState(true)
+  const [hidden,setHidden]=useState(false)
+  const [hiddden,setHiddden]=useState(true)
+
   const setHiddenDiv = ( )=>{
     setHidden(!hidden)
+  }
+
+  const setHidddenDiv = ( )=>{
+    setHiddden(!hiddden)
   }
  
   return (
@@ -43,16 +53,16 @@ export const AddClientOptionTwoForm = () => {
 
       </div>
       
-         <div className={`${hidden?'absolute':'hidden'} flex bg-gray-400 rounded-lg top-36 gap-4 right-1 w-[300px] h-max py-2 flex-col items-center justify-center`}>
+       <div className={`${hidden?'absolute':'hidden'} flex bg-gray-400 rounded-lg top-36 gap-4 right-1 w-[300px] h-max py-2 flex-col items-center justify-center`}>
          <input type="text" placeholder="Search By Name" className="w-[250px] h-[40px] px-2 rounded-lg outline-none border-[1px]"/>
           <button className="bg-[#2684FF] text-white w-[140px] h-[40px] rounded-lg">Add New User</button>
           <button className="text-[#3A3541] text-xl"><MoreOutlined /></button>
-         </div>
+        </div>
 
 
-      <table className="  w-[90%] h-full border-[1px] h-[800px]">
-        <thead className='w-full h-12 bg-[#F4F4F4] rounded-2xl'>
-          <tr className="w-full h-full flex items-center rounded-xl text-left px-2 text-[12px] text-[#333333]">
+      <div className="  w-[90%]  border-[1px] h-[800px] ">
+        <div className='w-full h-12 bg-[#F4F4F4] rounded-2xl'>
+          <div className="w-full h-full flex items-center rounded-xl text-left px-2 text-[12px] text-[#333333]">
           <div className="w-[13%] h-[12px] border-r-2 border-l-2 border-gray-500 gap-3 flex items-center justify-center">
           <input type="checkbox" name="chck" id="check" />
           <p>USERS</p>
@@ -83,16 +93,16 @@ export const AddClientOptionTwoForm = () => {
           </div>
           
 
-          </tr>
-        </thead>
+          </div>
+        </div>
 
-        <tbody className="w-full h-full">
-        <tr className="w-full h-full flex items-center rounded-xl text-left px-2 text-[12px] text-[#737373]">
+        <div className="w-full  h-12 flex flex-col">
+        <div className="w-full h-full relative flex items-center  text-left px-2 text-[12px] text-[#737373] border-b-[1px] border-[#737373]">
          <div className="w-[13%] flex items-center gap-3  justify-center">
          <input type="checkbox" name="chck" id="check" />
           tashanda powell
          </div>
-       <div className="w-[13%] flex items-center justify-center">
+         <div className="w-[13%] flex items-center justify-center">
           brokeralexa@gmail.com
          </div>
          <div className="w-[10%] flex items-center justify-center">
@@ -113,17 +123,21 @@ export const AddClientOptionTwoForm = () => {
          <div className="w-[10%] flex items-center justify-center">
          243296532
          </div>
-          <div className="w-[10%] flex items-center justify-center">
-          brokeralexa@gmail.com
+          <div className="w-[10%] flex items-center justify-center text-lg gap-6">
+         <button ><EditOutlined /></button>
+         <button onClick={setHidddenDiv}><HolderOutlined /></button>
          </div>
-          
-         
-          
+         <div className={`${hiddden?'hidden':'absolute'} top-8 right-6 w-[100px] h-16 bg-white flex flex-col items-center justify-center gap-3 rounded-xl`}>
+            <button className="text-[#00B4D8]">Edit</button>
+            <button className="text-[#EF233C]">Delete</button>
+         </div>
+        </div>
+       
+       
 
-          </tr>
-        </tbody>
+        </div>
 
-      </table>
+      </div>
 
     </section>
 
