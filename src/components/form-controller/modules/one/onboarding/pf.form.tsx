@@ -160,7 +160,8 @@ export const TableComponent: React.FC<PFProps> = (props) => {
       </div>
       <div className="flex flex-col gap-4 justify-center items-center p-4 w-full h-fit">
         {props?.data?.map((row, index) => (
-          <>
+          
+          
             <div
               key={index}
               className="w-full h-full flex flex-row justify-between items-center"
@@ -196,8 +197,8 @@ export const TableComponent: React.FC<PFProps> = (props) => {
                 onChange={() => toggleRowSelection(row.name)}
               />
             </div>
-            <Divider sx={{ width: "100%", color: "#929292" }} />
-          </>
+            // <Divider sx={{ width: "100%", color: "#929292" }} />
+        
         ))}
       </div>
 

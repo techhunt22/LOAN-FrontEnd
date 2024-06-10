@@ -8,6 +8,8 @@ import Cookies from "js-cookie";
 export default function Home() {
   const router = useRouter();
   const { isAdmin, setIsAdmin } = useAuth();
+
+  
   useEffect(() => {
     const loginRole = Cookies.get("role");
     if (loginRole == "PCR:Admin") {

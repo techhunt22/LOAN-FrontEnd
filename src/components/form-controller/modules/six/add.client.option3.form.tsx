@@ -54,10 +54,11 @@ export const AddClientOption3Form = () => {
          </Dropdown>
           </div>
 
-          <div className="W-[90%] flex flex-col ">
-            <div className="card w-full h-[80px] bg-[#F9F9F9]">
-        dfsf
+          <div className="W-[90%] h-[80px] flex flex-col ">
+            <div className="card w-[90%] h-[80px] bg-[#F9F9F9] flex justify-between">
+              <h1>#434343</h1>
             </div>
+            <input type="checkbox" name="equifax" id="equi" />
 
           </div>
 
