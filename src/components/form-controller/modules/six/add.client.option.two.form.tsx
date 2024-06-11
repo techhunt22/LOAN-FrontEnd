@@ -81,10 +81,10 @@ export const AddClientOptionTwoForm = () => {
         </div>
 
 
-          <div className="w-[300px] xl:w-full h-[800px] overflow-x-auto overflow-y-auto">
+          <div className="w-[300px] sm:w-[500px] md:w-[700px] lg:w-[800px] xl:w-full h-[800px] overflow-x-auto overflow-y-auto">
           <div className="w-[1200px] xl:w-[95%]  border-[1px] h-[800px]  ">
           <div className="w-full h-12 bg-[#F4F4F4] rounded-2xl">
-            <div className="w-full h-full flex items-center rounded-xl text-left px-2 text-[8px] xl:text-[12px] text-[#333333] overflow-y-auto ">
+            <div className="w-full h-full flex items-center rounded-xl text-left px-2 text-[8px] xl:text-[10px] text-[#333333] overflow-y-auto ">
               <div className="w-[13%] h-[12px] border-r-2 border-l-2 border-gray-500 gap-6 flex items-center justify-center">
                 <input type="checkbox" name="chck" id="check" />
                 <p>USERS</p>
@@ -117,7 +117,7 @@ export const AddClientOptionTwoForm = () => {
           </div>
 
           <div className="w-full  h-12 flex flex-col">
-            <div className="w-full h-full relative flex items-center  text-left px-2 text-[8px] xl:text-[12px] text-[#737373] border-b-[1px] border-[#737373] ">
+            <div className="w-full h-full relative flex items-center  text-left px-2 text-[8px] xl:text-[10px] text-[#737373] border-b-[1px] border-[#737373] ">
               <div className="w-[13%] flex items-center gap-3  justify-center">
                 <input type="checkbox" name="chck" id="check" />
                 tashanda powell
