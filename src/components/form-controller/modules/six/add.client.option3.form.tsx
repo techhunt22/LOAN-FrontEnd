@@ -75,14 +75,10 @@ export const AddClientOption3Form = () => {
 
         <div className="bg-white w-full md:w-6/12 h-full shadow-md rounded-lg flex flex-col items-center pt-10">
         <div className="w-[90%] ">
-          <Dropdown menu={menuProps} className="w-full h-[80px] flex justify-center gap-10 items-center text-[#686666] border-gray-400 rounded-xl border-[1px]">
-        <Button>
-        <Space>
-          <p>Fredrick Jidje</p>
-          <DownOutlined />
-        </Space>
-      </Button>
-         </Dropdown>
+          <select name="name" id="nme" className="w-full h-[80px] px-2 flex justify-center gap-10 items-center text-[#686666] border-gray-400 rounded-xl border-[1px]">
+            <option value="fredrick">Fredick</option>
+            <option value="fredrick">Fredick</option>
+          </select>
           </div>
 
 
@@ -162,14 +158,10 @@ export const AddClientOption3Form = () => {
         <div className="w-full md:w-6/12 h-[200px] flex items-center flex-col justify-start pt-4 border-[#686666] border-[1px] relative rounded-lg mt-10 ">
         <h1 className="text-[#A3A3A3] text-[35px] font-bold">Select The Subject Of Mail</h1>
         <div className="w-[90%] ">
-          <Dropdown menu={menuProps} className="w-full h-[40px] flex justify-center gap-10 items-center text-[#686666] border-gray-400 rounded-xl border-[1px] ">
-        <Button>
-        <Space>
-          <p>Request Annual Credit Report</p>
-          <DownOutlined />
-        </Space>
-      </Button>
-         </Dropdown>
+          <select name="name" id="nme" className="w-full h-[80px] px-2 flex justify-center gap-10 items-center text-[#686666] border-gray-400 rounded-xl border-[1px]">
+            <option value="fredrick">Fredick</option>
+            <option value="fredrick">Fredick</option>
+          </select>
           </div>
         <button className="w-[150px] h-[50px] rounded-xl text-white font-bold  absolute bottom-[-10px]" style={{ background: 'linear-gradient(90deg, #CAF0F8 90%, #CAF0F8 39.6%)' }}>Next</button>
         <p className="text-white bg-[#1380ff] px-2 py-2 rounded-full absolute top-[-20px] left-2" ><CopyrightOutlined /> </p>
@@ -219,7 +211,7 @@ export const AddClientOption3Form = () => {
       <p className="text-[#333333] font-bold">Ambro</p>
 
     </div>
-    <div className="w-[90%] h-[80px] flex overflow-x-auto overflow-y-hidden items-center gap-8 border-t-[1px] border-b-[1px] border-[#D3D3D3] ">
+    <div className="w-[90%] h-[80px] flex overflow-x-auto overflow-y-hidden items-center gap-6 border-t-[1px] border-b-[1px] border-[#D3D3D3] ">
      <div className="flex items-center gap-4">
      <button className="text-[#686666] font-bold"><BoldOutlined /></button>
       <button className="font-light text-[#686666] underline"><UnderlineOutlined /></button>

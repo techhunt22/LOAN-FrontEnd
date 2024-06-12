@@ -2,7 +2,7 @@ import React from "react";
 import { Metadata } from "next";
 import { ACContextProvider } from "@/context/business-credit/add-client/personal.credit.repair.context";
 import { AddClientPanel } from "@/context/business-credit/panel/add.client.panel";
-import Sider from "../../../components/admin/Sider"
+import Sider from "../../../components/admin/Sider";
 
 export const metadata: Metadata = {
   title: "Choose From Below Options",
@@ -25,18 +25,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </div> */}
 
-        <div className="w-full h-full flex ">
-      <Sider/>
+      <div className="w-full h-full flex ">
+        <Sider />
 
-      <div className="w-full h-full">
-     { children}
+        <div className="w-full h-full">{children}</div>
       </div>
 
-      
-      </div>
-
-
-      <p className="flex w-full justify-center content-center items-center text-red-400 py-4 bg-white">@2024. Official  Website</p>
+      <p className="flex w-full justify-center content-center items-center text-red-400 py-4 bg-white">
+        @2024. Official Website
+      </p>
     </>
   );
 }
