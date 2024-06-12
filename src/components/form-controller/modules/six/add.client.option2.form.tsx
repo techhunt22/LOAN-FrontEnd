@@ -1,9 +1,11 @@
 "use client";
-import Card from "@/components/admin/card";
+import Card from "@/components/admin/card"
+import Card1 from "@/components/admin/Card1"
 // @ts-ignore
 import { SearchOutlined } from "@ant-design/icons";
 import { FilterOutlined } from "@ant-design/icons";
 import { RiseOutlined } from "@ant-design/icons";
+
 
 export const AddClientOption2Form = () => {
   return (
@@ -30,10 +32,27 @@ export const AddClientOption2Form = () => {
             </div>
           </div>
         </div>
-        <div className="w-full h-max  ml-3 py-2 flex gap-4 items-center ">
+        <div className="w-full h-max   py-2 flex gap-4 items-center flex-wrap px-4 ">
+          <Card  />
           <Card />
-          <Card />
+          <Card1/>
+           
+           
         </div>
+        
+        <div className="w-full h-full flex mt-10">
+          <div className="div1 w-[70%] h-full  flex flex-col items-center">
+            <div className="graph w-[80%] h-[600px] rounded-xl bg-white shadow-md "></div>
+            <div>
+
+            </div>
+
+          </div>
+          <div className="div2 w-[30%] h-[500px] bg-orange-200"></div>
+
+        </div>
+
+        
       </section>
     </>
   );
