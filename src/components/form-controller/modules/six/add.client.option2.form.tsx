@@ -87,8 +87,8 @@ export const AddClientOption2Form = () => {
           See Upcoming Tasks
         </button>
 
-        <div className="w-full h-full flex  items-center justify-center  mt-10">
-          <div className="div1 w-full lg:w-[70%] h-full  flex flex-col items-center">
+        <div className="w-full h-full flex  items-start  mt-10">
+          <div className="div1  w-full lg:w-[70%] h-full  flex flex-col items-center">
 
             <div className="graph w-full  sm:w-[70%] overflow-x-auto    flex flex-col items-center justify-center overflow-y-hidden h-[600px] rounded-xl bg-white shadow-md ">
               <div className="w-[600px] h-[600px] pl-36 sm:pl-20 md:pl-10 xl:pl-0 overflow-x-auto overflow-y-hidden flex flex-col items-center justify-center gap-10">
@@ -519,7 +519,7 @@ export const AddClientOption2Form = () => {
             </div>
           </div>
 
-          <div className="div2 w-[30%]  h-max py-2 gap-4 xl:flex hidden items-center justify-start pt-10 flex-col">
+          <div className="div2 w-[30%]    h-max py-2 gap-4 xl:flex hidden items-center justify-start flex-col">
             <div className="w-[60%] h-[400px] bg-white rounded-lg shadow-md flex gap-8 pt-4 flex-col  items-center ml-3">
               <h1 className="text-[#000000] text-[20px]">Recent Activity</h1>
 
@@ -614,6 +614,9 @@ export const AddClientOption2Form = () => {
               </div>
             </div>
           </div>
+       
+       
+       
         </div>
 
 
@@ -629,9 +632,9 @@ export const AddClientOption2Form = () => {
 
 
       <div
-        className={`w-[80%] bg-white h-full ${
+        className={`w-[80%] bg-white h-max ${
           sidebar ? "hidden" : "absolute"
-        } top-2 right-1 pt-10`}
+        } top-2 right-1 pt-6`}
       >
         <button onClick={()=>{setSidebar(!sidebar)}}>
           <BarsOutlined className="text-xl"/>
