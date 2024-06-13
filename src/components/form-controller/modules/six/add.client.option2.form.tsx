@@ -87,8 +87,25 @@ export const AddClientOption2Form = () => {
         <div className="w-full h-full flex mt-10">
           <div className="div1 w-full lg:w-[70%] h-full  flex flex-col items-center">
 
-            <div className="graph w-full xl:w-[70%]  overflow-x-auto    overflow-y-hidden h-[600px] rounded-xl bg-white shadow-md ">
+            <div className="graph  w-[70%] overflow-x-auto    flex flex-col items-center justify-center overflow-y-hidden h-[600px] rounded-xl bg-white shadow-md ">
+              <div className="w-[600px] h-[600px] overflow-x-auto overflow-y-hidden flex flex-col items-center justify-center gap-10">
+               
+                <div className="w-full flex items-center justify-between px-2 ">
+                 <div className="flex flex-col ">
+                 <h1 className="text-[#333333] text-[24px]">Letter Progress</h1>
+                 <p className="text-[#A3A3A3] text-[10px]">On going...</p>
+                 </div>
+                  <button className="w-[200px] h-[40px] bg-[#EEEEEE42] rounded-full">
+                    This Month
+                  </button>
+                </div>
+
+               <div className="w-full h-full">
+                 
               <Graph />
+                </div> 
+
+              </div>
             </div>
 
             <div className="w-[80%] h-max py-2 mt-10 flex items-center justify-between">

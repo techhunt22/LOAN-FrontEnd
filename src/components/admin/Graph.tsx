@@ -21,40 +21,60 @@ const data: DataPoint[] = [
   {
     name: "Monday",
     uv: 4000,
-    pv: 2400,
+    pv: 0,
     amt: 2400,
   },
   {
     name: "Tuesday",
     uv: 3000,
-    pv: 1398,
+    pv: 1,
     amt: 2210,
   },
   {
     name: "Wednesday",
     uv: 2000,
-    pv: 9800,
+    pv: 2,
     amt: 2290,
   },
   {
     name: "Thursday",
     uv: 2780,
-    pv: 3908,
+    pv: 3,
     amt: 2000,
   },
   {
     name: "Friday",
     uv: 1890,
-    pv: 4800,
+    pv: 4,
     amt: 2181,
   },
   {
     name: "Saturday",
     uv: 2390,
-    pv: 3800,
+    pv: 1,
     amt: 2500,
   },
 ];
+
+// Custom labels for Y-axis
+const yAxisLabels = [
+  "received",
+  "analyzing",
+  "item deleted",
+  "client response",
+  "letter response",
+];
+
+// Generate the Y-axis mapping
+const yAxisMapping = yAxisLabels.reduce((acc, label, index) => {
+  acc[index] = label;
+  return acc;
+}, {} as { [key: number]: string });
+
+// Y-axis formatter function
+const yAxisFormatter = (value: number): string => {
+  return yAxisMapping[value] || value.toString();
+};
 
 interface CustomizedDotProps {
   cx?: number;
@@ -67,7 +87,7 @@ interface CustomizedDotProps {
 const CustomizedDot: React.FC<CustomizedDotProps> = (props) => {
   const { cx, cy, value } = props;
 
-  if (value && value > 2500) {
+  if (value && value > 2) {
     return (
       <svg
         x={cx! - 10}
@@ -102,21 +122,20 @@ export default class Example extends PureComponent {
 
   render() {
     return (
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="80%">
         <LineChart
           width={500}
-          height={300}
+          height={500}
           data={data}
           margin={{
-            top: 5,
+            top: 30,
             right: 30,
             left: 20,
             bottom: 5,
           }}
         >
-          <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis />
+          <YAxis tickFormatter={yAxisFormatter} />
           <Tooltip />
           <Legend />
           <Line
