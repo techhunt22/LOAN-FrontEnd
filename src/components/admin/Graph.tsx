@@ -141,7 +141,8 @@ export default class Example extends PureComponent {
           <Line
             type="monotone"
             dataKey="pv"
-            stroke="#8884d8"
+            stroke="#085ABB78"
+            strokeWidth={3}
             dot={<CustomizedDot />}
           />
         </LineChart>
