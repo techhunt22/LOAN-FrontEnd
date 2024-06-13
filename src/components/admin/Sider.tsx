@@ -8,8 +8,9 @@ import { useState } from "react";
 
 function Sider(){
 
-    const [hidden,setHidden]=useState(false) 
+    const [hidden,setHidden]=useState(true) 
     const setMobileSider = ()=>{
+        console.log('side',hidden)
         setHidden(!hidden)
     }
 
@@ -37,14 +38,14 @@ function Sider(){
         </div>
 
         <button className=' xl:hidden     absolute top-10 text-xl left-2'>
-<AlignCenterOutlined   onClick={setMobileSider}/>
+            <AlignCenterOutlined   onClick={setMobileSider}/>
         </button>
        
         
 
        
 
-        <div className={`mobile-sider ${hidden? "hidden" : "fixed"}  w-[70%] sm:w-[40%] min-h-screen xl:hidden flex flex-col  gap-[140px] items-center pt-10 top-0 left-[0px] bg-white border-r-[1px] border-black`}>
+        <div className={`mobile-sider ${hidden? "hidden" : "fixed"}  w-[70%] sm:w-[40%] min-h-screen xl:hidden flex flex-col z-40 gap-[140px] items-center pt-10 top-0 left-[0px] bg-white border-r-[1px] border-black`}>
         <button className='      absolute top-2 text-xl left-2'>
             <AlignCenterOutlined   onClick={setMobileSider}/>
         </button>

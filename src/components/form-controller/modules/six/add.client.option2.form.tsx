@@ -22,10 +22,10 @@ import { useState } from "react";
 import Winning from "@/components/admin/Progress";
 
 export const AddClientOption2Form = () => {
-  const [hidden, setHidden] = useState(false);
-  const [hiddden, setHiddden] = useState(false);
-  const [hidddden, setHidddden] = useState(false);
-  const [sidebar, setSidebar] = useState(false);
+  const [hidden, setHidden] = useState(true);
+  const [hiddden, setHiddden] = useState(true);
+  const [hidddden, setHidddden] = useState(true);
+  const [sidebar, setSidebar] = useState(true);
 
   const items: MenuProps["items"] = [
     {
@@ -46,28 +46,29 @@ export const AddClientOption2Form = () => {
 
   return (
     <>
-      <section className="w-full h-full pt-10 relative">
-        <div className="w-full h-max py-2 flex-col xl:flex-row flex items-center justify-between px-3">
+      <section className="w-full h-full mt-20 relative flex flex-col items-center xl:block">
+        <div className="w-full  mt-12 xl:mt-0 h-max py-2 flex-col xl:flex-row flex items-center justify-between px-3">
           <h1 className="text-[#686666] font-bold text-[50px]">
             Active Disputes
           </h1>
           <div className=" w-full xl:w-[50%]  h-max py-2   flex items-center justify-evenly xl:justify-start gap-4">
-            <button className="w-[100px] xl:w-[150px] h-[50px] border-[#737373] border-[1px] rounded-full">
+            <button className="w-[100px] sm:w-[120px] md:w-[130px] xl:w-[150px] h-[50px] border-[#737373] border-[1px] rounded-full">
               Sort By Filter <FilterOutlined className="text-[#1380FF]" />{" "}
             </button>
             <div className="flex items-center gap-2">
               <SearchOutlined className="text-[#2D264B]" />
               <input
                 type="text"
-                className="outline-none xl:w-[150px] w-[100px]"
+                className="outline-none xl:w-[150px] w-[100px]  sm:w-[120px] md:w-[130px] "
                 placeholder="Search"
               />
-              <button className="text-white bg-gradient-to-b from-[#1380FF] to-[#8ECAE6] w-[80px] xl:w-[130px] h-[50px] rounded-full">
+              <button className="text-white bg-gradient-to-b from-[#1380FF] to-[#8ECAE6] w-[80px]  sm:w-[100px] md:w-[130px]   xl:w-[130px] h-[50px] rounded-full">
                 Find Disputes
               </button>
             </div>
           </div>
         </div>
+
         <div className="w-full h-max   py-2 flex gap-4 items-center justify-center xl:justify-start flex-wrap px-4 ">
           <Card />
           <Card />
@@ -75,7 +76,7 @@ export const AddClientOption2Form = () => {
         </div>
 
         <button
-          className="xl:hidden block ml-[50%] font-bold w-[200px] h-[40px] rounded-full bg-[#1380ff] text-white "
+          className="xl:hidden block font-bold w-[200px] h-[40px] rounded-full bg-[#1380ff] text-white "
           onClick={() => {
             setSidebar(!sidebar);
           }}
@@ -85,7 +86,8 @@ export const AddClientOption2Form = () => {
 
         <div className="w-full h-full flex mt-10">
           <div className="div1 w-full lg:w-[70%] h-full  flex flex-col items-center">
-            <div className="graph w-[80%] overflow-x-auto overflow-y-hidden h-[600px] rounded-xl bg-white shadow-md ">
+
+            <div className="graph w-full xl:w-[70%]  overflow-x-auto    overflow-y-hidden h-[600px] rounded-xl bg-white shadow-md ">
               <Graph />
             </div>
 
@@ -122,14 +124,14 @@ export const AddClientOption2Form = () => {
                   missvanniel@gmail.com
                 </p>
               </div>
-              <div className="progress w-[50%] h-[100px] flex items-center gap-4 ">
+              <div className="progress w-[50%] justify-center h-[100px] flex items-center gap-4 ">
                 <Winning />
 
                 <Winning />
                 <Winning />
               </div>
 
-              <div className="w-[25%] flex items-center h-max py-2 gap-2">
+              <div className="w-[25%] flex items-center justify-center h-max py-2 gap-4">
                 <div className="flex flex-col items-center gap-2">
                   <button className="w-[50px] h-[50px] rounded-lg bg-[#FFCC00] text-white">
                     <SearchOutlined className="text-xl" />
@@ -149,7 +151,8 @@ export const AddClientOption2Form = () => {
                 </div>
               </div>
 
-              <div className="w-[80%] h-max py-2 flex flex-col xl:flex-row items-center gap-8">
+
+              <div className="w-[80%] h-max py-2 flex flex-col xl:flex-row items-center  gap-8">
                 <div className="flex flex-col items-center gap-2">
                   <p className="text-[#333333] font-bold ">Reason</p>
                   <div className="w-[100px] h-[1px] bg-[#a3a3a3]" />
@@ -217,9 +220,12 @@ export const AddClientOption2Form = () => {
                 </div>
               </div>
 
-              <div className="w-[80%] h-[66px] mt-2 flex flex-col overflow-x-auto overflow-y-hidden">
-                <div className="bg-gradient-to-r from-blue-300 to-blue-400 w-[4px] h-[66px]" />
-                <div className="w-full h-full bg-[#33333305] flex items-center justify-between gap-8">
+
+
+              <div className="w-[80%]  h-[100px] py-2 mt-2 flex items-center overflow-x-auto overflow-y-hidden">
+                <div className="bg-gradient-to-r from-blue-300 to-blue-400 w-[4px] h-[100px]" />
+
+                <div className="w-full h-full py-2 bg-[#33333305] flex items-center justify-between gap-8">
                   <FieldTimeOutlined className="text-[#1380ff] self-end text-xl mb-2 ml-2" />
 
                   <div className="w-full h-full flex items-center gap-12 px-2">
@@ -267,7 +273,10 @@ export const AddClientOption2Form = () => {
                       <PlusCircleOutlined />
                     </button>
                   </div>
+              
                 </div>
+
+
               </div>
 
               <div
@@ -275,18 +284,19 @@ export const AddClientOption2Form = () => {
                   hidden ? "hidden" : "flex"
                 } items-center justify-center gap-4 overflow-x-auto overflow-y-hidden`}
               >
-                <button className="flex flex-col items-center justify-between gap-2 text-[#a7a9ac] border-[2px] rounded-md w-[200px] h-[50px]">
+                <button className="flex flex-col items-center justify-between gap-1 text-[#a7a9ac] border-[2px] rounded-md w-[200px] h-[60px]">
                   {" "}
                   <EyeInvisibleOutlined /> Preview
                 </button>
-                <button className="flex flex-col bg-[#1380ff] text-white items-center justify-between gap-2 rounded-md w-[200px] h-[50px]">
+                <button className="flex flex-col bg-[#1380ff] text-white items-center justify-between gap-1 rounded-md w-[200px] h-[60px]">
                   <CheckCircleOutlined />
                   Mark as Done
                 </button>
               </div>
 
-              <div className="w-[80%] h-[66px] mt-2 flex flex-col overflow-x-auto overflow-y-hidden">
-                <div className="bg-gradient-to-r from-blue-300 to-blue-400 w-[4px] h-[66px]" />
+
+              <div className="w-[80%]  h-[100px] py-2 mt-2 flex items-center overflow-x-auto overflow-y-hidden">
+                <div className="bg-gradient-to-r from-blue-300 to-blue-400 w-[4px] h-[80px]" />
                 <div className="w-full h-full bg-[#33333305] flex items-center justify-between gap-8">
                   <FieldTimeOutlined className="text-[#1380ff] self-end text-xl mb-2 ml-2" />
 
@@ -335,6 +345,7 @@ export const AddClientOption2Form = () => {
                       <PlusCircleOutlined />
                     </button>
                   </div>
+              
                 </div>
               </div>
 
@@ -343,18 +354,20 @@ export const AddClientOption2Form = () => {
                   hiddden ? "hidden" : "flex"
                 } items-center justify-center gap-4 overflow-x-auto overflow-y-hidden`}
               >
-                <button className="flex flex-col items-center justify-between gap-2 text-[#a7a9ac] border-[2px] rounded-md w-[200px] h-[50px]">
+                <button className="flex flex-col items-center justify-between gap-1 text-[#a7a9ac] border-[2px] rounded-md w-[200px] h-[60px]">
                   {" "}
                   <EyeInvisibleOutlined /> Preview
                 </button>
-                <button className="flex flex-col bg-[#1380ff] text-white items-center justify-between gap-2 rounded-md w-[200px] h-[50px]">
+                <button className="flex flex-col bg-[#1380ff] text-white items-center justify-between gap-1 rounded-md w-[200px] h-[60px]">
                   <CheckCircleOutlined />
                   Mark as Done
                 </button>
               </div>
 
-              <div className="w-[80%] h-[66px] mt-2 flex flex-col overflow-x-auto overflow-y-hidden">
-                <div className="bg-gradient-to-r from-blue-300 to-blue-400 w-[4px] h-[66px]" />
+
+
+              <div className="w-[80%]  h-[100px] py-2 mt-2 flex items-center overflow-x-auto overflow-y-hidden">
+                <div className="bg-gradient-to-r from-blue-300 to-blue-400 w-[4px] h-[80px]" />
                 <div className="w-full h-full bg-[#33333305] flex items-center justify-between gap-8">
                   <FieldTimeOutlined className="text-[#1380ff] self-end text-xl mb-2 ml-2" />
 
@@ -403,6 +416,7 @@ export const AddClientOption2Form = () => {
                       <PlusCircleOutlined />
                     </button>
                   </div>
+              
                 </div>
               </div>
 
@@ -411,15 +425,29 @@ export const AddClientOption2Form = () => {
                   hidddden ? "hidden" : "flex"
                 } items-center justify-center gap-4 overflow-x-auto overflow-y-hidden`}
               >
-                <button className="flex flex-col items-center justify-between gap-2 text-[#a7a9ac] border-[2px] rounded-md w-[200px] h-[50px]">
+                <button className="flex flex-col items-center justify-between gap-1 text-[#a7a9ac] border-[2px] rounded-md w-[200px] h-[60px]">
                   {" "}
                   <EyeInvisibleOutlined /> Preview
                 </button>
-                <button className="flex flex-col bg-[#1380ff] text-white items-center justify-between gap-2 rounded-md w-[200px] h-[50px]">
+                <button className="flex flex-col bg-[#1380ff] text-white items-center justify-between gap-1 rounded-md w-[200px] h-[60px]">
                   <CheckCircleOutlined />
                   Mark as Done
                 </button>
               </div>
+
+
+
+
+           
+           
+ 
+
+
+
+
+
+
+
             </div>
           </div>
 
@@ -519,13 +547,28 @@ export const AddClientOption2Form = () => {
             </div>
           </div>
         </div>
+
+
+
+
+
+
+
+
+
+
       </section>
+
+
       <div
         className={`w-[80%] bg-white h-full ${
-          sidebar ? "absolute" : "hidden"
-        } top-2 right-1`}
+          sidebar ? "hidden" : "absolute"
+        } top-2 right-1 pt-10`}
       >
-        <div className="div2 w-[30%]  h-max py-2 gap-4 xl:flex hidden items-center justify-start pt-10 flex-col">
+        <button onClick={()=>{setSidebar(!sidebar)}}>
+          <BarsOutlined className="text-xl"/>
+        </button>
+        <div className="div2 w-full  h-max py-2 gap-4 flex  items-center justify-start pt-10 flex-col">
           <div className="w-[80%] h-[400px] bg-white rounded-lg shadow-md flex gap-8 pt-4 flex-col  items-center ml-3">
             <h1 className="text-[#000000] text-[20px]">Recent Activity</h1>
 
@@ -620,6 +663,7 @@ export const AddClientOption2Form = () => {
             </div>
           </div>
         </div>
+       
       </div>
     </>
   );
