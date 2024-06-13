@@ -6,7 +6,7 @@ import { Flex, Progress } from "antd";
 // @ts-ignore
 import type { MenuProps } from "antd";
 import { Button, Dropdown, Space } from "antd";
-import { BarcodeOutlined, SearchOutlined } from "@ant-design/icons";
+import { DownCircleOutlined , SearchOutlined } from "@ant-design/icons";
 import { FilterOutlined } from "@ant-design/icons";
 import { FieldTimeOutlined } from "@ant-design/icons";
 import { SortAscendingOutlined } from "@ant-design/icons";
@@ -17,6 +17,7 @@ import { SmallDashOutlined } from "@ant-design/icons";
 import { EyeInvisibleOutlined } from "@ant-design/icons";
 import { CheckCircleOutlined } from "@ant-design/icons";
 import { BarsOutlined } from "@ant-design/icons";
+
 import Graph from "@/components/admin/Graph";
 import { useState } from "react";
 import Winning from "@/components/admin/Progress";
@@ -26,6 +27,7 @@ export const AddClientOption2Form = () => {
   const [hiddden, setHiddden] = useState(true);
   const [hidddden, setHidddden] = useState(true);
   const [sidebar, setSidebar] = useState(true);
+  const [sort, setSort] = useState(true);
 
   const items: MenuProps["items"] = [
     {
@@ -43,6 +45,7 @@ export const AddClientOption2Form = () => {
       ),
     },
   ];
+
 
   return (
     <>
@@ -84,11 +87,11 @@ export const AddClientOption2Form = () => {
           See Upcoming Tasks
         </button>
 
-        <div className="w-full h-full flex mt-10">
+        <div className="w-full h-full flex  items-center justify-center  mt-10">
           <div className="div1 w-full lg:w-[70%] h-full  flex flex-col items-center">
 
-            <div className="graph  w-[70%] overflow-x-auto    flex flex-col items-center justify-center overflow-y-hidden h-[600px] rounded-xl bg-white shadow-md ">
-              <div className="w-[600px] h-[600px] overflow-x-auto overflow-y-hidden flex flex-col items-center justify-center gap-10">
+            <div className="graph w-full  sm:w-[70%] overflow-x-auto    flex flex-col items-center justify-center overflow-y-hidden h-[600px] rounded-xl bg-white shadow-md ">
+              <div className="w-[600px] h-[600px] pl-36 sm:pl-20 md:pl-10 xl:pl-0 overflow-x-auto overflow-y-hidden flex flex-col items-center justify-center gap-10">
                
                 <div className="w-full flex items-center justify-between px-2 ">
                  <div className="flex flex-col ">
@@ -108,22 +111,70 @@ export const AddClientOption2Form = () => {
               </div>
             </div>
 
-            <div className="w-[80%] h-max py-2 mt-10 flex items-center justify-between">
+            <div className="w-[80%]  h-max py-2 mt-10 flex items-center justify-between">
               <h1 className="text-[20px] text-[#333333] font-semibold">
                 Report
               </h1>
-              <div className="relative flex items-center">
-                <select
-                  name="sort"
-                  id="s"
-                  className="w-[200px] h-[40px] rounded-full bg-[#f4f4f4]"
-                >
-                  <option value="">Sort By</option>
-                </select>
-                <span className="absolute right-0 top-0 bottom-0 flex items-center pr-3 text-[16px] text-[#737373] font-light">
+            
+
+
+            <div className="w-max h-max relative">
+            <button
+                onClick={()=>{setSort(!sort)}}
+                  className="w-[200px] h-[40px]  relative rounded-full flex items-center justify-center gap-4 px-2 bg-[#f4f4f4]">
+                <DownCircleOutlined/>
+                  Sort By
                   <SortAscendingOutlined className="text-[#1380ff] mr-4" />
-                </span>
-              </div>
+                </button>
+
+
+            <div className={`absolute ${sort?'hidden':'flex'} flex-col pt-2 gap-2 items-center top-10 rounded-2xl w-[200px] h-[300px] bg-white shadow-sm`}>
+                    <div className="flex flex-col items-start gap-2">
+                    <div className="flex gap-2 text-[14px] text-[#686666]">
+                      <input type="checkbox" name="chck" id="1" />
+                      <p>Newest</p>
+                    </div>
+                    <div className="flex gap-3 text-[14px] text-[#686666]">
+                      <input type="checkbox" name="chck" id="1" />
+                      <p>Older</p>
+                    </div>
+                    <p className="text-[#A3A3A3] text-[10px]">According To Credit Score</p>
+                    <div className="flex gap-2 text-[14px] text-[#686666]">
+                      <input type="checkbox" name="chck" id="1" />
+                      <p>200-500</p>
+                    </div>
+                    <div className="flex gap-2 text-[14px] text-[#686666]">
+                      <input type="checkbox" name="chck" id="1" />
+                      <p>600-1000</p>
+                    </div>
+                    <p className="text-[#A3A3A3] text-[10px]">According To Letter Disputes</p>
+                    <div className="flex gap-2 text-[14px] text-[#686666]">
+                      <input type="checkbox" name="chck" id="1" />
+                      <p>Created</p>
+                    </div>
+                    <div className="flex gap-4 text-[14px] text-[#686666]">
+                      <input type="checkbox" name="chck" id="1" />
+                      <p>Sent</p>
+                    </div>
+                    <div className="flex gap-2 text-[14px] text-[#686666]">
+                      <input type="checkbox" name="chck" id="1" />
+                      <p>Completed</p>
+                    </div>
+
+
+
+                    </div>
+                    <div className="flex gap-2">
+                      <button className="text-[#CFCFCF]">Clear</button>
+                      <button className="bg-green-400  text-white rounded-full w-[95px] h-[30px]">Apply Filter</button>
+                    </div>
+
+                </div>
+            </div>
+              
+               
+                
+            
             </div>
 
             <div className="w-[80%] h-max py-2 flex flex-col mt-1 gap-4 items-center bg-white rounded-lg shadow-md">
@@ -469,7 +520,7 @@ export const AddClientOption2Form = () => {
           </div>
 
           <div className="div2 w-[30%]  h-max py-2 gap-4 xl:flex hidden items-center justify-start pt-10 flex-col">
-            <div className="w-[80%] h-[400px] bg-white rounded-lg shadow-md flex gap-8 pt-4 flex-col  items-center ml-3">
+            <div className="w-[60%] h-[400px] bg-white rounded-lg shadow-md flex gap-8 pt-4 flex-col  items-center ml-3">
               <h1 className="text-[#000000] text-[20px]">Recent Activity</h1>
 
               <div className="w-full h-max flex items-center justify-center gap-4 ">
@@ -503,7 +554,7 @@ export const AddClientOption2Form = () => {
               </div>
             </div>
 
-            <div className="w-[80%] h-[400px] bg-white rounded-lg shadow-md flex gap-8 pt-4 flex-col  items-center ml-3">
+            <div className="w-[60%] h-[400px] bg-white rounded-lg shadow-md flex gap-8 pt-4 flex-col  items-center  justify-start ml-3">
               <div className="flex items-center w-full h-max justify-between px-4">
                 <p className="text-[#161616] text-[15px]">Upcoming Tasks</p>
                 <button className="border-[1px] border-[#161616] rounded-lg w-[85px] h-[34px]">
