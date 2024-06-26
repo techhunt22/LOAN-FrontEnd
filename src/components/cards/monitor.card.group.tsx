@@ -13,16 +13,17 @@ interface MonitorCardGroupProps {
 
 export const MonitorCardGroup: React.FC<MonitorCardGroupProps> = (props) => {
   const cardNumber = props.paymentContents.length;
+  const rows = [];
 
-  const arr = [];
-  for (let i = 0; i < cardNumber / 3; i++) {
-    arr.push(
-      <div className="flex flex-row w-full gap-4 justify-center monitorCard">
-        <MonitorCard paymentContents1={props.paymentContents[3 * i]} />
-        <MonitorCard paymentContents1={props.paymentContents[3 * i + 1]} />
-        <MonitorCard paymentContents1={props.paymentContents[3 * i + 2]} />
+  for (let i = 0; i < cardNumber; i += 3) {
+    rows.push(
+      <div key={`row-${i}`} className="flex flex-row w-full gap-4 justify-center monitorCard">
+        {props.paymentContents[i] && <MonitorCard key={`card-${i}`} paymentContents1={props.paymentContents[i]} />}
+        {props.paymentContents[i + 1] && <MonitorCard key={`card-${i + 1}`} paymentContents1={props.paymentContents[i + 1]} />}
+        {props.paymentContents[i + 2] && <MonitorCard key={`card-${i + 2}`} paymentContents1={props.paymentContents[i + 2]} />}
       </div>
     );
   }
-  return arr;
+
+  return <>{rows}</>;
 };

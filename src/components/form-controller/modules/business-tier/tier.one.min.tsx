@@ -24,10 +24,10 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 // @ts-ignore
 import useForm from "new-react-use-form";
-import video from "@/video/step3.mp4"
+import video from "@/video/step3.mp4";
 
 const headerContent = {
-  step: "STPE3",
+  step: "STEP 3",
   title: "Start Building",
   subTitle: "TIER1",
 };
@@ -181,6 +181,234 @@ const monitorCardGroup = [
       },
     ],
   },
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/ceo.png",
+    contents: [
+      {
+        record: "Equifax",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "No Personal Guarantee Required",
+      },
+      {
+        record: "Net will be only $30",
+      },
+    ],
+  },
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/wex.png",
+    contents: [
+      {
+        record: "D&B and Experian and Equifax",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: " Personal Guarantee Required",
+      },
+      {
+        record: "Net will be only $15,$22 or revolving ",
+      },
+    ],
+  },
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/Marathon - jpeg.png",
+    contents: [
+      {
+        record: "D&B and Experian and Equifax",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: " Personal Guarantee Required",
+      },
+      {
+        record: "Net will be only $15",
+      },
+    ],
+  },
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/Group.png",
+    contents: [
+      {
+        record: "D&B and Experian and Equifax",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: " Personal Guarantee Required",
+      },
+      {
+        record: "Net will be only $15",
+      },
+    ],
+  },
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/Vector.png",
+    contents: [
+      {
+        record: "D&B ",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: " Personal Guarantee Required",
+      },
+      {
+        record: "Net will be revolving",
+      },
+    ],
+  },
+  {
+    price: "100",
+    recommeded: true,
+    icon: "/monitor/creative analysis logo.png",
+    contents: [
+      {
+        record: "Equifax ",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "No Personal Guarantee Required",
+      },
+      {
+        record: "Net will be $30",
+      },
+    ],
+  },
+  {
+    price: "65",
+    recommeded: true,
+    icon: "/monitor/advance auto logo.png",
+    contents: [
+      {
+        record: "D&B ",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "No Personal Guarantee Required",
+      },
+      {
+        record: "Net will be $30 OR $7 ",
+      },
+    ],
+  },
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/Pilot Flying J  svg.png",
+    contents: [
+      {
+        record: "D&B ",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "No Personal Guarantee Required",
+      },
+      {
+        record: "Net will be $1",
+      },
+    ],
+  },
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/g12.png",
+    contents: [
+      {
+        record: "D&B ",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: " Personal Guarantee Required",
+      },
+      {
+        record: "Net will be upto revolving",
+      },
+    ],
+  },
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/KeyBank svg.png",
+    contents: [
+      {
+        record: "Experian and Equifax ",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: " Personal Guarantee Required",
+      },
+      {
+        record: "Net will be upto revolving",
+      },
+    ],
+  },
+  {
+    price: "80",
+    recommeded: true,
+    icon: "/monitor/FireShot Capture 169 - Step 3 – Start Building_ Tier 1 – SuiteLogin.com - suitelogin 1.png",
+    contents: [
+      {
+        record: "D&B and Equifax ",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "No Personal Guarantee Required",
+      },
+      {
+        record: "Net will be $30",
+      },
+    ],
+  },
+  {
+    price: "80",
+    recommeded: true,
+    icon: "/monitor/documentRent ..png",
+    contents: [
+      {
+        record: "D&B   ",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "No Personal Guarantee Required",
+      },
+      {
+        record: "Net will be $30",
+      },
+    ],
+  },
 ];
 
 const videoContent = {
@@ -189,7 +417,6 @@ const videoContent = {
   content: "START BUILDING",
   src: video,
 };
-
 
 interface Option {
   label: string;
@@ -264,12 +491,11 @@ export const TierOneMin = () => {
               </div>
 
               <VideoCard
-              title={videoContent.title}
-              videoUrl={videoContent.videoUrl}
-              content={videoContent.content}
-              src={videoContent.src}
-                  />
-
+                title={videoContent.title}
+                videoUrl={videoContent.videoUrl}
+                content={videoContent.content}
+                src={videoContent.src}
+              />
 
               {/* blog section */}
               <div className="flex w-[90%] my-12 business-page-banner-bg-color">
@@ -330,12 +556,22 @@ export const TierOneMin = () => {
             }}
             className="flex w-[95%] gap-12  content-center text-center tier-mobile-button"
           >
-            <button className="flex text-white text-2xl px-5 py-4 rounded-3xl"style={{background: 'linear-gradient(94.55deg, #1380FF -9.18%, #9FC9EB 104.32%)',
-}} >
+            <button
+              className="flex text-white text-2xl px-5 py-4 rounded-3xl"
+              style={{
+                background:
+                  "linear-gradient(94.55deg, #1380FF -9.18%, #9FC9EB 104.32%)",
+              }}
+            >
               APPROVED ACCOUNT
             </button>
-            <button className="flex  text-white text-2xl px-5 py-4 rounded-3xl" style={{background: 'linear-gradient(90deg, #EB6B7A 0%, rgba(251, 111, 146, 0.76) 103.62%)',
-}}>
+            <button
+              className="flex  text-white text-2xl px-5 py-4 rounded-3xl"
+              style={{
+                background:
+                  "linear-gradient(90deg, #EB6B7A 0%, rgba(251, 111, 146, 0.76) 103.62%)",
+              }}
+            >
               DENED ACCOUNT
             </button>
           </div>

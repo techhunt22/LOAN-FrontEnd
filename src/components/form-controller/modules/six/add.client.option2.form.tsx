@@ -6,7 +6,7 @@ import { Flex, Progress } from "antd";
 // @ts-ignore
 import type { MenuProps } from "antd";
 import { Button, Dropdown, Space } from "antd";
-import { DownCircleOutlined , SearchOutlined } from "@ant-design/icons";
+import { DownCircleOutlined, SearchOutlined } from "@ant-design/icons";
 import { FilterOutlined } from "@ant-design/icons";
 import { FieldTimeOutlined } from "@ant-design/icons";
 import { SortAscendingOutlined } from "@ant-design/icons";
@@ -17,7 +17,6 @@ import { SmallDashOutlined } from "@ant-design/icons";
 import { EyeInvisibleOutlined } from "@ant-design/icons";
 import { CheckCircleOutlined } from "@ant-design/icons";
 import { BarsOutlined } from "@ant-design/icons";
-
 import Graph from "@/components/admin/Graph";
 import { useState } from "react";
 import Winning from "@/components/admin/Progress";
@@ -45,7 +44,6 @@ export const AddClientOption2Form = () => {
       ),
     },
   ];
-
 
   return (
     <>
@@ -89,25 +87,23 @@ export const AddClientOption2Form = () => {
 
         <div className="w-full h-full flex  items-start  mt-10">
           <div className="div1  w-full lg:w-[70%] h-full  flex flex-col items-center">
-
             <div className="graph w-full  sm:w-[70%] overflow-x-auto    flex flex-col items-center justify-center overflow-y-hidden h-[600px] rounded-xl bg-white shadow-md ">
               <div className="w-[600px] h-[600px] pl-36 sm:pl-20 md:pl-10 xl:pl-0 overflow-x-auto overflow-y-hidden flex flex-col items-center justify-center gap-10">
-               
                 <div className="w-full flex items-center justify-between px-2 ">
-                 <div className="flex flex-col ">
-                 <h1 className="text-[#333333] text-[24px]">Letter Progress</h1>
-                 <p className="text-[#A3A3A3] text-[10px]">On going...</p>
-                 </div>
+                  <div className="flex flex-col ">
+                    <h1 className="text-[#333333] text-[24px]">
+                      Letter Progress
+                    </h1>
+                    <p className="text-[#A3A3A3] text-[10px]">On going...</p>
+                  </div>
                   <button className="w-[200px] h-[40px] bg-[#EEEEEE42] rounded-full">
                     This Month
                   </button>
                 </div>
 
-               <div className="w-full h-full">
-                 
-              <Graph />
-                </div> 
-
+                <div className="w-full h-full">
+                  <Graph />
+                </div>
               </div>
             </div>
 
@@ -115,21 +111,25 @@ export const AddClientOption2Form = () => {
               <h1 className="text-[20px] text-[#333333] font-semibold">
                 Report
               </h1>
-            
 
-
-            <div className="w-max h-max relative">
-            <button
-                onClick={()=>{setSort(!sort)}}
-                  className="w-[200px] h-[40px]  relative rounded-full flex items-center justify-center gap-4 px-2 bg-[#f4f4f4]">
-                <DownCircleOutlined/>
+              <div className="w-max h-max relative">
+                <button
+                  onClick={() => {
+                    setSort(!sort);
+                  }}
+                  className="w-[200px] h-[40px]  relative rounded-full flex items-center justify-center gap-4 px-2 bg-[#f4f4f4]"
+                >
+                  <DownCircleOutlined />
                   Sort By
                   <SortAscendingOutlined className="text-[#1380ff] mr-4" />
                 </button>
 
-
-            <div className={`absolute ${sort?'hidden':'flex'} flex-col pt-2 gap-2 items-center top-10 rounded-2xl w-[200px] h-[300px] bg-white shadow-sm`}>
-                    <div className="flex flex-col items-start gap-2">
+                <div
+                  className={`absolute ${
+                    sort ? "hidden" : "flex"
+                  } flex-col pt-2 gap-2 items-center top-10 rounded-2xl w-[200px] h-[300px] bg-white shadow-sm`}
+                >
+                  <div className="flex flex-col items-start gap-2">
                     <div className="flex gap-2 text-[14px] text-[#686666]">
                       <input type="checkbox" name="chck" id="1" />
                       <p>Newest</p>
@@ -138,7 +138,9 @@ export const AddClientOption2Form = () => {
                       <input type="checkbox" name="chck" id="1" />
                       <p>Older</p>
                     </div>
-                    <p className="text-[#A3A3A3] text-[10px]">According To Credit Score</p>
+                    <p className="text-[#A3A3A3] text-[10px]">
+                      According To Credit Score
+                    </p>
                     <div className="flex gap-2 text-[14px] text-[#686666]">
                       <input type="checkbox" name="chck" id="1" />
                       <p>200-500</p>
@@ -147,7 +149,9 @@ export const AddClientOption2Form = () => {
                       <input type="checkbox" name="chck" id="1" />
                       <p>600-1000</p>
                     </div>
-                    <p className="text-[#A3A3A3] text-[10px]">According To Letter Disputes</p>
+                    <p className="text-[#A3A3A3] text-[10px]">
+                      According To Letter Disputes
+                    </p>
                     <div className="flex gap-2 text-[14px] text-[#686666]">
                       <input type="checkbox" name="chck" id="1" />
                       <p>Created</p>
@@ -160,21 +164,15 @@ export const AddClientOption2Form = () => {
                       <input type="checkbox" name="chck" id="1" />
                       <p>Completed</p>
                     </div>
-
-
-
-                    </div>
-                    <div className="flex gap-2">
-                      <button className="text-[#CFCFCF]">Clear</button>
-                      <button className="bg-green-400  text-white rounded-full w-[95px] h-[30px]">Apply Filter</button>
-                    </div>
-
+                  </div>
+                  <div className="flex gap-2">
+                    <button className="text-[#CFCFCF]">Clear</button>
+                    <button className="bg-green-400  text-white rounded-full w-[95px] h-[30px]">
+                      Apply Filter
+                    </button>
+                  </div>
                 </div>
-            </div>
-              
-               
-                
-            
+              </div>
             </div>
 
             <div className="w-[80%] h-max py-2 flex flex-col mt-1 gap-4 items-center bg-white rounded-lg shadow-md">
@@ -218,7 +216,6 @@ export const AddClientOption2Form = () => {
                   </p>
                 </div>
               </div>
-
 
               <div className="w-[80%] h-max py-2 flex flex-col xl:flex-row items-center  gap-8">
                 <div className="flex flex-col items-center gap-2">
@@ -288,8 +285,6 @@ export const AddClientOption2Form = () => {
                 </div>
               </div>
 
-
-
               <div className="w-[80%]  h-[100px] py-2 mt-2 flex items-center overflow-x-auto overflow-y-hidden">
                 <div className="bg-gradient-to-r from-blue-300 to-blue-400 w-[4px] h-[100px]" />
 
@@ -341,10 +336,7 @@ export const AddClientOption2Form = () => {
                       <PlusCircleOutlined />
                     </button>
                   </div>
-              
                 </div>
-
-
               </div>
 
               <div
@@ -361,7 +353,6 @@ export const AddClientOption2Form = () => {
                   Mark as Done
                 </button>
               </div>
-
 
               <div className="w-[80%]  h-[100px] py-2 mt-2 flex items-center overflow-x-auto overflow-y-hidden">
                 <div className="bg-gradient-to-r from-blue-300 to-blue-400 w-[4px] h-[80px]" />
@@ -413,7 +404,6 @@ export const AddClientOption2Form = () => {
                       <PlusCircleOutlined />
                     </button>
                   </div>
-              
                 </div>
               </div>
 
@@ -431,8 +421,6 @@ export const AddClientOption2Form = () => {
                   Mark as Done
                 </button>
               </div>
-
-
 
               <div className="w-[80%]  h-[100px] py-2 mt-2 flex items-center overflow-x-auto overflow-y-hidden">
                 <div className="bg-gradient-to-r from-blue-300 to-blue-400 w-[4px] h-[80px]" />
@@ -484,7 +472,6 @@ export const AddClientOption2Form = () => {
                       <PlusCircleOutlined />
                     </button>
                   </div>
-              
                 </div>
               </div>
 
@@ -502,20 +489,6 @@ export const AddClientOption2Form = () => {
                   Mark as Done
                 </button>
               </div>
-
-
-
-
-           
-           
- 
-
-
-
-
-
-
-
             </div>
           </div>
 
@@ -614,30 +587,20 @@ export const AddClientOption2Form = () => {
               </div>
             </div>
           </div>
-       
-       
-       
         </div>
-
-
-
-
-
-
-
-
-
-
       </section>
-
 
       <div
         className={`w-[80%] bg-white h-max ${
           sidebar ? "hidden" : "absolute"
         } top-2 right-1 pt-6`}
       >
-        <button onClick={()=>{setSidebar(!sidebar)}}>
-          <BarsOutlined className="text-xl"/>
+        <button
+          onClick={() => {
+            setSidebar(!sidebar);
+          }}
+        >
+          <BarsOutlined className="text-xl" />
         </button>
         <div className="div2 w-full  h-max py-2 gap-4 flex  items-center justify-start pt-10 flex-col">
           <div className="w-[80%] h-[400px] bg-white rounded-lg shadow-md flex gap-8 pt-4 flex-col  items-center ml-3">
@@ -734,7 +697,6 @@ export const AddClientOption2Form = () => {
             </div>
           </div>
         </div>
-       
       </div>
     </>
   );
