@@ -80,95 +80,88 @@ export const AddClientOptionTwoForm = () => {
           </button>
         </div>
 
-
-          <div className="w-[300px] sm:w-[500px] md:w-[700px] lg:w-[800px] xl:w-full h-[800px] overflow-x-auto overflow-y-auto">
+        <div className="w-[300px] sm:w-[500px] md:w-[700px] lg:w-[800px] xl:w-full h-[800px] overflow-x-auto overflow-y-auto">
           <div className="w-[1200px] xl:w-[95%]  border-[1px] h-[800px]  ">
-          <div className="w-full h-12 bg-[#F4F4F4] rounded-2xl">
-            <div className="w-full h-full flex items-center rounded-xl text-left px-2 text-[8px] xl:text-[10px] text-[#333333] overflow-y-auto ">
-              <div className="w-[13%] h-[12px] border-r-2 border-l-2 border-gray-500 gap-6 flex items-center justify-center">
-                <input type="checkbox" name="chck" id="check" />
-                <p>USERS</p>
+            <div className="w-full h-12 bg-[#F4F4F4] rounded-2xl">
+              <div className="w-full h-full flex items-center rounded-xl text-left px-2 text-[8px] xl:text-[10px] text-[#333333] overflow-y-auto ">
+                <div className="w-[13%] h-[12px] border-r-2 border-l-2 border-gray-500 gap-6 flex items-center justify-center">
+                  <input type="checkbox" name="chck" id="check" />
+                  <p>USERS</p>
+                </div>
+                <div className="w-[13%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
+                  <p>EMAIL</p>
+                </div>
+                <div className="w-[10%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
+                  <p>PASSWORDS</p>
+                </div>
+                <div className="w-[12%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
+                  <p>PHONE NUMBER</p>
+                </div>
+                <div className="w-[10%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
+                  <p>CITY</p>
+                </div>
+                <div className="w-[10%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
+                  <p>STATE</p>
+                </div>
+                <div className="w-[10%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
+                  <p>ZIP CODE</p>
+                </div>
+                <div className="w-[10%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
+                  <p>SS NUMBER</p>
+                </div>
+                <div className="w-[10%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
+                  <p>ACTION REQUIRED</p>
+                </div>
               </div>
-              <div className="w-[13%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
-                <p>EMAIL</p>
-              </div>
-              <div className="w-[10%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
-                <p>PASSWORDS</p>
-              </div>
-              <div className="w-[12%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
-                <p>PHONE NUMBER</p>
-              </div>
-              <div className="w-[10%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
-                <p>CITY</p>
-              </div>
-              <div className="w-[10%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
-                <p>STATE</p>
-              </div>
-              <div className="w-[10%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
-                <p>ZIP CODE</p>
-              </div>
-              <div className="w-[10%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
-                <p>SS NUMBER</p>
-              </div>
-              <div className="w-[10%] h-[12px] border-r-2 border-l-2 border-gray-500 flex items-center justify-center">
-                <p>ACTION REQUIRED</p>
+            </div>
+
+            <div className="w-full  h-12 flex flex-col">
+              <div className="w-full h-full relative flex items-center  text-left px-2 text-[8px] xl:text-[10px] text-[#737373] border-b-[1px] border-[#737373] ">
+                <div className="w-[13%] flex items-center gap-3  justify-center">
+                  <input type="checkbox" name="chck" id="check" />
+                  tashanda powell
+                </div>
+                <div className="w-[13%] flex items-center justify-center">
+                  brokeralexa@gmail.com
+                </div>
+                <div className="w-[10%] flex items-center justify-center">
+                  sadasd
+                </div>
+                <div className="w-[12%] flex items-center justify-center">
+                  131312312
+                </div>
+                <div className="w-[10%] flex items-center justify-center">
+                  Brooklyn
+                </div>
+                <div className="w-[10%] flex items-center justify-center">
+                  New York
+                </div>
+                <div className="w-[10%] flex items-center justify-center">
+                  11210
+                </div>
+                <div className="w-[10%] flex items-center justify-center">
+                  243296532
+                </div>
+                <div className="w-[10%] flex items-center justify-center text-lg gap-6">
+                  <button>
+                    <EditOutlined />
+                  </button>
+                  <button onClick={setHidddenDiv}>
+                    <HolderOutlined />
+                  </button>
+                </div>
+                <div
+                  className={`${
+                    hiddden ? "hidden" : "absolute"
+                  } top-8 right-6 w-[100px] h-16 bg-white flex flex-col items-center justify-center gap-3 rounded-xl`}
+                >
+                  <button className="text-[#00B4D8]">Edit</button>
+                  <button className="text-[#EF233C]">Delete</button>
+                </div>
               </div>
             </div>
           </div>
-
-          <div className="w-full  h-12 flex flex-col">
-            <div className="w-full h-full relative flex items-center  text-left px-2 text-[8px] xl:text-[10px] text-[#737373] border-b-[1px] border-[#737373] ">
-              <div className="w-[13%] flex items-center gap-3  justify-center">
-                <input type="checkbox" name="chck" id="check" />
-                tashanda powell
-              </div>
-              <div className="w-[13%] flex items-center justify-center">
-                brokeralexa@gmail.com
-              </div>
-              <div className="w-[10%] flex items-center justify-center">
-                sadasd
-              </div>
-              <div className="w-[12%] flex items-center justify-center">
-                131312312
-              </div>
-              <div className="w-[10%] flex items-center justify-center">
-                Brooklyn
-              </div>
-              <div className="w-[10%] flex items-center justify-center">
-                New York
-              </div>
-              <div className="w-[10%] flex items-center justify-center">
-                11210
-              </div>
-              <div className="w-[10%] flex items-center justify-center">
-                243296532
-              </div>
-              <div className="w-[10%] flex items-center justify-center text-lg gap-6">
-                <button>
-                  <EditOutlined />
-                </button>
-                <button onClick={setHidddenDiv}>
-                  <HolderOutlined />
-                </button>
-              </div>
-              <div
-                className={`${
-                  hiddden ? "hidden" : "absolute"
-                } top-8 right-6 w-[100px] h-16 bg-white flex flex-col items-center justify-center gap-3 rounded-xl`}
-              >
-                <button className="text-[#00B4D8]">Edit</button>
-                <button className="text-[#EF233C]">Delete</button>
-              </div>
-            </div>
-          </div>
-        
-          </div>
-
-
-
-          </div>
-       
-
+        </div>
       </section>
     </>
   );
