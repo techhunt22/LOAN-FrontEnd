@@ -10,6 +10,8 @@ import { EditOutlined } from "@ant-design/icons";
 export const AddClientOptionTwoForm = () => {
   const [hidden, setHidden] = useState(false);
   const [hiddden, setHiddden] = useState(true);
+  const[edit,setEdit]=useState(true)
+  
 
   const setHiddenDiv = () => {
     setHidden(!hidden);
@@ -18,6 +20,18 @@ export const AddClientOptionTwoForm = () => {
   const setHidddenDiv = () => {
     setHiddden(!hiddden);
   };
+
+  const HandleEdit = (e:any)=>{
+    e.preventDefault();
+    setEdit(false)
+  }
+
+  const HandleSave = (e:any)=>{
+    e.preventDefault();
+    setEdit(true)
+    setHiddden(!hiddden)
+  }
+
 
   return (
     <>
@@ -34,7 +48,7 @@ export const AddClientOptionTwoForm = () => {
               </span>{" "}
               ACTIVE
             </button>
-            <button className="w-[180px] h-[45px]  text-[#8A8D93] font-bold border-[1px] border-gray-400 flex items-center gap-2 px-4 rounded-lg">
+            <button className="w-[180px] h-[45px]  text-[#8A8D93] font-bold border-[1px] border-gray-200 flex items-center gap-2 px-4 rounded-lg">
               {" "}
               <span className="text-black bg-[#E9E9E9] font-bold rounded-full px-1 py-[1px]">
                 6
@@ -65,7 +79,7 @@ export const AddClientOptionTwoForm = () => {
         <div
           className={`${
             hidden ? "absolute" : "hidden"
-          } flex bg-gray-400 rounded-lg top-36 gap-4 right-1 w-[300px] h-max py-2 flex-col items-center justify-center`}
+          } flex bg-gray-200 rounded-lg top-36 gap-4 right-1 w-[300px] h-max py-2 flex-col items-center justify-center`}
         >
           <input
             type="text"
@@ -119,28 +133,51 @@ export const AddClientOptionTwoForm = () => {
               <div className="w-full h-full relative flex items-center  text-left px-2 text-[8px] xl:text-[10px] text-[#737373] border-b-[1px] border-[#737373] ">
                 <div className="w-[13%] flex items-center gap-3  justify-center">
                   <input type="checkbox" name="chck" id="check" />
-                  tashanda powell
+                 {edit?' tashanda powell':<>
+                 <input type="text"  className="bg-gray-200"/>
+                 </>}
                 </div>
                 <div className="w-[13%] flex items-center justify-center">
-                  brokeralexa@gmail.com
+               
+                  {edit?'    brokeralexa@gmail.com':<>
+                    <input type="text"  className="bg-gray-200" />
+                    </>}
                 </div>
                 <div className="w-[10%] flex items-center justify-center">
-                  sadasd
+                 
+                  {edit?'  sadasd':<>
+                    <input type="text"  className="bg-gray-200" />
+                    </>}
                 </div>
                 <div className="w-[12%] flex items-center justify-center">
-                  131312312
+                
+                  {edit?'131312312':<>
+                    <input type="text"   className="bg-gray-200"/>
+                    </>}
                 </div>
                 <div className="w-[10%] flex items-center justify-center">
-                  Brooklyn
+                
+                  {edit?'Brooklyn':<>
+                    <input type="text"  className="bg-gray-200" />
+                    </>}
                 </div>
                 <div className="w-[10%] flex items-center justify-center">
-                  New York
+                 
+                  {edit?'New York':<>
+                    <input type="text"   className="bg-gray-200"/>
+                    </>}
                 </div>
                 <div className="w-[10%] flex items-center justify-center">
-                  11210
+                 
+                  {edit?'11210':<>
+                    <input type="text"  className="bg-gray-200"/>
+                    </>}
                 </div>
                 <div className="w-[10%] flex items-center justify-center">
-                  243296532
+                
+                  {edit?' 243296532':<>
+                    <input type="text"   className="bg-gray-200"/>
+                    </>}
                 </div>
                 <div className="w-[10%] flex items-center justify-center text-lg gap-6">
                   <button>
@@ -155,8 +192,12 @@ export const AddClientOptionTwoForm = () => {
                     hiddden ? "hidden" : "absolute"
                   } top-8 right-6 w-[100px] h-16 bg-white flex flex-col items-center justify-center gap-3 rounded-xl`}
                 >
-                  <button className="text-[#00B4D8]">Edit</button>
-                  <button className="text-[#EF233C]">Delete</button>
+                {edit?<>  <button className="text-[#00B4D8]" onClick={HandleEdit}>Edit</button>
+                <button className="text-[#EF233C]">Delete</button></>:
+                <button className="text-[#00B4D8] " onClick={HandleSave}>
+                  Save
+                </button>
+                }
                 </div>
               </div>
             </div>
