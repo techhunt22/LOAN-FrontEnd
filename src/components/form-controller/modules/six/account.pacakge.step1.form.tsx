@@ -26,6 +26,8 @@ import { ArrowForward } from "@mui/icons-material";
 import Image from "next/image";
 import { getCookie } from "@/utils/getCookie";
 import { useAuth } from "@/context/guard/guard.context";
+
+
 // import { objectUtil } from "zod";
 // interface Option {
 //   label: string;
@@ -65,6 +67,20 @@ export const AccountPackageStep1Form = () => {
   //   cnfPassword: "",
   //   policy: null,
   // });
+
+  useEffect(() => {
+    const loginRole = Cookies.get("role");
+    console.log('loginRole',loginRole)
+    if(isSignIn){
+      if (loginRole != "PCR:Admin" ) {
+        router.push('/step1/monitor-report')
+        } else{
+        console.log('loginRole',loginRole)
+        }
+    }
+   
+  }, [Cookies.get("role")]);
+
 
   const personItems = [
     {

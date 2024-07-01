@@ -260,6 +260,7 @@ export const PFForm = () => {
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     await mutateAsync(form.data());
+    
     console.log(form.data());
   };
   useEffect(() => {

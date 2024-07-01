@@ -25,10 +25,10 @@ export const GuardContextProvider = ({
   const router = useRouter();
   const pathName = usePathname();
   const loginRole = Cookies.get("role");
-  // const [isAdmin, setIsAdmin] = useState<boolean>(
-  //   loginRole === "PCR:Admin" ? true : false
-  // ); // Assuming admin state
-  const [isAdmin,setIsAdmin]=useState(true)
+  const [isAdmin, setIsAdmin] = useState<boolean>(
+    loginRole === "PCR:Admin" ? true : false
+  ); // Assuming admin state
+  // const [isAdmin,setIsAdmin]=useState(true)
   const [isSignIn, setIsSignIn] = useState<boolean>(false);
 
   const login = () => {
