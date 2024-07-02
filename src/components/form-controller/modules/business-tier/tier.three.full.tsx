@@ -30,7 +30,7 @@ import video from "@/video/step6.mp4"
 const headerContent = {
   step: "STEP6",
   title: "Advance Building",
-  subTitle: "TIER4",
+  subTitle: "TIER3",
 };
 
 const videoContent = {
@@ -342,7 +342,7 @@ const monitorCardGroup = [
   {
     price: "49.95",
     recommeded: true,
-    icon: "public/monitor/step 6/FNBO - png 0.png",
+    icon: "/monitor/step 6/FNBO - png 0.png",
     contents: [
       {
         record: "D&B(Reports Quartely)",
@@ -552,7 +552,7 @@ const monitorCardGroup = [
   {
     price: "49.95",
     recommeded: true,
-    icon: "/monitor/step 6/public/monitor/step 6/FireShot Capture 197 - SUMMA OFFICE SUPPLIES - summaofficesupplies 1.png",
+    icon: "/monitor/step 6/FireShot Capture 197 - SUMMA OFFICE SUPPLIES - summaofficesupplies 1.png",
     contents: [
       {
         record: "Equifax",
