@@ -68,18 +68,18 @@ export const AccountPackageStep1Form = () => {
   //   policy: null,
   // });
 
-  useEffect(() => {
-    const loginRole = Cookies.get("role");
-    console.log('loginRole',loginRole)
-    if(isSignIn){
-      if (loginRole != "PCR:Admin" ) {
-        router.push('/step1/monitor-report')
-        } else{
-        console.log('loginRole',loginRole)
-        }
-    }
+  // useEffect(() => {
+  //   const loginRole = Cookies.get("role");
+  //   console.log('loginRole',loginRole)
+  //   if(isSignIn){
+  //     if (loginRole != "PCR:Admin" ) {
+  //       router.push('/step1/monitor-report')
+  //       } else{
+  //       console.log('loginRole',loginRole)
+  //       }
+  //   }
    
-  }, [Cookies.get("role")]);
+  // }, [Cookies.get("role")]);
 
 
   const personItems = [
