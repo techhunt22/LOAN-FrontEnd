@@ -260,6 +260,7 @@ export const PFForm = () => {
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     await mutateAsync(form.data());
+    router.push('/admin/disputes')
     
     console.log(form.data());
   };

@@ -11,10 +11,35 @@ import { CopyrightOutlined } from "@ant-design/icons";
 import { MailOutlined } from "@ant-design/icons";
 import Card from "@/components/admin/adminoption3card";
 import { Switch } from "antd";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import {letterdata as LetterData} from "../../../../utils/letter-data"
 import { Editor } from "@tinymce/tinymce-react";
 
+type LetterData = {
+  id: number;
+  content: string;
+};
+
+interface UserData  {
+  id: number;
+  first_name: string;
+  last_name: string;
+  email: string;
+  password: string;
+  dob: string;
+  phone: string;
+  ss_number: string;
+  city: string;
+  state: string;
+  zip_code: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+const monthsLookup = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+];
 
 
 export const AddClientOption3Form = () => {
@@ -29,10 +54,28 @@ export const AddClientOption3Form = () => {
   const [same, setSame] = useState(true); // State for "Same for all bureas" radio button
   const [diff, setDiff] = useState(false); // State for "Different for each burea" radio button
   const [showDiffContent, setShowDiffContent] = useState(false); // State to show/hide additional content for "Different for each burea"
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedTemplate, setSelectedTemplate] = useState<LetterData | null>(null)
+  const [selectedBureau, setSelectedBureau] = useState<string>('')
+  const [userData, setUserData] = useState<UserData[]>([]);
 
 
+  const fetchUsers = async () => {
+    try {
+      const response = await fetch('http://client1.jewelercart.com:4000/user');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data: UserData[] = await response.json();
+      setUserData(data);
+      console.log(data)
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    }
+  };
 
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
   const disputeItems = [
     { id: 1, name: "Default Round 1 (Dispute Credit Report Items)" },
@@ -175,24 +218,74 @@ export const AddClientOption3Form = () => {
   ]
   
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedId = parseInt(e.target.value); 
-    
-    // Find the selected template by ID
+    const selectedId = parseInt(e.target.value, 10);
     const selectedTemplate = LetterData.find((template) => template.id === selectedId);
-    
-    // Update editor content based on selected template
     if (selectedTemplate) {
-      setContent(selectedTemplate.content);
+      setSelectedTemplate(selectedTemplate);
+      updateContent(selectedTemplate.content, selectedBureau);
     } else {
-      // Handle case where selectedTemplate is not found (optional)
       setContent('<p>Template not found</p>');
     }
   };
- 
-  const handleEditorChange = (content: string, editor: any) => {
+
+  const handleEditorChange = (content: string) => {
     setContent(content);
-    console.log(content)
   };
+
+  const updateContent = (templateContent: string, bureau: string) => {
+    let bureauAddress = '';
+  
+    if (bureau === 'equifax') {
+      bureauAddress = `
+        <div style="margin-top: 4px; margin-bottom: 4px">
+          <p>Equifax Information Services LLC</p>
+          <p>P.O Box 740256</p>
+          <p>Atlanta, GA 30374-0258</p>
+        </div>`;
+    } else if (bureau === 'experian') {
+      bureauAddress = `
+        <div style="margin-top: 4px; margin-bottom: 4px">
+          <p>Experian</p>
+          <p>P.O Box 4500</p>
+          <p>Allen, TX 75013</p>
+        </div>`;
+    } else if (bureau === 'transunion') {
+      bureauAddress = `
+        <div style="margin-top: 4px; margin-bottom: 4px">
+          <p>TransUnion LLC Consumer Dispute Letter</p>
+          <p>P.O Box 2000</p>
+          <p>Allen, TX 75013</p>
+        </div>`;
+    }
+  
+    // Assuming userData is an array of UserData objects and selectedUserData is the currently selected UserData
+    const selectedUserData = userData[0]; // Example: Assuming first user data object
+  
+    // Replace placeholders in template content with actual user data
+    const updatedContent = templateContent.replace('{client_first_name}', selectedUserData?.first_name || '')
+                                         .replace('{client_last_name}', selectedUserData?.last_name || '')
+                                         .replace('{client_address}', `${selectedUserData?.city}, ${selectedUserData?.zip_code}`)
+                                         .replace('{t_no}', selectedUserData?.phone || '')
+                                         .replace('{bdate}', selectedUserData?.dob || '')
+                                         .replace('{ss_number}', selectedUserData?.ss_number || '')
+                                         .replace('{curr_date}', `
+                                          <p style="margin-top: 3px; margin-bottom: 3px;">${new Date().getDate()} ${
+                                              monthsLookup[new Date().getMonth()]
+                                          }, ${new Date().getFullYear()}</p>`)
+                                         .replace('{dispute_item_and_explanation}', 'Your dispute explanation here')
+                                         .replace('{client_signature}', `${selectedUserData?.first_name || ''} ${selectedUserData?.last_name || ''}`);
+  
+    setContent(`${bureauAddress} ${updatedContent}`);
+  };
+
+  const handleBureauClick = (bureau: string) => {
+    setSelectedBureau(bureau);
+    if (selectedTemplate) {
+      updateContent(selectedTemplate.content, bureau);
+    }
+  };
+
+  
 
   const handleSameOption = () => {
     setSame(true);
@@ -236,36 +329,9 @@ export const AddClientOption3Form = () => {
                 id="nme"
                 className="w-full h-[80px]  py-6 px-2 flex justify-center gap-10 items-center text-[#686666] border-gray-400 rounded-xl border-[1px]"
               >
-                <option value="fredrick mt-2">Fredick</option>
-                <option value="fredrick mt-2">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
-                <option value="fredrick">Fredick</option>
+              {userData?.map((item)=>(
+                <option>{item.first_name}   {item.last_name} </option>
+              ))}
               </select>
             </div>
 
@@ -441,15 +507,24 @@ export const AddClientOption3Form = () => {
                 Choose Location According To Credit Bureas :
               </p>
               <div className="w-[100px] h-[2px] bg-[#8ECAE6]" />
-              <button className="w-[100px] h-[23px] bg-white text-black rounded-lg">
-                EQUIFAX
-              </button>
-              <button className="w-[100px] h-[23px]  text-[#D9D9D9] rounded-lg">
-                EXPERIAN
-              </button>
-              <button className="w-[100px] h-[23px]  text-[#D9D9D9] rounded-lg">
-                TRANSUNION
-              </button>
+              <button
+        className="w-[100px] h-[23px] bg-white text-black rounded-lg"
+        onClick={() => handleBureauClick('equifax')}
+      >
+        EQUIFAX
+      </button>
+      <button
+        className="w-[100px] h-[23px] text-[#D9D9D9] rounded-lg"
+        onClick={() => handleBureauClick('experian')}
+      >
+        EXPERIAN
+      </button>
+      <button
+        className="w-[100px] h-[23px] text-[#D9D9D9] rounded-lg"
+        onClick={() => handleBureauClick('transunion')}
+      >
+        TRANSUNION
+      </button>
             </div>
             <div className="bg-[#D3D3D3] w-[95%] h-[2px] mt-2" />
             <div className="w-[95%] flex items-center h-max justify-between mt-2 px-2">
@@ -469,27 +544,24 @@ export const AddClientOption3Form = () => {
             <div className="bg-[#D3D3D3] w-[95%] h-[2px] mt-4" />
 
             <div className=" flex flex-col gap-3 items-start w-[90%] text-[#737373] text-[16px] h-max">
-              <Editor
-                apiKey="y6a32whlujeei0aww4vumf51q4qqd2zqpwvtdqzsdik3b4ig" // Replace with your TinyMCE API key
-                initialValue="<p>This is the initial content of the editor</p>"
-                value={content}
-                init={{
-                
-                  height: 500,
-                  resize:false,
-                  menubar: true,
-                  plugins: [
-                    "advlist autolink lists link image charmap print preview anchor",
-                    "searchreplace visualblocks code fullscreen",
-                    "insertdatetime media table paste code help wordcount",
-                  ],
-                  toolbar:
-                    "undo redo | formatselect | bold italic backcolor | \
-          alignleft aligncenter alignright alignjustify | \
-          bullist numlist outdent indent | removeformat | help",
-                }}
-                onEditorChange={handleEditorChange}
-              />
+            <Editor
+     apiKey="y6a32whlujeei0aww4vumf51q4qqd2zqpwvtdqzsdik3b4ig" 
+        initialValue="<p>This is the initial content of the editor</p>"
+        value={content}
+        init={{
+          height: 500,
+          resize: false,
+          menubar: true,
+          plugins: [
+            "advlist autolink lists link image charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table paste code help wordcount",
+          ],
+          toolbar: "undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help",
+        }}
+        onEditorChange={(content, editor) => setContent(content)}
+      />
+
             </div>
 
             <div className="w-[90%] flex items-center justify-between px-2 mt-20">
