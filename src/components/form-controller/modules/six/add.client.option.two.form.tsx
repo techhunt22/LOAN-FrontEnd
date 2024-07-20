@@ -124,7 +124,7 @@ export const AddClientOptionTwoForm = () => {
 						</div>
 
 						<div className="w-full  h-12 flex flex-col">
-							{users?.map((item, key) => {
+							{users?.map((item: any, key) => {
 								return (
 									<div
 										className="w-full h-full relative flex items-center  text-left px-2 text-[8px] xl:text-[10px] text-[#737373] border-b-[1px] border-[#737373]"
