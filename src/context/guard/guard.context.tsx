@@ -28,7 +28,7 @@ export const GuardContextProvider = ({
 	// const [isAdmin, setIsAdmin] = useState<boolean>(
 	//   loginRole === "PCR:Admin" ? true : false
 	// );
-	const isAdmin = true
+	const isAdmin = false
 	const setIsAdmin = () => {}
 	// Assuming admin state
 	//  const [isAdmin,setIsAdmin]=useState(true)

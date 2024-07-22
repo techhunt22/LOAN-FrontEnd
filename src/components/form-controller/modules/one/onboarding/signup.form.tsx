@@ -6,13 +6,13 @@ import { IconButton, InputAdornment, TextField } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers-pro";
-import { Checkbox, Typography } from 'antd';
+import { Checkbox, Typography } from "antd";
 import { DatePicker } from "@mui/x-date-pickers-pro";
 import { useMutation } from "@tanstack/react-query";
 import { ApiCalls } from "@/api/calls/calls";
 import { Calls } from "@/api/calls/type";
 import Autocomplete from "@mui/material/Autocomplete";
-import { states } from "@/data/ states";
+import { states as stateList } from "@/data/states";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 // import { Checkbox, Typography } from "@material-tailwind/react";
 import { usePCR } from "@/context/onboarding/personal.credit.repair.context";
@@ -23,6 +23,14 @@ import { useRouter } from "next/navigation";
 interface Option {
   label: string;
 }
+
+interface StateOption {
+  label: string;
+}
+
+const states: StateOption[] = [
+  // Your states array data here
+];
 export const SignupForm = () => {
   const router = useRouter();
   const {
@@ -73,9 +81,9 @@ export const SignupForm = () => {
       Cookies.set("refreshToken", r.refreshToken, {
         expires: 30,
         path: "/",
-       secure: false,
+        secure: false,
       });
-      Cookies.set("role", r.role );
+      Cookies.set("role", r.role);
       if (r?.urlPath != null) {
         router.replace(r?.urlPath);
       }
@@ -87,7 +95,7 @@ export const SignupForm = () => {
       toast.error(error?.message);
     },
   });
-  
+
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     console.log(form.originalData);
@@ -358,45 +366,45 @@ export const SignupForm = () => {
             />
           </div>
           <div className={"w-full"}>
-            <Autocomplete
-              disableClearable
-              defaultValue={null}
-              options={states}
-              onChange={(e, value) => {
-                form.set("state", value?.label);
-                form.errors.clear("state");
-              }}
-              value={form.state}
-              renderInput={(params) => (
-                <TextField
-                  autoComplete={"false"}
-                  {...params}
-                  label={"State Name"}
-                  required={true}
-                  disabled={form.busy}
-                  error={form.errors.has("state")}
-                  helperText={
-                    form.errors.has("state") && form.errors.get("state")
-                  }
-                />
-              )}
-            />
+          <Autocomplete
+      disableClearable
+      options={stateList} // Use stateList here
+      getOptionLabel={(option: StateOption) => option.label}
+      isOptionEqualToValue={(option: StateOption, value: StateOption | undefined) =>
+        option.label === value?.label
+      }
+      onChange={(e: React.SyntheticEvent, value: StateOption | null) => {
+        form.set("state", value?.label || "");
+        form.errors.clear("state");
+      }}
+      value={stateList.find((state: StateOption) => state.label === form.state) as StateOption | undefined}
+      renderInput={(params) => (
+        <TextField
+          autoComplete="off"
+          {...params}
+          label="State Name"
+          required
+          disabled={form.busy}
+          error={form.errors.has("state")}
+          helperText={form.errors.has("state") && form.errors.get("state")}
+        />
+      )}
+    />
           </div>
         </div>
 
         <div className={"w-full"}>
-        <Checkbox
-      checked={form.policy}
-      onChange={(e) => {
-        form.set("policy", e.target.checked);
-        form.errors.clear("policy");
-      }}
-    >
-      <Typography.Text type="secondary" className="font-normal">
-        I agree to terms and conditions.
-      </Typography.Text>
-    </Checkbox>
-             
+          <Checkbox
+            checked={form.policy}
+            onChange={(e) => {
+              form.set("policy", e.target.checked);
+              form.errors.clear("policy");
+            }}
+          >
+            <Typography.Text type="secondary" className="font-normal">
+              I agree to terms and conditions.
+            </Typography.Text>
+          </Checkbox>
         </div>
       </div>
     </form>

@@ -1,7 +1,15 @@
 "use client";
 // @ts-ignore
 import useForm from "new-react-use-form";
-import { Timeline, Typography, Popover, Form, Button, Upload, message } from "antd";
+import {
+  Timeline,
+  Typography,
+  Popover,
+  Form,
+  Button,
+  Upload,
+  message,
+} from "antd";
 import { useEffect, useLayoutEffect } from "react";
 import { usePCR } from "@/context/onboarding/personal.credit.repair.context";
 import { useMutation } from "@tanstack/react-query";
@@ -9,7 +17,6 @@ import { Calls } from "@/api/calls/type";
 import { ApiCalls } from "@/api/calls/calls";
 import { useRouter } from "next/navigation";
 import { UploadOutlined } from "@ant-design/icons";
-
 
 export const DocsUpload = () => {
   const router = useRouter();
@@ -103,6 +110,142 @@ export const DocsUpload = () => {
     },
   });
 
+  const timelineItems = [
+    {
+      children: (
+        <>
+          <Popover
+            content={
+              <div>
+                <p>This could be :</p>
+                <p>Driving license</p>
+                <p>State ID card</p>
+                <p>Other government issued photo ID card</p>
+              </div>
+            }
+          >
+            <Typography.Text className="cursor-pointer h-3">
+              Upload your identity proof
+            </Typography.Text>
+          </Popover>
+          <div className="mt-2 pb-8">
+            <div className="w-[100%] flex flex-row gap-4 justify-center mt-6">
+              <div className="flex flex-col w-full justify-center content-center items-center text-center">
+                <div className="drop_box">
+                  <h4 className="text-[18px] font-semibold">Front Side</h4>
+                  <Upload {...uploadProps("identityCard1")}>
+                    <Button icon={<UploadOutlined />}>Click to Upload</Button>
+                  </Upload>
+                  {form.errors.has("identityCard1") && (
+                    <span className="error">
+                      {form.errors.get("identityCard1")}
+                    </span>
+                  )}
+                </div>
+              </div>
+              <div className="flex flex-col w-full justify-center content-center items-center text-center">
+                <div className="drop_box">
+                  <h4 className="text-[18px] font-semibold">Back Side</h4>
+                  <Upload {...uploadProps("identityCard2")}>
+                    <Button icon={<UploadOutlined />}>Click to Upload</Button>
+                  </Upload>
+                  {form.errors.has("identityCard2") && (
+                    <span className="error">
+                      {form.errors.get("identityCard2")}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      ),
+    },
+    {
+      children: (
+        <>
+          <Popover
+            content={
+              <div>
+                <p>This could be :</p>
+                <p>Bank statement</p>
+              </div>
+            }
+          >
+            <Typography.Text className="cursor-pointer h-3">
+              Upload your address proof
+            </Typography.Text>
+          </Popover>
+          <div className="mt-2 pb-8">
+            <div className="w-[100%] flex flex-row gap-4 justify-center mt-6">
+              <div className="flex flex-col w-full justify-center content-center items-center text-center">
+                <div className="drop_box">
+                  <h4 className="text-[18px] font-semibold">Front Side</h4>
+                  <Upload {...uploadProps("proofOfAddress1")}>
+                    <Button icon={<UploadOutlined />}>Click to Upload</Button>
+                  </Upload>
+                  {form.errors.has("proofOfAddress1") && (
+                    <span className="error">
+                      {form.errors.get("proofOfAddress1")}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      ),
+    },
+    {
+      children: (
+        <>
+          <Popover
+            content={
+              <div>
+                <p>This could be :</p>
+                <p>Social security card</p>
+              </div>
+            }
+          >
+            <Typography.Text className="cursor-pointer h-3">
+              Upload your social security card proof
+            </Typography.Text>
+          </Popover>
+          <div className="mt-2 pb-8">
+            <div className="w-[100%] flex flex-row gap-4 justify-center mt-6">
+              <div className="flex flex-col w-full justify-center content-center items-center text-center">
+                <div className="drop_box">
+                  <h4 className="text-[18px] font-semibold">Front Side</h4>
+                  <Upload {...uploadProps("socialSecurityCard1")}>
+                    <Button icon={<UploadOutlined />}>Click to Upload</Button>
+                  </Upload>
+                  {form.errors.has("socialSecurityCard1") && (
+                    <span className="error">
+                      {form.errors.get("socialSecurityCard1")}
+                    </span>
+                  )}
+                </div>
+              </div>
+              <div className="flex flex-col w-full justify-center content-center items-center text-center">
+                <div className="drop_box">
+                  <h4 className="text-[18px] font-semibold">Back Side</h4>
+                  <Upload {...uploadProps("socialSecurityCard2")}>
+                    <Button icon={<UploadOutlined />}>Click to Upload</Button>
+                  </Upload>
+                  {form.errors.has("socialSecurityCard2") && (
+                    <span className="error">
+                      {form.errors.get("socialSecurityCard2")}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      ),
+    },
+  ];
+
   return (
     <Form
       onFinish={onSubmit}
@@ -157,106 +300,9 @@ export const DocsUpload = () => {
               </ul>
             </div>
           </div>
-          <Timeline className="md:w-[100%]">
-            <Timeline.Item>
-              <Popover content={
-                <div>
-                  <p>This could be :</p>
-                  <p>Driving license</p>
-                  <p>State ID card</p>
-                  <p>Other government issued photo ID card</p>
-                </div>
-              } >
-                <Typography.Text className="cursor-pointer h-3">
-                  Upload your identity proof
-                </Typography.Text>
-              </Popover>
-              <div className="mt-2 pb-8">
-                <div className="w-[100%] flex flex-row gap-4 justify-center mt-6">
-                  <div className="flex flex-col w-full justify-center content-center items-center text-center">
-                    <div className="drop_box">
-                      <h4 className="text-[18px] font-semibold">Front Side</h4>
-                      <Upload {...uploadProps("identityCard1")}>
-                        <Button icon={<UploadOutlined />}>Click to Upload</Button>
-                      </Upload>
-                      {form.errors.has("identityCard1") && <span className="error">{form.errors.get("identityCard1")}</span>}
-                    </div>
-                  </div>
-                  <div className="flex flex-col w-full justify-center content-center items-center text-center">
-                    <div className="drop_box">
-                      <h4 className="text-[18px] font-semibold">Back Side</h4>
-                      <Upload {...uploadProps("identityCard2")}>
-                        <Button icon={<UploadOutlined />}>Click to Upload</Button>
-                      </Upload>
-                      {form.errors.has("identityCard2") && <span className="error">{form.errors.get("identityCard2")}</span>}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Timeline.Item>
-            <Timeline.Item>
-              <Popover content={
-                <div>
-                  <p>This could be :</p>
-                  <p>Bank statement</p>
-                </div>
-              }>
-                <Typography.Text className="cursor-pointer h-3">
-                  Upload your address proof
-                </Typography.Text>
-              </Popover>
-              <div className="mt-2 pb-8">
-                <div className="w-[100%] flex flex-row gap-4 justify-center mt-6">
-                  <div className="flex flex-col w-full justify-center content-center items-center text-center">
-                    <div className="drop_box">
-                      <h4 className="text-[18px] font-semibold">Front Side</h4>
-                      <Upload {...uploadProps("proofOfAddress1")}>
-                        <Button icon={<UploadOutlined />}>Click to Upload</Button>
-                      </Upload>
-                      {form.errors.has("proofOfAddress1") && <span className="error">{form.errors.get("proofOfAddress1")}</span>}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Timeline.Item>
-            <Timeline.Item>
-              <Popover content={
-                <div>
-                  <p>This could be :</p>
-                  <p>Social security card</p>
-                </div>
-              } >
-                <Typography.Text className="cursor-pointer h-3">
-                  Upload your social security card proof
-                </Typography.Text>
-              </Popover>
-              <div className="mt-2 pb-8">
-                <div className="w-[100%] flex flex-row gap-4 justify-center mt-6">
-                  <div className="flex flex-col w-full justify-center content-center items-center text-center">
-                    <div className="drop_box">
-                      <h4 className="text-[18px] font-semibold">Front Side</h4>
-                      <Upload {...uploadProps("socialSecurityCard1")}>
-                        <Button icon={<UploadOutlined />}>Click to Upload</Button>
-                      </Upload>
-                      {form.errors.has("socialSecurityCard1") && <span className="error">{form.errors.get("socialSecurityCard1")}</span>}
-                    </div>
-                  </div>
-                  <div className="flex flex-col w-full justify-center content-center items-center text-center">
-                    <div className="drop_box">
-                      <h4 className="text-[18px] font-semibold">Back Side</h4>
-                      <Upload {...uploadProps("socialSecurityCard2")}>
-                        <Button icon={<UploadOutlined />}>Click to Upload</Button>
-                      </Upload>
-                      {form.errors.has("socialSecurityCard2") && <span className="error">{form.errors.get("socialSecurityCard2")}</span>}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Timeline.Item>
-          </Timeline>
+          <Timeline items={timelineItems} className="md:w-[100%]" />
         </div>
       </div>
-     
     </Form>
   );
 };

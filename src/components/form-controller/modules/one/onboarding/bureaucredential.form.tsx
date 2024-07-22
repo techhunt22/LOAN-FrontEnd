@@ -10,7 +10,6 @@ import { usePCR } from "@/context/onboarding/personal.credit.repair.context";
 import { Calls } from "@/api/calls/type";
 import { ApiCalls } from "@/api/calls/calls";
 import toast from "react-hot-toast";
-import Cookies from "js-cookie";
 import { handleFormError } from "@/utils/error";
 import { useRouter } from "next/navigation";
 import { Typography, Input, Button } from 'antd';
