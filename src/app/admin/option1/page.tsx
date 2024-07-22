@@ -275,7 +275,7 @@ const TableRow = ({
 
 export default function AddClientOptionTwoForm() {
 	const [hidden, setHidden] = useState(false)
-	const [users, setUser] = useState<User[]>([])
+	const [users, setUsers] = useState<User[]>([])
 	const [searchQuery, setSearchQuery] = useState<string>("")
 	const [isModalVisible, setIsModalVisible] = useState(false)
 	const [selectedUser, setSelectedUser] = useState<User | null>(null)
@@ -294,7 +294,7 @@ export default function AddClientOptionTwoForm() {
 				.get("http://54.87.77.177:3001/user")
 				?.then((res) => {
 					console.log(res)
-					setUser(res?.data)
+					setUsers(res?.data)
 				})
 				?.catch((err) => {
 					console.log(err)
@@ -307,7 +307,7 @@ export default function AddClientOptionTwoForm() {
 			.get("http://54.87.77.177:3001/user")
 			?.then((res) => {
 				console.log(res)
-				setUser(res?.data)
+				setUsers(res?.data)
 			})
 			?.catch((err) => {
 				console.log(err)
