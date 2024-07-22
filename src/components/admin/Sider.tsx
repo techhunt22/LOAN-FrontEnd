@@ -16,7 +16,7 @@ function Sider() {
 
 	return (
 		<>
-			<div className="w-[15%] hidden xl:flex min-h-screen  border-r-2 border-gray-300 bg-[#FCFCFC]  flex-col  gap-[140px] items-center pt-10">
+			<div className="w-80 hidden xl:flex min-h-screen  border-r-2 border-gray-300 bg-[#FCFCFC]  flex-col  gap-[140px] items-center pt-10">
 				<div className="profile w-[90%] h-[150px]  bg-[#F5F6F7] rounded-2xl flex items-center justify-center  gap-4">
 					<div className="img  w-[60px]  h-[60px]  xl:w-[70px] xl:h-[72px] bg-black rounded-full"></div>
 					<div className="content flex flex-col gap-1 ">
