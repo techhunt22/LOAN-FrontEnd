@@ -24,7 +24,7 @@ export default function Page() {
 			?.then((res) => {
 				console.log(res)
 				Cookies.set("accessToken", res?.data?.accessToken)
-				router?.push("/admin/option1")
+				router?.push("/admin/active-users")
 			})
 			?.catch((err) => {
 				console.log(err)

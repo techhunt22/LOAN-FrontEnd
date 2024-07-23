@@ -80,10 +80,10 @@ export const AddClientOption2Form = () => {
 
 	return (
 		<>
-			<section className="w-full h-full mt-20 relative flex flex-col items-center xl:block">
-				<div className="w-full  mt-12 xl:mt-0 h-max py-2 flex-col xl:flex-row flex items-center justify-between px-3">
+			<section className="w-full h-full mt-10 relative flex flex-col items-center xl:block">
+				<div className="w-full h-max py-2 flex-col xl:flex-row flex items-center justify-between px-5">
 					<h1 className="text-[#686666] font-bold text-[50px]">
-						Active Disputes
+						User Analytics
 					</h1>
 					<div className=" w-full xl:w-[50%]  h-max py-2   flex items-center justify-evenly xl:justify-start gap-4">
 						<button className="w-[100px] sm:w-[120px] md:w-[130px] xl:w-[150px] h-[50px] border-[#737373] border-[1px] rounded-full">

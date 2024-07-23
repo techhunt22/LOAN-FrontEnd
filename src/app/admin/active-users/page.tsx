@@ -375,8 +375,8 @@ export default function AddClientOptionTwoForm() {
 
 	return (
 		<>
-			<h1 className="text-[40px] md:text-[50px] lg:text-[65px] ml-10 xl:ml-0 mt-4 font-bold text-[#686666]">
-				Current Users
+			<h1 className="text-3xl md:text-4xl lg:text-5xl ml-5 font-bold text-[#686666] mt-10">
+				Active Users
 			</h1>
 			<section className=" min-h-screen flex flex-col ml-4 items-start relative">
 				<div className="buttons w-full h-[100px] flex items-center justify-between ">
