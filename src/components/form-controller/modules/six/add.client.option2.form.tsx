@@ -109,7 +109,7 @@ export const AddClientOption2Form = () => {
 					<Card1
 						quantity={
 							users?.filter((user) => {
-								return user?.payment_status !== "paid"
+								return user?.payment_status === "paid"
 							})?.length || 0
 						}
 					/>
