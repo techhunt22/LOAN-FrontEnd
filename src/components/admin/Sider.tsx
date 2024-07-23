@@ -20,9 +20,7 @@ function Sider() {
 				<div className="profile w-[90%] h-[150px]  bg-[#F5F6F7] rounded-2xl flex items-center justify-center  gap-4">
 					<div className="img  w-[60px]  h-[60px]  xl:w-[70px] xl:h-[72px] bg-black rounded-full"></div>
 					<div className="content flex flex-col gap-1 ">
-						<p className="text-[#333333] text-[20px]">
-							Julia Marcos
-						</p>
+						<p className="text-[#333333] text-[20px]">TGISCALEME</p>
 						<p className="text-[#A3A3A3] text-[12px]">
 							Managing Director
 						</p>

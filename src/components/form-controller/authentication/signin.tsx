@@ -54,10 +54,10 @@ export const SignInForm = () => {
 			// 		router.replace(link)
 			// 	}
 			// }
-			// if (r?.Success) {
-			setIsSignIn(true)
-			router?.replace(link)
-			// }
+			if (r?.msg === "Success Login") {
+				setIsSignIn(true)
+				router?.replace(link)
+			}
 		},
 		onError: (e) => handleFormError(e as any, form)
 	})
