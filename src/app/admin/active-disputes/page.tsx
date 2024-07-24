@@ -2,9 +2,12 @@
 // @ts-ignore
 
 import React, { useState, useEffect, useRef } from "react"
-import { CheckOutlined, CloseOutlined } from "@ant-design/icons"
+import { CheckOutlined, CloseOutlined, FilterOutlined, SearchOutlined } from "@ant-design/icons"
 import { Editor } from "@tinymce/tinymce-react"
-
+import axios from "axios"
+import Card from "@/components/admin/card"
+import Card1 from "@/components/admin/Card1"
+import toast from "react-hot-toast"
 interface DisputeData {
 	account_number: string
 	createdAt: string
@@ -35,6 +38,8 @@ export default function Dispute() {
 	const [content, setContent] = useState("")
 	const [disputes, setDisputes] = useState<DisputeData[]>([])
 	const [selectedContent, setSelectedContent] = useState("")
+	const [users, setUsers] = useState<any>([])
+	const [search, setSearch] = useState<any>()
 	const editorRef = useRef<any>(null)
 
 	const handleOutsideClick = (e: MouseEvent) => {
@@ -56,16 +61,16 @@ export default function Dispute() {
 
 	const fetchDisputes = async () => {
 		try {
-			const response = await fetch(
-				"http://client1.jewelercart.com:4000/dispute"
-			)
-			const data = await response.json()
+			const res = await axios.get("http://54.87.77.177:3001/dispute/all")
+			const data = res?.data.data
 			setDisputes(data)
-			console.log(data)
+
 		} catch (error) {
 			console.log(error)
 		}
 	}
+
+
 
 	useEffect(() => {
 		fetchDisputes()
@@ -91,9 +96,73 @@ export default function Dispute() {
 		}
 	}
 
+
+	useEffect(() => {
+		; (async () => {
+			await axios
+				.get("http://54.87.77.177:3001/user")
+				?.then((res) => {
+					console.log(res)
+					setUsers(res?.data)
+				})
+				?.catch((err) => {
+					console.log(err)
+				})
+		})()
+	}, [])
+
+
+	const searchDispute = async () => {
+		const data = disputes.filter((item) => item.letter_name === search)
+		if (data.length !== 0) {
+			toast.success(`${data.length}: results found`)
+			setDisputes(data)
+
+		} else {
+			toast.error("no result found!")
+			fetchDisputes()
+		}
+
+
+	}
+
 	return (
 		<>
-			<section className="w-full h-full relative">
+			<div className="h-max py-2 flex justify-end  gap-4 mt-10 mr-4 d-flex ">
+				<div className="w-full h-max   py-2 flex gap-4 items-center justify-center xl:justify-start flex-wrap px-4 ">
+					<Card quantity={users?.length} />
+					<Card1
+						quantity={
+							users?.filter((user: any) => {
+								return user?.payment_status === "paid"
+							})?.length || 0
+						}
+					/>
+				</div>
+
+
+
+				<div className="flex items-center gap-2">
+
+					<input
+						type="text"
+						value={search}
+						onChange={(e: any) => { setSearch(e.target.value) }}
+						placeholder="Search By Name"
+						className="w-[250px] h-[40px] px-2 rounded-lg outline-none border-[1px]"
+					/>
+					<button onClick={searchDispute} className="w-[150px] h-[45px] bg-[#1380FF] text-[#ffff] font-bold   rounded-lg">
+						<span className="text-white bg-[#1380FF] rounded-full font-bold size-6">
+							Find Disputes
+						</span>
+					</button>
+				</div>
+			</div>
+
+
+
+			<section className="w-full h-full relative px-4  ">
+
 				<div className="w-full h-full pt-20 sm:pt-24 lg:pt-0 overflow-x-auto overflow-y-auto">
 					<div className="w-[1200px] xl:w-full h-full">
 						<div className="w-full h-20 flex items-center mt-12 text-left bg-gray-400 gap-2 lg:gap-0">

@@ -289,7 +289,7 @@ export default function AddClientOptionTwoForm() {
 	}
 
 	useEffect(() => {
-		;(async () => {
+		; (async () => {
 			await axios
 				.get("http://54.87.77.177:3001/user")
 				?.then((res) => {
@@ -426,9 +426,8 @@ export default function AddClientOptionTwoForm() {
 				</div>
 
 				<div
-					className={`${
-						hidden ? "absolute" : "hidden"
-					} flex bg-gray-400 rounded-lg top-36 gap-4 right-1 w-[300px] h-max py-2 flex-col items-center justify-center`}
+					className={`${hidden ? "absolute" : "hidden"
+						} flex bg-gray-400 rounded-lg top-36 gap-4 right-1 w-[300px] h-max py-2 flex-col items-center justify-center`}
 				>
 					<input
 						type="text"
@@ -510,7 +509,7 @@ export default function AddClientOptionTwoForm() {
 										User Data
 									</h1>
 									{docsContent &&
-									Object.keys(docsContent).length > 0 ? (
+										Object.keys(docsContent).length > 0 ? (
 										Object.keys(docsContent).map((key) => (
 											<p
 												key={key}
@@ -525,7 +524,7 @@ export default function AddClientOptionTwoForm() {
 										Provider Data
 									</h1>
 									{providerContent &&
-									Object.keys(providerContent).length > 0 ? (
+										Object.keys(providerContent).length > 0 ? (
 										Object.keys(providerContent).map(
 											(key) => (
 												<p

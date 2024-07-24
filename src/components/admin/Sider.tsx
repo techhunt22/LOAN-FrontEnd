@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { TeamOutlined } from "@ant-design/icons"
+import { FileDoneOutlined, TeamOutlined } from "@ant-design/icons"
 import { UserAddOutlined } from "@ant-design/icons"
 import { AppstoreAddOutlined } from "@ant-design/icons"
 import { AlignCenterOutlined } from "@ant-design/icons"
@@ -42,8 +42,8 @@ function Sider() {
 					href={"/admin/add-dispute"}
 					className="flex flex-row gap-4 items-center p-3"
 				>
-					<AppstoreAddOutlined className="text-3xl text-[#686666]" />{" "}
-					<p className="text-[#686666] text-lg">Add Dispute</p>
+					<FileDoneOutlined className="text-3xl text-[#686666]" />{" "}
+					<p className="text-[#686666] text-lg">Generate  Letter</p>
 				</Link>
 				<Link
 					href={"/admin/active-disputes"}

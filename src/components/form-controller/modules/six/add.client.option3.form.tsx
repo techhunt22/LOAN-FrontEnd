@@ -13,7 +13,8 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import { letterdata as LetterData } from "../../../../utils/letter-data"
 import { Editor } from "@tinymce/tinymce-react"
-
+import toast from "react-hot-toast"
+import { useRouter } from "next/navigation"
 type LetterData = {
 	id: number
 	content: string
@@ -60,18 +61,12 @@ interface Dispute {
 	accountno: string
 }
 
-const AddNewDisputeModal = ({
-	setIsModalOpen,
-	setDisputeDetails,
-	disputeDetails
-}: {
+const AddNewDisputeModal = ({ setIsModalOpen, setDisputeDetails, disputeDetails }: {
 	setIsModalOpen: any
 	setDisputeDetails: any
 	disputeDetails: any
 }) => {
-	const [isEquifax, setIsEquifax] = useState(
-		disputeDetails?.equifaxStatus === "Positive"
-	)
+	const [isEquifax, setIsEquifax] = useState(disputeDetails?.equifaxStatus === "Positive")
 	const [isExperian, setIsExperian] = useState(
 		disputeDetails?.experianStatus === "Positive"
 	)
@@ -119,9 +114,8 @@ const AddNewDisputeModal = ({
 	return (
 		<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-10">
 			<div
-				className={`${
-					accountIsSameForAll ? "h-[400px]" : "h-[475px]"
-				} w-[400px] bg-white flex flex-col gap-5 items-center justify-center border-2 border-black p-5 z-20`}
+				className={`${accountIsSameForAll ? "h-[400px]" : "h-[475px]"
+					} w-[400px] bg-white flex flex-col gap-5 items-center justify-center border-2 border-black p-5 z-20`}
 			>
 				<h1 className="text-xl font-bold">Add New Dispute Item</h1>
 				<p>Select Credit Bureaus</p>
@@ -282,12 +276,11 @@ const AddNewDisputeModal = ({
 }
 
 export const AddClientOption3Form = () => {
+	const [letter_name, setLetter_name] = useState<String>()
 	const [letterOption, setLetterOption] = useState(1)
 	const [letterRecipient, setLetterRecipient] = useState("")
 	const [content, setContent] = useState("")
-	const [selectedTemplate, setSelectedTemplate] = useState<LetterData | null>(
-		null
-	)
+	const [selectedTemplate, setSelectedTemplate] = useState<LetterData | null>(null)
 	const [selectedBureau, setSelectedBureau] = useState<string>("")
 	const [userData, setUserData] = useState<UserData[]>([])
 	const [selectedUser, setSelectedUser] = useState<string>()
@@ -296,9 +289,83 @@ export const AddClientOption3Form = () => {
 	const [transUnionFile, setTransUnionFile] = useState()
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 	const [disputeDetails, setDisputeDetails] = useState<any>()
+	const [selectedUserEmail, setSelectedUserEmail] = useState<String>('');
+
+
+
+
+	const handleChange = (e: any) => {
+		const selectedValue = e.target.value;
+		setSelectedUser(selectedValue);
+
+		const user = userData.find(item => `${item.first_name} ${item.last_name}` === selectedValue);
+		if (user) {
+			setSelectedUserEmail(user.email);
+		} else {
+			setSelectedUserEmail('');
+		}
+	};
+
+
+
+
+	console.log(disputeDetails);
+
+
+	const FromData: any = {
+		equifax_report: equifaxFile,
+		experian_report: experianFile,
+		transUnion_report: transUnionFile,
+		email: selectedUserEmail,
+		equifax: disputeDetails?.equifaxStatus === "Positive" ? true : false,
+		trans_union: disputeDetails?.transUnionStatus === "Positive" ? true : false,
+		experian: disputeDetails?.experianStatus === "Positive" ? true : false,
+		reason: disputeDetails?.reason,
+		credit_furnisher: disputeDetails?.creditor,
+		instruction: disputeDetails?.instruction,
+		letter_name: letter_name,
+		account_number: disputeDetails?.accountNumber,
+		equifax_account: disputeDetails?.equifaxAccountNumber,
+		experian_account: disputeDetails?.experianAccountNumber,
+		transUnion_account: disputeDetails?.transUnionAccountNumber,
+		equifax_letter: content,
+		trans_union_letter: content,
+		experian_letter: content
+	}
+	console.log(FromData);
+
+	const formData = new FormData()
+	for (const key in FromData) {
+		if (FromData[key]) {
+			formData.append(key, FromData[key]);
+		}
+	}
+	const route = useRouter()
+	const addDispute = async () => {
+		try {
+			const url = "http://54.87.77.177:3001/dispute"
+
+			const res: any = await axios.post(url, formData)
+
+
+
+			if (res.status === 200) {
+				toast.success(res?.data?.message)
+				route.push("/admin/active-disputes")
+			}
+
+		} catch (error: any) {
+			console.error('Error response:', error.response.data.message);
+			toast.error(error?.response?.data?.message)
+		}
+	}
+
+
+
+
 
 	useEffect(() => {
-		;(async () => {
+		; (async () => {
 			await axios
 				.get("http://54.87.77.177:3001/user")
 				?.then((res) => {
@@ -505,7 +572,12 @@ export const AddClientOption3Form = () => {
 		{ id: 138, name: "Request for Loan Modification" }
 	]
 
+
+
+
 	const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+		const letter_name = disputeItems?.find((item) => `${item?.id}` === e.target.value)
+		setLetter_name(letter_name?.name)
 		const selectedId = parseInt(e.target.value, 10)
 		const selectedTemplate = LetterData.find(
 			(template) => template.id === selectedId
@@ -564,8 +636,7 @@ export const AddClientOption3Form = () => {
 			.replace(
 				"{curr_date}",
 				`
-                                          <p style="margin-top: 3px; margin-bottom: 3px;">${new Date().getDate()} ${
-					monthsLookup[new Date().getMonth()]
+                                          <p style="margin-top: 3px; margin-bottom: 3px;">${new Date().getDate()} ${monthsLookup[new Date().getMonth()]
 				}, ${new Date().getFullYear()}</p>`
 			)
 			.replace(
@@ -574,8 +645,7 @@ export const AddClientOption3Form = () => {
 			)
 			.replace(
 				"{client_signature}",
-				`${selectedUserData?.first_name || ""} ${
-					selectedUserData?.last_name || ""
+				`${selectedUserData?.first_name || ""} ${selectedUserData?.last_name || ""
 				}`
 			)
 
@@ -598,8 +668,10 @@ export const AddClientOption3Form = () => {
 	return (
 		<>
 			<h1 className="text-3xl md:text-4xl lg:text-5xl ml-5 font-bold text-[#686666] mt-10">
-				Add Dispute
+				Generate Letter
 			</h1>
+
+
 			<section className="w-full h-full flex flex-col items-center justify-center pt-10 mb-20">
 				{isModalOpen && (
 					<AddNewDisputeModal
@@ -620,9 +692,12 @@ export const AddClientOption3Form = () => {
 								id="nme"
 								className="w-full h-[80px] px-2 flex justify-center gap-10 items-center text-[#686666] border-gray-400 rounded-xl border-[1px]"
 								value={selectedUser}
-								onChange={(e: any) => {
-									setSelectedUser(e.target.value)
-								}}
+								onChange={handleChange}
+							// onChange={(e: any) => {
+
+
+							// 	setSelectedUser(e.target.value)
+							// }}
 							>
 								{userData?.map((item, index) => (
 									<option key={index}>
@@ -706,9 +781,8 @@ export const AddClientOption3Form = () => {
 							</div>
 						</div>
 						<div
-							className={`w-[75%] h-max py-2 bg-white shadow-md ${
-								letterOption === 2 ? "flex" : "hidden"
-							} flex-col px-2 rounded-lg`}
+							className={`w-[75%] h-max py-2 bg-white shadow-md ${letterOption === 2 ? "flex" : "hidden"
+								} flex-col px-2 rounded-lg`}
 						>
 							<div className="flex gap-2">
 								<p className="text-[#CCCCCC] text-[20px] font-light">
@@ -789,17 +863,14 @@ export const AddClientOption3Form = () => {
 										<p className="w-[20%] text-center text-wrap">
 											{disputeDetails?.accountIsSameForAll
 												? disputeDetails?.accountNumber ||
-												  "N/A"
-												: `${
-														disputeDetails?.equifaxAccountNumber ||
-														"N/A"
-												  }, ${
-														disputeDetails?.experianAccountNumber ||
-														"N/A"
-												  }, ${
-														disputeDetails?.transUnionAccountNumber ||
-														"N/A"
-												  }`}
+												"N/A"
+												: `${disputeDetails?.equifaxAccountNumber ||
+												"N/A"
+												}, ${disputeDetails?.experianAccountNumber ||
+												"N/A"
+												}, ${disputeDetails?.transUnionAccountNumber ||
+												"N/A"
+												}`}
 										</p>
 										<p className="w-[15%] text-center">
 											{disputeDetails?.reason || "N/A"}
@@ -859,31 +930,28 @@ export const AddClientOption3Form = () => {
 							</p>
 							<div className="w-[100px] h-[2px] bg-[#8ECAE6]" />
 							<button
-								className={`w-[100px] h-[23px] ${
-									selectedBureau === "equifax"
-										? "bg-white text-black"
-										: "text-[#D9D9D9]"
-								} rounded-lg`}
+								className={`w-[100px] h-[23px] ${selectedBureau === "equifax"
+									? "bg-white text-black"
+									: "text-[#D9D9D9]"
+									} rounded-lg`}
 								onClick={() => handleBureauClick("equifax")}
 							>
 								EQUIFAX
 							</button>
 							<button
-								className={`w-[100px] h-[23px] ${
-									selectedBureau === "experian"
-										? "bg-white text-black"
-										: "text-[#D9D9D9]"
-								} rounded-lg`}
+								className={`w-[100px] h-[23px] ${selectedBureau === "experian"
+									? "bg-white text-black"
+									: "text-[#D9D9D9]"
+									} rounded-lg`}
 								onClick={() => handleBureauClick("experian")}
 							>
 								EXPERIAN
 							</button>
 							<button
-								className={`w-[100px] h-[23px] ${
-									selectedBureau === "transunion"
-										? "bg-white text-black"
-										: "text-[#D9D9D9]"
-								} rounded-lg`}
+								className={`w-[100px] h-[23px] ${selectedBureau === "transunion"
+									? "bg-white text-black"
+									: "text-[#D9D9D9]"
+									} rounded-lg`}
 								onClick={() => handleBureauClick("transunion")}
 							>
 								TRANSUNION
@@ -931,7 +999,7 @@ export const AddClientOption3Form = () => {
 							<button className="w-[200px] h-[50px] rounded-xl border-[2px] border-[#929292]">
 								Save as template
 							</button>
-							<button className="w-[200px] h-[50px] rounded-xl  bg-[#1380FF] text-white font-bold">
+							<button onClick={addDispute} className="w-[200px] h-[50px] rounded-xl  bg-[#1380FF] text-white font-bold">
 								Send letter
 							</button>
 						</div>

@@ -1,7 +1,7 @@
 "use client"
-import Card from "@/components/admin/card"
-import Card1 from "@/components/admin/Card1"
-import { Flex, Progress } from "antd"
+// import Card from "@/components/admin/card"
+// import Card1 from "@/components/admin/Card1"
+// import { Flex, Progress } from "antd"
 
 // @ts-ignore
 import type { MenuProps } from "antd"
@@ -48,7 +48,7 @@ export const AddClientOption2Form = () => {
 	const [users, setUsers] = useState<User[]>([])
 
 	useEffect(() => {
-		;(async () => {
+		; (async () => {
 			await axios
 				.get("http://54.87.77.177:3001/user")
 				?.then((res) => {
@@ -85,26 +85,10 @@ export const AddClientOption2Form = () => {
 					<h1 className="text-[#686666] font-bold text-[50px]">
 						User Analytics
 					</h1>
-					<div className=" w-full xl:w-[50%]  h-max py-2   flex items-center justify-evenly xl:justify-start gap-4">
-						<button className="w-[100px] sm:w-[120px] md:w-[130px] xl:w-[150px] h-[50px] border-[#737373] border-[1px] rounded-full">
-							Sort By Filter{" "}
-							<FilterOutlined className="text-[#1380FF]" />{" "}
-						</button>
-						<div className="flex items-center gap-2">
-							<SearchOutlined className="text-[#2D264B]" />
-							<input
-								type="text"
-								className="outline-none xl:w-[150px] w-[100px]  sm:w-[120px] md:w-[130px] "
-								placeholder="Search"
-							/>
-							<button className="text-white bg-gradient-to-b from-[#1380FF] to-[#8ECAE6] w-[80px]  sm:w-[100px] md:w-[130px]   xl:w-[130px] h-[50px] rounded-full">
-								Find Disputes
-							</button>
-						</div>
-					</div>
+
 				</div>
 
-				<div className="w-full h-max   py-2 flex gap-4 items-center justify-center xl:justify-start flex-wrap px-4 ">
+				{/* <div className="w-full h-max   py-2 flex gap-4 items-center justify-center xl:justify-start flex-wrap px-4 ">
 					<Card quantity={users?.length} />
 					<Card1
 						quantity={
@@ -113,7 +97,7 @@ export const AddClientOption2Form = () => {
 							})?.length || 0
 						}
 					/>
-				</div>
+				</div> */}
 
 				<button
 					className="xl:hidden block font-bold w-[200px] h-[40px] rounded-full bg-[#1380ff] text-white "
@@ -126,7 +110,7 @@ export const AddClientOption2Form = () => {
 
 				<div className="w-full h-full flex  items-start  mt-10">
 					<div className="div1  w-full lg:w-[70%] h-full  flex flex-col items-center">
-						<div className="graph w-full  sm:w-[70%] overflow-x-auto    flex flex-col items-center justify-center overflow-y-hidden h-[600px] rounded-xl bg-white shadow-md ">
+						{/* <div className="graph w-full  sm:w-[70%] overflow-x-auto    flex flex-col items-center justify-center overflow-y-hidden h-[600px] rounded-xl bg-white shadow-md ">
 							<div className="w-[600px] h-[600px] pl-36 sm:pl-20 md:pl-10 xl:pl-0 overflow-x-auto overflow-y-hidden flex flex-col items-center justify-center gap-10">
 								<div className="w-full flex items-center justify-between px-2 ">
 									<div className="flex flex-col ">
@@ -146,7 +130,7 @@ export const AddClientOption2Form = () => {
 									<Graph />
 								</div>
 							</div>
-						</div>
+						</div> */}
 
 						<div className="w-[80%]  h-max py-2 mt-10 flex items-center justify-between">
 							<h1 className="text-[20px] text-[#333333] font-semibold">
@@ -166,9 +150,8 @@ export const AddClientOption2Form = () => {
 								</button>
 
 								<div
-									className={`absolute ${
-										sort ? "hidden" : "flex"
-									} flex-col pt-2 gap-2 items-center top-10 rounded-2xl w-[200px] h-[300px] bg-white shadow-sm`}
+									className={`absolute ${sort ? "hidden" : "flex"
+										} flex-col pt-2 gap-2 items-center top-10 rounded-2xl w-[200px] h-[300px] bg-white shadow-sm`}
 								>
 									<div className="flex flex-col items-start gap-2">
 										<div className="flex gap-2 text-[14px] text-[#686666]">
@@ -447,9 +430,8 @@ export const AddClientOption2Form = () => {
 							</div>
 
 							<div
-								className={`w-full h-full ${
-									hidden ? "hidden" : "flex"
-								} items-center justify-center gap-4 overflow-x-auto overflow-y-hidden`}
+								className={`w-full h-full ${hidden ? "hidden" : "flex"
+									} items-center justify-center gap-4 overflow-x-auto overflow-y-hidden`}
 							>
 								<button className="flex flex-col items-center justify-between gap-1 text-[#a7a9ac] border-[2px] rounded-md w-[200px] h-[60px]">
 									{" "}
@@ -531,9 +513,8 @@ export const AddClientOption2Form = () => {
 							</div>
 
 							<div
-								className={`w-full h-full ${
-									hiddden ? "hidden" : "flex"
-								} items-center justify-center gap-4 overflow-x-auto overflow-y-hidden`}
+								className={`w-full h-full ${hiddden ? "hidden" : "flex"
+									} items-center justify-center gap-4 overflow-x-auto overflow-y-hidden`}
 							>
 								<button className="flex flex-col items-center justify-between gap-1 text-[#a7a9ac] border-[2px] rounded-md w-[200px] h-[60px]">
 									{" "}
@@ -615,9 +596,8 @@ export const AddClientOption2Form = () => {
 							</div>
 
 							<div
-								className={`w-full h-full ${
-									hidddden ? "hidden" : "flex"
-								} items-center justify-center gap-4 overflow-x-auto overflow-y-hidden`}
+								className={`w-full h-full ${hidddden ? "hidden" : "flex"
+									} items-center justify-center gap-4 overflow-x-auto overflow-y-hidden`}
 							>
 								<button className="flex flex-col items-center justify-between gap-1 text-[#a7a9ac] border-[2px] rounded-md w-[200px] h-[60px]">
 									{" "}
@@ -726,12 +706,11 @@ export const AddClientOption2Form = () => {
 						</div>
 					</div>
 				</div>
-			</section>
+			</section >
 
 			<div
-				className={`w-[80%] bg-white h-max ${
-					sidebar ? "hidden" : "absolute"
-				} top-2 right-1 pt-6`}
+				className={`w-[80%] bg-white h-max ${sidebar ? "hidden" : "absolute"
+					} top-2 right-1 pt-6`}
 			>
 				<button
 					onClick={() => {
