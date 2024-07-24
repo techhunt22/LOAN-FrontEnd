@@ -37,8 +37,7 @@ export const AddClientPanel: React.FC<AddClientPanelProps> = (props) => {
               : "flex flex-col w-full justify-center content-center items-center rounded-r-full  "
           }
         >
-          <UserPlusIcon className="flex w-24 h-20  pt-5 text-gray-300" />
-          <div className="flex text-lg text-gray-300 pb-5">Add Client</div>
+         
         </div>
         <div className="h-12"></div>
         <div
@@ -48,10 +47,7 @@ export const AddClientPanel: React.FC<AddClientPanelProps> = (props) => {
               : "flex flex-col w-full justify-center content-center items-center rounded-r-full "
           }
         >
-          <FaceSmileIcon className="flex w-24 h-20  pt-5 text-gray-300" />
-          <div className="flex text-lg text-gray-300 pb-5">
-            Improve Standing
-          </div>
+         
         </div>
       </div>
     </>

@@ -28,9 +28,9 @@ import useForm from "new-react-use-form";
 import video from "@/video/step6.mp4"
 
 const headerContent = {
-  step: "STPE6",
+  step: "STEP6",
   title: "Advance Building",
-  subTitle: "TIER4",
+  subTitle: "TIER3",
 };
 
 const videoContent = {
@@ -72,15 +72,15 @@ const tierContents = {
 
 const monitorCardGroup = [
   {
-    price: "49.95",
+    price: "50",
     recommeded: true,
-    icon: "/monitor/vc-credable.svg",
+    icon: "/monitor/step 6/FireShot Capture 173 - COAST TO COAST - coasttocoastofficesupply 1.png",
     contents: [
       {
-        record: "D&B and Experian and Equifax",
+        record: "Equifax",
       },
       {
-        record: "One TimePayment Only",
+        record: "One Time Payment Only",
       },
       {
         record: "No Personal Guarantee Required",
@@ -93,13 +93,320 @@ const monitorCardGroup = [
   {
     price: "49.95",
     recommeded: true,
-    icon: "/monitor/vc-uline.svg",
+    icon: "/monitor/step 6/Capital on Tap - png 0.png",
+    contents: [
+      {
+        record: "Experian",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "Personal Guarantee Required",
+      },
+      {
+        record: "Net will be upto revolving",
+      },
+    ],
+  },
+ 
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/step 6/KleerCard - png 0.png",
+    contents: [
+      {
+        record: "D&B",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "No Personal Guarantee Required",
+      },
+      {
+        record: "Net will be $30 ",
+      },
+    ],
+  },
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/step 6/Layer 2.png",
+    contents: [
+      {
+        record: "D&B",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "No Personal Guarantee Required",
+      },
+      {
+        record: "Net will be $30 ",
+      },
+    ],
+  },
+  {
+    price: "40",
+    recommeded: true,
+    icon: "/monitor/step 6/crownofficesupplies.com - png 0.png",
+    contents: [
+      {
+        record: "D&B and Equifax",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "No Personal Guarantee Required",
+      },
+      {
+        record: "Net will be $30 ",
+      },
+    ],
+  },
+  {
+    price: "50",
+    recommeded: true,
+    icon: "/monitor/step 6/Clark Crown _ Lisle IL - png 0.png",
+    contents: [
+      {
+        record: "D&B and Experian",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "Personal Guarantee Required",
+      },
+      {
+        record: "Net will be $15",
+      },
+    ],
+  },
+  {
+    price: "25",
+    recommeded: true,
+    icon: "/monitor/step 6/FleetCardsUSA - png.png",
     contents: [
       {
         record: "D&B and Experian and Equifax",
       },
       {
-        record: "One TimePayment Only",
+        record: "One Time Payment Only",
+      },
+      {
+        record: "No Personal Guarantee Required",
+      },
+      {
+        record: "Net will be $7,$10 or $14",
+      },
+    ],
+  },
+  {
+    price: "45",
+    recommeded: true,
+    icon: "/monitor/step 6/Ryder - png 0.png",
+    contents: [
+      {
+        record: "D&B and Experian and Equifax",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "No Personal Guarantee Required",
+      },
+      {
+        record: "Net will be $7,$10 or $14",
+      },
+    ],
+  },
+  {
+    price: "40",
+    recommeded: true,
+    icon: "/monitor/step 6/Nevada State bank - png 0.png",
+    contents: [
+      {
+        record: "D&B and Experian and Equifax",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "Personal Guarantee Required",
+      },
+      {
+        record: "Net will be revolving",
+      },
+    ],
+  },
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/step 6/bellbanksretirement.com - png.png",
+    contents: [
+      {
+        record: "D&B",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "Personal Guarantee Required",
+      },
+      {
+        record: "Net will be revolving",
+      },
+    ],
+  },
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/step 6/Citizens Business Bank svg.png",
+    contents: [
+      {
+        record: "D&B",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "Personal Guarantee Required",
+      },
+      {
+        record: "Net will be revolving",
+      },
+    ],
+  },
+  {
+    price: "100",
+    recommeded: true,
+    icon: "/monitor/step 6/Comerica Bank svg.png",
+    contents: [
+      {
+        record: "D&B",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "Personal Guarantee Required",
+      },
+      {
+        record: "Net will be revolving",
+      },
+    ],
+  },
+  
+  {
+    price: "65",
+    recommeded: true,
+    icon: "/monitor/step 6/JetBlue svg.png",
+    contents: [
+      {
+        record: "Experian and Equifax",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "Personal Guarantee Required",
+      },
+      {
+        record: "Net will be revolving",
+      },
+    ],
+  },
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/step 6/Wintrust - png.png",
+    contents: [
+      {
+        record: "D&B",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "Personal Guarantee Required",
+      },
+      {
+        record: "Net will be revolving",
+      },
+    ],
+  },
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/step 6/FNBO - png 0.png",
+    contents: [
+      {
+        record: "D&B(Reports Quartely)",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "Personal Guarantee Required",
+      },
+      {
+        record: "Net will be $20 or  revolving",
+      },
+    ],
+  },
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/step 6/Columbus Promos LLC _ Columbus OH svg.png",
+    contents: [
+      {
+        record: "Equifax",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "No Personal Guarantee Required",
+      },
+      {
+        record: "Net will be only $30",
+      },
+    ],
+  },
+  {
+    price: "80",
+    recommeded: true,
+    icon: "/monitor/step 6/arco fleet card logog.png",
+    contents: [
+      {
+        record: "D&B and Equifax",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "Personal Guarantee Required",
+      },
+      {
+        record: "Net will be only $30",
+      },
+    ],
+  },
+
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/step 6/GEMPLER'S _ Janesville WI - png.png",
+    contents: [
+      {
+        record: "D&B",
+      },
+      {
+        record: "One Time Payment Only",
       },
       {
         record: "No Personal Guarantee Required",
@@ -112,13 +419,89 @@ const monitorCardGroup = [
   {
     price: "49.95",
     recommeded: true,
-    icon: "/monitor/vc-brex.svg",
+    icon: "/monitor/step 6/Sunoco svg.png",
     contents: [
       {
         record: "D&B and Experian and Equifax",
       },
       {
-        record: "One TimePayment Only",
+        record: "One Time Payment Only",
+      },
+      {
+        record: "Personal Guarantee Required",
+      },
+      {
+        record: "Net will be only $15 or revolving",
+      },
+    ],
+  },
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/step 6/Speedway - png 0.png",
+    contents: [
+      {
+        record: "D&B and Experian and Equifax",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "Personal Guarantee Required",
+      },
+      {
+        record: "Net will be only $15",
+      },
+    ],
+  },
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/step 6/Sinclair Oil svg.png",
+    contents: [
+      {
+        record: "D&B and Experian and Equifax",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "Personal Guarantee Required",
+      },
+      {
+        record: "Net will be only $15",
+      },
+    ],
+  },
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/step 6/bp svg.png",
+    contents: [
+      {
+        record: "D&B and Experian and Equifax",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: "No Personal Guarantee Required",
+      },
+      {
+        record: "Net will be only $7,$10,$14 OR $15",
+      },
+    ],
+  },
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/step 6/Lands' End svg.png",
+    contents: [
+      {
+        record: "D&B",
+      },
+      {
+        record: "One Time Payment Only",
       },
       {
         record: "No Personal Guarantee Required",
@@ -131,13 +514,51 @@ const monitorCardGroup = [
   {
     price: "49.95",
     recommeded: true,
-    icon: "/monitor/vc-murphy.svg",
+    icon: "/monitor/step 6/Tractor Supply Co. svg.png",
     contents: [
       {
-        record: "D&B and Experian and Equifax",
+        record: "D&B and Experian and Equifax (Report will show up after Thasadith, they report monthly)",
       },
       {
-        record: "One TimePayment Only",
+        record: "One Time Payment Only",
+      },
+      {
+        record: "No Personal Guarantee Required",
+      },
+      {
+        record: "Net will be only $30,$45",
+      },
+    ],
+  },
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/step 6/shell logo.png",
+    contents: [
+      {
+        record: "D&B and Experian and Equifax ",
+      },
+      {
+        record: "One Time Payment Only",
+      },
+      {
+        record: " Personal Guarantee Required",
+      },
+      {
+        record: "Net will be $22 or revolving",
+      },
+    ],
+  },
+  {
+    price: "49.95",
+    recommeded: true,
+    icon: "/monitor/step 6/FireShot Capture 197 - SUMMA OFFICE SUPPLIES - summaofficesupplies 1.png",
+    contents: [
+      {
+        record: "Equifax",
+      },
+      {
+        record: "One Time Payment Only",
       },
       {
         record: "No Personal Guarantee Required",
@@ -150,266 +571,133 @@ const monitorCardGroup = [
   {
     price: "49.95",
     recommeded: true,
-    icon: "/monitor/vc-kum&go.svg",
+    icon: "/monitor/step 6/Royal Farms svg.png",
     contents: [
       {
-        record: "D&B and Experian and Equifax",
+        record: "D&B and Experian and Equifax ",
       },
       {
-        record: "One TimePayment Only",
+        record: "One Time Payment Only",
       },
       {
-        record: "No Personal Guarantee Required",
+        record: " Personal Guarantee Required",
       },
       {
-        record: "Net will be only $30",
+        record: "Net will be $15",
       },
     ],
   },
   {
     price: "49.95",
     recommeded: true,
-    icon: "/monitor/vc-grainger.svg",
+    icon: "/monitor/step 6/FireShot Capture 198 - Umpqua Bank_ Together for better - www.umpquabank 1.png",
     contents: [
       {
-        record: "D&B and Experian and Equifax",
+        record: "D&B",
       },
       {
-        record: "One TimePayment Only",
+        record: "One Time Payment Only",
       },
       {
-        record: "No Personal Guarantee Required",
+        record: "Personal Guarantee Required",
       },
       {
-        record: "Net will be only $30",
+        record: "Net will be revolving",
       },
     ],
   },
   {
     price: "49.95",
     recommeded: true,
-    icon: "/monitor/vc-credable.svg",
+    icon: "/monitor/step 6/Stripes - png.png",
     contents: [
       {
         record: "D&B and Experian and Equifax",
       },
       {
-        record: "One TimePayment Only",
+        record: "One Time Payment Only",
       },
       {
-        record: "No Personal Guarantee Required",
+        record: "Personal Guarantee Required",
       },
       {
-        record: "Net will be only $30",
+        record: "Net will be $15",
       },
     ],
   },
   {
     price: "49.95",
     recommeded: true,
-    icon: "/monitor/vc-uline.svg",
+    icon: "/monitor/step 6/Mapco Rewards svg.png",
     contents: [
       {
         record: "D&B and Experian and Equifax",
       },
       {
-        record: "One TimePayment Only",
+        record: "One Time Payment Only",
       },
       {
-        record: "No Personal Guarantee Required",
+        record: "Personal Guarantee Required",
       },
       {
-        record: "Net will be only $30",
+        record: "Net will be $15",
       },
     ],
   },
   {
     price: "49.95",
     recommeded: true,
-    icon: "/monitor/vc-brex.svg",
+    icon: "/monitor/step 6/Platt Electric Supply - png 0.png",
     contents: [
       {
-        record: "D&B and Experian and Equifax",
+        record: "D&B and Experian",
       },
       {
-        record: "One TimePayment Only",
+        record: "One Time Payment Only",
       },
       {
         record: "No Personal Guarantee Required",
       },
       {
-        record: "Net will be only $30",
+        record: "Net will be $30",
       },
     ],
   },
   {
     price: "49.95",
     recommeded: true,
-    icon: "/monitor/vc-murphy.svg",
+    icon: "/monitor/step 6/CITGO svg.png",
     contents: [
       {
         record: "D&B and Experian and Equifax",
       },
       {
-        record: "One TimePayment Only",
+        record: "One Time Payment Only",
       },
       {
-        record: "No Personal Guarantee Required",
+        record: "Personal Guarantee Required",
       },
       {
-        record: "Net will be only $30",
+        record: "Net will be $15",
       },
     ],
   },
   {
     price: "49.95",
     recommeded: true,
-    icon: "/monitor/vc-kum&go.svg",
+    icon: "/monitor/step 6/thespinxcompany - png.png",
     contents: [
       {
         record: "D&B and Experian and Equifax",
       },
       {
-        record: "One TimePayment Only",
+        record: "One Time Payment Only",
       },
       {
-        record: "No Personal Guarantee Required",
+        record: "Personal Guarantee Required",
       },
       {
-        record: "Net will be only $30",
-      },
-    ],
-  },
-  {
-    price: "49.95",
-    recommeded: true,
-    icon: "/monitor/vc-grainger.svg",
-    contents: [
-      {
-        record: "D&B and Experian and Equifax",
-      },
-      {
-        record: "One TimePayment Only",
-      },
-      {
-        record: "No Personal Guarantee Required",
-      },
-      {
-        record: "Net will be only $30",
-      },
-    ],
-  },
-  {
-    price: "49.95",
-    recommeded: true,
-    icon: "/monitor/vc-credable.svg",
-    contents: [
-      {
-        record: "D&B and Experian and Equifax",
-      },
-      {
-        record: "One TimePayment Only",
-      },
-      {
-        record: "No Personal Guarantee Required",
-      },
-      {
-        record: "Net will be only $30",
-      },
-    ],
-  },
-  {
-    price: "49.95",
-    recommeded: true,
-    icon: "/monitor/vc-uline.svg",
-    contents: [
-      {
-        record: "D&B and Experian and Equifax",
-      },
-      {
-        record: "One TimePayment Only",
-      },
-      {
-        record: "No Personal Guarantee Required",
-      },
-      {
-        record: "Net will be only $30",
-      },
-    ],
-  },
-  {
-    price: "49.95",
-    recommeded: true,
-    icon: "/monitor/vc-brex.svg",
-    contents: [
-      {
-        record: "D&B and Experian and Equifax",
-      },
-      {
-        record: "One TimePayment Only",
-      },
-      {
-        record: "No Personal Guarantee Required",
-      },
-      {
-        record: "Net will be only $30",
-      },
-    ],
-  },
-  {
-    price: "49.95",
-    recommeded: true,
-    icon: "/monitor/vc-murphy.svg",
-    contents: [
-      {
-        record: "D&B and Experian and Equifax",
-      },
-      {
-        record: "One TimePayment Only",
-      },
-      {
-        record: "No Personal Guarantee Required",
-      },
-      {
-        record: "Net will be only $30",
-      },
-    ],
-  },
-  {
-    price: "49.95",
-    recommeded: true,
-    icon: "/monitor/vc-kum&go.svg",
-    contents: [
-      {
-        record: "D&B and Experian and Equifax",
-      },
-      {
-        record: "One TimePayment Only",
-      },
-      {
-        record: "No Personal Guarantee Required",
-      },
-      {
-        record: "Net will be only $30",
-      },
-    ],
-  },
-  {
-    price: "49.95",
-    recommeded: true,
-    icon: "/monitor/vc-grainger.svg",
-    contents: [
-      {
-        record: "D&B and Experian and Equifax",
-      },
-      {
-        record: "One TimePayment Only",
-      },
-      {
-        record: "No Personal Guarantee Required",
-      },
-      {
-        record: "Net will be only $30",
+        record: "Net will be $15",
       },
     ],
   },

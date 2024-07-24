@@ -1,6 +1,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import video1 from '../../../src/video/step1.mp4'
+import video2 from '../../../src/video/step2.mp4'
+import video3 from '../../../src/video/step3.mp4'
+import video4 from '../../../src/video/step4.mp4'
+import video5 from '../../../src/video/step5.mp4'
+import video6 from '../../../src/video/step6.mp4'
+import video7 from '../../../src/video/step7.mp4'
+
 
 interface DataInterface {
   name: string;
@@ -155,6 +163,29 @@ export const MonitorBusinessReportForm = () => {
     }
   }, [selectedItem, currentUrl]);
 
+  // useEffect(() => {
+  //   let updatedUrl: DataInterface[] = [];
+  //   const findFundability = fundability.some((item) => item.url === currentUrl);
+  //   const findEstablish = establish.some((item) => item.url === currentUrl);
+  //   const findMonitor = monitor.some((item) => item.url === currentUrl);
+  //   if (findFundability === true) {
+  //     const index = fundability.findIndex((item) => item.url === currentUrl);
+  //     const newArray = fundability.slice(0, index + 1);
+  //     updatedUrl.push(...newArray);
+  //   } else if (findEstablish === true) {
+  //     const index = establish.findIndex((item) => item.url === currentUrl);
+  //     updatedUrl.push(...fundability);
+  //     const newArray = establish.slice(0, index + 1);
+  //     updatedUrl.push(...newArray);
+  //   } else if (findMonitor === true) {
+  //     const index = monitor.findIndex((item) => item.url === currentUrl);
+  //     updatedUrl.push(...fundability, ...establish);
+  //     const newArray = monitor.slice(0, index + 1);
+  //     updatedUrl.push(...newArray);
+  //   }
+  //   setAllUrl(updatedUrl);
+  // }, [currentUrl, selectedItem]);
+
   useEffect(() => {
     let updatedUrl: DataInterface[] = [];
     const findFundability = fundability.some((item) => item.url === currentUrl);
@@ -174,15 +205,31 @@ export const MonitorBusinessReportForm = () => {
       updatedUrl.push(...fundability, ...establish);
       const newArray = monitor.slice(0, index + 1);
       updatedUrl.push(...newArray);
+    } else if (currentUrl === "/step7/page1-min") {
+      updatedUrl.push(...fundability, ...establish);
+    } else {
+      updatedUrl.push(...fundability, ...establish, ...monitor);
     }
     setAllUrl(updatedUrl);
   }, [currentUrl, selectedItem]);
+  
+  // This useEffect is responsible for updating the allUrl array based on the currentUrl.
+  
+  
+console.log(' fundability',fundability)
+console.log('current url',currentUrl)
+console.log('allurl',allUrl)
+
+
 
   return (
     <>
       <div className="flex flex-col w-full h-max px-4 justify-start border-2 border-blue-600 rounded-2xl pt-8">
         {/* step 1 */}
         <p className="text-blue-500">Step1</p>
+        <video width="300" controls>
+             <source src={video1} type="video/mp4" />
+        </video>
         <div className="flex flex-row items-center w-full pl-2">
           <div className="flex w-[45rem] text-2xl justify-start text-md my-2 business-page-text-color-black">
             <h3 className="text-xl font-semibold">Fundability Foundation</h3>
@@ -199,15 +246,17 @@ export const MonitorBusinessReportForm = () => {
           </div>
         </div>
         <div className="flex flex-col">
-          {fundability.map((report, index) => (
+       
+
+
+
+        {fundability.map((report, index) => (
             <div
               className={
                 "flex flex-row my-4 pl-2 w-[30rem] w-full business-page-text-color-gray   business-page-sidebar-border-bottom"
               }
               key={index}
-              //   onClick={
-              //     () => handleItemClick(report.url)
-              //   }
+              onClick={() => handleItemClick(report.url)}
             >
               {allUrl.some((item) => item.url === report.url) ? (
                 <img src={"/stepactive.png"} alt="" className="h-[29px]" />
@@ -221,14 +270,18 @@ export const MonitorBusinessReportForm = () => {
               )}
               {/* <Setting className="text-blue-600" /> */}
 
-              <Link href={""} className="ml-4">
+              <Link href={report.url} className="ml-4">
                 {report.name}
               </Link>
             </div>
           ))}
+
         </div>
         {/* step 2 */}
         <p className="text-blue-500">Step2</p>
+        <video width="300" controls>
+             <source src={video2} type="video/mp4" />
+        </video>
         <div className="flex flex-row items-center w-full pl-2">
           <div className="flex w-[45rem] justify-start text-md my-2 business-page-text-color-black">
             <h3 className="text-xl font-semibold">
@@ -248,13 +301,13 @@ export const MonitorBusinessReportForm = () => {
           </div>
         </div>
         <div className="flex flex-col">
-          {establish.map((report, index) => (
+        {establish.map((report, index) => (
             <div
               className={
                 "flex flex-row my-4 pl-2 w-[30rem] w-full business-page-text-color-gray business-page-sidebar-border-bottom"
               }
               key={index}
-              //   onClick={() => handleItemClick(report.url)}
+              onClick={() => handleItemClick(report.url)}
             >
               {allUrl.some((item) => item.url === report.url) ? (
                 <img src={"/stepactive.png"} alt="" className="h-[29px]" />
@@ -263,7 +316,7 @@ export const MonitorBusinessReportForm = () => {
               )}
               {/* <Setting className="text-blue-600" /> */}
 
-              <Link href={""} className="ml-4">
+              <Link href={report.url} className="ml-4">
                 {report.name}
               </Link>
             </div>
@@ -271,13 +324,16 @@ export const MonitorBusinessReportForm = () => {
         </div>
         {/* step 3 */}
         <p className="text-blue-500">Step3</p>
+        <video width="300" controls>
+             <source src={video3} type="video/mp4" />
+        </video>
         <div className="flex flex-row items-center w-full pl-2">
           <div className="flex w-[45rem] justify-start text-md my-2 business-page-text-color-black">
             <h3 className="text-xl font-semibold">Start Building: </h3>
           </div>
           <div className="flex w-full justify-end">
             <div className="h-8 text-blue-600">
-              <Link href={""} className="business-page-tier">
+              <Link href={"/step7/page1-min"} className="business-page-tier">
                 Tier1
               </Link>{" "}
             </div>
@@ -285,6 +341,9 @@ export const MonitorBusinessReportForm = () => {
         </div>
         {/* step 4 */}
         <p className="text-blue-500">Step4</p>
+        <video width="300" controls>
+             <source src={video4} type="video/mp4" />
+        </video>
         <div className="flex flex-row items-center w-full pl-2">
           <div className="flex w-[45rem] justify-start text-md my-2 business-page-text-color-black">
             <h3 className="text-xl font-semibold">Monitor Business Reports</h3>
@@ -302,13 +361,14 @@ export const MonitorBusinessReportForm = () => {
           </div>
         </div>
         <div className="flex flex-col">
-          {monitor.map((report, index) => (
+        
+        {monitor.map((report, index) => (
             <div
               className={
                 "flex flex-row my-4 pl-2 w-[30rem] w-full business-page-text-color-gray business-page-sidebar-border-bottom"
               }
               key={index}
-              //   onClick={() => handleItemClick(report.url)}
+              onClick={() => handleItemClick(report.url)}
             >
               {allUrl.some((item) => item.url === report.url) ? (
                 <img src={"/stepactive.png"} alt="" className="h-[29px]" />
@@ -317,13 +377,17 @@ export const MonitorBusinessReportForm = () => {
               )}
               {/* 
             <Setting className="text-blue-600" /> */}
-              <Link href={""} className="ml-4">
+              <Link href={report.url} className="ml-4">
                 {report.name}
               </Link>
             </div>
           ))}
+
         </div>
         {/* step 5 */}
+        <video width="300" controls>
+             <source src={video5} type="video/mp4" />
+        </video>
         <p className="text-blue-500">Step5</p>
         <div className="flex flex-row items-center w-full pl-2">
           <div className="flex w-[45rem] justify-start text-md my-2 business-page-text-color-black">
@@ -332,7 +396,7 @@ export const MonitorBusinessReportForm = () => {
 
           <div className="flex w-full justify-end">
             <div className="h-8 text-blue-600">
-              <Link href={""} className="business-page-tier">
+              <Link href={"/step7/page2-full"} className="business-page-tier">
                 Tier2{" "}
               </Link>{" "}
             </div>
@@ -340,13 +404,16 @@ export const MonitorBusinessReportForm = () => {
         </div>
         {/* step 6 */}
         <p className="text-blue-500">Step6</p>
+        <video width="300" controls>
+             <source src={video6} type="video/mp4" />
+        </video>
         <div className="flex flex-row items-center w-full pl-2">
           <div className="flex w-[45rem] justify-start text-md my-2 business-page-text-color-black">
             <h3 className="text-xl font-semibold">Advance Building: </h3>
           </div>
           <div className="flex w-full justify-end">
             <div className="h-8 text-blue-600">
-              <Link href={""} className="business-page-tier">
+              <Link href={"/step7/page3-full"} className="business-page-tier">
                 Tier3
               </Link>{" "}
             </div>
@@ -354,13 +421,16 @@ export const MonitorBusinessReportForm = () => {
         </div>
         {/* step 7 */}
         <p className="text-blue-500">Step7</p>
+        <video width="300" controls>
+             <source src={video7} type="video/mp4" />
+        </video>
         <div className="flex flex-row items-center w-full pl-2">
           <div className="flex w-[48rem] justify-start text-md my-2 business-page-text-color-black">
             <h3 className="text-xl font-semibold">Revolving Account: </h3>
           </div>
           <div className="flex w-full justify-end">
             <div className="h-8 text-blue-600">
-              <Link href={""} className="business-page-tier">
+              <Link href={"/step7/page4-full"} className="business-page-tier">
                 Tier4{" "}
               </Link>{" "}
             </div>

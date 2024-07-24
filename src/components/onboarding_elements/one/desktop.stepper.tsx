@@ -53,12 +53,12 @@ export const DesktopStepper = () => {
     // <div className={" flex flex-row items-center justify-center w-full h-auto text-white"}>
     // <div className=" rounded-l-xl flex flex-row justify-center items-center w-[70%] bg-[#137FFF] h-[225px] py-4 pl-32 main-stepper text-white">
     <div className="w-full h-full  flex  flex-row   items-center justify-center">
-      <div className="w-[70%] bg-[#137FFF] h-[225px] flex items-center justify-center">
-        <Steps current={1} className="text-white">
+      <div className="w-[80%] bg-[#137FFF] h-[225px] flex items-center justify-center ">
+        <Steps current={1} className="text-white flex w-max  items-center justify-center gap-4">
           {steps.map((item) => (
             <Step
               key={item.title}
-              className="text-white"
+              className="text-white bg-white rounded-lg "
               title={item.title}
               description={item.description}
             />
