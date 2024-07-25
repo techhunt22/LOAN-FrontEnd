@@ -649,7 +649,7 @@ export const AddClientOption3Form = () => {
 				}`
 			)
 
-		setContent(`${bureauAddress} ${updatedContent}`)
+		setContent(`${bureauAddress}  ${updatedContent}`)
 	}
 
 	const handleBureauClick = (bureau: string) => {
@@ -670,8 +670,6 @@ export const AddClientOption3Form = () => {
 			<h1 className="text-3xl md:text-4xl lg:text-5xl ml-5 font-bold text-[#686666] mt-10">
 				Generate Letter
 			</h1>
-
-
 			<section className="w-full h-full flex flex-col items-center justify-center pt-10 mb-20">
 				{isModalOpen && (
 					<AddNewDisputeModal

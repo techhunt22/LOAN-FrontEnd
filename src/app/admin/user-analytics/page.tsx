@@ -2,4 +2,5 @@ import { AddClientOption2Form } from "@/components/form-controller/modules/six/a
 // import { SignupForm } from "@/components/form-controller/modules/one/onboarding/signup.form";
 export default function Page() {
   return <AddClientOption2Form />;
+
 }
