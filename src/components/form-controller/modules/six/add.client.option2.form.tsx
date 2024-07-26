@@ -21,6 +21,7 @@ import Graph from "@/components/admin/Graph";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Winning from "@/components/admin/Progress";
+import toast from "react-hot-toast";
 
 interface User {
 	_id: number;
@@ -51,6 +52,7 @@ export const AddClientOption2Form = () => {
 	const [selectedContent, setSelectedContent] = useState("")
 	const [isModalVisible, setIsModalVisible] = useState(false)
 	const [selectedDispute, setSelectedDispute] = useState<any>({})
+	const [userEmail, setUserEmail] = useState()
 
 
 	useEffect(() => {
@@ -67,8 +69,8 @@ export const AddClientOption2Form = () => {
 		})();
 	}, []);
 
-	const handleUser = async (e: any) => {
-		const email = e.target.value;
+	const handleUser = async () => {
+		const email = userEmail
 		const user = users.filter((item: any) => item.email === email);
 
 		setSelectedUser(user);
@@ -80,6 +82,12 @@ export const AddClientOption2Form = () => {
 			console.log(error.message);
 		}
 	};
+
+
+	useEffect(() => {
+		handleUser()
+	}, [userEmail])
+
 
 	const handleViewContent = (content: string) => {
 		setSelectedContent(content)
@@ -101,7 +109,33 @@ export const AddClientOption2Form = () => {
 		},
 	];
 
-	console.log(selectedDispute);
+	const handleUpdate = async () => {
+		try {
+			const id = selectedDispute._id
+			if (selectedDispute.status !== "SENT") {
+
+				const url = `http://54.87.77.177:3001/dispute/${id}`
+				const body = {
+					status: "SENT"
+				}
+				const res = await axios.put(url, body)
+
+				if (res.status === 200) {
+					toast.success("letter is marked sent")
+					setSelectedDispute(res.data)
+					handleUser()
+
+				}
+			}
+			if (selectedDispute.status === "SENT") {
+				toast.success("letter is already marked sent")
+			}
+		} catch (error: any) {
+			console.log(error.message);
+
+		}
+	}
+
 
 	return (
 		<>
@@ -122,7 +156,7 @@ export const AddClientOption2Form = () => {
 						<div className="w-[80%]  h-max py-2 mt-10 flex items-center justify-between">
 							<div className="w-[80%]  mb-6 flex">
 								{/* USER FROM DOWN */}
-								<select name="name" id="nme" className="w-[25%] h-[80px] px-2 flex justify-start gap-10 items-center text-[#686666] border-gray-400 rounded-xl border-[1px]" value={selectedUser?.name} onChange={handleUser}>
+								<select name="name" id="nme" className="w-[25%] h-[80px] px-2 flex justify-start gap-10 items-center text-[#686666] border-gray-400 rounded-xl border-[1px]" value={selectedUser?.name} onChange={(e: any) => { setUserEmail(e.target.value) }}>
 									<option value="user">Select the user</option>
 									{users?.map((item: any, index: any) => (
 										<option key={index}>{item.email}</option>
@@ -319,39 +353,41 @@ export const AddClientOption2Form = () => {
 									</div>
 								</div>
 								<div className={`w-full h-full ${hidddden ? "hidden" : "flex"} items-center justify-center gap-4 overflow-x-auto overflow-y-hidden`}>
-									<button className="flex flex-col items-center justify-between gap-1 text-[#a7a9ac] border-[2px] rounded-md w-[200px] h-[60px]">
+									<Button className="flex flex-col items-center justify-center gap-1 text-[#a7a9ac] border-[2px] rounded-md w-[200px] h-[60px]">
 										{" "}
 										<EyeInvisibleOutlined /> Preview
-									</button>
-									<button className="flex flex-col bg-[#1380ff] text-white items-center justify-between gap-1 rounded-md w-[200px] h-[60px]">
+									</Button>
+
+									<Button onClick={handleUpdate} className="flex flex-col bg-[#1380ff] text-white items-center justify-center gap-1 rounded-md w-[200px] h-[60px]">
+
 										<CheckCircleOutlined />
-										Mark as Done
-									</button>
+										Mark as Sent
+									</Button>
 								</div>
 							</div >
 						)
 						)}
 					</div>
 
-					{/* <div className="div2 w-[30%]    h-max py-2 gap-4 xl:flex hidden items-center justify-start flex-col">
-						<div className="w-[60%] h-[400px] bg-white rounded-lg shadow-md flex gap-8 pt-4 flex-col  items-center ml-3">
-							<h1 className="text-[#000000] text-[20px]">Recent Activity</h1>
-							{users?.slice(0, 3)?.map((user: any, key: any) => {
+					<div className="div2 w-[30%] mt-[10%] mr-5  h-max py-2 gap-4 flex flex-col justify-between">
+						<div className="w-[60%]   h-auto bg-white rounded-lg shadow-md flex gap-8 pt-4 flex-col  items-center">
+							<h1 className="text-[#000000] text-[20px]">Recent Disputes</h1>
+							{disputes?.slice(0, 3)?.map((item: any, key: any) => {
 								return (
-									<div className="w-full h-max flex items-center justify-center gap-4" key={key}>
-										<div className="w-[50px] h-[50px] bg-black rounded-full" />
+									<div className="w-full h-max flex items-center justify-center gap-4 mb-6" key={key}>
+										<CheckCircleOutlined className="text-green-600" />
 										<div>
 											<h1 className="text-[14px]">
-												{user?.first_name} {user?.last_name}
+												{item?.letter_name}
 											</h1>
-											<p className="text-[#A3A3A3] text-[7px] font-ligth">Logged in 20:00 09/02/2023</p>
+											<p className="text-[#A3A3A3] text-[7px] font-ligth">{item.instruction}</p>
 										</div>
 									</div>
 								);
 							})}
 						</div>
 
-						<div className="w-[60%] h-[400px] bg-white rounded-lg shadow-md flex gap-8 pt-4 flex-col  items-center  justify-start ml-3">
+						<div className="w-[60%] h-[400px] bg-white rounded-lg shadow-md flex gap-8 pt-4 flex-col  items-center  justify-start">
 							<div className="flex items-center w-full h-max justify-between px-4">
 								<p className="text-[#161616] text-[15px]">Upcoming Tasks</p>
 								<button className="border-[1px] border-[#161616] rounded-lg w-[85px] h-[34px]">See All</button>
@@ -390,11 +426,11 @@ export const AddClientOption2Form = () => {
 								<div className="w-[20px] h-[20px] bg-[#3049FE] rounded-full" />
 							</div>
 						</div>
-					</div> */}
+					</div>
 				</div>
 			</section >
 
-			{/* <div className={`w-[80%] bg-white h-max ${sidebar ? "hidden" : "absolute"} top-2 right-1 pt-6`}>
+			<div className={`w-[80%] bg-white h-max ${sidebar ? "hidden" : "absolute"} top-2 right-1 pt-6`}>
 				<button
 					onClick={() => {
 						setSidebar(!sidebar);
@@ -459,7 +495,7 @@ export const AddClientOption2Form = () => {
 						</div>
 					</div>
 				</div>
-			</div> */}
+			</div>
 
 
 
