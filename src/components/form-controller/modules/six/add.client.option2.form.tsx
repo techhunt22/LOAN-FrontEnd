@@ -78,6 +78,8 @@ export const AddClientOption2Form = () => {
 			const url = `http://54.87.77.177:3001/dispute?email=${email}`;
 			const res = await axios.get(url);
 			setDisputes(res.data.data);
+			setSelectedDispute({})
+
 		} catch (error: any) {
 			console.log(error.message);
 		}
