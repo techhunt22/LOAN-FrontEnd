@@ -78,7 +78,7 @@ export const AddClientOption2Form = () => {
 			const url = `http://54.87.77.177:3001/dispute?email=${email}`;
 			const res = await axios.get(url);
 			setDisputes(res.data.data);
-			setSelectedDispute({})
+
 
 		} catch (error: any) {
 			console.log(error.message);
@@ -88,6 +88,7 @@ export const AddClientOption2Form = () => {
 
 	useEffect(() => {
 		handleUser()
+		setSelectedDispute({})
 	}, [userEmail])
 
 
@@ -137,6 +138,7 @@ export const AddClientOption2Form = () => {
 
 		}
 	}
+
 
 
 	return (
@@ -374,7 +376,7 @@ export const AddClientOption2Form = () => {
 					<div className="div2 w-[30%] mt-[10%] mr-5  h-max py-2 gap-4 flex flex-col justify-between">
 						<div className="w-[60%]   h-auto bg-white rounded-lg shadow-md flex gap-8 pt-4 flex-col  items-center">
 							<h1 className="text-[#000000] text-[20px]">Recent Disputes</h1>
-							{disputes?.slice(0, 3)?.map((item: any, key: any) => {
+							{disputes?.slice(-3)?.map((item: any, key: any) => {
 								return (
 									<div className="w-full h-max flex items-center justify-center gap-4 mb-6" key={key}>
 										<CheckCircleOutlined className="text-green-600" />
