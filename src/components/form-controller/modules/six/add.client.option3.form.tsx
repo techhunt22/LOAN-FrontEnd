@@ -93,6 +93,15 @@ const AddNewDisputeModal = ({ setIsModalOpen, setDisputeDetails, disputeDetails 
 	const [instruction, setInstruction] = useState(
 		disputeDetails?.instruction || ""
 	)
+	const [equifaxScore, setEquifaxScore] = useState<any>()
+	const [equifaxRating, setEquifaxRating] = useState<any>()
+
+	const [experianScore, setExperianScore] = useState<any>()
+	const [experianRating, setExperianRating] = useState<any>()
+
+	const [transUnionScore, setTransUnionScore] = useState<any>()
+	const [transUnionRating, setTransUnionRating] = useState<any>()
+
 
 	const handleNext = () => {
 		setDisputeDetails({
@@ -106,10 +115,20 @@ const AddNewDisputeModal = ({ setIsModalOpen, setDisputeDetails, disputeDetails 
 			transUnionAccountNumber: transUnionAccountNumber,
 			equifaxStatus: isEquifax ? "Positive" : "Negative",
 			experianStatus: isExperian ? "Positive" : "Negative",
-			transUnionStatus: isTransUnion ? "Positive" : "Negative"
+			transUnionStatus: isTransUnion ? "Positive" : "Negative",
+			equifaxScore: equifaxScore,
+			equifaxRating: equifaxRating,
+			experianScore: experianScore,
+			experianRating: experianRating,
+			transUnionScore: transUnionScore,
+			transUnionRating: transUnionRating
+
 		})
 		setIsModalOpen(false)
 	}
+
+	console.log(equifaxScore, experianScore, transUnionScore);
+
 
 	return (
 		<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-10">
@@ -119,7 +138,7 @@ const AddNewDisputeModal = ({ setIsModalOpen, setDisputeDetails, disputeDetails 
 			>
 				<h1 className="text-xl font-bold">Add New Dispute Item</h1>
 				<p>Select Credit Bureaus</p>
-				<div className="w-full h-full flex gap-2">
+				<div className="w-full h-auto flex gap-2   overflow-auto">
 					<div className="w-[50%] h-full flex flex-col">
 						<div className="flex gap-2">
 							<input
@@ -186,6 +205,9 @@ const AddNewDisputeModal = ({ setIsModalOpen, setDisputeDetails, disputeDetails 
 										setAccountNumber(e.target.value)
 									}}
 								/>
+
+
+
 							</div>
 						) : (
 							<div className="flex flex-col gap-2 mt-2">
@@ -199,6 +221,22 @@ const AddNewDisputeModal = ({ setIsModalOpen, setDisputeDetails, disputeDetails 
 										setEquifaxAccountNumber(e.target.value)
 									}}
 								/>
+
+
+
+
+								{/* <input
+									type="text"
+									className="w-[90%] border-2 border-gray-400 px-2"
+									placeholder="Equifax Rating"
+									key="Equifax Rating"
+									value={equifaxRating}
+									onChange={(e) => {
+										setEquifaxRating(e.target.value)
+									}}
+								/> */}
+
+
 								<input
 									type="text"
 									className="w-[90%] border-2 border-gray-400 px-2"
@@ -209,6 +247,25 @@ const AddNewDisputeModal = ({ setIsModalOpen, setDisputeDetails, disputeDetails 
 										setExperianAccountNumber(e.target.value)
 									}}
 								/>
+
+
+
+								{/* <input
+									type="text"
+									className="w-[90%] border-2 border-gray-400 px-2"
+									placeholder="Experian Rating"
+									key="Experian Rating"
+									value={experianRating}
+									onChange={(e) => {
+										setExperianRating(e.target.value)
+									}}
+								/> */}
+
+
+
+
+
+
 								<input
 									type="text"
 									className="w-[90%] border-2 border-gray-400 px-2"
@@ -221,8 +278,101 @@ const AddNewDisputeModal = ({ setIsModalOpen, setDisputeDetails, disputeDetails 
 										)
 									}}
 								/>
+
+
+								{/* <input
+									type="text"
+									className="w-[90%] border-2 border-gray-400 px-2"
+									placeholder="TransUnion Rating"
+									key="TransUnion Rating"
+									value={transUnionRating}
+									onChange={(e) => {
+										setTransUnionRating(e.target.value)
+									}}
+								/> */}
+
+
+
+
 							</div>
 						)}
+						<div className="flex flex-col justify-between gap-2 mt-4">
+							<input
+								type="number"
+								className="w-[90%] border-2 border-gray-400 px-2"
+								placeholder="Equifax Score"
+								key="Equifax Credit Score"
+								value={equifaxScore}
+								onChange={(e) => {
+									setEquifaxScore(e.target.value)
+								}}
+							/>
+
+							<select
+								key="Equifax Rating"
+								value={equifaxRating}
+								onChange={(e) => {
+									setEquifaxRating(e.target.value)
+								}}
+								className="w-[90%] border-2 border-gray-400 px-2">
+								<option>Equifax Rating</option>
+								<option>EXCELLENT</option>
+								<option>GOOD</option>
+								<option>BAD</option>
+
+							</select>
+
+							<input
+								type="number"
+								className="w-[90%] border-2 border-gray-400 px-2"
+								placeholder="Experian Score"
+								key="Experian Credit Score"
+								value={experianScore}
+								onChange={(e) => {
+									setExperianScore(e.target.value)
+								}}
+							/>
+
+							<select
+								value={experianRating}
+								key="Experian Rating"
+								onChange={(e) => {
+									setExperianRating(e.target.value)
+								}}
+								className="w-[90%] border-2 border-gray-400 px-2">
+								<option>Experian Rating</option>
+								<option>EXCELLENT</option>
+								<option>GOOD</option>
+								<option>BAD</option>
+
+							</select>
+
+
+							<input
+								type="number"
+								className="w-[90%] border-2 border-gray-400 px-2"
+								placeholder="TransUnion Score"
+								key="TransUnion Credit Score"
+								value={transUnionScore}
+								onChange={(e) => {
+									setTransUnionScore(e.target.value)
+								}}
+							/>
+							<select
+								key="TransUnion Rating"
+								value={transUnionRating}
+								onChange={(e) => {
+									setTransUnionRating(e.target.value)
+								}}
+								className="w-[90%] border-2 border-gray-400 px-2">
+								<option>TransUnion Rating</option>
+								<option>EXCELLENT</option>
+								<option>GOOD</option>
+								<option>BAD</option>
+
+							</select>
+						</div>
+
 						<div className="flex flex-row items-center gap-5 mt-3">
 							<button
 								className="w-[100px] h-[30px] bg-blue-500 text-white"
@@ -250,6 +400,7 @@ const AddNewDisputeModal = ({ setIsModalOpen, setDisputeDetails, disputeDetails 
 								setCreditor(e.target.value)
 							}}
 						/>
+
 						<input
 							type="text"
 							className="w-[90%] h-[40px] border-2 border-gray-400 px-2"
@@ -309,7 +460,7 @@ export const AddClientOption3Form = () => {
 
 
 
-	console.log(disputeDetails);
+
 
 
 	const FromData: any = {
@@ -330,9 +481,15 @@ export const AddClientOption3Form = () => {
 		transUnion_account: disputeDetails?.transUnionAccountNumber,
 		equifax_letter: content,
 		trans_union_letter: content,
-		experian_letter: content
+		experian_letter: content,
+		equifaxScore: disputeDetails?.equifaxScore,
+		equifaxRating: disputeDetails?.equifaxRating,
+		experianRating: disputeDetails?.experianRating,
+		experianScore: disputeDetails?.experianScore,
+		transUnionRating: disputeDetails?.transUnionRating,
+		transUnionScore: disputeDetails?.transUnionScore,
 	}
-	console.log(FromData);
+
 
 	const formData = new FormData()
 	for (const key in FromData) {
@@ -664,6 +821,7 @@ export const AddClientOption3Form = () => {
 	// }
 
 	// console.log(disputeDetails?.accountNumber === true)
+	console.log(disputeDetails);
 
 	return (
 		<>

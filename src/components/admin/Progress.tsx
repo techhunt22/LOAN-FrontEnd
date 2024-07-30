@@ -3,7 +3,6 @@ import React from "react";
 import {
   RadialBarChart,
   RadialBar,
-  Legend,
   ResponsiveContainer,
   LabelList,
 } from "recharts";
@@ -24,16 +23,12 @@ const data: DataPoint[] = [
   },
 ];
 
-const style = {
-  top: "50%",
-  right: 0,
-  transform: "translate(0, -50%)",
-  lineHeight: "24px",
-};
+interface CustomLabelProps {
+  value: number;
+  viewBox: { cx: number; cy: number };
+}
 
-const CustomLabel: React.FC<{ viewBox: { cx: number; cy: number } }> = ({
-  viewBox,
-}) => {
+const CustomLabel: React.FC<CustomLabelProps> = ({ value, viewBox }) => {
   const { cx, cy } = viewBox;
   return (
     <text
@@ -44,14 +39,20 @@ const CustomLabel: React.FC<{ viewBox: { cx: number; cy: number } }> = ({
       fontSize="12"
       fill="#000000"
     >
-      675
+      {value}
     </text>
   );
 };
 
-const Winning: React.FC = () => {
+interface WinningProps {
+  name: string;
+  value: number;
+  data: DataPoint[];
+}
+
+const Winning: React.FC<WinningProps> = ({ name, value, data }) => {
   return (
-    <div className="winning h-[80px]   rounded-xl bg-primary flex flex-col items-center justify-center">
+    <div className="winning h-[80px] rounded-xl bg-primary flex flex-col items-center justify-center">
       <ResponsiveContainer width="100%" height="100%">
         <RadialBarChart
           cx="50%"
@@ -64,14 +65,31 @@ const Winning: React.FC = () => {
           <RadialBar background dataKey="uv">
             <LabelList
               position="inside"
-              content={<CustomLabel viewBox={{ cx: 0, cy: 0 }} />}
+              content={<CustomLabel value={value} viewBox={{ cx: 0, cy: 0 }} />}
             />
           </RadialBar>
         </RadialBarChart>
       </ResponsiveContainer>
-      <p className="text-sm">EQUIFAX</p>
+      <p className="text-sm uppercase">{name}</p>
     </div>
   );
 };
 
-export default Winning;
+const exampleData: DataPoint[] = [
+  {
+    name: "18-24",
+    uv: 5,
+    pv: 2400,
+    fill: "green",
+  },
+];
+
+const App: React.FC = () => {
+  return (
+    <div>
+      <Winning name="EQUIFAX" value={675} data={exampleData} />
+    </div>
+  );
+};
+
+export default App;

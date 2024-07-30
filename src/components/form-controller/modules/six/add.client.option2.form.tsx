@@ -140,7 +140,6 @@ export const AddClientOption2Form = () => {
 	}
 
 
-
 	return (
 		<>
 			<section className="w-full h-full mt-10 relative flex flex-col items-center xl:block">
@@ -219,7 +218,6 @@ export const AddClientOption2Form = () => {
 								</div>
 							</div>
 						</div>
-
 						{selectedUser?.map((item: any, index: any) => (
 
 							<div className="w-[80%] h-max py-2 mb-4 flex flex-col mt-1 gap-4 items-center bg-white rounded-md shadow-md" key={index}>
@@ -231,13 +229,30 @@ export const AddClientOption2Form = () => {
 									<h1 className="text-[#181818] text-[20px]">{`${item.first_name} ${item.last_name}`}</h1>
 									<p className="text-[#8F8F8F] text-[13px] font-light">{item.email}</p>
 								</div>
-								<div className="progress w-[50%] justify-center h-[100px] flex items-center gap-4 ">
-									<Winning />
-									<Winning />
-									<Winning />
+								<div className="progress w-full h-[100px] flex justify-center items-center  gap-20 ">
+									<div className="uppercase flex justify-center flex-col items-center">
+										<p className={` w-12 border-solid border-4 
+										${selectedDispute?.equifaxScore >= 800 ? "border-green-600" :
+												selectedDispute?.equifaxScore <= 700 && selectedDispute?.equifaxScore >= 400 ? "border-yellow-600" :
+													"border-red-600"} border-green-600 text-center rounded-full`}>{selectedDispute?.equifaxScore}</p>
+										<p className=" font-bold">equifax</p>
+									</div>
+									<div className="uppercase flex justify-center flex-col items-center">
+										<p className={` w-12 border-solid border-4 
+										${selectedDispute?.experianScore >= 800 ? "border-green-600" :
+												selectedDispute?.experianScore <= 700 && selectedDispute?.experianScore >= 400 ? "border-yellow-600" :
+													"border-red-600"} border-green-600 text-center rounded-full`}>{selectedDispute?.experianScore}</p>
+										<p className=" font-bold">experian</p>
+									</div>
+									<div className="uppercase flex justify-center flex-col items-center">
+										<p className={` w-12 border-solid border-4 
+										${selectedDispute?.transUnionScore >= 800 ? "border-green-600" :
+												selectedDispute?.transUnionScore <= 700 && selectedDispute?.transUnionScore >= 400 ? "border-yellow-600" :
+													"border-red-600"} border-green-600 text-center rounded-full`}>{selectedDispute?.transUnionScore}</p>
+										<p className=" font-bold">	transUnion</p>
+									</div>
+
 								</div>
-
-
 								<div className="w-[25%] flex items-center justify-center h-max py-2 gap-4">
 									<div className="flex flex-col items-center gap-2">
 										<button className="w-[50px] h-[50px] rounded-lg bg-[#FFCC00] text-white">
@@ -286,7 +301,8 @@ export const AddClientOption2Form = () => {
 									<p className="text-[#a3a3a3] text-[10px]">
 										{selectedDispute.instruction ? selectedDispute.instruction : "N/A"}
 									</p>
-								</div><div className="w-[90%] bg-[#a3a3a3] h-[1px]" /><div className="w-[80%] h-max py-2 flex items-center justify-between">
+								</div><div className="w-[90%] bg-[#a3a3a3] h-[1px]" />
+								<div className="w-[80%] h-max py-2 flex items-center justify-between">
 									<div className="flex items-center gap-2">
 										<h1 className="text-[#181717] font-bold ">Created</h1>
 										<p className="text-[#333333] bg-[#a3a3a3] w-[30px] h-[30px] flex justify-center items-center rounded-full">{disputes.length}</p>
@@ -299,9 +315,6 @@ export const AddClientOption2Form = () => {
 										</button>
 									</div>
 								</div>
-
-
-
 								<div className="w-[80%]  h-[100px] py-2 mt-2 flex items-center overflow-x-auto overflow-y-hidden">
 									<div className="bg-gradient-to-r from-blue-300 to-blue-400 w-[4px] h-[80px]" />
 									<div className="w-full h-full bg-[#33333305] flex items-center justify-between gap-8">
@@ -372,7 +385,6 @@ export const AddClientOption2Form = () => {
 						)
 						)}
 					</div>
-
 					<div className="div2 w-[30%] mt-[10%] mr-5  h-max py-2 gap-4 flex flex-col justify-between">
 						<div className="w-[60%]   h-auto bg-white rounded-lg shadow-md flex gap-8 pt-4 flex-col  items-center">
 							<h1 className="text-[#000000] text-[20px]">Recent Disputes</h1>
@@ -390,7 +402,6 @@ export const AddClientOption2Form = () => {
 								);
 							})}
 						</div>
-
 						<div className="w-[60%] h-[400px] bg-white rounded-lg shadow-md flex gap-8 pt-4 flex-col  items-center  justify-start">
 							<div className="flex items-center w-full h-max justify-between px-4">
 								<p className="text-[#161616] text-[15px]">Upcoming Tasks</p>
@@ -400,40 +411,36 @@ export const AddClientOption2Form = () => {
 							<div className="w-[80%]  h-max flex items-center bg-[#D7EDF840] rounded-lg justify-center gap-4 ">
 								<div className="w-[50px] h-[50px] bg-[#DEF9FF] text-[#4075FF] flex items-center justify-center rounded-full">GH</div>
 								<div>
-									<h1 className="text-[14px]">Gabriel Hamilgton</h1>
+									<h1 className="text-[14px]">Gabriel Hamilton</h1>
 									<p className="text-[#A3A3A3] text-[7px] font-ligth">Logged in 20:00 09/02/2023</p>
 									<div className="text-[#4075FF] text-[10px] flex items-center justify-center bg-[#def9ff] w-[110px] h-[25px] rounded-full">Request Payment</div>
 								</div>
 
 								<div className="w-[20px] h-[20px] bg-[#3049FE] rounded-full" />
 							</div>
-
 							<div className="w-[80%]  h-max flex items-center bg-[#FF9F1C17] rounded-lg justify-center gap-4 ">
 								<div className="w-[50px] h-[50px] bg-[#DEF9FF] text-[#4075FF] flex items-center justify-center rounded-full">GH</div>
 								<div>
-									<h1 className="text-[14px]">Gabriel Hamilgton</h1>
+									<h1 className="text-[14px]">Gabriel Hamilton</h1>
 									<p className="text-[#A3A3A3] text-[7px] font-ligth">Logged in 20:00 09/02/2023</p>
 									<div className="text-[#4075FF] text-[10px] flex items-center justify-center bg-[#def9ff] w-[110px] h-[25px] rounded-full">Request Payment</div>
 								</div>
 
 								<div className="w-[20px] h-[20px] bg-[#3049FE] rounded-full" />
 							</div>
-
 							<div className="w-[80%]  h-max flex items-center bg-[#FAFF182E] rounded-lg justify-center gap-4 ">
 								<div className="w-[50px] h-[50px] bg-[#DEF9FF] text-[#4075FF] flex items-center justify-center rounded-full">GH</div>
 								<div>
-									<h1 className="text-[14px]">Gabriel Hamilgton</h1>
+									<h1 className="text-[14px]">Gabriel Hamilton</h1>
 									<p className="text-[#A3A3A3] text-[7px] font-ligth">Logged in 20:00 09/02/2023</p>
 									<div className="text-[#4075FF] text-[10px] flex items-center justify-center bg-[#def9ff] w-[110px] h-[25px] rounded-full">Request Payment</div>
 								</div>
-
 								<div className="w-[20px] h-[20px] bg-[#3049FE] rounded-full" />
 							</div>
 						</div>
 					</div>
 				</div>
 			</section >
-
 			<div className={`w-[80%] bg-white h-max ${sidebar ? "hidden" : "absolute"} top-2 right-1 pt-6`}>
 				<button
 					onClick={() => {
@@ -458,52 +465,41 @@ export const AddClientOption2Form = () => {
 							);
 						})}
 					</div>
-
 					<div className="w-[80%] h-[400px] bg-white rounded-lg shadow-md flex gap-8 pt-4 flex-col  items-center ml-3">
 						<div className="flex items-center w-full h-max justify-between px-4">
 							<p className="text-[#161616] text-[15px]">Upcoming Tasks</p>
 							<button className="border-[1px] border-[#161616] rounded-lg w-[85px] h-[34px]">See All</button>
 						</div>
-
 						<div className="w-[80%]  h-max flex items-center bg-[#D7EDF840] rounded-lg justify-center gap-4 ">
 							<div className="w-[50px] h-[50px] bg-[#DEF9FF] text-[#4075FF] flex items-center justify-center rounded-full">GH</div>
 							<div>
-								<h1 className="text-[14px]">Gabriel Hamilgton</h1>
+								<h1 className="text-[14px]">Gabriel Hamilton</h1>
 								<p className="text-[#A3A3A3] text-[7px] font-ligth">Logged in 20:00 09/02/2023</p>
 								<div className="text-[#4075FF] text-[10px] flex items-center justify-center bg-[#def9ff] w-[110px] h-[25px] rounded-full">Request Payment</div>
 							</div>
-
 							<div className="w-[20px] h-[20px] bg-[#3049FE] rounded-full" />
 						</div>
-
 						<div className="w-[80%]  h-max flex items-center bg-[#FF9F1C17] rounded-lg justify-center gap-4 ">
 							<div className="w-[50px] h-[50px] bg-[#DEF9FF] text-[#4075FF] flex items-center justify-center rounded-full">GH</div>
 							<div>
-								<h1 className="text-[14px]">Gabriel Hamilgton</h1>
+								<h1 className="text-[14px]">Gabriel Hamilton</h1>
 								<p className="text-[#A3A3A3] text-[7px] font-ligth">Logged in 20:00 09/02/2023</p>
 								<div className="text-[#4075FF] text-[10px] flex items-center justify-center bg-[#def9ff] w-[110px] h-[25px] rounded-full">Request Payment</div>
 							</div>
-
 							<div className="w-[20px] h-[20px] bg-[#3049FE] rounded-full" />
 						</div>
-
 						<div className="w-[80%]  h-max flex items-center bg-[#FAFF182E] rounded-lg justify-center gap-4 ">
 							<div className="w-[50px] h-[50px] bg-[#DEF9FF] text-[#4075FF] flex items-center justify-center rounded-full">GH</div>
 							<div>
-								<h1 className="text-[14px]">Gabriel Hamilgton</h1>
+								<h1 className="text-[14px]">Gabriel Hamilton</h1>
 								<p className="text-[#A3A3A3] text-[7px] font-ligth">Logged in 20:00 09/02/2023</p>
 								<div className="text-[#4075FF] text-[10px] flex items-center justify-center bg-[#def9ff] w-[110px] h-[25px] rounded-full">Request Payment</div>
 							</div>
-
 							<div className="w-[20px] h-[20px] bg-[#3049FE] rounded-full" />
 						</div>
 					</div>
 				</div>
 			</div>
-
-
-
-
 			<div className="relative overflow-x-auto shadow-md sm:rounded-lg">
 				<table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
 					<thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -567,7 +563,6 @@ export const AddClientOption2Form = () => {
 										<CloseOutlined className="bg-red-600 px-2 py-2 text-white rounded-full font-bold" />
 									)}
 								</th>
-
 								<th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
 									<button
 										className="text-blue-400 underline"
@@ -656,9 +651,6 @@ export const AddClientOption2Form = () => {
 					</tbody>
 				</table>
 			</div>
-
-
-
 		</>
 	);
 };
