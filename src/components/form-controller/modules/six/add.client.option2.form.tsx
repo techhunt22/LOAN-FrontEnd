@@ -231,24 +231,30 @@ export const AddClientOption2Form = () => {
 								</div>
 								<div className="progress w-full h-[100px] flex justify-center items-center  gap-20 ">
 									<div className="uppercase flex justify-center flex-col items-center">
-										<p className={` w-12 border-solid border-4 
+										<p className={`  p-1 w-auto border-solid border-4 
 										${selectedDispute?.equifaxScore >= 800 ? "border-green-600" :
 												selectedDispute?.equifaxScore <= 700 && selectedDispute?.equifaxScore >= 400 ? "border-yellow-600" :
-													"border-red-600"} border-green-600 text-center rounded-full`}>{selectedDispute?.equifaxScore}</p>
+													"border-red-600"} border-green-600 text-center rounded-full`}>
+											{selectedDispute?.equifaxRating}:{selectedDispute?.equifaxScore}
+										</p>
 										<p className=" font-bold">equifax</p>
 									</div>
 									<div className="uppercase flex justify-center flex-col items-center">
-										<p className={` w-12 border-solid border-4 
+										<p className={` p-1 w-auto border-solid border-4 
 										${selectedDispute?.experianScore >= 800 ? "border-green-600" :
 												selectedDispute?.experianScore <= 700 && selectedDispute?.experianScore >= 400 ? "border-yellow-600" :
-													"border-red-600"} border-green-600 text-center rounded-full`}>{selectedDispute?.experianScore}</p>
+													"border-red-600"} border-green-600 text-center rounded-full`}>
+											{selectedDispute?.experianRating}:{selectedDispute?.experianScore}
+
+										</p>
 										<p className=" font-bold">experian</p>
 									</div>
 									<div className="uppercase flex justify-center flex-col items-center">
-										<p className={` w-12 border-solid border-4 
+										<p className={` p-1 w-auto border-solid border-4 
 										${selectedDispute?.transUnionScore >= 800 ? "border-green-600" :
 												selectedDispute?.transUnionScore <= 700 && selectedDispute?.transUnionScore >= 400 ? "border-yellow-600" :
-													"border-red-600"} border-green-600 text-center rounded-full`}>{selectedDispute?.transUnionScore}</p>
+													"border-red-600"} border-green-600 text-center rounded-full`}>
+											{selectedDispute?.transUnionRating}:{selectedDispute?.transUnionScore}</p>
 										<p className=" font-bold">	transUnion</p>
 									</div>
 
