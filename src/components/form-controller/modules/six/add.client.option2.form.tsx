@@ -504,7 +504,7 @@ export const AddClientOption2Form = () => {
 								<div className="w-full overflow-auto" >
 									{task?.map((item: any, index: any) => {
 										return <div className=" flex items-center h-max justify-between  px-4 mb-2 border-2 border-[#E0E0E0] rounded-lg mx-2" key={index}>
-											<div className=" max-w-[70%]">
+											<div className=" max-w-[60%]">
 												<p className={`${item.status === "completed" ? " line-through " : ""}`}>{item.title}</p>
 											</div>
 											<div className="">
