@@ -6,7 +6,7 @@
 // @ts-ignore
 import type { MenuProps } from "antd";
 import { Button, Dropdown, Space } from "antd";
-import { CheckOutlined, CloseOutlined, DownCircleOutlined, SearchOutlined } from "@ant-design/icons";
+import { CheckOutlined, CloseOutlined, DeleteOutlined, DownCircleOutlined, SearchOutlined } from "@ant-design/icons";
 import { FilterOutlined } from "@ant-design/icons";
 import { FieldTimeOutlined } from "@ant-design/icons";
 import { SortAscendingOutlined } from "@ant-design/icons";
@@ -231,31 +231,31 @@ export const AddClientOption2Form = () => {
 								</div>
 								<div className="progress w-full h-[100px] flex justify-center items-center  gap-20 ">
 									<div className="uppercase flex justify-center flex-col items-center">
-										<p className={`  p-1 w-auto border-solid border-4 
+										<p className={`  p-1 w-auto border-solid border-2 
 										${selectedDispute?.equifaxScore >= 800 ? "border-green-600" :
 												selectedDispute?.equifaxScore <= 700 && selectedDispute?.equifaxScore >= 400 ? "border-yellow-600" :
 													"border-red-600"} border-green-600 text-center rounded-full`}>
 											{selectedDispute?.equifaxRating}:{selectedDispute?.equifaxScore}
 										</p>
-										<p className=" font-bold">equifax</p>
+										<p className=" font-semibold">equifax</p>
 									</div>
 									<div className="uppercase flex justify-center flex-col items-center">
-										<p className={` p-1 w-auto border-solid border-4 
+										<p className={` p-1 w-auto border-solid border-2 
 										${selectedDispute?.experianScore >= 800 ? "border-green-600" :
 												selectedDispute?.experianScore <= 700 && selectedDispute?.experianScore >= 400 ? "border-yellow-600" :
 													"border-red-600"} border-green-600 text-center rounded-full`}>
 											{selectedDispute?.experianRating}:{selectedDispute?.experianScore}
 
 										</p>
-										<p className=" font-bold">experian</p>
+										<p className=" font-semibold">experian</p>
 									</div>
 									<div className="uppercase flex justify-center flex-col items-center">
-										<p className={` p-1 w-auto border-solid border-4 
+										<p className={` p-1 w-auto border-solid border-2
 										${selectedDispute?.transUnionScore >= 800 ? "border-green-600" :
 												selectedDispute?.transUnionScore <= 700 && selectedDispute?.transUnionScore >= 400 ? "border-yellow-600" :
 													"border-red-600"} border-green-600 text-center rounded-full`}>
 											{selectedDispute?.transUnionRating}:{selectedDispute?.transUnionScore}</p>
-										<p className=" font-bold">	transUnion</p>
+										<p className=" font-semibold">	transUnion</p>
 									</div>
 
 								</div>
@@ -409,40 +409,38 @@ export const AddClientOption2Form = () => {
 							})}
 						</div>
 						<div className="w-[60%] h-[400px] bg-white rounded-lg shadow-md flex gap-8 pt-4 flex-col  items-center  justify-start">
+
+							<div className="flex">
+								<input
+									className=" border-solid border-1 border-[1px] rounded-lg w-full h-[40px] px-4"
+									type="text"
+									placeholder="ENTER TASK"
+								/>
+								<Button className="  ml-1 bg-blue-500 text-white h-[40px] px-4">ADD</Button>
+							</div>
 							<div className="flex items-center w-full h-max justify-between px-4">
 								<p className="text-[#161616] text-[15px]">Upcoming Tasks</p>
-								<button className="border-[1px] border-[#161616] rounded-lg w-[85px] h-[34px]">See All</button>
+
+							</div>
+							<div className="flex items-center w-full h-max justify-between px-4">
+								<p>task of the user realted  </p>
+								<div>
+									<CheckCircleOutlined className="  w-5 h-5 text-center pl-[2px] rounded-sm mr-1 cursor-pointer" />
+									|
+									<DeleteOutlined className="bg-red-600 text-white w-5 h-5 text-center pl-[2px] rounded-sm ml-1 cursor-pointer" />
+								</div>
+							</div>
+							<div className="flex items-center w-full   justify-between px-4">
+								<p className=" line-through">task of the user realted  </p>
+								<div>
+									<CheckCircleOutlined className="  w-5 h-5 text-center pl-[2px] rounded-sm mr-1 cursor-pointer" />
+									|
+									<DeleteOutlined className="bg-red-600 text-white w-5 h-5 text-center pl-[2px] rounded-sm ml-1 cursor-pointer" />
+								</div>
 							</div>
 
-							<div className="w-[80%]  h-max flex items-center bg-[#D7EDF840] rounded-lg justify-center gap-4 ">
-								<div className="w-[50px] h-[50px] bg-[#DEF9FF] text-[#4075FF] flex items-center justify-center rounded-full">GH</div>
-								<div>
-									<h1 className="text-[14px]">Gabriel Hamilton</h1>
-									<p className="text-[#A3A3A3] text-[7px] font-ligth">Logged in 20:00 09/02/2023</p>
-									<div className="text-[#4075FF] text-[10px] flex items-center justify-center bg-[#def9ff] w-[110px] h-[25px] rounded-full">Request Payment</div>
-								</div>
 
-								<div className="w-[20px] h-[20px] bg-[#3049FE] rounded-full" />
-							</div>
-							<div className="w-[80%]  h-max flex items-center bg-[#FF9F1C17] rounded-lg justify-center gap-4 ">
-								<div className="w-[50px] h-[50px] bg-[#DEF9FF] text-[#4075FF] flex items-center justify-center rounded-full">GH</div>
-								<div>
-									<h1 className="text-[14px]">Gabriel Hamilton</h1>
-									<p className="text-[#A3A3A3] text-[7px] font-ligth">Logged in 20:00 09/02/2023</p>
-									<div className="text-[#4075FF] text-[10px] flex items-center justify-center bg-[#def9ff] w-[110px] h-[25px] rounded-full">Request Payment</div>
-								</div>
 
-								<div className="w-[20px] h-[20px] bg-[#3049FE] rounded-full" />
-							</div>
-							<div className="w-[80%]  h-max flex items-center bg-[#FAFF182E] rounded-lg justify-center gap-4 ">
-								<div className="w-[50px] h-[50px] bg-[#DEF9FF] text-[#4075FF] flex items-center justify-center rounded-full">GH</div>
-								<div>
-									<h1 className="text-[14px]">Gabriel Hamilton</h1>
-									<p className="text-[#A3A3A3] text-[7px] font-ligth">Logged in 20:00 09/02/2023</p>
-									<div className="text-[#4075FF] text-[10px] flex items-center justify-center bg-[#def9ff] w-[110px] h-[25px] rounded-full">Request Payment</div>
-								</div>
-								<div className="w-[20px] h-[20px] bg-[#3049FE] rounded-full" />
-							</div>
 						</div>
 					</div>
 				</div>
