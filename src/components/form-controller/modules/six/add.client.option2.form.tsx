@@ -53,6 +53,8 @@ export const AddClientOption2Form = () => {
 	const [isModalVisible, setIsModalVisible] = useState(false)
 	const [selectedDispute, setSelectedDispute] = useState<any>({})
 	const [userEmail, setUserEmail] = useState()
+	const [title, setTitle] = useState<any>("")
+	const [task, setTask] = useState<any>()
 
 
 	useEffect(() => {
@@ -73,6 +75,7 @@ export const AddClientOption2Form = () => {
 		const email = userEmail
 		const user = users.filter((item: any) => item.email === email);
 
+
 		setSelectedUser(user);
 		try {
 			const url = `http://54.87.77.177:3001/dispute?email=${email}`;
@@ -85,11 +88,54 @@ export const AddClientOption2Form = () => {
 		}
 	};
 
+	const handleTask = async () => {
+
+
+		try {
+			const BodyData = {
+				"title": title
+			}
+			if (selectedUser.length === 0) {
+				toast.error("Select a user first")
+			}
+			const url = `http://54.87.77.177:3001/todo/${selectedUser[0]._id}`;
+			const response = await axios.post(url, BodyData)
+			if (response.status === 200) {
+				toast.success("task added successfully")
+				setTitle("")
+				getTask()
+			}
+
+		} catch (error: any) {
+			console.log(error.message);
+		}
+
+	}
+
+	const getTask = async () => {
+		try {
+			const id = selectedUser[0]._id
+			const url = `http://54.87.77.177:3001/todo/${id}`;
+			const response = await axios.get(url)
+			setTask(response.data.data)
+
+		} catch (error: any) {
+			console.error(error.message);
+
+		}
+	}
+
+	useEffect(() => {
+		getTask()
+	}, [selectedUser])
 
 	useEffect(() => {
 		handleUser()
+
 		setSelectedDispute({})
+
 	}, [userEmail])
+
 
 
 	const handleViewContent = (content: string) => {
@@ -138,7 +184,37 @@ export const AddClientOption2Form = () => {
 
 		}
 	}
+	const handleUpdateTask = async (id: any) => {
+		try {
+			const url = `http://54.87.77.177:3001/todo/${id}`
+			const res = await axios.put(url, { "status": "completed" })
+			if (res.status === 200) {
+				toast.success("task completed")
+				getTask()
+			}
 
+
+		} catch (error: any) {
+			console.log(error.message);
+
+		}
+	}
+
+	const handleDeleteTask = async (id: any) => {
+		try {
+			const url = `http://54.87.77.177:3001/todo/${id}`
+			const res = await axios.delete(url)
+			if (res.status === 200) {
+				toast.success("task completed")
+				getTask()
+			}
+
+
+		} catch (error: any) {
+			console.log(error.message);
+
+		}
+	}
 
 	return (
 		<>
@@ -391,58 +467,65 @@ export const AddClientOption2Form = () => {
 						)
 						)}
 					</div>
-					<div className="div2 w-[30%] mt-[10%] mr-5  h-max py-2 gap-4 flex flex-col justify-between">
-						<div className="w-[60%]   h-auto bg-white rounded-lg shadow-md flex gap-8 pt-4 flex-col  items-center">
-							<h1 className="text-[#000000] text-[20px]">Recent Disputes</h1>
-							{disputes?.slice(-3)?.map((item: any, key: any) => {
-								return (
-									<div className="w-full h-max flex items-center justify-center gap-4 mb-6" key={key}>
-										<CheckCircleOutlined className="text-green-600" />
-										<div>
-											<h1 className="text-[14px]">
-												{item?.letter_name}
-											</h1>
-											<p className="text-[#A3A3A3] text-[7px] font-ligth">{item.instruction}</p>
+					{selectedUser?.length === 0 ? "" :
+						< div className="div2 w-[30%] mt-[10%] mr-5  h-max py-2 gap-4 flex flex-col justify-between">
+							<div className="w-[80%]  h-auto bg-white rounded-lg shadow-md flex gap-8 pt-4 flex-col  items-start">
+								<h1 className="text-[#000000] ml-2 text-[20px]">Recent Disputes</h1>
+								{disputes?.slice(-3)?.map((item: any, key: any) => {
+									return (
+										<div className="w-full h-max flex items-center justify-start ml-4 gap-4 " key={key}>
+											<CheckCircleOutlined className="text-green-600" />
+											<div>
+												<h1 className="text-[14px]">
+													{item?.letter_name}
+												</h1>
+												<p className="text-[#A3A3A3] text-[7px] font-ligth">{item.instruction}</p>
+											</div>
 										</div>
-									</div>
-								);
-							})}
-						</div>
-						<div className="w-[60%] h-[400px] bg-white rounded-lg shadow-md flex gap-8 pt-4 flex-col  items-center  justify-start">
-
-							<div className="flex">
-								<input
-									className=" border-solid border-1 border-[1px] rounded-lg w-full h-[40px] px-4"
-									type="text"
-									placeholder="ENTER TASK"
-								/>
-								<Button className="  ml-1 bg-blue-500 text-white h-[40px] px-4">ADD</Button>
+									);
+								})}
 							</div>
-							<div className="flex items-center w-full h-max justify-between px-4">
-								<p className="text-[#161616] text-[15px]">Upcoming Tasks</p>
+							<div className="w-[80%] h-[400px] bg-white rounded-lg shadow-md flex gap-8 pt-4 flex-col  items-center  justify-start">
 
-							</div>
-							<div className="flex items-center w-full h-max justify-between px-4">
-								<p>task of the user realted  </p>
-								<div>
-									<CheckCircleOutlined className="  w-5 h-5 text-center pl-[2px] rounded-sm mr-1 cursor-pointer" />
-									|
-									<DeleteOutlined className="bg-red-600 text-white w-5 h-5 text-center pl-[2px] rounded-sm ml-1 cursor-pointer" />
+								<div className="flex w-full px-4">
+									<input
+										className=" border-solid border-1 border-[1px] rounded-lg w-full h-[40px] px-4"
+										type="text"
+										placeholder="ENTER TASK"
+										value={title}
+										onChange={(e: any) => setTitle(e.target.value)}
+									/>
+									<Button onClick={handleTask} className="  ml-1 bg-blue-500 text-white h-[40px] px-4">ADD</Button>
 								</div>
-							</div>
-							<div className="flex items-center w-full   justify-between px-4">
-								<p className=" line-through">task of the user realted  </p>
-								<div>
-									<CheckCircleOutlined className="  w-5 h-5 text-center pl-[2px] rounded-sm mr-1 cursor-pointer" />
-									|
-									<DeleteOutlined className="bg-red-600 text-white w-5 h-5 text-center pl-[2px] rounded-sm ml-1 cursor-pointer" />
+								<div className="flex items-center w-full h-max justify-between px-4">
+									<p className="text-[#161616] text-[15px]">Upcoming Tasks</p>
+
 								</div>
+								<div className="w-full overflow-auto" >
+									{task?.map((item: any, index: any) => {
+										return <div className=" flex items-center h-max justify-between  px-4 mb-2 border-2 border-[#E0E0E0] rounded-lg mx-2" key={index}>
+											<div className=" max-w-[70%]">
+												<p className={`${item.status === "completed" ? " line-through " : ""}`}>{item.title}</p>
+											</div>
+											<div className="">
+												<Button className="  text-center border-none rounded-sm mr-1 cursor-pointer" onClick={() => { handleUpdateTask(item._id) }}>
+													<CheckCircleOutlined className={`${item.status === "completed" ? "text-green-600 " : "text-red-600"}   rounded-sm   cursor-pointer`} />
+												</Button>
+												|
+												<Button className=" text-center border-none rounded-sm mr-1 cursor-pointer" onClick={() => { handleDeleteTask(item._id) }}>
+													<DeleteOutlined className=" text-red-600   rounded-sm   cursor-pointer" />
+												</Button>
+											</div>
+										</div>
+
+
+									})}
+								</div>
+
+
 							</div>
-
-
-
 						</div>
-					</div>
+					}
 				</div>
 			</section >
 			<div className={`w-[80%] bg-white h-max ${sidebar ? "hidden" : "absolute"} top-2 right-1 pt-6`}>
