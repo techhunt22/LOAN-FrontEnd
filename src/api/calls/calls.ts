@@ -2,11 +2,13 @@ import api from "@/api/config/config"
 import { Calls } from "@/api/calls/type"
 
 export namespace ApiCalls {
+	const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL
+
 	export const SignIn = async (
 		data: Calls.IRequest.SignIn
 	): Promise<Calls.IResponse.SignIn> => {
 		return await api
-			.post("http://54.87.77.177:3001/auth/login", data)
+			.post(`${API_BASE_URL}/auth/login`, data)
 			.then((res) => res.data)
 			.catch((rej) => rej.response.data)
 	}
@@ -326,7 +328,7 @@ export namespace ApiCalls {
 				data: Calls.IRequest.PullReport
 			): Promise<Calls.IResponse.PullReport> => {
 				return await api
-					.post("/modules/one.bureau_credential", data)
+					.post(`${API_BASE_URL}/provider`, data)
 					.then((res) => res.data)
 			},
 			meeting: async (): Promise<Calls.IResponse.Meeting> => {

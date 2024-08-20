@@ -18,21 +18,22 @@ export const MeetingFrom = () => {
 		SetMobileValue
 	} = usePCR()
 
-	const { mutateAsync, isPending } = useMutation({
-		mutationFn: () => ApiCalls.Module.one.meeting(),
-		onSuccess: (r) => {
-			toast.success(r.msg)
-			if (r?.urlPath != null) {
-				router.replace(r?.urlPath)
-			}
-		},
-		onError: (e) => {
-			toast.error(e?.message)
-		}
-	})
+	// const { mutateAsync, isPending } = useMutation({
+	// 	mutationFn: () => ApiCalls.Module.one.meeting(),
+	// 	onSuccess: (r) => {
+	// 		toast.success(r.msg)
+	// 		if (r?.urlPath != null) {
+	// 			router.replace(r?.urlPath)
+	// 		}
+	// 	},
+	// 	onError: (e) => {
+	// 		toast.error(e?.message)
+	// 	}
+	// })
 	const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
 		e.preventDefault()
-		await mutateAsync()
+		// await mutateAsync()
+		router.replace("/onboarding/pcr/plans")
 	}
 	useLayoutEffect(() => {
 		SetActiveTab(2)
@@ -42,13 +43,13 @@ export const MeetingFrom = () => {
 		SetMobileText("3/6")
 		SetMobileValue(60)
 	}, [])
-	useEffect(() => {
-		if (isPending) {
-			SetIsPending(true)
-		} else {
-			SetIsPending(false)
-		}
-	}, [isPending])
+	// useEffect(() => {
+	// 	if (isPending) {
+	// 		SetIsPending(true)
+	// 	} else {
+	// 		SetIsPending(false)
+	// 	}
+	// }, [isPending])
 	return (
 		<form id={"meeting"} onSubmit={onSubmit}>
 			<div

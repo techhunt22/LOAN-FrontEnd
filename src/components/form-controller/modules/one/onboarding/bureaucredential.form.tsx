@@ -3,6 +3,7 @@
 // @ts-ignore
 import useForm from "new-react-use-form"
 import React, { FormEventHandler, useEffect, useLayoutEffect } from "react"
+import axios from "axios"
 import { IconButton, InputAdornment, TextField } from "@mui/material"
 import { Visibility, VisibilityOff } from "@mui/icons-material"
 import { RadioGroup } from "@headlessui/react"
@@ -15,6 +16,8 @@ import { useRouter } from "next/navigation"
 import { Typography, Input, Button } from "antd"
 import { useMutation } from "@tanstack/react-query"
 export const BureauCredentialForm = () => {
+	const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL
+
 	const { Title } = Typography
 	const router = useRouter()
 	const {
@@ -24,7 +27,8 @@ export const BureauCredentialForm = () => {
 		SetIsPending,
 		SetMobileH4,
 		SetMobileText,
-		SetMobileValue
+		SetMobileValue,
+		ActiveTab
 	} = usePCR()
 	const [showPassword, setShowPassword] = React.useState(false)
 	const handleClickShowPassword = () => setShowPassword((show) => !show)
@@ -34,37 +38,48 @@ export const BureauCredentialForm = () => {
 		event.preventDefault()
 	}
 	const form = useForm({
-		provider: "IdentityfyIQ",
-		username: "",
-		phone: "",
+		report_provider: "IdentityIQ",
+		email: "",
+		phone_no: "",
 		password: "",
-		notes: ""
+		security_word: ""
 	})
-	const { mutateAsync, isPending } = useMutation<
-		Calls.IResponse.PullReport,
-		Error,
-		Calls.IRequest.PullReport
-	>({
-		mutationFn: (variables) =>
-			ApiCalls.Module.one.bureauCredential(variables),
-		onSuccess: (r) => {
-			toast.success(r.msg)
+	// const { mutateAsync, isPending } = useMutation<
+	// 	Calls.IResponse.PullReport,
+	// 	Error,
+	// 	Calls.IRequest.PullReport
+	// >({
+	// 	mutationFn: (variables) =>
+	// 		ApiCalls.Module.one.bureauCredential(variables),
+	// 	onSuccess: (r) => {
+	// 		toast.success("Successful!")
 
-			if (r?.urlPath != null) {
-				router.replace(r?.urlPath)
-			}
-		},
-		onError: (e) => {
-			// handleFormError(e as any, form);
-			const error = handleFormError(e as any, form)
-			// @ts-ignore
-			toast.error(error?.message)
-		}
-	})
+	// 		if (r?.urlPath != null) {
+	// 			router.replace(r?.urlPath)
+	// 		}
+	// 	},
+	// 	onError: (e) => {
+	// 		// handleFormError(e as any, form);
+	// 		const error = handleFormError(e as any, form)
+	// 		// @ts-ignore
+	// 		toast.error(error?.message)
+	// 	}
+	// })
 	const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
 		e.preventDefault()
 		console.log(form.originalData)
-		await mutateAsync(form.originalData)
+		// await mutateAsync(form.originalData)
+		await axios
+			.post(`${API_BASE_URL}/provider`, form?.originalData)
+			?.then((res) => {
+				console.log(res)
+				toast.success("Successful!")
+				router?.replace("/onboarding/pcr/meeting")
+			})
+			?.catch((err) => {
+				console.log(err)
+				toast.error("Error!")
+			})
 	}
 	useLayoutEffect(() => {
 		SetActiveTab(1)
@@ -74,13 +89,13 @@ export const BureauCredentialForm = () => {
 		SetMobileText("2/6")
 		SetMobileValue(40)
 	}, [])
-	useEffect(() => {
-		if (isPending) {
-			SetIsPending(true)
-		} else {
-			SetIsPending(false)
-		}
-	}, [isPending])
+	// useEffect(() => {
+	// 	if (isPending) {
+	// 		SetIsPending(true)
+	// 	} else {
+	// 		SetIsPending(false)
+	// 	}
+	// }, [isPending])
 
 	return (
 		<form
@@ -104,9 +119,9 @@ export const BureauCredentialForm = () => {
 				<div className={"select-none w-full flex flex-row gap-8"}>
 					<RadioGroup
 						className={"flex flex-col gap-4 w-full"}
-						value={form.provider}
+						value={form.report_provider}
 						onChange={(value) => {
-							form.set("provider", value)
+							form.set("report_provider", value)
 						}}
 					>
 						<RadioGroup.Label
@@ -130,7 +145,7 @@ export const BureauCredentialForm = () => {
 					}
                     relative flex cursor-pointer rounded-lg px-5 py-4  focus:outline-none`
 							}
-							value="IdentityfyIQ"
+							value="IdentityIQ"
 						>
 							{({ active, checked }) => (
 								<div
@@ -214,16 +229,15 @@ export const BureauCredentialForm = () => {
 					<TextField
 						required={true}
 						disabled={form.busy}
-						value={form.username}
+						value={form.email}
 						onChange={(e) => {
-							form.set("username", e.target.value)
-							form.errors.clear("username")
+							form.set("email", e.target.value)
+							form.errors.clear("email")
 						}}
 						label="Username/Email"
-						error={form.errors.has("username")}
+						error={form.errors.has("email")}
 						helperText={
-							form.errors.has("username") &&
-							form.errors.get("username")
+							form.errors.has("email") && form.errors.get("email")
 						}
 					/>
 				</div>
@@ -231,15 +245,16 @@ export const BureauCredentialForm = () => {
 					<TextField
 						required={true}
 						disabled={form.busy}
-						value={form.phone}
+						value={form.phone_no}
 						onChange={(e) => {
-							form.set("phone", e.target.value)
-							form.errors.clear("phone")
+							form.set("phone_no", e.target.value)
+							form.errors.clear("phone_no")
 						}}
-						label="Phone"
-						error={form.errors.has("phone")}
+						label="Phone Number"
+						error={form.errors.has("phone_no")}
 						helperText={
-							form.errors.has("phone") && form.errors.get("phone")
+							form.errors.has("phone_no") &&
+							form.errors.get("phone_no")
 						}
 					/>
 				</div>
@@ -281,17 +296,18 @@ export const BureauCredentialForm = () => {
 				<div className={"w-full"}>
 					<TextField
 						disabled={form.busy}
-						value={form.notes}
+						value={form.security_word}
 						onChange={(e) => {
-							form.set("notes", e.target.value)
-							form.errors.clear("notes")
+							form.set("security_word", e.target.value)
+							form.errors.clear("security_word")
 						}}
 						label="Security word ( Optional )"
-						error={form.errors.has("notes")}
+						error={form.errors.has("security_word")}
 						multiline={true}
 						maxRows={4}
 						helperText={
-							form.errors.has("notes") && form.errors.get("notes")
+							form.errors.has("security_word") &&
+							form.errors.get("security_word")
 						}
 					/>
 				</div>
