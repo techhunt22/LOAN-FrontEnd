@@ -90,7 +90,7 @@ export const SignUpForm = () => {
 	// })
 	const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
 		e.preventDefault()
-		console.log(form.originalData)
+		// console.log(form.originalData)
 		// await mutateAsync(form.originalData)
 		await axios
 			.post(`${API_BASE_URL}/auth/register`, form?.originalData)
