@@ -301,7 +301,7 @@ export const BureauCredentialForm = () => {
 							form.set("security_word", e.target.value)
 							form.errors.clear("security_word")
 						}}
-						label="Security word ( Optional )"
+						label="Security word"
 						error={form.errors.has("security_word")}
 						multiline={true}
 						maxRows={4}

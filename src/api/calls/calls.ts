@@ -321,7 +321,7 @@ export namespace ApiCalls {
 				data: Calls.IRequest.ModuleOneSignUp
 			): Promise<Calls.IResponse.ModulesSignUp> => {
 				return await api
-					.post("/modules/one.sign_up", data)
+					.post("http://54.87.77.177:3001/auth/register", data)
 					.then((res) => res.data)
 			},
 			bureauCredential: async (
