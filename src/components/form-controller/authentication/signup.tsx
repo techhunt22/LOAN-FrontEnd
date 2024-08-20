@@ -20,10 +20,13 @@ import toast from "react-hot-toast"
 import Cookies from "js-cookie"
 import { useRouter } from "next/navigation"
 import { useAuth } from "@/context/guard/guard.context"
+import axios from "axios"
 interface Option {
 	label: string
 }
 export const SignUpForm = () => {
+	const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL
+
 	const router = useRouter()
 	const { setIsSignIn } = useAuth()
 	// const link = window.localStorage.getItem("lastPageUrl") || "/";
@@ -37,11 +40,11 @@ export const SignUpForm = () => {
 	}
 
 	const form = useForm({
-		firstName: "",
-		lastName: "",
+		first_name: "",
+		last_name: "",
 		gender: "",
 		dob: "",
-		ssn: "",
+		ss_number: "",
 		cityName: "",
 		zipCode: "",
 		state: "",
@@ -89,6 +92,14 @@ export const SignUpForm = () => {
 		e.preventDefault()
 		console.log(form.originalData)
 		// await mutateAsync(form.originalData)
+		await axios
+			.post(`${API_BASE_URL}/auth/register`, form?.originalData)
+			?.then((res) => {
+				console.log(res)
+			})
+			?.catch((err) => {
+				console.log(err)
+			})
 	}
 
 	return (
@@ -177,8 +188,8 @@ export const SignUpForm = () => {
 										required: true,
 										error: form.errors.has("dob"),
 										helperText:
-											form.errors.has("gender") &&
-											form.errors.get("gender"),
+											form.errors.has("dob") &&
+											form.errors.get("dob"),
 										fullWidth: true
 									}
 								}}
@@ -315,15 +326,16 @@ export const SignUpForm = () => {
 						<TextField
 							required={true}
 							disabled={form.busy}
-							value={form.ssn}
+							value={form.ss_number}
 							onChange={(e) => {
-								form.set("ssn", e.target.value)
-								form.errors.clear("ssn")
+								form.set("ss_number", e.target.value)
+								form.errors.clear("ss_number")
 							}}
-							label="SSN"
-							error={form.errors.has("ssn")}
+							label="SS Number"
+							error={form.errors.has("ss_number")}
 							helperText={
-								form.errors.has("ssn") && form.errors.get("ssn")
+								form.errors.has("ss_number") &&
+								form.errors.get("ss_number")
 							}
 						/>
 					</div>
