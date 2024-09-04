@@ -8,6 +8,7 @@ import axios from "axios";
 // import { Calls } from "@/api/calls/type"
 import { useRouter } from "next/navigation";
 import { PaymentContext } from "@/context/payment/context";
+import Cookies from "js-cookie";
 
 interface ModuleOneCheckOut {
   id: string;
@@ -60,6 +61,7 @@ export const ModuleOneCheckOut: React.FC<ModuleOneCheckOut> = (props) => {
   // 		router.replace(r.url)
   // 	}
   // })
+
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     const formData = form?.data();
@@ -72,6 +74,7 @@ export const ModuleOneCheckOut: React.FC<ModuleOneCheckOut> = (props) => {
       payload: selectedOption,
     });
     // await mutateAsync(form.data());
+    Cookies.set("packageId", props?.id, { expires: 1 }); // Expires in 1 day
     router?.replace(`/payments/details?id=${props?.id}`);
   };
   useEffect(() => {

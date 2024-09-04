@@ -12,6 +12,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Cookies from "js-cookie";
 
 interface PersonalDetailsPanelProps {
   activeState: string;
@@ -21,26 +22,10 @@ export const PersonalDetailsPanel: React.FC<PersonalDetailsPanelProps> = (
   props
 ) => {
   const { state, dispatch } = useContext(PaymentContext);
-  const searchParams = useSearchParams();
-  const packageId = searchParams.get("id");
+  const packageId = Cookies.get("packageId");
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
-  console.log("packageId", packageId);
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
-
-  const useData = useQuery({
-    queryKey: ["CheckOutBilling"],
-    queryFn: () =>
-      ApiCalls.CheckOutBilling({
-        _id: state?.packageID,
-        type: "module1",
-        paytype: state?.paymentType,
-      }),
-    refetchOnWindowFocus: false,
-    retryOnMount: false,
-    refetchIntervalInBackground: false,
-  });
-  console.log("usedata", useData);
 
   useEffect(() => {
     // if (selectedOption === "full") {
@@ -62,9 +47,22 @@ export const PersonalDetailsPanel: React.FC<PersonalDetailsPanelProps> = (
     })();
   }, []);
 
-  const numericValue = parseFloat(useData?.data?.total.$numberDecimal);
+  const useData = useQuery({
+    queryKey: ["CheckOutBilling"],
+    queryFn: () =>
+      ApiCalls.CheckOutBilling({
+        _id: state?.packageID,
+        type: "module1",
+        paytype: state?.paymentType,
+      }),
+    refetchOnWindowFocus: false,
+    retryOnMount: false,
+    refetchIntervalInBackground: false,
+  });
+  console.log("usedata", useData);
+  //   const numericValue = parseFloat(useData?.data?.total.$numberDecimal);
 
-  console.log(numericValue);
+  //   console.log(numericValue);
 
   return (
     <>
