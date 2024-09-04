@@ -436,7 +436,7 @@ export namespace ApiCalls {
 			.get("/checkout.bill_details", {
 				params: { ...data }
 			})
-			.then((res) => res.data.data)
+			.then((res) => res.data.data).catch((error)=>console.log(error))
 	}
 	export const Users = async () => {
 		try {
