@@ -79,7 +79,7 @@ export const PaymentsPaymentForm = () => {
     refetchIntervalInBackground: false,
   });
 
-  const numericValue = parseFloat(useData?.data?.total.$numberDecimal);
+  //   const numericValue = parseFloat(useData?.data?.total.$numberDecimal);
 
   function handleSubmit() {
     console.log("payment");
@@ -201,8 +201,6 @@ export const PaymentsPaymentForm = () => {
 
       console.log(formattedDate, payload);
     }
-
-    // console.log(form?.originalData, state)
   }
 
   return (
