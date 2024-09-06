@@ -50,7 +50,7 @@ export const SignupForm = () => {
   };
 
   const form = useForm({
-    firstName: "",
+    first_name: "",
     last_name: "",
     gender: "",
     dob: "",
@@ -73,6 +73,8 @@ export const SignupForm = () => {
     mutationFn: (variables) => ApiCalls.Module.one.signUp(variables),
     onSuccess: (r) => {
       toast.success(r.msg);
+      console.log("res sign in ", r);
+      Cookies.set("id1", r?.newUser?._id);
       Cookies.set("accessToken", r.accessToken, {
         expires: 7,
         path: "/",
@@ -134,15 +136,15 @@ export const SignupForm = () => {
           <TextField
             required={true}
             disabled={form.busy}
-            value={form.firstName}
+            value={form.first_name}
             onChange={(e) => {
-              form.set("firstName", e.target.value);
-              form.errors.clear("firstName");
+              form.set("first_name", e.target.value);
+              form.errors.clear("first_name");
             }}
             label="First Name"
-            error={form.errors.has("firstName")}
+            error={form.errors.has("first_name")}
             helperText={
-              form.errors.has("firstName") && form.errors.get("firstName")
+              form.errors.has("first_name") && form.errors.get("first_name")
             }
           />
         </div>

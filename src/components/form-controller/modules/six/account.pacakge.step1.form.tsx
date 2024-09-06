@@ -6,11 +6,14 @@ import React, {
   useEffect,
   useLayoutEffect,
   useState,
+  useContext,
 } from "react";
 import axios from "axios";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { ApiCalls } from "@/api/calls/calls";
 import { Calls } from "@/api/calls/type";
+import { PaymentContext } from "@/context/payment/context";
+
 import Link from "next/link";
 // import { LinkIcon } from "@heroicons/react/24/outline";
 import { Button } from "@mui/material";
@@ -39,6 +42,7 @@ export const AccountPackageStep1Form = () => {
   const [amount, setAmount] = useState("");
   const [monthlyPayment, setMonthlyPayment] = useState("");
   const [id, setId] = useState("");
+  const { state, dispatch } = useContext(PaymentContext);
 
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -155,6 +159,8 @@ export const AccountPackageStep1Form = () => {
     //   toast.error(error?.message);
     // },
   });
+
+  console.log("state1", state);
 
   useEffect(() => {
     (async () => {

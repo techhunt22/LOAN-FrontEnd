@@ -17,7 +17,9 @@ interface ModuleOneCheckOut {
 export const ModuleOneCheckOut: React.FC<ModuleOneCheckOut> = (props) => {
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
-  const { dispatch } = useContext(PaymentContext);
+  const { state, dispatch } = useContext(PaymentContext);
+
+  console.log("state2", state);
 
   const router = useRouter();
   // const [fullData, setFullData] = useState<{

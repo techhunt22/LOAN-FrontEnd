@@ -30,6 +30,11 @@ export const PaymentsPaymentForm = () => {
   const [amount, setAmount] = useState("");
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
   const packageId = Cookies.get("packageId");
+  const id = Cookies.get("id");
+  const id1 = Cookies.get("id1");
+  const Id = id || id1;
+
+  console.log("state4", state);
 
   useEffect(() => {
     // if (selectedOption === "full") {
@@ -83,6 +88,7 @@ export const PaymentsPaymentForm = () => {
 
   function handleSubmit() {
     console.log("payment");
+    console.log(state);
     if (state?.paymentType === "full") {
       const payload = {
         createTransactionRequest: {
@@ -120,6 +126,14 @@ export const PaymentsPaymentForm = () => {
           console.log("res,", res?.data?.messages?.resultCode);
           if (res?.data?.messages?.resultCode === "Ok") {
             toast.success(res?.data?.messages?.message[0]?.text);
+            axios
+              .put(`${API_BASE_URL}/user/${Id}`, { payment_status: "paid" })
+              .then(() => {
+                console.log("status change");
+              })
+              .catch((error) => {
+                console.log(error);
+              });
             console.log("package type", state?.packageType);
             if (state?.packageType === "personal") {
               router?.push("/onboarding/pcr/docs-upload");
@@ -184,6 +198,14 @@ export const PaymentsPaymentForm = () => {
         ?.then((res) => {
           console.log(res);
           if (res?.data?.messages?.resultCode === "Ok") {
+            axios
+              .put(`${API_BASE_URL}/user/${Id}`, { payment_status: "paid" })
+              .then(() => {
+                console.log("status change");
+              })
+              .catch((error) => {
+                console.log(error);
+              });
             toast.success(res?.data?.messages?.message[0]?.text);
             if (state?.packageType === "personal") {
               router?.push("/onboarding/pcr/docs-upload");

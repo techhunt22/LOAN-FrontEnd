@@ -33,6 +33,8 @@ interface Option {
 export const PaymentsProceedForm = () => {
   const { state, dispatch } = useContext(PaymentContext);
 
+  console.log("state3", state);
+
   const router = useRouter();
 
   const form = useForm({

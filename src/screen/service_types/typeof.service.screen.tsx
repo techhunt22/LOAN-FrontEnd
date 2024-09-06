@@ -6,9 +6,18 @@ import { Button } from "antd";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/context/guard/guard.context";
+import Cookies from "js-cookie";
+
 export const TypeofServiceScreen = () => {
-  const router = useRouter(); 
-   const { isSignIn, onLogout } = useAuth();
+  const router = useRouter();
+  const { isSignIn, onLogout } = useAuth();
+
+  const handleLogout = () => {
+    Cookies.remove("id");
+    Cookies.remove("id1");
+    onLogout();
+  };
+
   return (
     <div className={"bg-[#FDFCFC] flex  justify-center items-center md:p-16"}>
       <div
@@ -22,31 +31,32 @@ export const TypeofServiceScreen = () => {
           <Button
             onClick={() => router.back()}
             className={"text-sm flex items-center gap-2 rounded-full"}
-         
             color={"blue"}
           >
             <Back size="20" color="#2684ff" />
             BACK
           </Button>
-         { !isSignIn ? <Button
-            onClick={() => router.push("/authentication/sign-in")}
-            className={"text-sm flex items-center gap-2 rounded-full bg-blue-400 text-white"}
-            
-            color={"blue"}
-          >
-            <Login size="20" color="blue" />
-            SIGN IN 
-          </Button>
-          :
-          <Button
-            onClick={() => onLogout()}
-            className={"text-sm flex items-center gap-2 rounded-full"}
-         
-            color={"blue"}
-          >
-            <Login size="20" color="#FFFFFF" />
-            LOGOUT 
-          </Button>}
+          {!isSignIn ? (
+            <Button
+              onClick={() => router.push("/authentication/sign-in")}
+              className={
+                "text-sm flex items-center gap-2 rounded-full bg-blue-400 text-white"
+              }
+              color={"blue"}
+            >
+              <Login size="20" color="blue" />
+              SIGN IN
+            </Button>
+          ) : (
+            <Button
+              onClick={handleLogout}
+              className={"text-sm flex items-center gap-2 rounded-full"}
+              color={"blue"}
+            >
+              <Login size="20" color="#FFFFFF" />
+              LOGOUT
+            </Button>
+          )}
         </div>
         <div className={"mt-2 mb-5 flex flex-col text-center gap-3"}>
           <h4 className={"text-2xl font-semibold"}>

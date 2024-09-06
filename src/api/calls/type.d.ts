@@ -30,6 +30,12 @@ export namespace Calls {
 			refreshToken: string
 			redirectPath: string
 			role: string
+			response: {
+				_id: string;
+			  };
+			  newUser: {
+				_id: string;
+			  };
 		}
 		export interface SignUp extends BaseResponse {
 			accessToken: string
