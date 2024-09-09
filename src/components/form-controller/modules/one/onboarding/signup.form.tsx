@@ -75,6 +75,7 @@ export const SignupForm = () => {
       toast.success(r.msg);
       console.log("res sign in ", r);
       Cookies.set("id1", r?.newUser?._id);
+      Cookies.set("email1", r?.newUser?.email);
       Cookies.set("accessToken", r.accessToken, {
         expires: 7,
         path: "/",

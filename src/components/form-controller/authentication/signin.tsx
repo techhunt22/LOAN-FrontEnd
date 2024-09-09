@@ -37,6 +37,9 @@ export const SignInForm = () => {
       Cookies.set("id", r?.response?._id, {
         expires: 7,
       });
+      Cookies.set("email", r?.response?.email, {
+        expires: 7,
+      });
 
       toast.success(r.msg);
       Cookies.set("accessToken", r.accessToken, {

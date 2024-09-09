@@ -37,8 +37,8 @@ export const DocsUpload = () => {
     photo_ID: files.photo_ID,
     proof_of_address: files.proof_of_address,
     photo_of_SSID: files.photo_of_SSID,
-    // identityCard2: files.identityCard2,
-    // socialSecurityCard2: files.socialSecurityCard2,
+    photo_ID1: files.photo_ID1,
+    photo_of_SSID1: files.photo_of_SSID1,
   });
 
   const { mutateAsync, isPending } = useMutation<
@@ -58,6 +58,10 @@ export const DocsUpload = () => {
     },
   });
 
+  useEffect(() => {
+    localStorage.setItem("files", JSON.stringify(files));
+  }, [files]);
+
   const onSubmit = async () => {
     checkInputError();
     const data = form.data();
@@ -65,8 +69,8 @@ export const DocsUpload = () => {
     if (
       data.photo_ID !== null &&
       data.proof_of_address !== null &&
-      //   data.socialSecurityCard2 !== null &&
-      //   data.identityCard2 !== null &&
+      data.photo_of_SSID1 !== null &&
+      data.photo_ID1 !== null &&
       data.photo_of_SSID !== null
     ) {
       // Prepare FormData
@@ -74,29 +78,31 @@ export const DocsUpload = () => {
       formData.append("photo_ID", data.photo_ID);
       formData.append("proof_of_address", data.proof_of_address);
       formData.append("photo_of_SSID", data.photo_of_SSID);
-      //   formData.append("identityCard2", data.identityCard2);
+      formData.append("photo_ID1", data.photo_ID1);
+      formData.append("photo_of_SSID1", data.photo_of_SSID1);
 
-      //   formData.append("socialSecurityCard2", data.socialSecurityCard2);
+      router.push("/onboarding/pcr/pf");
 
-      try {
-        const response = await axios.post(
-          `${process.env.NEXT_PUBLIC_API_URL}/doc`,
-          formData,
-          {
-            headers: {
-              "Content-Type": "multipart/form-data",
-            },
-          }
-        );
-        console.log(response);
-        message.success(response.data.msg);
-        if (response.data?.urlPath != null) {
-          router.replace(response.data?.urlPath);
-        }
-      } catch (error) {
-        // message.error(error?.message || 'An error occurred');
-        console.log(error);
-      }
+      // try {
+      //   const response = await axios.post(
+      //     `${process.env.NEXT_PUBLIC_API_URL}/doc`,
+      //     formData,
+      //     {
+      //       headers: {
+      //         "Content-Type": "multipart/form-data",
+      //       },
+      //     }
+      //   );
+      //   console.log(response);
+      //   router.push("/onboarding/pcr/pf");
+      //   message.success(response.data.msg);
+      //   if (response.data?.urlPath != null) {
+      //     router.replace(response.data?.urlPath);
+      //   }
+      // } catch (error) {
+      //   // message.error(error?.message || 'An error occurred');
+      //   console.log(error);
+      // }
     }
   };
 
@@ -111,12 +117,12 @@ export const DocsUpload = () => {
     if (data.photo_of_SSID === null) {
       form.errors.set("photo_of_SSID", "photo_of_SSID is required");
     }
-    // if (data.identityCard2 === null) {
-    //   form.errors.set("identityCard2", "identityCard2 is required");
-    // }
-    // if (data.socialSecurityCard2 === null) {
-    //   form.errors.set("socialSecurityCard2", "socialSecurityCard2 is required");
-    // }
+    if (data.photo_ID1 === null) {
+      form.errors.set("photo_ID1", "photo_ID1 is required");
+    }
+    if (data.photo_of_SSID1 === null) {
+      form.errors.set("photo_of_SSID1", "photo_of_SSID1 is required");
+    }
   };
 
   useLayoutEffect(() => {
@@ -175,12 +181,12 @@ export const DocsUpload = () => {
               <div className="flex flex-col w-full justify-center content-center items-center text-center">
                 <div className="drop_box">
                   <h4 className="text-[18px] font-semibold">Back Side</h4>
-                  <Upload {...uploadProps("identityCard2")}>
+                  <Upload {...uploadProps("photo_ID1")}>
                     <Button icon={<UploadOutlined />}>Click to Upload</Button>
                   </Upload>
-                  {form.errors.has("identityCard2") && (
+                  {form.errors.has("photo_ID1") && (
                     <span className="error">
-                      {form.errors.get("identityCard2")}
+                      {form.errors.get("photo_ID1")}
                     </span>
                   )}
                 </div>
@@ -258,12 +264,12 @@ export const DocsUpload = () => {
               <div className="flex flex-col w-full justify-center content-center items-center text-center">
                 <div className="drop_box">
                   <h4 className="text-[18px] font-semibold">Back Side</h4>
-                  <Upload {...uploadProps("socialSecurityCard2")}>
+                  <Upload {...uploadProps("photo_of_SSID1")}>
                     <Button icon={<UploadOutlined />}>Click to Upload</Button>
                   </Upload>
-                  {form.errors.has("socialSecurityCard2") && (
+                  {form.errors.has("photo_of_SSID1") && (
                     <span className="error">
-                      {form.errors.get("socialSecurityCard2")}
+                      {form.errors.get("photo_of_SSID1")}
                     </span>
                   )}
                 </div>
@@ -274,6 +280,8 @@ export const DocsUpload = () => {
       ),
     },
   ];
+
+  console.log("docs upload page", files);
 
   return (
     <Form

@@ -13,7 +13,9 @@ import { useMutation } from "@tanstack/react-query";
 import { ApiCalls } from "@/api/calls/calls";
 import { Calls } from "@/api/calls/type";
 import toast from "react-hot-toast";
-import { Divider } from "@mui/material";
+import { Divider, Button } from "@mui/material";
+import { useDocsUpload } from "@/context/ImageContext";
+import Cookies from "js-cookie";
 
 interface TableRow {
   name: string;
@@ -21,11 +23,6 @@ interface TableRow {
   url?: string;
 }
 
-interface PFProps {
-  onChange: (selected: string[] | []) => void;
-  accountName?: string;
-  data?: TableRow[];
-}
 const tableData: TableRow[] = [
   {
     name: "Boom (boompay.app)",
@@ -72,153 +69,53 @@ const tableData: TableRow[] = [
   { name: "meetava.com", slogan: "", url: "https://www.meetava.com/" },
   // Add more rows as needed
 ];
+
 const freezeAccountTableData: TableRow[] = [
   {
-    name: "https://optout.lexisnexis.com/",
+    name: "lexis_nexis_freeze",
     slogan: "",
     url: "https://optout.lexisnexis.com/",
   },
   {
-    name: "https://www.innovis.com/securityFreeze/index",
+    name: "innovice",
     slogan: "",
     url: "https://www.innovis.com/securityFreeze/index",
   },
   {
-    name: "https://consumers.teletrack.com/freeze/",
+    name: "teletrack_freeze",
     slogan: "",
     url: "https://consumers.teletrack.com/freeze/",
   },
   {
-    name: "https://ars-consumeroffice.com/add ",
+    name: "consumer_office_freeze ",
     slogan: "",
     url: "https://ars-consumeroffice.com/add ",
   },
   {
-    name: "https://clarityservices.com",
+    name: "clarityservices",
     slogan: "",
     url: "https://clarityservices.com",
   },
   {
-    name: "https://www.chexsystems.com/security-freeze/place-freeze",
+    name: "checksystems",
     slogan: "",
     url: "https://www.chexsystems.com/security-freeze/place-freeze",
   },
   // Add more rows as needed
 ];
-export const TableComponent: React.FC<PFProps> = (props) => {
-  const [selectedRows, setSelectedRows] = useState<string[]>([]);
-  console.log(selectedRows);
-  // Sample data for the table
-
-  const toggleRowSelection = (rowName: string) => {
-    const updatedRows = selectedRows.includes(rowName)
-      ? selectedRows.filter((name) => name !== rowName)
-      : [...selectedRows, rowName];
-
-    props.onChange(updatedRows);
-    setSelectedRows(updatedRows);
-  };
-
-  const handleSelectAll = () => {
-    const allNames = props?.data?.map((row) => row.name);
-    const isAllSelected = selectedRows.length === allNames?.length;
-
-    const updatedRows = isAllSelected ? [] : allNames;
-
-    props.onChange(updatedRows as string[]);
-    setSelectedRows(updatedRows as string[]);
-  };
-
-  const handleDeselectAll = () => {
-    props.onChange([]);
-    setSelectedRows([]);
-  };
-
-  useEffect(() => {}, [selectedRows]);
-
-  return (
-    <div className=" select-none flex flex-col items-center justify-center md:px-[60] px-[16px]  w-full h-full">
-      <div className="w-full h-fit  flex flex-col">
-        <div
-          style={{ boxShadow: "rgb(0 0 0 / 11%) 0px 1px 60px 0px" }}
-          className=" rounded-md w-full min-h-[67px] bg-white flex flex-row items-center mb-2"
-        >
-          <div
-            style={{
-              background: "linear-gradient(180deg, #2684FF 0%, #88BFFF 100%)",
-              display: "flex",
-              alignItems: "center",
-            }}
-            className="pl-4 rounded-l-md text-[24px] text-white font-medium w-[60%] p-3 min-h-[67px] "
-          >
-            {props.accountName}
-          </div>
-          <div className="bg-white rounded-r-md text-[#1380FF] pl-4 text-[15px] font-medium w-[40%] p-3 text-center">
-            Mark when done!
-          </div>
-        </div>
-      </div>
-      <div className="flex flex-col gap-4 justify-center items-center p-4 w-full h-fit">
-        {props?.data?.map((row, index) => (
-          <div
-            key={index}
-            className="w-full h-full flex flex-row justify-between items-center"
-          >
-            <label
-              htmlFor={row.name}
-              className="w-full h-full flex flex-row justify-between items-center"
-              key={index}
-            >
-              <div>
-                <div className="text-[13px] text-gray-500">{row.slogan}</div>
-                <a
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    alignItems: "center",
-                    gap: "10px",
-                    marginRight: "10px",
-                  }}
-                  className="text-gray-700 font-medium"
-                  href={row.url}
-                  target="_blank"
-                >
-                  {row.name} <img src="/launch-icon.png" alt="gh" />
-                </a>
-              </div>
-            </label>
-            <input
-              id={row.name}
-              className="w-[26px] h-[26px]"
-              type="checkbox"
-              checked={selectedRows.includes(row.name)}
-              onChange={() => toggleRowSelection(row.name)}
-            />
-          </div>
-          // <Divider sx={{ width: "100%", color: "#929292" }} />
-        ))}
-      </div>
-
-      <div className="w-full flex flex-row gap-4 items-center justify-end mt-4">
-        <div
-          className="cursor-pointer flex items-center justify-center mr-2 bg-green-500 p-2 h-auto px-3 w-[122px] text-white rounded-full"
-          onClick={handleSelectAll}
-        >
-          {selectedRows.length !== 0 ? " Selected" : " Select All"}
-        </div>
-        <div
-          className="cursor-pointer text-[#EB6B7A]"
-          onClick={selectedRows.length === 0 ? () => {} : handleDeselectAll}
-        >
-          Clear all
-        </div>
-      </div>
-    </div>
-  );
-};
 
 export const PFForm = () => {
+  const { files, setFile } = useDocsUpload(); // Use the context
+  const e1 = Cookies.get("email");
+  const e2 = Cookies.get("email1");
+  const Email = e1 || e2;
   const router = useRouter();
+  const [primarySelected, setPrimarySelected] = useState<
+    Record<string, boolean>
+  >({});
+  const [freezeSelected, setFreezeSelected] = useState<Record<string, boolean>>(
+    {}
+  );
   const {
     SetActiveTab,
     SetFormID,
@@ -242,37 +139,97 @@ export const PFForm = () => {
     SetMobileValue(100);
   }, []);
 
-  const { mutateAsync, isPending } = useMutation<
-    Calls.IResponse.PFAccount,
-    Error,
-    Calls.IRequest.PFAccount
-  >({
-    mutationFn: (variables) => ApiCalls.Module.one.PFAccount(variables),
-    onSuccess: (r) => {
-      toast.success(r.msg);
-      router.replace(r?.urlPath as string);
-    },
-    onError: (e) => {},
-  });
+  const handlePrimarySelectAll = () => {
+    const newState = tableData.reduce((acc, row) => {
+      acc[row.name] = true;
+      return acc;
+    }, {} as Record<string, boolean>);
+    setPrimarySelected(newState);
+  };
+
+  const handlePrimaryClearAll = () => {
+    setPrimarySelected({});
+  };
+
+  const handleFreezeSelectAll = () => {
+    const newState = freezeAccountTableData.reduce((acc, row) => {
+      acc[row.name] = true;
+      return acc;
+    }, {} as Record<string, boolean>);
+    setFreezeSelected(newState);
+  };
+
+  const handleFreezeClearAll = () => {
+    setFreezeSelected({});
+  };
+
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    await mutateAsync(form.data());
-    router.push("/admin/disputes");
 
-    console.log(form.data());
+    // Prepare dynamic primary account fields
+    const primaryAccountFields = tableData.reduce((acc, row) => {
+      const fieldName = row.name
+        .toLowerCase()
+        .replace(/\s+/g, "")
+        .replace(/[\(\)\.]/g, ""); // Format field name (e.g., remove spaces, parentheses, periods)
+      acc[fieldName] = primarySelected[row.name] || false;
+      return acc;
+    }, {} as Record<string, boolean>);
+
+    // Prepare dynamic freeze account fields
+    const freezeAccountFields = freezeAccountTableData.reduce((acc, row) => {
+      const fieldName = row.name
+        .toLowerCase()
+        .replace(/\s+/g, "")
+        .replace(/[\(\)\.]/g, ""); // Format field name
+      acc[fieldName] = freezeSelected[row.name] || false;
+      return acc;
+    }, {} as Record<string, boolean>);
+
+    // Prepare form data in the required format
+    const data = {
+      email: Email, // Replace with dynamic value
+      photo_ID: files.photo_ID, // Replace with actual upload path
+      photo_ID1: files.photo_ID1, // Replace with actual upload path
+      proof_of_address: files.proof_of_address, // Replace with actual upload path
+      photo_of_SSID: files.photo_of_SSID, // Replace with actual photo path
+      photo_of_SSID1: files.photo_of_SSID1, // Replace with actual photo path
+      ...primaryAccountFields, // Spread dynamically generated primary account fields
+      ...freezeAccountFields, // Spread dynamically generated freeze account fields
+    };
+
+    // try {
+    //   const response = await axios.post(
+    //     `${process.env.NEXT_PUBLIC_API_URL}/doc`,
+    //     data,
+    //     {
+    //       headers: {
+    //         "Content-Type": "multipart/form-data",
+    //       },
+    //     }
+    //   );
+    //   console.log(response);
+    //   router.push("");
+    //   message.success(response.data.msg);
+    //
+    // } catch (error) {
+    //   // message.error(error?.message || 'An error occurred');
+    //   console.log(error);
+    // }
+
+    console.log("Form Data:", data);
+
+    // Handle form submission, e.g., send data to API
+    // await ApiCalls.submitData(data);  // Example API call
   };
-  useEffect(() => {
-    if (isPending) {
-      SetIsPending(true);
-    } else {
-      SetIsPending(false);
-    }
-  }, [isPending]);
+
+  console.log(files);
+
   return (
     <form
       id={"pf"}
       onSubmit={onSubmit}
-      className={"mb-36   flex flex-col justify-center items-center w-full "}
+      className={"mb-36 flex flex-col justify-center items-center w-full"}
     >
       <div
         style={{
@@ -291,11 +248,9 @@ export const PFForm = () => {
           }
         >
           <div className={"p-4 rounded-b-[30px] bg-[#EB6B7A] w-[80%] h-auto"}>
-            <div
-              className={" space-y-2 w-full h-full text-center align-middle"}
-            >
-              <h3 className={" text-white text-[32px] font-bold "}>Set up</h3>
-              <p className={" text-white text-[16px] font-semibold "}>
+            <div className={"space-y-2 w-full h-full text-center align-middle"}>
+              <h3 className={"text-white text-[32px] font-bold"}>Set up</h3>
+              <p className={"text-white text-[16px] font-semibold"}>
                 Primary accounts and be sure to pay them all on time. After
                 setting up the primary accounts then place a freeze on all your
                 secondary bureaus.
@@ -313,19 +268,90 @@ export const PFForm = () => {
               }
             >
               <p>Choose from the following websites</p>
-              <h3 className={"uppercase text-[#085ABB] text-[32px] font-bold "}>
+              <h3 className={"uppercase text-[#085ABB] text-[32px] font-bold"}>
                 Create your Primary accounts :
               </h3>
             </div>
-            <div className={"md:w-[80%] w-full"}>
-              <TableComponent
-                data={tableData}
-                accountName={"Primary accounts"}
-                onChange={(selected) => {
-                  form.set("primaryAccounts", selected);
-                }}
-              />
+            <div className="w-full h-fit  flex flex-col">
+              <div
+                style={{ boxShadow: "rgb(0 0 0 / 11%) 0px 1px 60px 0px" }}
+                className=" rounded-md w-full min-h-[67px] bg-white flex flex-row items-center mb-2"
+              >
+                <div
+                  style={{
+                    background:
+                      "linear-gradient(180deg, #2684FF 0%, #88BFFF 100%)",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                  className="pl-4 rounded-l-md text-[24px] text-white font-medium w-[60%] p-3 min-h-[67px] "
+                >
+                  <p>Primary Accounts</p>
+                </div>
+                <div className="bg-white rounded-r-md text-[#1380FF] pl-4 text-[15px] font-medium w-[40%] p-3 text-center">
+                  Mark when done!
+                </div>
+              </div>
             </div>
+            <div className={"md:w-[80%] w-full"}>
+              {tableData?.map((row, index) => (
+                <div
+                  key={index}
+                  className="w-full h-full flex flex-row justify-between mt-4 items-center gap-10"
+                >
+                  <label
+                    htmlFor={row.name}
+                    className="w-full h-full flex flex-row justify-between items-center"
+                  >
+                    <div>
+                      <div className="text-[13px] text-gray-500">
+                        {row.slogan}
+                      </div>
+                      <a
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                          alignItems: "center",
+                          gap: "10px",
+                          marginRight: "10px",
+                        }}
+                        className="text-gray-700 font-medium"
+                        href={row.url}
+                        target="_blank"
+                      >
+                        {row.name} <img src="/launch-icon.png" alt="gh" />
+                      </a>
+                    </div>
+                  </label>
+                  <input
+                    id={row.name}
+                    className="w-[26px] h-[26px]"
+                    type="checkbox"
+                    checked={primarySelected[row.name] || false}
+                    onChange={() =>
+                      setPrimarySelected((prev) => ({
+                        ...prev,
+                        [row.name]: !prev[row.name],
+                      }))
+                    }
+                  />
+                </div>
+              ))}
+            </div>
+            <Button
+              sx={{ width: "300px" }}
+              variant="contained"
+              onClick={handlePrimarySelectAll}
+            >
+              Select All
+            </Button>
+            <Button
+              sx={{ width: "300px" }}
+              variant="outlined"
+              onClick={handlePrimaryClearAll}
+            >
+              Clear All
+            </Button>
           </div>
           <div
             className={
@@ -337,20 +363,92 @@ export const PFForm = () => {
                 "mt-[60px] mb-[38px] w-full h-fit text-center align-middle"
               }
             >
-              <h3 className={"uppercase text-[#085ABB] text-[32px] font-bold "}>
+              <h3 className={"uppercase text-[#085ABB] text-[32px] font-bold"}>
                 Freeze the Secondary Bureaus :
               </h3>
             </div>
-            <div className={"md:w-[80%] w-full"}>
-              <TableComponent
-                data={freezeAccountTableData}
-                accountName={"Freeze Account"}
-                onChange={(selected) => {
-                  form.set("freezeAccount", selected);
-                }}
-              />
+            <div className="w-full h-fit  flex flex-col">
+              <div
+                style={{ boxShadow: "rgb(0 0 0 / 11%) 0px 1px 60px 0px" }}
+                className=" rounded-md w-full min-h-[67px] bg-white flex flex-row items-center mb-2"
+              >
+                <div
+                  style={{
+                    background:
+                      "linear-gradient(180deg, #2684FF 0%, #88BFFF 100%)",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                  className="pl-4 rounded-l-md text-[24px] text-white font-medium w-[60%] p-3 min-h-[67px] "
+                >
+                  <p>Freeze Account</p>
+                </div>
+                <div className="bg-white rounded-r-md text-[#1380FF] pl-4 text-[15px] font-medium w-[40%] p-3 text-center">
+                  Mark when done!
+                </div>
+              </div>
             </div>
+            <div className={"md:w-[80%] w-full"}>
+              {freezeAccountTableData?.map((row, index) => (
+                <div
+                  key={index}
+                  className="w-full h-full flex flex-row justify-between mt-4 items-center gap-15"
+                >
+                  <label
+                    htmlFor={row.name}
+                    className="w-full h-full flex flex-row justify-between items-center"
+                  >
+                    <div>
+                      <div className="text-[13px] text-gray-500">
+                        {row.slogan}
+                      </div>
+                      <a
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                          alignItems: "center",
+                          gap: "10px",
+                          marginRight: "10px",
+                        }}
+                        className="text-gray-700 font-medium"
+                        href={row.url}
+                        target="_blank"
+                      >
+                        {row.name} <img src="/launch-icon.png" alt="gh" />
+                      </a>
+                    </div>
+                  </label>
+                  <input
+                    id={row.name}
+                    className="w-[26px] h-[26px]"
+                    type="checkbox"
+                    checked={freezeSelected[row.name] || false}
+                    onChange={() =>
+                      setFreezeSelected((prev) => ({
+                        ...prev,
+                        [row.name]: !prev[row.name],
+                      }))
+                    }
+                  />
+                </div>
+              ))}
+            </div>
+            <Button
+              sx={{ width: "300px" }}
+              variant="contained"
+              onClick={handleFreezeSelectAll}
+            >
+              Select All
+            </Button>
+            <Button
+              sx={{ width: "300px" }}
+              variant="outlined"
+              onClick={handleFreezeClearAll}
+            >
+              Clear All
+            </Button>
           </div>
+          <Divider sx={{ my: 4 }} />
         </div>
       </div>
     </form>

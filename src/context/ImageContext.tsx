@@ -5,10 +5,10 @@ import React, { createContext, useState, useContext, ReactNode } from "react";
 interface DocsUploadContextType {
   files: {
     photo_ID: File | null;
-    // identityCard2: File | null;
+    photo_ID1: File | null;
     proof_of_address: File | null;
     photo_of_SSID: File | null;
-    // socialSecurityCard2: File | null;
+    photo_of_SSID1: File | null;
   };
   setFile: (field: string, file: File | null) => void;
 }
@@ -22,10 +22,10 @@ export const DocsUploadProvider: React.FC<{ children: ReactNode }> = ({
 }) => {
   const [files, setFiles] = useState({
     photo_ID: null,
-    // identityCard2: null,
+    photo_ID1: null,
     proof_of_address: null,
     photo_of_SSID: null,
-    // socialSecurityCard2: null,
+    photo_of_SSID1: null,
   });
 
   const setFile = (field: string, file: File | null) => {

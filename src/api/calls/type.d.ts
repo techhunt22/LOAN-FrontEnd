@@ -32,9 +32,11 @@ export namespace Calls {
 			role: string
 			response: {
 				_id: string;
+				email:string;
 			  };
 			  newUser: {
 				_id: string;
+				email:string;
 			  };
 		}
 		export interface SignUp extends BaseResponse {

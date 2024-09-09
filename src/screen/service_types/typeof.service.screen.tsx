@@ -15,6 +15,8 @@ export const TypeofServiceScreen = () => {
   const handleLogout = () => {
     Cookies.remove("id");
     Cookies.remove("id1");
+    Cookies.remove("email");
+    Cookies.remove("email1");
     onLogout();
   };
 
