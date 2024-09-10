@@ -16,100 +16,136 @@ import toast from "react-hot-toast";
 import { Divider, Button } from "@mui/material";
 import { useDocsUpload } from "@/context/ImageContext";
 import Cookies from "js-cookie";
+import axios from "axios";
+import { message } from "antd";
 
 interface TableRow {
   name: string;
+  value: string;
   slogan: string;
   url?: string;
+}
+
+interface FilesState {
+  photo_ID: File | null;
+  photo_ID1: File | null;
+  proof_of_address: File | null;
+  photo_of_SSID: File | null;
+  photo_of_SSID1: File | null;
 }
 
 const tableData: TableRow[] = [
   {
     name: "Boom (boompay.app)",
+    value: "boomplay",
     slogan: "Build credit with rent",
     url: "https://www.boompay.app/download",
   },
   {
     name: "Kikoff Credit Builder",
+    value: "kikoff",
     slogan: "Build Credit Safely & Responsibly",
     url: "https://kikoff.com/?msclkid=4ab3c3b2532c1b11f4bda5e47228692d",
   },
   {
     name: "Self Credit Builder",
+    value: "self",
     slogan: "Build Credit. Build Savings. Build Dreams",
     url: "https://www.self.inc/?msclkid=61025b5b9e681cb8ce383d0dbf2a52f1",
   },
   {
     name: "CreditStrong ",
+    value: "creditstrong",
     slogan: "Get a Credit Builder Loan that Builds Credit and Savings ",
     url: "https://www.creditstrong.com/?utm_medium=cpc&utm_source=bing&utm_campaign=413186949&utm_content=_c_&utm_term=credit%20strong&msclkid=e51f0e6286e81f0672d66834a76ed09f",
   },
   {
     name: "Experian Boost",
+    value: "experian",
     slogan: "Improve Your Credit Scores Instantly for Free",
     url: "https://www.experian.com/consumer-products/score-boost.html?pc=sem_exp_bing&cc=sem_exp_bing_ad_268877240_1186373808589981_74148567015209_74148458192873_e__k_209d8e17be95169b9510e8419f522910_k_&ref=brand&awsearchcpc=1&msclkid=209d8e17be95169b9510e8419f522910",
   },
   {
     name: "ExtraCredit",
+    value: "credit",
     slogan: "Trackit",
     url: "https://www.credit.com/extracredit",
   },
   {
     name: "rentreporters.com",
+    value: "rentreporters",
     slogan: "",
     url: "https://www.rentreporters.com/",
   },
-  { name: "extra.app", slogan: "", url: "https://extra.app/" },
+  { name: "extra.app", value: "extra", slogan: "", url: "https://extra.app/" },
   {
     name: "rentalkharma.com",
+    value: "rental",
     slogan: "",
     url: "https://www.rentalkharma.com/",
   },
-  { name: "tomocredit.com", slogan: "", url: "https://tomocredit.com/" },
-  { name: "meetava.com", slogan: "", url: "https://www.meetava.com/" },
+  {
+    name: "tomocredit.com",
+    value: "tomocredit",
+    slogan: "",
+    url: "https://tomocredit.com/",
+  },
+  {
+    name: "meetava.com",
+    value: "meetava",
+    slogan: "",
+    url: "https://www.meetava.com/",
+  },
   // Add more rows as needed
 ];
 
 const freezeAccountTableData: TableRow[] = [
   {
-    name: "lexis_nexis_freeze",
+    name: "https://optout.lexisnexis.com/",
+    value: "lexis_nexis_freeze",
     slogan: "",
     url: "https://optout.lexisnexis.com/",
   },
   {
-    name: "innovice",
+    value: "innovice",
     slogan: "",
+    name: "https://www.innovis.com/securityFreeze/index",
     url: "https://www.innovis.com/securityFreeze/index",
   },
   {
-    name: "teletrack_freeze",
+    value: "teletrack_freeze",
     slogan: "",
+    name: "https://consumers.teletrack.com/freeze/",
     url: "https://consumers.teletrack.com/freeze/",
   },
   {
-    name: "consumer_office_freeze ",
+    value: "consumer_office_freeze ",
     slogan: "",
+    name: "https://ars-consumeroffice.com/add ",
     url: "https://ars-consumeroffice.com/add ",
   },
   {
-    name: "clarityservices",
+    value: "clarityservices",
     slogan: "",
     url: "https://clarityservices.com",
+    name: "https://clarityservices.com",
   },
   {
-    name: "checksystems",
+    value: "checksystems",
     slogan: "",
     url: "https://www.chexsystems.com/security-freeze/place-freeze",
+    name: "https://www.chexsystems.com/security-freeze/place-freeze",
   },
   // Add more rows as needed
 ];
 
 export const PFForm = () => {
-  const { files, setFile } = useDocsUpload(); // Use the context
   const e1 = Cookies.get("email");
   const e2 = Cookies.get("email1");
+  const { files, setFile } = useDocsUpload();
   const Email = e1 || e2;
   const router = useRouter();
+
   const [primarySelected, setPrimarySelected] = useState<
     Record<string, boolean>
   >({});
@@ -141,7 +177,7 @@ export const PFForm = () => {
 
   const handlePrimarySelectAll = () => {
     const newState = tableData.reduce((acc, row) => {
-      acc[row.name] = true;
+      acc[row.value] = true;
       return acc;
     }, {} as Record<string, boolean>);
     setPrimarySelected(newState);
@@ -153,7 +189,7 @@ export const PFForm = () => {
 
   const handleFreezeSelectAll = () => {
     const newState = freezeAccountTableData.reduce((acc, row) => {
-      acc[row.name] = true;
+      acc[row.value] = true;
       return acc;
     }, {} as Record<string, boolean>);
     setFreezeSelected(newState);
@@ -163,26 +199,42 @@ export const PFForm = () => {
     setFreezeSelected({});
   };
 
+  const allFilesPresent = (files: FilesState): boolean => {
+    return (
+      files.photo_ID !== null &&
+      files.photo_ID1 !== null &&
+      files.proof_of_address !== null &&
+      files.photo_of_SSID !== null &&
+      files.photo_of_SSID1 !== null
+    );
+  };
+
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
+    // Check if all files are present
+    if (!allFilesPresent(files)) {
+      alert("Please upload all required files before proceeding.");
+      router.back();
+    }
+
     // Prepare dynamic primary account fields
     const primaryAccountFields = tableData.reduce((acc, row) => {
-      const fieldName = row.name
+      const fieldName = row.value
         .toLowerCase()
         .replace(/\s+/g, "")
         .replace(/[\(\)\.]/g, ""); // Format field name (e.g., remove spaces, parentheses, periods)
-      acc[fieldName] = primarySelected[row.name] || false;
+      acc[fieldName] = primarySelected[row.value] || false;
       return acc;
     }, {} as Record<string, boolean>);
 
     // Prepare dynamic freeze account fields
     const freezeAccountFields = freezeAccountTableData.reduce((acc, row) => {
-      const fieldName = row.name
+      const fieldName = row.value
         .toLowerCase()
         .replace(/\s+/g, "")
         .replace(/[\(\)\.]/g, ""); // Format field name
-      acc[fieldName] = freezeSelected[row.name] || false;
+      acc[fieldName] = freezeSelected[row.value] || false;
       return acc;
     }, {} as Record<string, boolean>);
 
@@ -198,24 +250,23 @@ export const PFForm = () => {
       ...freezeAccountFields, // Spread dynamically generated freeze account fields
     };
 
-    // try {
-    //   const response = await axios.post(
-    //     `${process.env.NEXT_PUBLIC_API_URL}/doc`,
-    //     data,
-    //     {
-    //       headers: {
-    //         "Content-Type": "multipart/form-data",
-    //       },
-    //     }
-    //   );
-    //   console.log(response);
-    //   router.push("");
-    //   message.success(response.data.msg);
-    //
-    // } catch (error) {
-    //   // message.error(error?.message || 'An error occurred');
-    //   console.log(error);
-    // }
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/doc`,
+        data,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log(response);
+      router.push("");
+      message.success(response.data.msg);
+    } catch (error) {
+      message.error("Try Again Error Occured");
+      console.log(error);
+    }
 
     console.log("Form Data:", data);
 
@@ -327,11 +378,11 @@ export const PFForm = () => {
                     id={row.name}
                     className="w-[26px] h-[26px]"
                     type="checkbox"
-                    checked={primarySelected[row.name] || false}
+                    checked={primarySelected[row.value] || false}
                     onChange={() =>
                       setPrimarySelected((prev) => ({
                         ...prev,
-                        [row.name]: !prev[row.name],
+                        [row.value]: !prev[row.value],
                       }))
                     }
                   />
@@ -422,11 +473,11 @@ export const PFForm = () => {
                     id={row.name}
                     className="w-[26px] h-[26px]"
                     type="checkbox"
-                    checked={freezeSelected[row.name] || false}
+                    checked={freezeSelected[row.value] || false}
                     onChange={() =>
                       setFreezeSelected((prev) => ({
                         ...prev,
-                        [row.name]: !prev[row.name],
+                        [row.value]: !prev[row.value],
                       }))
                     }
                   />

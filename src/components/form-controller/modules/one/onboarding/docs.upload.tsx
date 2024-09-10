@@ -58,10 +58,6 @@ export const DocsUpload = () => {
     },
   });
 
-  useEffect(() => {
-    localStorage.setItem("files", JSON.stringify(files));
-  }, [files]);
-
   const onSubmit = async () => {
     checkInputError();
     const data = form.data();
@@ -82,27 +78,6 @@ export const DocsUpload = () => {
       formData.append("photo_of_SSID1", data.photo_of_SSID1);
 
       router.push("/onboarding/pcr/pf");
-
-      // try {
-      //   const response = await axios.post(
-      //     `${process.env.NEXT_PUBLIC_API_URL}/doc`,
-      //     formData,
-      //     {
-      //       headers: {
-      //         "Content-Type": "multipart/form-data",
-      //       },
-      //     }
-      //   );
-      //   console.log(response);
-      //   router.push("/onboarding/pcr/pf");
-      //   message.success(response.data.msg);
-      //   if (response.data?.urlPath != null) {
-      //     router.replace(response.data?.urlPath);
-      //   }
-      // } catch (error) {
-      //   // message.error(error?.message || 'An error occurred');
-      //   console.log(error);
-      // }
     }
   };
 
