@@ -47,7 +47,11 @@ export const PaymentsPaymentForm = () => {
         .get(`${API_BASE_URL}/package/${packageId}`)
         ?.then((res) => {
           setName(res?.data?.data?.name);
-          setAmount(res?.data?.data?.price);
+          if (state.paymentType === "emi") {
+            setAmount(res?.data?.data?.monthlyPayment);
+          } else {
+            setAmount(res?.data?.data?.price);
+          }
           console.log("response", res);
         })
         ?.catch((err) => {
@@ -89,6 +93,10 @@ export const PaymentsPaymentForm = () => {
   function handleSubmit() {
     console.log("payment");
     console.log(state);
+    if (state?.packageType == null) {
+      alert("Select Package Type Business Or Personal");
+      router.push("/");
+    }
     if (state?.paymentType === "full") {
       const payload = {
         createTransactionRequest: {

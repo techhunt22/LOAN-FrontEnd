@@ -261,7 +261,7 @@ export const PFForm = () => {
         }
       );
       console.log(response);
-      router.push("");
+      router.push("/admin/user-analytics");
       message.success(response.data.msg);
     } catch (error) {
       message.error("Try Again Error Occured");

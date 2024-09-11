@@ -38,7 +38,12 @@ export const PersonalDetailsPanel: React.FC<PersonalDetailsPanelProps> = (
         .get(`${API_BASE_URL}/package/${packageId}`)
         ?.then((res) => {
           setName(res?.data?.data?.name);
-          setAmount(res?.data?.data?.price);
+          if (state.paymentType === "emi") {
+            setAmount(res?.data?.data?.monthlyPayment);
+          } else {
+            setAmount(res?.data?.data?.price);
+          }
+
           console.log("response", res);
         })
         ?.catch((err) => {
