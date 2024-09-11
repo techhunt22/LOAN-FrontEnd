@@ -269,9 +269,6 @@ export const PFForm = () => {
     }
 
     console.log("Form Data:", data);
-
-    // Handle form submission, e.g., send data to API
-    // await ApiCalls.submitData(data);  // Example API call
   };
 
   console.log(files);
