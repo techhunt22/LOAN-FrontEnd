@@ -30,6 +30,8 @@ import axios from "axios";
 import Winning from "@/components/admin/Progress";
 import toast from "react-hot-toast";
 import Chart from "@/components/admin/Chart";
+import { format } from "date-fns";
+import UserLineChart from "@/components/admin/StatusChart";
 
 interface User {
   _id: number;
@@ -63,6 +65,8 @@ export const AddClientOption2Form = () => {
   const [userEmail, setUserEmail] = useState();
   const [title, setTitle] = useState<any>("");
   const [task, setTask] = useState<any>();
+  const [chartData, setChartData] = useState([]);
+  const [id, setId] = useState("");
 
   useEffect(() => {
     (async () => {
@@ -200,6 +204,41 @@ export const AddClientOption2Form = () => {
       }
     } catch (error: any) {
       console.log(error.message);
+    }
+  };
+
+  const handleDelete = async (id: any) => {
+    try {
+      const url = `http://54.87.77.177:3001/dispute/${id}`;
+      const res = await axios.delete(url);
+      if (res.status === 200) {
+        toast.success("Dispute Deleted ");
+        window.location.reload();
+      }
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
+
+  const handleDispute = async (id: string) => {
+    try {
+      const res = await axios.get(`http://54.87.77.177:3001/dispute/${id}`);
+      const { activeStatus, _id } = res?.data;
+
+      console.log("chart_data", activeStatus);
+      setId(_id);
+
+      // Transforming the API data to be used in the chart
+      const transformedData = activeStatus?.map((item: any) => ({
+        day: format(new Date(item.date), "EEE"), // Convert date to 'Mon', 'Tue', etc.
+        status: item.status, // Keep the numeric status directly for the chart
+      }));
+
+      // Set the transformed data for chart rendering
+      setChartData(transformedData);
+      console.log("Converted to date and status", transformedData);
+    } catch (error) {
+      console.error("An Error Occurred", error);
     }
   };
 
@@ -375,8 +414,9 @@ export const AddClientOption2Form = () => {
                     <p className=" font-semibold"> transUnion</p>
                   </div>
                 </div>
-                <div className="chart w-[60%] h-[400px] ">
-                  <Chart />
+
+                <div className="w-[50%] h-full ">
+                  {chartData.length > 0 && <UserLineChart data={chartData} />}
                 </div>
                 <div className="w-[25%] flex items-center justify-center h-max py-2 gap-4">
                   <div className="flex flex-col items-center gap-2">
@@ -887,9 +927,17 @@ export const AddClientOption2Form = () => {
                       </button>
                     </th>
                     <th>
+                      <button
+                        onClick={() => {
+                          handleDelete(item._id);
+                        }}
+                      >
+                        <DeleteOutlined className="size-5 text-black mr-5" />
+                      </button>
                       <Button
                         onClick={() => {
                           setSelectedDispute(item);
+                          handleDispute(item?._id);
                         }}
                       >
                         View Details

@@ -42,7 +42,7 @@ const UserLineChart = () => {
       >
         <XAxis
           dataKey="month"
-          label={{ value: "Months", position: "insideBottomRight", offset: -5 }}
+          label={{ value: "Months", position: "insideCenter", offset: -5 }}
         />
         <YAxis
           label={{
