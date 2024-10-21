@@ -81,6 +81,7 @@ const TableRow = ({
   const [state, setState] = useState(user?.state || "");
   const [zipCode, setZipCode] = useState(user?.zip_code || "");
   const [SSNumber, setSSNumber] = useState(user?.ss_number || "");
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   const handleSave = async () => {
     setIsEditing(false);
@@ -99,7 +100,7 @@ const TableRow = ({
     };
 
     await axios
-      .put(`http://54.87.77.177:3001/user/${user?._id}`, payload)
+      .put(`${API_URL}/user/${user?._id}`, payload)
       ?.then((res) => {
         console.log(res);
         handleRefresh();
@@ -113,7 +114,7 @@ const TableRow = ({
     setShowDropdown(false);
 
     await axios
-      .delete(`http://54.87.77.177:3001/user/${user?._id}`)
+      .delete(`${API_URL}/user/${user?._id}`)
       ?.then((res) => {
         console.log(res);
         handleRefresh();
@@ -279,6 +280,7 @@ export default function AddClientOptionTwoForm() {
   const [providerContent, setProviderContent] = useState<any>({});
   const modalRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   const setHiddenDiv = (e: any) => {
     e.preventDefault();
@@ -288,7 +290,7 @@ export default function AddClientOptionTwoForm() {
   useEffect(() => {
     (async () => {
       await axios
-        .get("http://54.87.77.177:3001/user")
+        .get(`${API_URL}/user`)
         ?.then((res) => {
           console.log(res);
           setUsers(res?.data);
@@ -301,7 +303,7 @@ export default function AddClientOptionTwoForm() {
 
   const handleRefresh = async () => {
     await axios
-      .get("http://54.87.77.177:3001/user")
+      .get(`${API_URL}/user`)
       ?.then((res) => {
         console.log(res);
         setUsers(res?.data);
@@ -324,12 +326,8 @@ export default function AddClientOptionTwoForm() {
 
   const showModal = async (user: User) => {
     try {
-      let docsResponse = await fetch(
-        `http://54.87.77.177:3001/doc/${user.email}`
-      );
-      let providerResponse = await fetch(
-        `http://54.87.77.177:3001/provider/${user.email}`
-      );
+      let docsResponse = await fetch(`${API_URL}/doc/${user.email}`);
+      let providerResponse = await fetch(`${API_URL}/provider/${user.email}`);
 
       if (!docsResponse.ok || !providerResponse.ok) {
         throw new Error("Network response was not ok");

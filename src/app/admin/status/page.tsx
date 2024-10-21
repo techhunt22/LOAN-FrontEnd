@@ -23,6 +23,7 @@ const StatusChartPage = () => {
   const [userEmail, setUserEmail] = useState();
   const [chartData, setChartData] = useState([]);
   const [id, setId] = useState("");
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   interface User {
     _id: number;
@@ -58,7 +59,7 @@ const StatusChartPage = () => {
   useEffect(() => {
     (async () => {
       await axios
-        .get("http://54.87.77.177:3001/user")
+        .get(`${API_URL}/user`)
         ?.then((res) => {
           console.log(res);
           setUsers(res?.data);
@@ -75,7 +76,7 @@ const StatusChartPage = () => {
 
     setSelectedUser(user);
     try {
-      const url = ` http://54.87.77.177:3001/dispute?email=${email}`;
+      const url = `${API_URL}/dispute?email=${email}`;
       const res = await axios.get(url);
       setDisputes(res.data.data);
     } catch (error: any) {
@@ -96,7 +97,7 @@ const StatusChartPage = () => {
 
   const handleDelete = async (id: any) => {
     try {
-      const url = `http://54.87.77.177:3001/dispute/${id}`;
+      const url = `${API_URL}/dispute/${id}`;
       const res = await axios.delete(url);
       if (res.status === 200) {
         toast.success("Dispute Deleted ");
@@ -109,7 +110,7 @@ const StatusChartPage = () => {
 
   const handleDispute = async (id: string) => {
     try {
-      const res = await axios.get(`http://54.87.77.177:3001/dispute/${id}`);
+      const res = await axios.get(`${API_URL}/dispute/${id}`);
       const { activeStatus, _id } = res?.data;
 
       console.log("chart_data", activeStatus);
@@ -156,10 +157,7 @@ const StatusChartPage = () => {
 
     try {
       // Update the dispute status via API
-      const res = await axios.put(
-        `https://5rrdzg3k-8000.inc1.devtunnels.ms/dispute/status-update/${id}`,
-        payload
-      );
+      const res = await axios.put(`${API_URL}/${id}`, payload);
       console.log(res?.data);
       console.log("Updated chart data", res?.data);
 

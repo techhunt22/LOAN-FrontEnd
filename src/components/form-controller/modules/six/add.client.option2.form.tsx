@@ -67,11 +67,12 @@ export const AddClientOption2Form = () => {
   const [task, setTask] = useState<any>();
   const [chartData, setChartData] = useState([]);
   const [id, setId] = useState("");
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     (async () => {
       await axios
-        .get("http://54.87.77.177:3001/user")
+        .get(`${API_URL}/user`)
         ?.then((res) => {
           console.log(res);
           setUsers(res?.data);
@@ -88,7 +89,7 @@ export const AddClientOption2Form = () => {
 
     setSelectedUser(user);
     try {
-      const url = `http://54.87.77.177:3001/dispute?email=${email}`;
+      const url = `${API_URL}/dispute?email=${email}`;
       const res = await axios.get(url);
       setDisputes(res.data.data);
     } catch (error: any) {
@@ -104,7 +105,7 @@ export const AddClientOption2Form = () => {
       if (selectedUser.length === 0) {
         toast.error("Select a user first");
       }
-      const url = `http://54.87.77.177:3001/todo/${selectedUser[0]._id}`;
+      const url = `${API_URL}/todo/${selectedUser[0]._id}`;
       const response = await axios.post(url, BodyData);
       if (response.status === 200) {
         toast.success("task added successfully");
@@ -119,7 +120,7 @@ export const AddClientOption2Form = () => {
   const getTask = async () => {
     try {
       const id = selectedUser[0]._id;
-      const url = `http://54.87.77.177:3001/todo/${id}`;
+      const url = `${API_URL}/todo/${id}`;
       const response = await axios.get(url);
       setTask(response.data.data);
     } catch (error: any) {
@@ -162,7 +163,7 @@ export const AddClientOption2Form = () => {
     try {
       const id = selectedDispute._id;
       if (selectedDispute.status !== "SENT") {
-        const url = `http://54.87.77.177:3001/dispute/${id}`;
+        const url = `${API_URL}/dispute/${id}`;
         const body = {
           status: "SENT",
         };
@@ -183,7 +184,7 @@ export const AddClientOption2Form = () => {
   };
   const handleUpdateTask = async (id: any) => {
     try {
-      const url = `http://54.87.77.177:3001/todo/${id}`;
+      const url = `${API_URL}/todo/${id}`;
       const res = await axios.put(url, { status: "completed" });
       if (res.status === 200) {
         toast.success("task completed");
@@ -196,7 +197,7 @@ export const AddClientOption2Form = () => {
 
   const handleDeleteTask = async (id: any) => {
     try {
-      const url = `http://54.87.77.177:3001/todo/${id}`;
+      const url = `${API_URL}/todo/${id}`;
       const res = await axios.delete(url);
       if (res.status === 200) {
         toast.success("task completed");
@@ -209,7 +210,7 @@ export const AddClientOption2Form = () => {
 
   const handleDelete = async (id: any) => {
     try {
-      const url = `http://54.87.77.177:3001/dispute/${id}`;
+      const url = `${API_URL}/dispute/${id}`;
       const res = await axios.delete(url);
       if (res.status === 200) {
         toast.success("Dispute Deleted ");
@@ -222,7 +223,7 @@ export const AddClientOption2Form = () => {
 
   const handleDispute = async (id: string) => {
     try {
-      const res = await axios.get(`http://54.87.77.177:3001/dispute/${id}`);
+      const res = await axios.get(`${API_URL}/dispute/${id}`);
       const { activeStatus, _id } = res?.data;
 
       console.log("chart_data", activeStatus);
