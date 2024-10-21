@@ -131,6 +131,7 @@ const StatusChartPage = () => {
   };
 
   console.log(id);
+  console.log("chartdata", chartData);
 
   const UpdateDispute = async (e: any) => {
     e.preventDefault();
@@ -157,7 +158,10 @@ const StatusChartPage = () => {
 
     try {
       // Update the dispute status via API
-      const res = await axios.put(`${API_URL}/${id}`, payload);
+      const res = await axios.put(
+        `${API_URL}/dispute/status-update/${id}`,
+        payload
+      );
       console.log(res?.data);
       console.log("Updated chart data", res?.data);
 
