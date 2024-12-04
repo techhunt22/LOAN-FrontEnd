@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Card, Typography, List } from "antd";
 import {
   BarChartOutlined,
@@ -12,7 +12,7 @@ import { Badge } from "antd";
 
 export const OneSidebar = () => {
   return (
-    <Card className="rounded-none shadow-none h-[calc(100vh)] w-full p-4 bg-blue-gray-50/10">
+    <Card className="rounded-none shadow-none h-[calc(100vh)] w-full p-5 bg-blue-gray-50/10">
       <div className="px-4 py-1">
         <Typography.Title level={5} type="secondary">
           Menus
