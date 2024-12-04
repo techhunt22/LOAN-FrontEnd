@@ -20,7 +20,7 @@ export const ForgotPasswordView = () => {
             <button
               onClick={useRouter().back}
               className={
-                "select-none flex flex-row items-center justify-start  gap-2 rounded-lg  w-[30%] h-[40px]"
+                "select-none flex flex-row items-center justify-start  gap-3 rounded-lg  w-[30%] h-[40px]"
               }
             >
               <ArrowBackIcon />
